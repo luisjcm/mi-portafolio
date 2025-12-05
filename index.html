@@ -4,25 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio de Luis Jesus</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
+    <header class="header-principal">
+        <div class="logo">
+            <h1>Portfolio de Luis Jesus</h1>
+        </div>
 
-        <h1>Portfolio de Luis Jesus</h1>
 
+        <button class="menu-toggle" id="menu-toggle">
+            &#9776
+        </button>
 
-        <nav>
-            <a href="index.html">Inicio</a> |
-            <a href="#experiencia">Experiencia</a> |
-            <a href="#proyectos">Proyectos</a> |
-            <a href="contact.html">Contacto</a>
+        <nav class="navegacion">
+            <ul class="lista-menu" id="menu-lista">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
         </nav>
     </header>
 
 
-    <p>5 años de experiencia como <strong>Ingeniero de Sistemas.</strong> Desarrollador Web Jr.</p>
-    
+<section class="contenedorhero">
+    <div class="hero-texto">
+        <h1>
+            5 años de experiencia como <br> 
+            <strong>Ingeniero de Sistemas.</strong> <br>
+        </h1>
+    </div>
+
+    <div class="hero-imagen">
+        <img src="images/yo.jpg" alt="Foto de Luis Jesus"> 
+    </div>
+</section>
+
+
     <h2 id="experiencia">Experiencia Laboral </h2>
 
     <ul>
@@ -41,6 +61,17 @@
     </ul>
 
     <img src="images/yo.jpg" alt="Foto de Luis Jesus" width="200">
+
+
+<script>
+    const botonMenu = document.getElementById('menu-toggle');
+    const listaMenu = document.getElementById('menu-lista');
+
+    botonMenu.addEventListener('click',() =>{
+    listaMenu.classList.toggle('activo');
+    });
+
+</script>
 
 </body>
 </html>

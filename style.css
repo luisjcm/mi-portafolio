@@ -1,0 +1,175 @@
+
+/* Reset básico para eliminar márgenes por defecto del navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* --------------------- Modo PC --------------------- */
+
+/* --- Estilos del Header --- */
+
+.header-principal{
+    background-color: #c9c9c9;
+    height: 80px;
+    padding: 0 50px;
+
+
+/* ACTIVAMOS FLEXBOX: La magia ocurre aquí */
+    display: flex; 
+    justify-content: space-between; /* Empuja el logo a la izq y menú a la der */
+    align-items: center;            /* Centra los elementos verticalmente */
+    
+    /* Una sombra suave para separar el header del contenido */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    
+    /* Para que el menú se quede fijo arriba al hacer scroll (opcional) */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+
+}
+
+/* Estilo para tu nombre (Logo) */
+.logo h1 {
+    font-size: 1.5rem;    /* Tamaño de letra */
+    color: #333;          /* Color gris oscuro */
+    font-weight: bold;
+}
+
+/* --- Estilos del Menú --- */
+
+.lista-menu {
+    display: flex;        /* Pone los items de la lista uno al lado del otro */
+    list-style: none;     /* Quita los puntos (bullets) de la lista */
+    gap: 20px;            /* Espacio entre cada enlace */
+}
+
+.lista-menu li a {
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    color: #333;           /* Color del texto */
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease; /* Suaviza el cambio de color */
+}
+
+/* Efecto al pasar el mouse por encima */
+.lista-menu li a:hover {
+    color: #000080; /* Cambia a azul (similar a tu sección hero) */
+}
+
+/* --- Estilos del Hero (Bloque Azul) --- */
+.contenedorhero {
+    background-color: #0d3155; /* Azul oscuro */
+    color: white;
+    padding: 60px 10%; /* Espacio interno (arriba/abajo y lados) */
+    
+    /* FLEXBOX: Alinea texto e imagen lado a lado */
+    display: flex;
+    align-items: center;    /* Centra verticalmente */
+    justify-content: center;
+    
+    gap: 50px;              /* Espacio entre el texto y la foto */
+}
+
+/* --- Estilos del Texto --- */
+.hero-texto {
+    max-width: 600px; /* Evita que el texto se estire demasiado */
+}
+
+.hero-texto h1 {
+    font-size: 2rem;
+    line-height: 1.3; /* Separación entre líneas de texto */
+    font-weight: 400; /* Letra normal */
+}
+
+.hero-texto strong {
+    color: #ffcc00;   /* Un amarillo/dorado para resaltar "Ingeniero" */
+    font-weight: 700;
+}
+
+/* --- Estilos de la Imagen --- */
+.hero-imagen img {
+    width: 250px;        /* Tamaño de la foto */
+    height: 250px;       /* Misma altura para que sea cuadrada */
+    object-fit: cover;   /* Evita que la foto se deforme */
+    border-radius: 50%;  /* ¡Esto hace la foto redonda! */
+    border: 5px solid #fff; /* Borde blanco elegante */
+    box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Sombra para resaltar */
+}
+
+
+/* Menu de hamburguesa */
+.menu-toggle{
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+}
+
+
+/* --------------------- Modo Responsive --------------------- */
+
+@media (max-width: 768px){
+    .contenedorhero{
+        flex-direction: column;
+
+        gap: 30px;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .hero-texto h1{
+        font-size: 1.5rem;
+    }
+
+    .header-principal{
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        position: relative;
+    }
+
+    .lista-menu{
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #f4f4f4;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+        gap: 15px;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+    }
+
+    .lista-menu.activo{
+        display: flex;
+    }
+
+    .menu-toggle{
+        display: block;
+        margin-left: auto;
+    }
+
+    .hero-imagen img{
+        width: 180px;
+        height: 150px;
+    }
+
+    
+}
+
+
+
