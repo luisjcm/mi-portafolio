@@ -166,6 +166,159 @@ body{
     margin-bottom: 15px;
 }
 
+
+
+/* Proyectos */
+
+.seccion-proyectos{
+    padding: 60px 20px;
+    background-color: #ffffff;
+    text-align: center;
+
+}
+
+.contenedor-proyectos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*Tarjeta de Proyecto*/
+
+.proyecto {
+    background-color: #f9f9f9;
+    width: 350px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: left;
+
+
+}
+
+.proyecto:hover {
+    transform: translateY(-10px);
+}
+
+.imagen-proyecto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.contenido-proyecto{
+    padding: 20px;
+}
+
+.contenido-proyecto h3{
+    color: #0a1a44;
+    margin-bottom: 10px;
+}
+
+/* Etiquetas de tecnologia (Badges)*/
+.tecnologias{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.tag{
+    background-color: #e0e7ff;
+    color: #0a1a44;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.contenido-proyecto p{
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.boton-ver{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0a1a44;
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+
+}
+
+
+.boton-ver:hover {
+    background-color: #ffcc00;
+    color: #0a1a44;
+}
+
+/*footer*/
+.pie-pagina{
+    background-color: #0a1a44;
+    color: white;
+    padding: 80px 20px 40px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.contenido-footer h2{
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.contenido-footer p{
+    font-size: 1.1rem;
+    color: #a0c4ff;
+    margin-bottom: 40px;
+}
+
+/*Botones Footer*/
+.redes-sociales{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+/*Estilo de Botones de Contacto en el Footer*/
+.boton-contacto{
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background 0.3s;
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.boton-contacto:hover{
+    transform: translateY(-5px);
+    background-color: white;
+    color: #0a1a44;
+    }
+
+.copyright{
+    font-size: 0.9rem !important;
+    opacity: 0.6;
+    margin-bottom: 0 !important;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
 /* --------------------- Modo Responsive --------------------- */
 
 @media (max-width: 768px){
