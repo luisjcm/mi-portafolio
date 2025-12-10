@@ -15,7 +15,7 @@ body{
 /* --- Estilos del Header --- */
 
 .header-principal{
-    background-color: #c9c9c9;
+    background-color: #0d3155;
     height: 80px;
     padding: 0 50px;
 
@@ -39,8 +39,13 @@ body{
 /* Estilo para tu nombre (Logo) */
 .logo h1 {
     font-size: 1.5rem;    /* Tamaño de letra */
-    color: #333;          /* Color gris oscuro */
+    color: #ffffff;          /* Color gris oscuro */
     font-weight: bold;
+}
+
+.logo h1:hover{
+    color: #8c8cee;
+    transition: color 0.3s ease;
 }
 
 /* --- Estilos del Menú --- */
@@ -53,7 +58,7 @@ body{
 
 .lista-menu li a {
     text-decoration: none; /* Quita el subrayado de los enlaces */
-    color: #333;           /* Color del texto */
+    color: #ffffff;           /* Color del texto */
     font-size: 1rem;
     font-weight: 500;
     transition: color 0.3s ease; /* Suaviza el cambio de color */
@@ -61,7 +66,7 @@ body{
 
 /* Efecto al pasar el mouse por encima */
 .lista-menu li a:hover {
-    color: #000080; /* Cambia a azul (similar a tu sección hero) */
+    color: #8c8cee; /* Cambia a azul (similar a tu sección hero) */
 }
 
 /* --- Estilos del Hero (Bloque Azul) --- */
