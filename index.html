@@ -141,7 +141,7 @@
 
 </footer>
 
-
+<script src="https://unpkg.com/scrollreveal"></script>
 <script>
     const menuToggle = document.getElementById('menu-toggle');
     const listaMenu = document.getElementById('menu-lista');
@@ -153,6 +153,33 @@
     document.querySelectorAll('.lista-menu li a').forEach(enlace => {
         enlace.addEventListener('click', () => listaMenu.classList.remove('activo'));
     });
+
+    /* Animaciones scroll reveal*/
+
+    const sr = ScrollReveal ({
+        origin: 'top',
+        distance: '60px',
+        duration: 2000,
+        delay: 200,
+    });
+
+
+    sr.reveal('.hero-texto', { origin: 'left'});
+    sr.reveal('.hero-imagen', { origin: 'right', delay: 500});
+
+    sr.reveal('.titulo-seccion', { origin: 'top', interval: 100});
+
+    sr.reveal('.tarjeta',{
+        origin: 'bottom',
+        interval: 200
+    })
+
+    sr.reveal('.proyecto', {
+        origin: 'bottom',
+        interval: 200
+    })
+
+    sr.reveal('.pie-pagina', { origin: 'bottom', delay: 100 })
 
 </script>
 
