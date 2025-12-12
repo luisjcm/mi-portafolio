@@ -452,7 +452,7 @@ h1, h2, h3, h4, h5, h6 {
         text-align: center;
 
 
-        color: var(--color-principal);
+        color: var(--texto-titulos);
         font-size: 0.9rem;
         font-weight: 500;
         border-radius: 50px;
