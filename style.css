@@ -97,7 +97,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Estilo para el nombre (Logo) */
 .logo h1 {
-    font-size: 1.5rem;    
+    font-size: 1.5rem;
     color: #ffffff;         
     font-weight: bold;
 }
@@ -209,13 +209,19 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 15px;
     box-shadow: 0 10px var(--sombra);
     text-align: left;
-    transition: transform 0.3s ease;
     color: var(--parrafo);
 }
 
 .tarjeta:hover{
-    transform: translateY(-10px); /* Sube 10px al tocarla */
-    box-shadow: 0 15px 30px var(--color-principal); /*Sombra más fuerte*/
+    box-shadow: 0 15px 10px var(--color-principal); /*Sombra más fuerte*/
+}
+
+.tarjeta-contenido{
+    transition: transform 0.3s ease;
+}
+
+.tarjeta:hover .tarjeta-contenido{
+    transform: translateY(-3px);
 }
 
 .tarjeta h3{
@@ -258,15 +264,11 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 5px 15px var(--fondo-tarjeta);
-    transition: transform 0.3s ease;
     text-align: left;
 
 
 }
 
-.proyecto:hover {
-    transform: translateY(-10px);
-}
 
 .imagen-proyecto img {
     width: 100%;
@@ -276,6 +278,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .contenido-proyecto{
     padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.proyecto:hover .contenido-proyecto{
+    transform: translateY(-3px);
 }
 
 .contenido-proyecto h3{
