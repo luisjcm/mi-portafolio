@@ -59,21 +59,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* --------------------- Modo PC --------------------- */
 
-.btn-tema{
-    background: none;
-    border: 1px solid var(--texto-titulos);
-    border-radius: 50%;
-    padding: 5px 10px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin-right: 15px;
-    transition: transform 0.3s;
-}
 
-.btn-tema:hover{
-    transform: rotate(30deg);
-    background-color: var(--boton-footer)
-}
 
 /* --- Estilos del Header --- */
 
@@ -95,6 +81,22 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1000;
     
 
+}
+
+.btn-tema{
+    background: none;
+    border: 1px solid var(--texto-titulos);
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: transform 0.3s;
+}
+
+.btn-tema:hover{
+    transform: rotate(30deg);
+    background-color: var(--boton-footer)
 }
 
 /* Estilo para el nombre (Logo) */
@@ -334,6 +336,72 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
+/* Contacto */
+
+.seccion-contacto{
+    padding: 60px 20px;
+    background-color: var(--fondo-tarjeta);
+}
+
+.contenedor-formulario{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: var(--fondo);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px var(--sombra);
+}
+
+.subtitulo-contacto{
+    font-size: 1.1rem;
+    color: var(--texto);
+    margin-bottom: 25px;
+}
+
+.seccion-contacto .titulo-seccion{
+        color: var(--texto-titulos-secundario);
+}
+
+.formulario-contacto{
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 20px auto 0;
+    gap: 15px;
+}
+
+.formulario-contacto input, .formulario-contacto textarea {
+    padding: 15px;
+    border: 1px solid var(--texto-titulos);
+    border-radius: 10px;
+    background-color: var(--fondo-tarjeta);
+    color: var(--texto-titulos);
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.formulario-contacto input::placeholder, .formulario-contacto textarea::placeholder {
+    color: var(--texto-titulos);
+    opacity: 0.6;
+}
+
+.boton-enviar{
+    padding: 15px;
+    background-color: var(--fondo-tarjeta);
+    color: var(--texto-titulos);
+    border: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.boton-enviar:hover{
+    background-color: var(--boton-footer);
+    color: var(--texto-titulos-secundario);
+}
+
 /*footer*/
 .pie-pagina{
     background-color: var(--color-principal);
@@ -407,6 +475,10 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 1.5rem;
     }
 
+    .header-principal h1{
+        font-size: 1.2rem;
+    }
+
     .header-principal{
         height: auto;
         flex-direction: row;
@@ -414,6 +486,10 @@ h1, h2, h3, h4, h5, h6 {
         align-items: center;
         padding: 15px 20px;
         position: relative;
+    }
+
+    .btn-tema{
+        margin-left: 30px;
     }
 
     .lista-menu{
