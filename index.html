@@ -24,8 +24,10 @@
 
         <button id="boton-tema" class="btn-tema">🌞</button>
 
-        <button class="menu-toggle" id="menu-toggle">
-            &#9776
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menú">
+            <span class="bar top-bar"></span>
+            <span class="bar middle-bar"></span>
+            <span class="bar bottom-bar"></span>
         </button>
 
         <nav class="navegacion">
@@ -152,73 +154,7 @@
 </footer>
 
 <script src="https://unpkg.com/scrollreveal"></script>
-<script>
-
-    /* Modo Claro/Oscuro */
-
-    const botonTema = document.getElementById('boton-tema');
-    const body = document.body;
-
-    const temaGuardado = localStorage.getItem('tema');
-    if(temaGuardado === 'oscuro'){
-        body.classList.add('dark-mode');
-        botonTema.innetText = '🌙';
-    }
-
-    botonTema.addEventListener('click', ()=>{
-        body.classList.toggle('dark-mode');
-
-        if(body.classList.contains('dark-mode')){
-            botonTema.innerText = '🌙';
-            localStorage.setItem('tema', 'oscuro');
-        } else {
-            botonTema.innerText = '🌞';
-            localStorage.setItem('tema','claro');
-        }
-    });
-
-
-    /*Menu*/
-
-    const menuToggle = document.getElementById('menu-toggle');
-    const listaMenu = document.getElementById('menu-lista');
-
-    menuToggle.addEventListener('click',() =>{
-    listaMenu.classList.toggle('activo');
-    });
-
-    document.querySelectorAll('.lista-menu li a').forEach(enlace => {
-        enlace.addEventListener('click', () => listaMenu.classList.remove('activo'));
-    });
-
-    /* Animaciones scroll reveal*/
-
-    const sr = ScrollReveal ({
-        origin: 'top',
-        distance: '60px',
-        duration: 2000,
-        delay: 200,
-    });
-
-
-    sr.reveal('.hero-texto', { origin: 'left'});
-    sr.reveal('.hero-imagen', { origin: 'right', delay: 500});
-
-    sr.reveal('.titulo-seccion', { origin: 'top', interval: 100});
-
-    sr.reveal('.tarjeta',{
-        origin: 'bottom',
-        interval: 200
-    })
-
-    sr.reveal('.proyecto', {
-        origin: 'bottom',
-        interval: 200
-    })
-
-    sr.reveal('.pie-pagina', { origin: 'bottom', delay: 100 })
-
-</script>
+<script src="script.js"></script>
 
 </body>
 
