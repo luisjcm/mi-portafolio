@@ -12,15 +12,15 @@
     --texto: #333333;
     --texto-hover: #8288be;
     --texto-titulos: #ffffff;
-    --texto-titulos-secundario: #0a1a44;
-    --fondo-tarjeta: #0a1a44;
-    --color-principal: #0a1a44;
+    --texto-titulos-secundario: #0d3155;
+    --fondo-tarjeta: #0d3155;
+    --color-principal: #0d3155;
     --color-acento: #ffcc00;
     --sombra: rgba(0,0,0,0.1);
     --boton-footer: rgba(255,255,255,0.2);
     --texto-footer: #8288be;
     --tag: #e0e7ff;
-    --texto-tag: #0a1a44;
+    --texto-tag: #0d3155;
 }
 
 body.dark-mode{
@@ -208,7 +208,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 10px var(--sombra);
     text-align: left;
     transition: transform 0.3s ease;
-    color: #f9f9f9;
+    color: var(--fondo);
 }
 
 .tarjeta:hover{
