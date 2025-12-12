@@ -21,6 +21,7 @@
     --texto-footer: #8288be;
     --tag: #e0e7ff;
     --texto-tag: #0d3155;
+    --parrafo: #ffffff;
 }
 
 body.dark-mode{
@@ -36,6 +37,7 @@ body.dark-mode{
     --texto-footer: #ffffff;
     --tag: rgba(255,255,255,0.2);
     --texto-tag: #ffffff;
+    --parrafo: #ffffff;
 }
 
 body{
@@ -208,7 +210,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 10px var(--sombra);
     text-align: left;
     transition: transform 0.3s ease;
-    color: var(--fondo);
+    color: var(--parrafo);
 }
 
 .tarjeta:hover{
