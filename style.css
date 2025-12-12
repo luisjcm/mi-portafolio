@@ -7,20 +7,74 @@
     scroll-behavior: smooth;
 }
 
+:root{
+    --fondo: #ffffff;
+    --texto: #333333;
+    --texto-hover: #8288be;
+    --texto-titulos: #ffffff;
+    --texto-titulos-secundario: #0a1a44;
+    --fondo-tarjeta: #0a1a44;
+    --color-principal: #0a1a44;
+    --color-acento: #ffcc00;
+    --sombra: rgba(0,0,0,0.1);
+    --boton-footer: rgba(255,255,255,0.2);
+    --texto-footer: #8288be;
+    --tag: #e0e7ff;
+    --texto-tag: #0a1a44;
+}
+
+body.dark-mode{
+    --fondo: #121212;
+    --texto: #e0e0e0;
+    --texto-titulos: #ffffff;
+    --texto-titulos-secundario: #ffffff;
+
+    --fondo-tarjeta: #1e1e1e;
+    --color-principal: #1e1e1e;
+    --color-acento: #fbbf24;
+    --sombra: rgba(0,0,0,0.7);
+    --texto-footer: #ffffff;
+    --tag: rgba(255,255,255,0.2);
+    --texto-tag: #ffffff;
+}
+
 body{
     font-family: 'open sans', sans-serif;
+    margin: 0;
+
+    background-color: var(--fondo);
+    color: var(--texto);
+
+    transition: background-color 0.3s, color 0.3s;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'poppins', sans-serif;
+    color: var(--texto-titulos);
 }
 
 /* --------------------- Modo PC --------------------- */
 
+.btn-tema{
+    background: none;
+    border: 1px solid var(--texto-titulos);
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: transform 0.3s;
+}
+
+.btn-tema:hover{
+    transform: rotate(30deg);
+    background-color: var(--boton-footer)
+}
+
 /* --- Estilos del Header --- */
 
 .header-principal{
-    background-color: #0d3155;
+    background-color: var(--color-principal);
     height: 80px;
     padding: 0 50px;
 
@@ -47,7 +101,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo h1:hover{
-    color: #8c8cee;
+    color: var(--texto-hover);
     transition: color 0.3s ease;
 }
 
@@ -61,7 +115,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .lista-menu li a {
     text-decoration: none; /* Quita el subrayado de los enlaces */
-    color: #ffffff;           /* Color del texto */
+    color: var(--texto-titulos);           /* Color del texto */
     font-size: 1rem;
     font-weight: 500;
     transition: color 0.3s ease; /* Suaviza el cambio de color */
@@ -69,12 +123,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Efecto al pasar el mouse por encima */
 .lista-menu li a:hover {
-    color: #8c8cee; /* Cambia a azul (similar a tu sección hero) */
+    color: var(--texto-hover); /* Cambia a azul (similar a tu sección hero) */
 }
 
 /* --- Estilos del Hero (Bloque Azul) --- */
 .contenedorhero {
-    background-color: #0d3155; /* Azul oscuro */
+    background-color: var(--color-principal); /* Azul oscuro */
     color: white;
     padding: 60px 10%; /* Espacio interno (arriba/abajo y lados) */
     
@@ -98,7 +152,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-texto strong {
-    color: #ffcc00;   /* Un amarillo/dorado para resaltar "Ingeniero" */
+    color: var(--color-acento);   /* Un amarillo/dorado para resaltar "Ingeniero" */
     font-weight: 700;
 }
 
@@ -108,7 +162,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 250px;       /* Misma altura para que sea cuadrada */
     object-fit: cover;   /* Evita que la foto se deforme */
     border-radius: 50%;  /* ¡Esto hace la foto redonda! */
-    border: 5px solid #fff; /* Borde blanco elegante */
+    border: 5px solid var(--texto-titulos); /* Borde blanco elegante */
     box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Sombra para resaltar */
 }
 
@@ -120,21 +174,21 @@ h1, h2, h3, h4, h5, h6 {
     background: none;
     border: none;
     cursor: pointer;
-    color: #ffffff;
+    color: var(--texto-titulos);
 }
 
 /* Experiencia laboral (tarjetas) */
 
 .seccion-experiencia{
     padding: 60px 20px;
-    background-color: #f9f9f9;
+    background-color: var(--fondo);
     text-align: center;
 }
 
 .titulo-seccion{
     font-size: 2rem;
     margin-bottom: 40px;
-    color: #0a1a44;
+    color: var(--texto-titulos-secundario);
 }
 
 .contenedor-experiencia{
@@ -147,11 +201,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tarjeta{
-    background-color: #0d3155;
+    background-color: var(--fondo-tarjeta);
     width: 300px;
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 10px rgba(0,0,0,0.05);
+    box-shadow: 0 10px var(--sombra);
     text-align: left;
     transition: transform 0.3s ease;
     color: #f9f9f9;
@@ -159,17 +213,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .tarjeta:hover{
     transform: translateY(-10px); /* Sube 10px al tocarla */
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15); /*Sombra más fuerte*/
+    box-shadow: 0 15px 30px var(--color-principal); /*Sombra más fuerte*/
 }
 
 .tarjeta h3{
-    color: #ffffff;
+    color: var(--texto-titulos);
     margin-bottom: 10px;
 }
 
 .tarjeta .fecha{
     display: block;
-    color: #ffcc00;
+    color: var(--color-acento);
     font-weight: bold;
     margin-bottom: 15px;
 }
@@ -180,7 +234,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .seccion-proyectos{
     padding: 60px 20px;
-    background-color: #ffffff;
+    background-color: var(--fondo);
     text-align: center;
 
 }
@@ -197,11 +251,11 @@ h1, h2, h3, h4, h5, h6 {
 /*Tarjeta de Proyecto*/
 
 .proyecto {
-    background-color: #f9f9f9;
+    background-color: var(--fondo);
     width: 350px;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px var(--fondo-tarjeta);
     transition: transform 0.3s ease;
     text-align: left;
 
@@ -223,7 +277,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contenido-proyecto h3{
-    color: #0a1a44;
+    color: var(--texto-titulos-secundario);
     margin-bottom: 10px;
 }
 
@@ -235,8 +289,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tag{
-    background-color: #e0e7ff;
-    color: #0a1a44;
+    background-color: var(--tag);
+    color: var(--texto-tag);
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -245,7 +299,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .contenido-proyecto p{
     font-size: 0.95rem;
-    color: #555;
+    color: var(--texto);
     margin-bottom: 20px;
     line-height: 1.5;
 }
@@ -253,8 +307,8 @@ h1, h2, h3, h4, h5, h6 {
 .boton-ver{
     display: inline-block;
     padding: 10px 20px;
-    background-color: #0a1a44;
-    color: white;
+    background-color: var(--color-principal);
+    color:var(--texto-titulos);
     text-decoration: none;
     border-radius: 15px;
     font-size: 0.9rem;
@@ -264,14 +318,15 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .boton-ver:hover {
-    background-color: #ffcc00;
-    color: #0a1a44;
+    background-color: var(--color-acento);
+    color: var(--fondo-tarjeta);
+    font-weight: 600;
 }
 
 /*footer*/
 .pie-pagina{
-    background-color: #0a1a44;
-    color: white;
+    background-color: var(--color-principal);
+    color: var(--texto-titulos);
     padding: 80px 20px 40px;
     text-align: center;
     margin-top: 60px;
@@ -284,7 +339,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .contenido-footer p{
     font-size: 1.1rem;
-    color: #a0c4ff;
+    color: var(--texto-footer);
     margin-bottom: 40px;
 }
 
@@ -304,22 +359,22 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50px;
     font-weight: bold;
     transition: transform 0.3s ease, background 0.3s;
-    background-color: rgba(255,255,255,0.1);
-    color: white;
-    border: 1px solid rgba(255,255,255,0.2);
+    background-color: var(--boton-footer);
+    color: var(--text);
+    border: 1px solid var(--boton-footer);
 }
 
 .boton-contacto:hover{
     transform: translateY(-5px);
-    background-color: white;
-    color: #0a1a44;
+    background-color: var(--sombra);
+    color: var(--texto-titulos);
     }
 
 .copyright{
     font-size: 0.9rem !important;
-    opacity: 0.6;
+    opacity: 0.8;
     margin-bottom: 0 !important;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid var(--texto-footer);
     padding-top: 20px;
     width: 100%;
     max-width: 600px;
@@ -356,8 +411,8 @@ h1, h2, h3, h4, h5, h6 {
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: #f4f4f4;
-        box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+        background-color: var(--fondo);
+        box-shadow: 0 5px 5px var(--sombra);
 
         display: flex;
         flex-direction: column;
@@ -388,7 +443,7 @@ h1, h2, h3, h4, h5, h6 {
         text-align: center;
 
 
-        color: #0a1a44;
+        color: var(--color-principal);
         font-size: 0.9rem;
         font-weight: 500;
         border-radius: 50px;
@@ -396,7 +451,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .lista-menu li a:hover{
-        background-color: #0d3155;
+        background-color: var(--fondo-tarjeta);
         color: #f4f4f4;
     }
 
