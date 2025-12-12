@@ -4,10 +4,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'open sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'poppins', sans-serif;
 }
 
 /* --------------------- Modo PC --------------------- */
@@ -20,12 +25,10 @@ body{
     padding: 0 50px;
 
 
-/* ACTIVAMOS FLEXBOX: La magia ocurre aquí */
     display: flex; 
-    justify-content: space-between; /* Empuja el logo a la izq y menú a la der */
-    align-items: center;            /* Centra los elementos verticalmente */
+    justify-content: space-between; 
+    align-items: center;            
     
-    /* Una sombra suave para separar el header del contenido */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
     
     /* Para que el menú se quede fijo arriba al hacer scroll (opcional) */
@@ -36,10 +39,10 @@ body{
 
 }
 
-/* Estilo para tu nombre (Logo) */
+/* Estilo para el nombre (Logo) */
 .logo h1 {
-    font-size: 1.5rem;    /* Tamaño de letra */
-    color: #ffffff;          /* Color gris oscuro */
+    font-size: 1.5rem;    
+    color: #ffffff;         
     font-weight: bold;
 }
 
@@ -117,7 +120,7 @@ body{
     background: none;
     border: none;
     cursor: pointer;
-    color: #333;
+    color: #ffffff;
 }
 
 /* Experiencia laboral (tarjetas) */
@@ -349,22 +352,59 @@ body{
     }
 
     .lista-menu{
-        display: none;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
         background-color: #f4f4f4;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+
+        display: flex;
         flex-direction: column;
         text-align: center;
-        padding: 20px 0;
-        gap: 15px;
-        box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+        align-items: center;
+        padding: 30px 0;
+        gap: 6px;
+
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        padding: 0;
+
+        transition: all 0.5s ease-in-out;
+    }
+
+    .lista-menu li{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .lista-menu li a{
+        display: block;
+        width: 80%;
+        max-width: 300px;
+        padding: 15px 0;
+        text-align: center;
+
+
+        color: #0a1a44;
+        font-size: 0.9rem;
+        font-weight: 500;
+        border-radius: 50px;
+        transition: all 0.3s ease;;
+    }
+
+    .lista-menu li a:hover{
+        background-color: #0d3155;
+        color: #f4f4f4;
     }
 
     .lista-menu.activo{
-        display: flex;
-    }
+        max-height: 500px;
+        opacity: 1;
+        padding: 30px 0;
+}
 
     .menu-toggle{
         display: block;
