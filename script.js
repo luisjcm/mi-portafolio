@@ -45,10 +45,69 @@ document.addEventListener('DOMContentLoaded',() => {
     });
 
 
+    /**( Envio de formulario sin redirección (Formspree + Fetch)) */
+    const form = document.querySelector('.formulario-contacto');
+    const estadoForm = document.getElementById('estado-form');
+    const btnEnviar = document.getElementById('btn-enviar');
+
+
+    console.log('JS cargó y DOM listo');
+    if(form){
+        form.addEventListener('submit', async(e) => {
+            e.preventDefault();
+
+            console.log('✅ Submit interceptado: no debería redirigir');
+
+
+            estadoForm.textContent = '';
+            estadoForm.className = 'estado-form';
+            btnEnviar.disabled = true;
+            btnEnviar.textContent = 'Enviando...';
+    
+
+    console.log('Intecepté el submit (no debería redirigir)');
+            try{
+                const formData = new FormData(form);
+
+                const res = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json'}
+                });
+
+                if(res.ok){
+                    form.reset();
+                    estadoForm.textContent = 'Mensaje Enviado! Te responderé pronto.';
+                    estadoForm.classList.add('ok');
+                } else {
+                    estadoForm.textContent = 'Hubo un problema al enviar. Intenta de nuevo';
+                    estadoForm.classList.add('error');
+                }
+            } catch(err) {
+                console.error('❌ Error real del fetch:', err);
+
+
+                estadoForm.textContent = 'Error de conexión. Revisa tu internet e inténtalo de nuevo.'
+                estadoForm.classList.add('error');
+            } finally {
+                btnEnviar.disabled = false;
+                btnEnviar.textContent = 'Enviar Mensaje';
+            }
+
+        });
+    }
+
+    window.addEventListener('pageshow', () => {
+            const form = document.querySelector('.formulario-contacto');
+                if (form) form.reset();
+    });
+
+
 
     /* Animaciones scroll reveal*/
 
-    const sr = ScrollReveal ({
+    if(typeof ScrollReveal !== 'undefined'){
+        const sr = ScrollReveal ({
         origin: 'top',
         distance: '60px',
         duration: 2000,
@@ -61,6 +120,8 @@ document.addEventListener('DOMContentLoaded',() => {
     sr.reveal('.tarjeta',{ origin: 'bottom', interval: 200});
     sr.reveal('.proyecto', { origin: 'bottom', interval: 200});
     sr.reveal('.pie-pagina', { origin: 'bottom', delay: 100 });
-
+    } else {
+        console.warn('ScrollReveal no está cargado. Las animaciones no se aplicarán.')
+    }
 
     });

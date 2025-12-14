@@ -41,7 +41,7 @@
     </header>
 
 
-<section class="contenedorhero">
+<section id="inicio" class="contenedorhero">
     <div class="hero-texto">
         <h1>
             5 años de experiencia como <br> 
@@ -138,14 +138,19 @@
         <h2 class="titulo-seccion">¿Trabajamos Juntos?</h2>
         <p class="subtitulo-contacto">¡Estoy disponible para nuevos proyectos y oportunidades! Escríbeme un mensaje.</p>
 
-        <form action="https://formspree.io/f/xovgybaz" method="post" class="formulario-contacto">
-                <input type="text" name="Nombre" placeholder="Tu Nombre">
+        <form action="https://formspree.io/f/xovgybaz" 
+        method="post" 
+        autocomplete="off"
+        class="formulario-contacto"
+        >
+                <input type="text" name="Nombre" placeholder="Tu Nombre" required>
                 <input type="email" name="_replyto" placeholder="Tu email" required>
                 <textarea name="Mensaje" placeholder="Tu Mensaje" rows="6" required></textarea>
 
-                <button type="submit" class="boton-enviar">Enviar Mensaje</button>
+                <button type="submit" id="btn-enviar" class="boton-enviar">Enviar Mensaje</button>
 
-                <input type="hidden" name="_subject" value="Nuevo contacto desde tu Portafolio">
+                    <p id="estado-form" class="estado-form" aria-live="polite" ></p>
+                    <input type="hidden" name="_subject" value="Nuevo contacto desde tu Portafolio">
         </form>
     </div>
 </section>
