@@ -162,6 +162,34 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
+/*--- Estilos del boton "Descargar CV" ---*/
+.contenedor-botones-hero{
+    margin-top: 30px;
+}
+
+.boton-cv{
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--color-acento);
+    color: var(--color-principal);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 50px;
+    border: 2px solid var(--color-acento);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+}
+
+.boton-cv:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    background-color: var(--color-principal);
+    color: var(--color-acento);
+    
+}
+
 /* --- Estilos de la Imagen --- */
 .hero-imagen img {
     width: 250px;        /* Tamaño de la foto */
