@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded',() => {
 
 /* Modo Claro/Oscuro */
 
+
     const botonTema = document.getElementById('boton-tema');
     const body = document.body;
 
