@@ -4,34 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio de Luis Jesus</title>
+    
+    <!-- Título optimizado para SEO -->
+    <title>Luis Jesus - Ingeniero de Sistemas | Portafolio Web</title>
+    
+    <!-- Meta descripción para buscadores -->
+    <meta name="description" content="Portafolio profesional de Luis Jesus, Ingeniero de Sistemas con 5 años de experiencia en desarrollo web y soporte técnico.">
+    
+    <!-- Palabras clave -->
+    <meta name="keywords" content="desarrollador web, ingeniero de sistemas, WordPress, Elementor, freelance">
+    
     <link rel="stylesheet" href="style.css">
 
+    <!-- Fuentes de Google: Preconnect mejora la velocidad de carga -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
+    <!-- Favicon: la imagen que aparece en la pestaña del navegador -->
     <link rel="icon" href="images/yo.jpg" type="image/jpeg">
 </head>
 
 <body>
 
+    <!-- ========== HEADER CON NAVEGACIÓN ========== -->
+    <!-- header: etiqueta semántica HTML5 que indica la cabecera de la página -->
     <header class="header-principal">
+        <!-- Logo/Nombre del sitio -->
         <div class="logo">
             <h1>Portafolio de Luis Jesus</h1>
         </div>
 
+        <!-- Botón para cambiar entre modo claro/oscuro -->
+        <!-- aria-label: mejora la accesibilidad para lectores de pantalla -->
+        <button id="boton-tema" class="btn-tema" aria-label="Cambiar tema">🌞</button>
 
-        <button id="boton-tema" class="btn-tema">🌞</button>
-
+        <!-- Botón hamburguesa para menú móvil -->
+        <!-- Se muestra solo en pantallas pequeñas (ver CSS @media) -->
         <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menú">
+            <!-- Tres barras que forman la hamburguesa -->
             <span class="bar top-bar"></span>
             <span class="bar middle-bar"></span>
             <span class="bar bottom-bar"></span>
         </button>
 
+        <!-- nav: etiqueta semántica para la navegación principal -->
         <nav class="navegacion">
+            <!-- ul: lista desordenada, li: elemento de lista -->
             <ul class="lista-menu" id="menu-lista">
+                <!-- href="#inicio" hace que al hacer clic vaya a la sección con id="inicio" -->
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#experiencia">Experiencia</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
@@ -40,209 +61,274 @@
         </nav>
     </header>
 
+    <!-- ========== SECCIÓN HERO (PRESENTACIÓN PRINCIPAL) ========== -->
+    <!-- section: agrupa contenido relacionado -->
+    <!-- id="inicio": permite que los enlaces internos apunten aquí -->
+    <!-- data-animate: atributo personalizado para las animaciones JavaScript -->
+    <section id="inicio" class="contenedorhero" data-animate>
+        <!-- Contenedor del texto de presentación -->
+        <div class="hero-texto">
+            <h1>
+                5 años de experiencia como <br> 
+                <!-- strong: resalta texto importante -->
+                <strong>Ingeniero de Sistemas.</strong> <br>
+            </h1>
 
-<section id="inicio" class="contenedorhero">
-    <div class="hero-texto">
-        <h1>
-            5 años de experiencia como <br> 
-            <strong>Ingeniero de Sistemas.</strong> <br>
-        </h1>
-
-        <div class="contenedor-botones-hero">
-            <a href="docs/LUISJESUS_CV_2026.pdf" download="LUISJESUS_CV_2026.pdf" class="boton-cv">
-                Descargar CV
-            </a>
+            <!-- Contenedor de botones (por si agregas más botones después) -->
+            <div class="contenedor-botones-hero">
+                <!-- 
+                    download="#": descarga un archivo cuando esté listo
+                    Por ahora tiene "#", deberás reemplazarlo con la ruta de tu CV
+                    Ejemplo: download="archivos/CV-Luis-Jesus.pdf"
+                -->
+                <a href="#" download="#" class="boton-cv">
+                    Descargar CV
+                </a>
+            </div>
         </div>
-    </div>
 
-    <div class="hero-imagen">
-        <img src="images/yo.jpg" alt="Foto de Luis Jesus"> 
-    </div>
-</section>
-
-
-<section id="experiencia" class="seccion-experiencia">
-
-<h2 class="titulo-seccion">Experiencia Laboral</h2>
-
-<div class="contenedor-experiencia">
-    <div class="tarjeta">
-        <div class="tarjeta-contenido">
-            <h3>Desarrollador Web WordPress</h3>
-            <span class="fecha">Actualidad</span>
-            <p>Creación de sitios web corporativos, gestión de plugin y optimización SEO.</p>
+        <!-- Contenedor de la foto de perfil -->
+        <div class="hero-imagen">
+            <!-- alt: texto alternativo si la imagen no carga (importante para SEO y accesibilidad) -->
+            <img src="images/yo.jpg" alt="Foto de Luis Jesus"> 
         </div>
-    </div>
+    </section>
 
-    <div class="tarjeta">
-        <div class="tarjeta-contenido">
-            <h3>Analista de Help Desk</h3>
-            <span class="fecha">Ene 2020 - Actualidad</span>
-            <p>Soporte técnico de nivel 1, gestión de tickets y mantenimiento de hardware.</p>
-        </div>
-    </div>
-
-    <div class="tarjeta">
-        <div class="tarjeta-contenido">
-            <h3>Agente de Call Center</h3>
-            <span class="fecha">Abr 2018 - Ene 2020</span>
-            <p>Atención al cliente para reservación y venta de boletos, información de itinerarios</p>
-        </div>
-    </div>
-</div>
-
-</section>
-
-<section id="proyectos" class="seccion-proyectos">
-
-    <h2 class="titulo-seccion">Mis proyectos destacados</h2>
-
-    <div class="contenedor-proyectos">
-        <div class="proyecto">
-
+    <!-- ========== SECCIÓN DE EXPERIENCIA PROFESIONAL ========== -->
+    <section id="experiencia" class="seccion-experiencia">
+        
+        <!-- Subsección con timeline (línea de tiempo) -->
+        <section class="timeline-section">
+            <!-- h2: título de nivel 2, indica importancia después de h1 -->
+            <h2 class="titulo-seccion" data-animate>Experiencia Profesional</h2>
             
-<!--1-->
-            <div class="imagen-proyecto">
-                <img src="images/InmoAlicante.png" alt="Web Inmobiliaria en WordPress">
-            </div>
-
-            <div class="contenido-proyecto">
-                <h3>Inmobiliaria Alicante</h3>
-                <div class="tecnologias">
-                    <span class="tag">WordPress</span>
-                    <span class="tag">Elementor</span>
-                    <span class="tag">SEO</span>
-
-                </div>
-                <p>Plataforma web para agencia inmobiliaria. Gestión integral de propiedades, filtros de búsqueda avanzados y optimización para SEO.</p>
-                <a href="https://inmobiliariacarrasco.es/" target="_blank" class="boton-ver">Ver sitio web</a>
-            </div>
-
-        </div>
-<!--2-->
-        <div class="proyecto">
-            <div class="imagen-proyecto">
-                <img src="images/CarmenGuerrero.png" alt="Web de marca personal con Elementor">
-            </div>
-
-
-            <div class="contenido-proyecto">
-                <h3>Comunicación con propósito</h3>
-                <div class="tecnologias">
-                    <span class="tag">WordPress</span>
-                    <span class="tag">Elementor</span>
-                    <span class="tag">Marca personal</span>
+            <!-- Contenedor de la línea de tiempo -->
+            <div class="timeline">
+                
+                <!-- ========== ITEM 1: FREELANCE ========== -->
+                <!-- data-animate: marca este elemento para animarse al hacer scroll -->
+                <div class="timeline-item" data-animate>
+                    <!-- Punto circular en la línea de tiempo -->
+                    <div class="timeline-dot"></div>
                     
-                </div>
-                <p>Sitio web de marca personal enfocado en "Comunicación con propósito". Diseño minimalista, blog integrado y formulario de contacto.</p>
-                <a href="https://carmengestionderrss.adrirodrigoj3.es/" target="_blank" class="boton-ver">Ver sitio web</a>
-            </div>
-
-        </div>
-<!--3-->
-
-        <div class="proyecto">
-            <div class="imagen-proyecto">
-                <img src="images/jdcarperformance.png" alt="Sitio web Ecommerce con Elementor">
-            </div>
-
-            <div class="contenido-proyecto">
-                <h3>JD CAR Performance</h3>
-                <div class="tecnologias">
-                    <span class="tag">WordPress</span>
-                    <span class="tag">WooCommerce</span>
-                    <span class="tag">SEO</span>
-                </div>
-                <p>Tienda online especializada en el sector automotriz. Gestión completa de catálogo de productos, carrito de compras y optimización de ventas.</p>
-                <a href="https://balbettransportista.adrirodrigoj5.es/" target="_blank" class="boton-ver">Ver sitio web</a>
-            </div>
-
-        </div>
-<!--4
-
-         <div class="proyecto">
-            <div class="imagen-proyecto">
-                <img src="images/proyecto-app.png" alt="App React Native">
-            </div>
-
-            <div class="contenido-proyecto">
-                <h3>App Móvil Master</h3>
-                <div class="tecnologias">
-                    <span class="tag">React Native</span>
-                    <span class="tag">IA Assist</span>
-                </div>
-                <p>Aplicación Móbil desarrollada durante mi Master, utilizando IA para optimizar la lógica y el código.</p>
-                <a href="#" class="boton-ver">Ver código</a>
-            </div>-->
-<!--5
-
-        </div>
-         <div class="proyecto">
-            <div class="imagen-proyecto">
-                <img src="images/proyecto-app.png" alt="App React Native">
-            </div>
-
-            <div class="contenido-proyecto">
-                <h3>App Móvil Master</h3>
-                <div class="tecnologias">
-                    <span class="tag">React Native</span>
-                    <span class="tag">IA Assist</span>
-                </div>
-                <p>Aplicación Móbil desarrollada durante mi Master, utilizando IA para optimizar la lógica y el código.</p>
-                <a href="#" class="boton-ver">Ver código</a>
-            </div>
-
-        </div>
--->
-
-    </div>
-
-</section>
-
-<section id="contacto" class="seccion-contacto">
-    <div class="contenedor-formulario">
-        <h2 class="titulo-seccion">¿Trabajamos Juntos?</h2>
-        <p class="subtitulo-contacto">¡Estoy disponible para nuevos proyectos y oportunidades! Escríbeme un mensaje.</p>
-
-        <form action="https://formspree.io/f/xovgybaz" 
-        method="post" 
-        autocomplete="off"
-        class="formulario-contacto"
-        >
-                <input type="text" name="Nombre" placeholder="Tu Nombre" required>
-                <input type="email" name="_replyto" placeholder="Tu email" required>
-                <textarea name="Mensaje" placeholder="Tu Mensaje" rows="6" required></textarea>
-
-                <button type="submit" id="btn-enviar" class="boton-enviar">Enviar Mensaje</button>
-
-                    <p id="estado-form" class="estado-form" aria-live="polite" ></p>
-                    <input type="hidden" name="_subject" value="Nuevo contacto desde tu Portafolio">
-        </form>
-    </div>
-</section>
-
-
-<footer class="pie-pagina">
-
-            <div class="contenido-footer">
-
-                    <h2>Conecta conmigo</h2>
-                    <p>Encuéntrame en mis redes profesionales para ver más de mi trabajo</p>
-
-                    <div class="redes-sociales">
-                        <a href="https://www.linkedin.com/in/luisjcm/" class="boton-contacto linkedin">LinkedIn</a>
-                        <a href="https://github.com/luisjcm" class="boton-contacto github">GitHub</a>
+                    <!-- Contenido de la experiencia -->
+                    <div class="timeline-content">
+                        <!-- span: contenedor inline genérico -->
+                        <span class="timeline-date">Jun. 2025 - Actualidad</span>
+                        
+                        <!-- h3: título de nivel 3 -->
+                        <h3>Desarrollador Web (Freelance/Remoto)</h3>
+                        
+                        <!-- h4: título de nivel 4, para subtítulos -->
+                        <h4 class="agencia">Agencias: Clinmedia / Newe Marketing</h4>
+                        
+                        <!-- Lista de logros/responsabilidades -->
+                        <ul>
+                            <li>Maquetación ágil de hasta 3 sitios web diarios (WordPress/Elementor).</li>
+                            <li>Configuración de E-commerce y pasarelas de pago con WooCommerce.</li>
+                            <li>Optimización UI/UX y personalización con CSS3.</li>
+                        </ul>
                     </div>
+                </div>
 
-                    <p class="copyright">&copy; 2026 Luis Jesus. Todos los derechos reservados.</p>
+                <!-- ========== ITEM 2: HELP DESK ========== -->
+                <div class="timeline-item" data-animate>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Ene. 2020 - Actualidad</span>
+                        <h3>Analista de Help Desk (Presencial)</h3>
+                        <h4 class="empresa">Avior Airlines C.A.</h4>
+                        <ul>
+                            <li>Soporte técnico crítico para +800 usuarios (SAP, KIU).</li>
+                            <li>Monitoreo de red e infraestructura con PRTG y Zabbix.</li>
+                            <li>Mantenimiento preventivo de hardware especializado.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+    </section>
+
+    <!-- ========== SECCIÓN DE PROYECTOS ========== -->
+    <section id="proyectos" class="seccion-proyectos">
+
+        <h2 class="titulo-seccion" data-animate>Mis proyectos destacados</h2>
+
+        <!-- Contenedor flexible que se adapta a diferentes pantallas -->
+        <div class="contenedor-proyectos">
+            
+            <!-- ========== PROYECTO 1: INMOBILIARIA ========== -->
+            <div class="proyecto" data-animate>
+                <!-- Imagen del proyecto -->
+                <div class="imagen-proyecto">
+                    <img src="images/InmoAlicante.png" alt="Web Inmobiliaria en WordPress">
+                </div>
+
+                <!-- Contenido descriptivo del proyecto -->
+                <div class="contenido-proyecto">
+                    <h3>Inmobiliaria Alicante</h3>
+                    
+                    <!-- Tags/etiquetas de tecnologías usadas -->
+                    <div class="tecnologias">
+                        <span class="tag">WordPress</span>
+                        <span class="tag">Elementor</span>
+                        <span class="tag">SEO</span>
+                    </div>
+                    
+                    <!-- p: párrafo de texto -->
+                    <p>Plataforma web para agencia inmobiliaria. Gestión integral de propiedades, filtros de búsqueda avanzados y optimización para SEO.</p>
+                    
+                    <!-- 
+                        target="_blank": abre el enlace en una nueva pestaña
+                        rel="noopener noreferrer": seguridad para enlaces externos
+                    -->
+                    <a href="https://inmobiliariacarrasco.es/" target="_blank" rel="noopener noreferrer" class="boton-ver">Ver sitio web</a>
+                </div>
             </div>
 
-</footer>
+            <!-- ========== PROYECTO 2: COMUNICACIÓN ========== -->
+            <div class="proyecto" data-animate>
+                <div class="imagen-proyecto">
+                    <img src="images/CarmenGuerrero.png" alt="Web de marca personal con Elementor">
+                </div>
 
-<script src="https://unpkg.com/scrollreveal"></script>
-<script src="script.js"></script>
+                <div class="contenido-proyecto">
+                    <h3>Comunicación con propósito</h3>
+                    <div class="tecnologias">
+                        <span class="tag">WordPress</span>
+                        <span class="tag">Elementor</span>
+                        <span class="tag">Marca personal</span>
+                    </div>
+                    <p>Sitio web de marca personal enfocado en "Comunicación con propósito". Diseño minimalista, blog integrado y formulario de contacto.</p>
+                    <a href="https://carmengestionderrss.adrirodrigoj3.es/" target="_blank" rel="noopener noreferrer" class="boton-ver">Ver sitio web</a>
+                </div>
+            </div>
+
+            <!-- ========== PROYECTO 3: TIENDA ONLINE ========== -->
+            <div class="proyecto" data-animate>
+                <div class="imagen-proyecto">
+                    <img src="images/jdcarperformance.png" alt="Sitio web Ecommerce con Elementor">
+                </div>
+
+                <div class="contenido-proyecto">
+                    <h3>JD CAR Performance</h3>
+                    <div class="tecnologias">
+                        <span class="tag">WordPress</span>
+                        <span class="tag">WooCommerce</span>
+                        <span class="tag">SEO</span>
+                    </div>
+                    <p>Tienda online especializada en el sector automotriz. Gestión completa de catálogo de productos, carrito de compras y optimización de ventas.</p>
+                    <a href="https://balbettransportista.adrirodrigoj5.es/" target="_blank" rel="noopener noreferrer" class="boton-ver">Ver sitio web</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========== SECCIÓN DE CONTACTO ========== -->
+    <section id="contacto" class="seccion-contacto">
+        <div class="contenedor-formulario" data-animate>
+            <h2 class="titulo-seccion">¿Trabajamos Juntos?</h2>
+            <p class="subtitulo-contacto">¡Estoy disponible para nuevos proyectos y oportunidades! Escríbeme un mensaje.</p>
+
+            <!-- 
+                Formulario que envía datos a Formspree
+                action: URL donde se envían los datos
+                method="post": método HTTP para enviar datos de forma segura
+                autocomplete="off": desactiva el autocompletado del navegador
+            -->
+            <form action="https://formspree.io/f/xovgybaz" 
+                  method="post" 
+                  autocomplete="off"
+                  class="formulario-contacto">
+                
+                <!-- 
+                    Input tipo texto para el nombre
+                    name="Nombre": nombre del campo que recibirá Formspree
+                    placeholder: texto que aparece antes de escribir
+                    required: campo obligatorio
+                -->
+                <input type="text" 
+                       name="Nombre" 
+                       placeholder="Tu Nombre" 
+                       required>
+                
+                <!-- Input tipo email: valida automáticamente que sea un correo válido -->
+                <input type="email" 
+                       name="_replyto" 
+                       placeholder="Tu email" 
+                       required>
+                
+                <!-- 
+                    textarea: campo de texto multilínea
+                    rows="6": altura inicial de 6 líneas
+                -->
+                <textarea name="Mensaje" 
+                          placeholder="Tu Mensaje" 
+                          rows="6" 
+                          required></textarea>
+
+                <!-- Botón para enviar el formulario -->
+                <button type="submit" id="btn-enviar" class="boton-enviar">
+                    Enviar Mensaje
+                </button>
+
+                <!-- 
+                    Párrafo para mostrar mensajes de éxito/error
+                    aria-live="polite": anuncia cambios a lectores de pantalla
+                -->
+                <p id="estado-form" class="estado-form" aria-live="polite"></p>
+                
+                <!-- 
+                    Campo oculto que Formspree usa para el asunto del email
+                    type="hidden": no se muestra al usuario
+                -->
+                <input type="hidden" 
+                       name="_subject" 
+                       value="Nuevo contacto desde tu Portafolio">
+            </form>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER (PIE DE PÁGINA) ========== -->
+    <!-- footer: etiqueta semántica para el pie de página -->
+    <footer class="pie-pagina">
+        <div class="contenido-footer">
+            <h2>Conecta conmigo</h2>
+            <p>Encuéntrame en mis redes profesionales para ver más de mi trabajo</p>
+
+            <!-- Botones de redes sociales -->
+            <div class="redes-sociales">
+                <a href="https://www.linkedin.com/in/luisjcm/" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="boton-contacto linkedin">LinkedIn</a>
+                <a href="https://github.com/luisjcm" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="boton-contacto github">GitHub</a>
+            </div>
+
+            <!-- Copyright: símbolo &copy; muestra © -->
+            <p class="copyright">&copy; 2026 Luis Jesus. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ========== SCRIPTS (ARCHIVOS JAVASCRIPT) ========== -->
+    <!-- Se cargan al final para que la página sea visible más rápido -->
+    
+    <!-- 
+        ScrollReveal ya lo tienes, pero vamos a usar principalmente nuestro código personalizado
+        Puedes mantenerlo como respaldo
+    -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    
+    <!-- Nuestro archivo JavaScript personalizado -->
+    <script src="script.js"></script>
 
 </body>
 
 </html>
+
