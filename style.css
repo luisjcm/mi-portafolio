@@ -469,162 +469,140 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-8px) rotate(-45deg);
 }
 
+
 /* ============================================
-   SECCIÓN DE EXPERIENCIA
+   EXPERIENCIA PROFESIONAL (TIMELINE)
    ============================================ */
 .seccion-experiencia {
-    padding: 60px 20px;
+    padding: 80px 20px;
     background-color: var(--fondo);
-    text-align: center;
+    /* Aseguramos que el contenedor general no centre el texto de las tarjetas */
+    text-align: center; 
 }
 
-.titulo-seccion {
-    font-size: 2rem;
-    margin-bottom: 40px;
-    color: var(--texto-titulos-secundario);
-    
-    /* NUEVA: Posición relativa para el subrayado decorativo */
-    position: relative;
-    display: inline-block;
-}
-
-/* NUEVO: Subrayado decorativo debajo de los títulos */
-.titulo-seccion::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;              /* 10px debajo del texto */
-    left: 50%;                  /* Comienza al 50% del ancho */
-    transform: translateX(-50%); /* Centra el elemento */
-    width: 60px;
-    height: 4px;
-    background-color: var(--color-acento);
-    border-radius: 2px;
-}
-
-/* ============================================
-   TIMELINE (LÍNEA DE TIEMPO)
-   ============================================ */
-.timeline-section {
-    padding: 2rem;
-    background-color: var(--fondo);
-}
-
+/* Contenedor principal de la línea */
 .timeline {
-    /* 
-       position: relative; permite que los elementos hijos con
-       position: absolute se posicionen respecto a este contenedor
-    */
     position: relative;
     max-width: 800px;
-    margin: 0 auto;             /* Centra horizontalmente */
-    
-    /* 
-       border-left: línea vertical a la izquierda
-       Es la "columna vertebral" del timeline
-    */
-    border-left: 2px solid var(--color-principal);
-    padding-left: 20px;
+    margin: 0 auto;
+    padding-left: 40px; /* Espacio entre la línea y las tarjetas */
+    text-align: left; /* Forzamos que el texto vuelva a la izquierda */
+}
+
+/* La línea vertical (La columna vertebral) */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    background-color: var(--color-principal);
+    border-radius: 2px;
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 2.5rem;
+    margin-bottom: 50px;
 }
 
-/* El punto circular en la línea de tiempo */
+/* El punto en la línea */
 .timeline-dot {
-    /* 
-       position: absolute; se posiciona respecto al .timeline-item padre
-       left: -27px; se mueve a la izquierda para quedar sobre la línea
-    */
     position: absolute;
-    left: -27px;
+    left: -48px; /* Posiciona el punto exactamente sobre la línea */
     top: 5px;
-    width: 12px;
-    height: 12px;
+    width: 18px;
+    height: 18px;
     background-color: var(--color-acento);
-    border-radius: 50%;         /* Círculo perfecto */
-    border: 2px solid var(--fondo);
-    
-    /* NUEVO: Efecto de pulso */
-    animation: pulse 2s infinite;
+    border-radius: 50%;
+    border: 4px solid var(--fondo); /* Borde del color de fondo para separar la línea */
+    box-shadow: 0 0 0 2px var(--color-principal); /* Anillo exterior */
+    z-index: 1;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* NUEVA: Animación de pulso para los puntos */
-@keyframes pulse {
-    0%, 100% {
-        box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7);
-    }
-    50% {
-        box-shadow: 0 0 0 10px rgba(251, 191, 36, 0);
-    }
+/* Efecto al pasar el mouse sobre la tarjeta: el punto brilla */
+.timeline-item:hover .timeline-dot {
+    background-color: var(--fondo);
+    border-color: var(--color-acento);
+    transform: scale(1.2); /* Crece un poquito */
 }
 
+/* La Tarjeta de Contenido */
 .timeline-content {
     background-color: var(--fondo-tarjeta);
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 6px var(--sombra);
-    
-    /* MEJORADO: Transiciones más suaves */
-    transition: transform 0.3s ease, 
-                box-shadow 0.3s ease;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--sombra);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Triangulito (flecha) que apunta desde la tarjeta hacia la línea */
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -12px;
+    border-style: solid;
+    border-width: 12px 12px 12px 0;
+    border-color: transparent var(--fondo-tarjeta) transparent transparent;
 }
 
 .timeline-content:hover {
-    /* Mueve la tarjeta 10px a la derecha */
-    transform: translateX(10px);
-    /* Sombra más pronunciada al hacer hover */
-    box-shadow: 0 6px 12px var(--sombra);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
+/* Tipografía de la Tarjeta */
 .timeline-date {
-    font-size: 0.85rem;
+    display: inline-block;
     color: var(--color-acento);
-    font-weight: bold;
-    /* 
-       display: block; hace que ocupe toda la línea
-       (por defecto span es inline)
-    */
-    display: block;
-    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .timeline-content h3 {
     color: var(--texto-titulos);
-    margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
 }
 
-.timeline-content h4 {
-    color: var(--texto);
-    margin: 0.5rem 0;
+.timeline-content h4.agencia, 
+.timeline-content h4.empresa {
+    color: var(--texto-titulos-secundario);
     font-size: 1rem;
     font-weight: 500;
+    margin-bottom: 15px;
+    opacity: 0.9;
 }
 
 .timeline-content ul {
     list-style: none;
     padding: 0;
-    margin-top: 1rem;
     color: var(--parrafo);
-    font-size: 0.95rem;
 }
 
-/* Crea viñetas personalizadas con el símbolo • */
+.timeline-content li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px; /* Espacio para la flechita */
+    line-height: 1.5;
+}
+
+/* Viñeta personalizada moderna */
 .timeline-content li::before {
-    content: "•";               /* Símbolo de viñeta */
+    content: "▹"; /* Reemplaza el clásico punto por una flecha */
+    position: absolute;
+    left: 0;
     color: var(--color-acento);
     font-weight: bold;
-    /* 
-       display: inline-block; permite aplicar width
-       width: 1em; espacio reservado para la viñeta
-       margin-left: -1em; compensa el espacio para alinear texto
-    */
-    display: inline-block; 
-    width: 1em;
-    margin-left: -1em;
+    font-size: 1.2rem;
 }
+
 
 /* ============================================
    SECCIÓN DE PROYECTOS
