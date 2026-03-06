@@ -22,34 +22,34 @@
 */
 
 :root {
-    /* COLORES DE FONDO */
-    --fondo: #1A1A1A;                /* Fondo principal oscuro */
-    --color-principal: #323B4C;      /* Color del header y secciones principales */
-    --fondo-tarjeta: #25252b;        /* Fondo de tarjetas y cards */
+    /* COLORES DE FONDO (Navy) */
+    --fondo: #0a192f;                /* Fondo principal azul marino oscuro */
+    --color-principal: #0a192f;      /* Header (se funde con el fondo para verse más limpio) */
+    --fondo-tarjeta: #112240;        /* Tarjetas (experiencia/proyectos) un poco más claras */
     
-    /* COLORES DE TEXTO */
-    --texto: #e0e0e0;                /* Texto normal (gris claro) */
-    --parrafo: #e0e0e0;              /* Color específico para párrafos */
-    --texto-titulos: #ffffff;        /* Títulos principales (blanco) */
-    --texto-titulos-secundario: #ffffff; /* Subtítulos */
-    --texto-footer: #a0a0a0;         /* Texto del footer (más tenue) */
+    /* COLORES DE TEXTO (Tonos Slate/Pizarra) */
+    --texto: #8892b0;                /* Texto normal (gris azulado) */
+    --parrafo: #8892b0;              /* Párrafos */
+    --texto-titulos: #ccd6f6;        /* Títulos principales (casi blanco/celeste) */
+    --texto-titulos-secundario: #e6f1ff; /* Subtítulos más brillantes */
+    --texto-footer: #8892b0;         /* Texto del footer */
     
-    /* COLORES DE ACENTO */
-    --color-acento: #fbbf24;         /* Amarillo/dorado para destacar */
-    --texto-hover: #fbbf24;          /* Color al pasar el mouse */
+    /* COLORES DE ACENTO (Verde/Teal) */
+    --color-acento: #64ffda;         /* El famoso verde neón */
+    --texto-hover: #64ffda;          /* Color al pasar el mouse */
     
-    /* TAGS Y BADGES */
-    --tag: #2c3e50;                  /* Fondo de etiquetas de tecnología */
-    --texto-tag: #e0e0e0;            /* Texto de las etiquetas */
+    /* TAGS Y BADGES (Tecnologías) */
+    --tag: rgba(100, 255, 218, 0.1); /* Fondo translúcido verde para las etiquetas */
+    --texto-tag: #64ffda;            /* Letras verdes en las etiquetas */
     
     /* EFECTOS Y OTROS */
-    --sombra: rgba(0,0,0,0.4);       /* Sombra estándar */
-    --boton-footer: rgba(184, 115, 51, 0.2); /* Fondo de botones del footer */
-    --enlaces: #b87333;               /* Color de enlaces */
+    --sombra: rgba(2, 12, 27, 0.7);  /* Sombra azul muy oscura para dar profundidad */
+    --boton-footer: rgba(100, 255, 218, 0.1); /* Fondo sutil para botones sociales */
+    --enlaces: #64ffda;              /* Color de enlaces */
     
-    /* NUEVAS VARIABLES PARA ANIMACIONES */
-    --transition-speed: 0.3s;        /* Velocidad de transiciones */
-    --border-radius: 15px;           /* Radio de bordes redondeados */
+    /* ANIMACIONES Y BORDES */
+    --transition-speed: 0.3s;
+    --border-radius: 6px;            /* Bordes ligeramente cuadrados para un look más "Tech" */
 }
 
 /* ============================================
