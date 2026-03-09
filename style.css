@@ -645,9 +645,10 @@ h2.titulo-seccion{
 }
 
 .tag {
-    background-color: var(--tag);
-    color: var(--texto-tag);
+    background-color: var(--fondo);
+    color: var(--texto);
     padding: 5px 10px;
+    border: 2px solid var(--enlaces);
     border-radius: 20px;        /* Bordes muy redondeados */
     font-size: 0.8rem;
     font-weight: bold;
@@ -735,51 +736,7 @@ h2.titulo-seccion{
     gap: 15px;
 }
 
-/* Estilos para inputs y textarea */
-.formulario-contacto input, 
-.formulario-contacto textarea {
-    padding: 15px;
-    border: 1px solid var(--texto-titulos);
-    border-radius: 10px;
-    background-color: var(--fondo-tarjeta);
-    color: var(--texto-titulos);
-    font-size: 1rem;
-    font-family: inherit;       /* Hereda la fuente del padre */
-    
-    /* 
-       resize: vertical; permite cambiar el tamaño del textarea
-       solo verticalmente (no horizontalmente)
-    */
-    resize: vertical;
-    
-    /* NUEVO: Efecto focus */
-    transition: border-color 0.3s ease, 
-                box-shadow 0.3s ease;
-}
 
-/* 
-   :focus = pseudo-clase cuando el elemento tiene el foco
-   (cuando el usuario hace clic en el input)
-*/
-.formulario-contacto input:focus, 
-.formulario-contacto textarea:focus {
-    /* 
-       outline: none; quita el borde azul por defecto del navegador
-       Se reemplaza con un efecto personalizado
-    */
-    outline: none;
-    border-color: var(--color-acento);
-    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.2);
-}
-
-/* 
-   ::placeholder = pseudo-elemento para el texto placeholder
-*/
-.formulario-contacto input::placeholder, 
-.formulario-contacto textarea::placeholder {
-    color: var(--texto-titulos);
-    opacity: 0.6;               /* Semi-transparente */
-}
 
 /* ============================================
    BOTÓN ENVIAR
