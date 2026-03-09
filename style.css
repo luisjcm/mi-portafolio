@@ -70,8 +70,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2.titulo-seccion{
-        margin-bottom: 30px;
-
+        text-align: center;
+        width: 100%;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--texto);
 }
 
 /* ============================================
@@ -448,103 +453,106 @@ h2.titulo-seccion{
 
 
 
-/* ============================================
-   EXPERIENCIA PROFESIONAL (GRID HORIZONTAL)
+
+
+   /* ============================================
+   SECCIÓN EXPERIENCIA (ZIG-ZAG LAYOUT)
    ============================================ */
-.seccion-experiencia {
-    padding: 100px 20px;
-    background-color: var(--fondo);
-    text-align: center; 
-}
 
-/* Contenedor principal: Ahora es una cuadrícula flexible */
-.timeline {
+.contenedor-zigzag {
     display: flex;
-    flex-wrap: wrap;       /* Permite que las tarjetas bajen si la pantalla es pequeña */
-    justify-content: center;
-    gap: 30px;             /* Espacio entre las tarjetas */
-    max-width: 1200px;     /* Mismo ancho máximo que tu sección de proyectos */
-    margin: 0 auto;
-    padding: 0;
-    text-align: left;
+    flex-direction: column;
+    gap: 80px; /* Espacio grande entre la exp 1 y la exp 2 */
+    margin-top: 40px;
+
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
 }
 
-/* Ocultamos la línea vertical, los puntos y las flechitas laterales */
-.timeline::before,
-.timeline-dot,
-.timeline-content::before {
-    display: none;
+.zigzag-item {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Espacio entre la imagen y el texto */
+    width: 100%;
 }
 
-/* El contenedor de cada tarjeta */
-.timeline-item {
-    flex: 1 1 350px;       /* La tarjeta intentará ocupar mitad y mitad, sin bajar de 450px */
-    margin-bottom: 0;      /* Quitamos el margen inferior que tenía la línea de tiempo */
+/* Magia del Zig-Zag: Invertir el orden para el segundo elemento */
+.zigzag-item.reverse {
+    flex-direction: row-reverse;
 }
 
-/* La Tarjeta en sí */
-.timeline-content {
-    background-color: var(--fondo-tarjeta);
-    padding: 40px 30px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 5px 15px var(--sombra);
-    height: 100%;          /* Hace que ambas tarjetas midan exactamente lo mismo de alto */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Contenedor de la imagen ocupa el 50% */
+.zigzag-imagen {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    /* Un pequeño resplandor de fondo para que las imágenes destaquen */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); 
+    background-color: #11222e; /* Color sutil por si la imagen es transparente */
 }
 
-/* Efecto de elevación al pasar el mouse (igual que los proyectos) */
-.timeline-content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+.zigzag-imagen img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-/* Tipografía de la Tarjeta */
-.timeline-date {
-    display: inline-block;
-    color: var(--color-acento);
+.zigzag-imagen:hover img {
+    transform: scale(1.05); /* Pequeño zoom al pasar el mouse */
+}
+
+/* Contenedor del texto ocupa el otro 50% */
+.zigzag-texto {
+    flex: 1;
+}
+
+.zigzag-texto .fecha-destacada {
+    color: var(--enlaces); /* Tu azul de acento */
     font-weight: 700;
     font-size: 0.9rem;
-    margin-bottom: 10px;
     letter-spacing: 1px;
-    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
 }
 
-.timeline-content h3 {
-    color: var(--texto-titulos);
-    font-size: 1.4rem;
+.zigzag-texto h3 {
+    font-size: 2rem;
     margin-bottom: 5px;
+    color: var(--texto-titulos);
 }
 
-.timeline-content h4.agencia, 
-.timeline-content h4.empresa {
-    color: var(--texto-titulos-secundario);
-    font-size: 1rem;
-    font-weight: 500;
+.zigzag-texto .empresa {
+    display: block;
+    font-size: 1.1rem;
+    color: #a0aec0; /* Un gris claro para el nombre de la empresa */
     margin-bottom: 20px;
-    opacity: 0.9;
+    font-style: italic;
 }
 
-.timeline-content ul {
-    list-style: none;
-    padding: 0;
-    color: var(--parrafo);
+.zigzag-texto p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
 }
 
-.timeline-content li {
-    margin-bottom: 15px;
-    position: relative;
-    padding-left: 25px; 
-    line-height: 1.6;
-}
+/* ============================================
+   RESPONSIVE (MÓVILES)
+   ============================================ */
+@media (max-width: 768px) {
+    .zigzag-item, 
+    .zigzag-item.reverse {
+        flex-direction: column; /* Apilar verticalmente en móviles */
+        gap: 30px;
+        text-align: center;
+    }
 
-/* Viñeta personalizada con el color de acento */
-.timeline-content li::before {
-    content: "▹"; 
-    position: absolute;
-    left: 0;
-    color: var(--color-acento);
-    font-weight: bold;
-    font-size: 1.2rem;
+    .tecnologias {
+        justify-content: center; /* Centrar los tags en móviles */
+    }
 }
 
 
