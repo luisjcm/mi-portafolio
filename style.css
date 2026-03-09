@@ -1,99 +1,71 @@
-/* ============================================
-   RESET Y CONFIGURACIÓN BÁSICA
-   ============================================ */
 
-/* 
-   El asterisco (*) selecciona TODOS los elementos de la página
-   Este "reset" elimina márgenes y paddings por defecto del navegador
-*/
 * {
-    margin: 0;              /* Elimina márgenes externos */
-    padding: 0;             /* Elimina márgenes internos */
-    box-sizing: border-box; /* Hace que padding y border se incluyan en el width total */
-    scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en enlaces internos */
+    margin: 0;              
+    padding: 0;             
+    box-sizing: border-box; 
+    scroll-behavior: smooth; 
 }
 
-/* ============================================
-   VARIABLES CSS (Custom Properties)
-   ============================================
-   Las variables permiten reutilizar valores y cambiar temas fácilmente
-   Se definen en :root para que estén disponibles en toda la página
-   Se usan así: background-color: var(--nombre-variable);
-*/
+
+
 
 :root {
-    /* COLORES DE FONDO (Navy) */
-    --fondo: #0a192f;                /* Fondo principal azul marino oscuro */
-    --color-principal: #0a192f;      /* Header (se funde con el fondo para verse más limpio) */
-    --fondo-tarjeta: #112240;        /* Tarjetas (experiencia/proyectos) un poco más claras */
+    --fondo: #0e1920;                 
+    --color-principal: #162a36;      
+    --fondo-tarjeta: #162a36;        
     
-    /* COLORES DE TEXTO (Tonos Slate/Pizarra) */
-    --texto: #8892b0;                /* Texto normal (gris azulado) */
-    --parrafo: #8892b0;              /* Párrafos */
-    --texto-titulos: #ccd6f6;        /* Títulos principales (casi blanco/celeste) */
-    --texto-titulos-secundario: #e6f1ff; /* Subtítulos más brillantes */
-    --texto-footer: #8892b0;         /* Texto del footer */
+    --texto: #e5edf5;                
+    --parrafo: #e5edf5;
+    --texto-titulos: #ffffff;        
+    --texto-titulos-secundario: #e5edf5; 
+    --texto-footer: #e5edf5;
     
-    /* COLORES DE ACENTO (Verde/Teal) */
-    --color-acento: #64ffda;         /* El famoso verde neón */
-    --texto-hover: #64ffda;          /* Color al pasar el mouse */
+    --color-acento: #70ade6;         
+    --texto-hover: #70ade6;
     
-    /* TAGS Y BADGES (Tecnologías) */
-    --tag: rgba(100, 255, 218, 0.1); /* Fondo translúcido verde para las etiquetas */
-    --texto-tag: #64ffda;            /* Letras verdes en las etiquetas */
+    --tag: #1c70ba;                  
+    --texto-tag: #e5edf5;
+    --boton-footer: #1c70ba;         
+    --enlaces: #70ade6;              
     
-    /* EFECTOS Y OTROS */
-    --sombra: rgba(2, 12, 27, 0.7);  /* Sombra azul muy oscura para dar profundidad */
-    --boton-footer: rgba(100, 255, 218, 0.1); /* Fondo sutil para botones sociales */
-    --enlaces: #64ffda;              /* Color de enlaces */
+    --sombra: rgba(14, 25, 32, 0.9); 
     
-    /* ANIMACIONES Y BORDES */
     --transition-speed: 0.3s;
-    --border-radius: 6px;            /* Bordes ligeramente cuadrados para un look más "Tech" */
+    --border-radius: 8px;            
 }
 
-/* ============================================
-   MODO OSCURO
-   ============================================
-   Cuando el body tiene la clase "dark-mode",
-   sobrescribe las variables con nuevos valores
-*/
+
 body.dark-mode {
-    --fondo: #121212;                /* Fondo más oscuro */
+    --fondo: #121212;                
     --texto: #e0e0e0;
     --texto-titulos: #ffffff;
     --texto-titulos-secundario: #ffffff;
     --fondo-tarjeta: #1e1e1e;
     --color-principal: #1e1e1e;
     --color-acento: #fbbf24;
-    --sombra: rgba(0,0,0,0.7);       /* Sombra más intensa */
+    --sombra: rgba(0,0,0,0.7);       
     --texto-footer: #ffffff;
-    --tag: rgba(255,255,255,0.2);    /* Tags semi-transparentes */
+    --tag: rgba(255,255,255,0.2);    
     --texto-tag: #ffffff;
     --parrafo: #ffffff;
     --enlaces: #ffffff;
 }
 
+
 /* ============================================
    ESTILOS GENERALES DEL BODY
    ============================================ */
 body {
-    font-family: 'Poppins', 'Montserrat', sans-serif; /* Fuente principal */
+    font-family: 'Poppins', sans-serif; /* UNIFICADO: Solo usamos Poppins */
     margin: 0;
-    background-color: var(--fondo);  /* Usa la variable de fondo */
-    color: var(--texto);             /* Usa la variable de texto */
-    
-    /* 
-       transition: hace que los cambios de color sean suaves (0.3 segundos)
-       Se aplica al cambiar entre modo claro/oscuro
-    */
-    transition: background-color var(--transition-speed), 
-                color var(--transition-speed);
+    background-color: var(--fondo);
+    color: var(--texto);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
-/* Todos los títulos usan la misma fuente y color */
+/* Todos los títulos usan la misma fuente */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif; /* UNIFICADO */
     color: var(--texto-titulos);
 }
 
@@ -470,88 +442,55 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+
 /* ============================================
-   EXPERIENCIA PROFESIONAL (TIMELINE)
+   EXPERIENCIA PROFESIONAL (GRID HORIZONTAL)
    ============================================ */
 .seccion-experiencia {
-    padding: 80px 20px;
+    padding: 100px 20px;
     background-color: var(--fondo);
-    /* Aseguramos que el contenedor general no centre el texto de las tarjetas */
     text-align: center; 
 }
 
-/* Contenedor principal de la línea */
+/* Contenedor principal: Ahora es una cuadrícula flexible */
 .timeline {
-    position: relative;
-    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap;       /* Permite que las tarjetas bajen si la pantalla es pequeña */
+    justify-content: center;
+    gap: 30px;             /* Espacio entre las tarjetas */
+    max-width: 1200px;     /* Mismo ancho máximo que tu sección de proyectos */
     margin: 0 auto;
-    padding-left: 40px; /* Espacio entre la línea y las tarjetas */
-    text-align: left; /* Forzamos que el texto vuelva a la izquierda */
+    padding: 0;
+    text-align: left;
 }
 
-/* La línea vertical (La columna vertebral) */
-.timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 3px;
-    background-color: var(--color-principal);
-    border-radius: 2px;
+/* Ocultamos la línea vertical, los puntos y las flechitas laterales */
+.timeline::before,
+.timeline-dot,
+.timeline-content::before {
+    display: none;
 }
 
+/* El contenedor de cada tarjeta */
 .timeline-item {
-    position: relative;
-    margin-bottom: 50px;
+    flex: 1 1 350px;       /* La tarjeta intentará ocupar mitad y mitad, sin bajar de 450px */
+    margin-bottom: 0;      /* Quitamos el margen inferior que tenía la línea de tiempo */
 }
 
-/* El punto en la línea */
-.timeline-dot {
-    position: absolute;
-    left: -48px; /* Posiciona el punto exactamente sobre la línea */
-    top: 5px;
-    width: 18px;
-    height: 18px;
-    background-color: var(--color-acento);
-    border-radius: 50%;
-    border: 4px solid var(--fondo); /* Borde del color de fondo para separar la línea */
-    box-shadow: 0 0 0 2px var(--color-principal); /* Anillo exterior */
-    z-index: 1;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-/* Efecto al pasar el mouse sobre la tarjeta: el punto brilla */
-.timeline-item:hover .timeline-dot {
-    background-color: var(--fondo);
-    border-color: var(--color-acento);
-    transform: scale(1.2); /* Crece un poquito */
-}
-
-/* La Tarjeta de Contenido */
+/* La Tarjeta en sí */
 .timeline-content {
     background-color: var(--fondo-tarjeta);
-    padding: 30px;
-    border-radius: 15px;
+    padding: 40px 30px;
+    border-radius: var(--border-radius);
     box-shadow: 0 5px 15px var(--sombra);
-    position: relative;
+    height: 100%;          /* Hace que ambas tarjetas midan exactamente lo mismo de alto */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Triangulito (flecha) que apunta desde la tarjeta hacia la línea */
-.timeline-content::before {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: -12px;
-    border-style: solid;
-    border-width: 12px 12px 12px 0;
-    border-color: transparent var(--fondo-tarjeta) transparent transparent;
-}
-
+/* Efecto de elevación al pasar el mouse (igual que los proyectos) */
 .timeline-content:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
 /* Tipografía de la Tarjeta */
@@ -576,7 +515,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--texto-titulos-secundario);
     font-size: 1rem;
     font-weight: 500;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     opacity: 0.9;
 }
 
@@ -587,15 +526,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .timeline-content li {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     position: relative;
-    padding-left: 20px; /* Espacio para la flechita */
-    line-height: 1.5;
+    padding-left: 25px; 
+    line-height: 1.6;
 }
 
-/* Viñeta personalizada moderna */
+/* Viñeta personalizada con el color de acento */
 .timeline-content li::before {
-    content: "▹"; /* Reemplaza el clásico punto por una flecha */
+    content: "▹"; 
     position: absolute;
     left: 0;
     color: var(--color-acento);

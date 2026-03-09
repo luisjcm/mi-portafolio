@@ -108,28 +108,20 @@
                 <!-- ========== ITEM 1: FREELANCE ========== -->
                 <!-- data-animate: marca este elemento para animarse al hacer scroll -->
                 <div class="timeline-item" data-animate>
-                    <!-- Punto circular en la línea de tiempo -->
-                    <div class="timeline-dot"></div>
-                    
-                    <!-- Contenido de la experiencia -->
-                    <div class="timeline-content">
-                        <!-- span: contenedor inline genérico -->
-                        <span class="timeline-date">Jun. 2025 - Actualidad</span>
-                        
-                        <!-- h3: título de nivel 3 -->
-                        <h3>Desarrollador Web (Freelance/Remoto)</h3>
-                        
-                        <!-- h4: título de nivel 4, para subtítulos -->
-                        <h4 class="agencia">Agencias: Clinmedia / Newe Marketing</h4>
-                        
-                        <!-- Lista de logros/responsabilidades -->
-                        <ul>
-                            <li>Maquetación ágil de hasta 3 sitios web diarios (WordPress/Elementor).</li>
-                            <li>Configuración de E-commerce y pasarelas de pago con WooCommerce.</li>
-                            <li>Optimización UI/UX y personalización con CSS3.</li>
-                        </ul>
-                    </div>
-                </div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+        <span class="timeline-date">Jun. 2025 - Actualidad</span>
+        
+        <h3>Desarrollador Front-End & Web Master</h3>
+        <h4 class="agencia">Freelance / Proyectos a Medida</h4>
+        
+        <ul>
+            <li><strong>Optimización de Rendimiento:</strong> Desarrollé interfaces web "pixel-perfect" (HTML/CSS/JS) desde cero, reduciendo los tiempos de carga al eliminar el uso de plantillas y constructores pesados.</li>
+            <li><strong>Aumento de Conversión:</strong> Diseñé e implementé soluciones UI/UX responsivas centradas en el usuario, mejorando la navegación en dispositivos móviles y la retención de visitantes.</li>
+            <li><strong>Escalabilidad de Negocios:</strong> Entregué tiendas E-commerce (WooCommerce) totalmente operativas y seguras, permitiendo a clientes internacionales digitalizar e incrementar sus ventas.</li>
+        </ul>
+    </div>
+</div>
 
                 <!-- ========== ITEM 2: HELP DESK ========== -->
                 <div class="timeline-item" data-animate>
@@ -139,10 +131,10 @@
                         <h3>Analista de Help Desk (Presencial)</h3>
                         <h4 class="empresa">Avior Airlines C.A.</h4>
                         <ul>
-                            <li>Soporte técnico crítico para +800 usuarios (SAP, KIU).</li>
-                            <li>Monitoreo de red e infraestructura con PRTG y Zabbix.</li>
-                            <li>Mantenimiento preventivo de hardware especializado.</li>
-                        </ul>
+            <li><strong>Soporte a Gran Escala:</strong> Garanticé la continuidad operativa de +800 usuarios corporativos, resolviendo incidencias críticas en sistemas complejos (SAP, KIU) bajo estrictos tiempos de respuesta (SLA).</li>
+            <li><strong>Reducción de Inactividad (Downtime):</strong> Anticipé y neutralicé fallos de infraestructura mediante el monitoreo proactivo de redes (PRTG, Zabbix), evitando interrupciones en la aerolínea.</li>
+            <li><strong>Optimización de Recursos:</strong> Ejecuté planes de mantenimiento preventivo que prolongaron la vida útil del hardware especializado, reduciendo costos operativos para el departamento IT.</li>
+        </ul>
                     </div>
                 </div>
             </div>
@@ -230,89 +222,26 @@
     <!-- ========== SECCIÓN DE CONTACTO ========== -->
     <section id="contacto" class="seccion-contacto">
         <div class="contenedor-formulario" data-animate>
-            <h2 class="titulo-seccion">¿Trabajamos Juntos?</h2>
-            <p class="subtitulo-contacto">¡Estoy disponible para nuevos proyectos y oportunidades! Escríbeme un mensaje.</p>
-
-            <!-- 
-                Formulario que envía datos a Formspree
-                action: URL donde se envían los datos
-                method="post": método HTTP para enviar datos de forma segura
-                autocomplete="off": desactiva el autocompletado del navegador
-            -->
-            <form action="https://formspree.io/f/xovgybaz" 
-                  method="post" 
-                  autocomplete="off"
-                  class="formulario-contacto">
-                
-                <!-- 
-                    Input tipo texto para el nombre
-                    name="Nombre": nombre del campo que recibirá Formspree
-                    placeholder: texto que aparece antes de escribir
-                    required: campo obligatorio
-                -->
-                <input type="text" 
-                       name="Nombre" 
-                       placeholder="Tu Nombre" 
-                       required>
-                
-                <!-- Input tipo email: valida automáticamente que sea un correo válido -->
-                <input type="email" 
-                       name="_replyto" 
-                       placeholder="Tu email" 
-                       required>
-                
-                <!-- 
-                    textarea: campo de texto multilínea
-                    rows="6": altura inicial de 6 líneas
-                -->
-                <textarea name="Mensaje" 
-                          placeholder="Tu Mensaje" 
-                          rows="6" 
-                          required></textarea>
-
-                <!-- Botón para enviar el formulario -->
-                <button type="submit" id="btn-enviar" class="boton-enviar">
-                    Enviar Mensaje
-                </button>
-
-                <!-- 
-                    Párrafo para mostrar mensajes de éxito/error
-                    aria-live="polite": anuncia cambios a lectores de pantalla
-                -->
-                <p id="estado-form" class="estado-form" aria-live="polite"></p>
-                
-                <!-- 
-                    Campo oculto que Formspree usa para el asunto del email
-                    type="hidden": no se muestra al usuario
-                -->
-                <input type="hidden" 
-                       name="_subject" 
-                       value="Nuevo contacto desde tu Portafolio">
-            </form>
+            <h2 class="titulo-seccion">¿Listo para empezar tu proyecto?</h2>
+            <p class="subtitulo-contacto">
+                Este portafolio es una demostración en vivo de mis habilidades de desarrollo front-end personalizado. Si buscas una web rápida, única y programada a medida sin plantillas, envíame un mensaje directo.
+            </p>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <p style="color: var(--color-acento); font-weight: bold; font-size: 1.2rem;">
+                    💬 Contáctame a través del chat de Workana
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- ========== FOOTER (PIE DE PÁGINA) ========== -->
     <!-- footer: etiqueta semántica para el pie de página -->
-    <footer class="pie-pagina">
+   <footer class="pie-pagina">
         <div class="contenido-footer">
-            <h2>Conecta conmigo</h2>
-            <p>Encuéntrame en mis redes profesionales para ver más de mi trabajo</p>
-
-            <!-- Botones de redes sociales -->
-            <div class="redes-sociales">
-                <a href="https://www.linkedin.com/in/luisjcm/" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="boton-contacto linkedin">LinkedIn</a>
-                <a href="https://github.com/luisjcm" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="boton-contacto github">GitHub</a>
-            </div>
-
-            <!-- Copyright: símbolo &copy; muestra © -->
-            <p class="copyright">&copy; 2026 Luis Jesus. Todos los derechos reservados.</p>
+            <h2>Desarrollo Web Custom</h2>
+            <p>Construido 100% desde cero con HTML5, CSS3 y Vanilla JS</p>
+            <p class="copyright">&copy; 2026 Luis Jesus. Proyecto exclusivo para Workana.</p>
         </div>
     </footer>
 
