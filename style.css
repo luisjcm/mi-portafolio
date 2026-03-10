@@ -484,25 +484,36 @@ h2.titulo-seccion{
 }
 
 /* Contenedor de la imagen ocupa el 50% */
+/* Contenedor principal de la imagen en zig-zag */
 .zigzag-imagen {
     flex: 1;
-    border-radius: 20px;
-    overflow: hidden;
-    /* Un pequeño resplandor de fondo para que las imágenes destaquen */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); 
-    background-color: #11222e; /* Color sutil por si la imagen es transparente */
+    display: flex; /* Centra la imagen dentro del contenedor */
+    justify-content: center;
+    align-items: center;
+    /* IMPORTANTE: Quitamos el background-color y box-shadow aquí 
+       para que no interfieran con la máscara transparente de la imagen */
+    background: transparent; 
+    box-shadow: none;
 }
 
+/* La imagen en sí, donde aplicamos la magia de la máscara */
 .zigzag-imagen img {
     width: 100%;
+    max-width: 500px; /* Evita que crezcan demasiado en pantallas gigantes */
     height: auto;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.3s ease;
+    
+    /* MÁSCARA CSS: Difumina los bordes hacia transparente */
+    /* Webkit (Chrome, Safari, Edge) */
+    -webkit-mask-image: radial-gradient(circle, black 50%, transparent 100%);
+    /* Estándar (Firefox) */
+    mask-image: radial-gradient(circle, black 50%, transparent 100%);
 }
 
 .zigzag-imagen:hover img {
-    transform: scale(1.05); /* Pequeño zoom al pasar el mouse */
+    transform: scale(1.05); /* Mantenemos el pequeño zoom al pasar el mouse */
 }
 
 /* Contenedor del texto ocupa el otro 50% */
@@ -636,23 +647,23 @@ h2.titulo-seccion{
 .contenido-proyecto h3 {
     color: var(--texto-titulos-secundario);
     margin-bottom: 10px;
+    text-align: center;
 }
 
 /* ============================================
    TAGS DE TECNOLOGÍAS
    ============================================ */
 .tecnologias {
-    /* 
-       Flexbox para alinear las etiquetas en fila
-       flex-wrap: wrap; permite que pasen a la siguiente línea
-    */
     display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
+    flex-wrap: wrap;         /* Si hay muchos tags, los pasa a la línea de abajo suavemente */
+    justify-content: center; /* Los agrupa todos en el centro */
+    gap: 12px;               /* Define el espacio EXACTO entre cada tag (ajusta a 10px o 15px si prefieres) */
+    margin-bottom: 20px;     /* Mantiene una buena separación con el párrafo de abajo */
+    width: 100%;
 }
 
 .tag {
+    
     background-color: var(--fondo);
     color: var(--texto);
     padding: 5px 10px;
@@ -662,8 +673,8 @@ h2.titulo-seccion{
     font-weight: bold;
     
     /* NUEVO: Efecto hover en los tags */
-    transition: transform 0.2s ease, 
-                background-color 0.2s ease;
+    transition: transform 1s ease, 
+                background-color 1s ease;
 }
 
 .tag:hover {
@@ -681,13 +692,16 @@ h2.titulo-seccion{
        1.5 = 1.5 veces el tamaño de fuente
     */
     line-height: 1.6;
+    text-align: center;
 }
 
 /* ============================================
    BOTÓN "VER SITIO WEB"
    ============================================ */
 .boton-ver {
-    display: inline-block;
+    display: block;
+    width: fit-content; /* O un ancho fijo como 150px */
+    margin: 0 auto;
     padding: 10px 20px;
     background-color: var(--color-principal);
     color: var(--texto-titulos);
@@ -695,7 +709,8 @@ h2.titulo-seccion{
     border-radius: 15px;
     font-size: 0.9rem;
     
-    /* MEJORADO: Mejor transición */
+
+
     transition: all 0.3s ease;
     border: 2px solid transparent;
 }
@@ -730,6 +745,7 @@ h2.titulo-seccion{
     font-size: 1.1rem;
     color: var(--texto);
     margin-bottom: 25px;
+    text-align: center;
 }
 
 .formulario-contacto {
@@ -1026,18 +1042,7 @@ h2.titulo-seccion{
         max-width: 350px;       /* Pero no más de 350px */
     }
     
-    /* ========== TIMELINE RESPONSIVE ========== */
-    .timeline {
-        padding-left: 15px;     /* Menos espacio a la izquierda */
-    }
     
-    .timeline-dot {
-        left: -22px;            /* Ajusta la posición del punto */
-    }
-    
-    .timeline-content:hover {
-        transform: translateX(5px); /* Movimiento más sutil en móvil */
-    }
     
     /* ========== FOOTER RESPONSIVE ========== */
     .contenido-footer h2 {
@@ -1052,6 +1057,96 @@ h2.titulo-seccion{
     
     .boton-contacto {
         width: 200px;           /* Ancho fijo para botones consistentes */
+    }
+}
+
+
+/* =======================================================
+   TOAST NOTIFICATION (ALERTA WORKANA)
+   ======================================================= */
+#toast-workana {
+    position: fixed;
+    bottom: 30px;
+    right: -400px; /* Oculto fuera de la pantalla por defecto */
+    background-color: #11222e; /* Tu fondo de tarjeta */
+    border-left: 5px solid var(--enlaces); /* Línea lateral con tu azul */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 320px;
+    z-index: 9999; /* Para que quede por encima de todo */
+    /* La magia del deslizamiento con rebote */
+    transition: right 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+}
+
+/* Esta clase se añade con JS para mostrarlo */
+#toast-workana.mostrar {
+    right: 30px; 
+}
+
+.toast-contenido {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.toast-icono {
+    font-size: 2.2rem;
+}
+
+.toast-texto h4 {
+    margin: 0 0 5px 0;
+    color: var(--texto-titulos);
+    font-size: 1.1rem;
+}
+
+.toast-texto p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #a0aec0;
+    line-height: 1.5;
+}
+
+.toast-btn {
+    background-color: var(--enlaces);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: background 0.3s ease;
+}
+
+.toast-btn:hover {
+    background-color: var(--fondo-tarjeta); /* Un azul ligeramente más claro al pasar el mouse */
+}
+
+/* Animación de "negación" para el botón del Hero */
+@keyframes shake-btn {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+.shake-animation {
+    animation: shake-btn 0.4s ease-in-out;
+}
+
+/* Responsive para que se vea bien en móviles */
+@media (max-width: 768px) {
+    #toast-workana {
+        width: 90%;
+        right: -100%;
+        bottom: 20px;
+    }
+    #toast-workana.mostrar {
+        right: 5%; /* Centrado en móviles */
     }
 }
 
