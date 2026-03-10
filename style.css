@@ -171,7 +171,7 @@ h2.titulo-seccion{
 */
 .btn-tema:hover {
     transform: rotate(30deg);
-    background-color: var(--boton-footer);
+    background-color: var(--color-acento);
 }
 
 /* ============================================
@@ -331,9 +331,9 @@ h2.titulo-seccion{
        Múltiples transiciones separadas por comas
        Cada propiedad puede tener su propia duración/timing
     */
-    transition: transform 0.3s ease, 
+    transition: transform 0.9s ease, 
                 box-shadow 0.3s ease, 
-                background-color 0.3s;
+                background-color 0.9s;
     
     /* 
        box-shadow: sombra del elemento
@@ -1112,17 +1112,19 @@ h2.titulo-seccion{
 
 .toast-btn {
     background-color: var(--enlaces);
-    color: #fff;
+    color: var(--fondo);
     text-align: center;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
     font-size: 0.95rem;
-    transition: background 0.3s ease;
+    transition: background 0.9s ease;
+    border: 2px solid var(--color-acento);
 }
 
 .toast-btn:hover {
+    color: var(--color-acento);
     background-color: var(--fondo-tarjeta); /* Un azul ligeramente más claro al pasar el mouse */
 }
 
