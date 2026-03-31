@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     console.log('✅ Portafolio Workana Edition: JS Optimizado');
-
+    myUndefinedFunction();
     // --- 1. MENÚ HAMBURGUESA (Interactividad) ---
     const menuToggle = document.getElementById('menu-toggle');
     const listaMenu = document.querySelector('.lista-menu');
