@@ -1,7 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     console.log('✅ Portafolio Workana Edition: JS Optimizado');
+
+    //Error intencional
+    console.log("Error intencional💀")
     myUndefinedFunction();
+
+
     // --- 1. MENÚ HAMBURGUESA (Interactividad) ---
     const menuToggle = document.getElementById('menu-toggle');
     const listaMenu = document.querySelector('.lista-menu');

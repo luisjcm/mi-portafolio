@@ -24,8 +24,23 @@
     <!-- Favicon: la imagen que aparece en la pestaña del navegador -->
     <link rel="icon" href="images/yo_.jpeg" type="image/jpeg">
 
-    <script src="https://js.sentry-cdn.com/446acb3b8d6d7feb9c47f6804f0a20cb.min.js" crossorigin="anonymous">
-    </script>
+    <script
+  src="https://browser.sentry-cdn.com/8.2.1/bundle.tracing.replay.min.js"
+  crossorigin="anonymous"
+></script>
+
+<script>
+  Sentry.init({
+    dsn: "https://95229f86ef94289f0ada61dcac15034d@o4511139433250816.ingest.us.sentry.io/4511139999252480",
+    integrations: [
+      Sentry.browserTracingIntegration(),
+      Sentry.replayIntegration(),
+    ],
+    tracesSampleRate: 1.0,
+    replaysSessionSampleRate: 1.0,
+    replaysOnErrorSampleRate: 1.0,
+  });
+</script>
 
 </head>
 
