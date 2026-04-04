@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('✅ Portafolio Workana Edition: JS Optimizado');
 
     //Error intencional
-    console.log("Error intencional💀")
-    myUndefinedFunction();
+    //console.log("Error intencional💀")
+    //myUndefinedFunction();
 
 
     // --- 1. MENÚ HAMBURGUESA (Interactividad) ---
