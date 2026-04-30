@@ -78,27 +78,71 @@ const content = {
 `,
 
 'Trayectoria': `
-<div class="space-y-6 animate-in fade-in">
-      <div class="relative pl-6 border-l border-zinc-800">
-        <div class="absolute w-3 h-3 bg-white rounded-full -left-[6.5px] top-1"></div>
-        
-        <h4 class="font-bold text-white">IT Support Analyst - Avior Airlines</h4>
-        
-        <span class="text-xs text-zinc-500">2020 — Presente</span>
-        
-        <p class="text-sm text-zinc-400 mt-2">Analista senior de soporte técnico e infraestructura IT.</p>
+<div class="space-y-8 animate-in fade-in duration-500">
+  
+  <!-- Experiencia Freelance -->
+  <div class="relative pl-6 border-l border-zinc-800">
+    <div class="absolute w-3 h-3 bg-white rounded-full -left-[6.5px] top-1"></div>
+    
+    <h4 class="font-bold text-white text-lg leading-tight">Desarrollador Web WordPress </h4>
 
-      </div>
-      <div class="relative pl-6 border-l border-zinc-800">
+      <p class="text-xs text-zinc-500 mb-2">Freelance / Proyectos a medida.</p>
 
-        <div class="absolute w-3 h-3 bg-zinc-800 rounded-full -left-[6.5px] top-1"></div>
-        
-        <h4 class="font-bold text-white">Magíster en Full Stack Development</h4>
-        
-        <span class="text-xs text-zinc-500">UCV</span>
-      </div>
+    <div class="flex flex-wrap gap-2 mt-3">
+      
+      <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-blue-400/80 text-[11px] font-medium border border-blue-900/30 flex items-center gap-1.5">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Jun. 2025 - Actualidad
+      </span>
+      <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[11px] font-medium border border-zinc-700/50 flex items-center gap-1.5">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        WordPress
+      </span>
+      <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[11px] font-medium border border-zinc-700/50 flex items-center gap-1.5">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        HTML/CSS/JS
+      </span>
     </div>
+    
+    <p class="text-sm text-zinc-400 mt-4 leading-relaxed">
+      Diseño y desarrollo de plataformas web orientadas a la conversión y alto rendimiento. Implementación de interfaces intuitivas (UI/UX), optimización SEO técnica y despliegue de soluciones e-commerce escalables para clientes B2B.
+    </p>
+  </div>
+
+  <!-- Experiencia Avior Airlines -->
+  <div class="relative pl-6 border-l border-zinc-800">
+    <div class="absolute w-3 h-3 bg-zinc-800 rounded-full -left-[6.5px] top-1"></div>
+    
+    <h4 class="font-bold text-white text-lg leading-tight">Analista de Help Desk (Presencial)</h4>
+    <p class="text-xs text-zinc-500 mb-2">Avior Airlines C.A.</p>
+
+    <div class="flex flex-wrap gap-2 mt-3">
+      <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-blue-400/80 text-[11px] font-medium border border-blue-900/30 flex items-center gap-1.5">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Ene. 2020 — Actualidad
+      </span>
+      <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[11px] font-medium border border-zinc-700/50 flex items-center gap-1.5">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+        Soporte IT
+      </span>
+      <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[11px] font-medium border border-zinc-700/50 flex items-center gap-1.5">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Active Directory
+      </span>
+      <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[11px] font-medium border border-zinc-700/50 flex items-center gap-1.5">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        PRTG Monitor
+      </span>
+    </div>
+    
+    <p class="text-sm text-zinc-400 mt-4 leading-relaxed">
+      Soporte técnico a gran escala garantizando la continuidad operativa de más de 800 usuarios corporativos. Monitoreo constante de Data Center, resolución de incidencias críticas y mantenimiento de infraestructura IT bajo entornos de alta exigencia.
+    </p>
+  </div>
+
+</div>
 `,
+
 'Formacion': `
 <div class="space-y-6 animate-in fade-in">
 
