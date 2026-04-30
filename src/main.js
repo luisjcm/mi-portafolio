@@ -142,7 +142,7 @@ function switchTab (tabName) {
 
   buttons.forEach(btn => {
     const isActive = btn.textContent.trim() === tabName;
-    btn.className = `flex-1 pb-3 text-[15px] font-semibold transition-all ${ 
+    btn.className = `flex-1 pb-3 text-[12px] md-text[15px] font-semibold transition-all whitespace-nowrap ${ 
       isActive ? 'text-white border-b border-white' : 'text-zinc-500 hover:text-zinc-300'
     }`;
   });

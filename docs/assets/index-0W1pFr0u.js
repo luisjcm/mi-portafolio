@@ -121,4 +121,4 @@
       
 
     </div>
-`};function r(r){t.forEach(e=>{e.className=`flex-1 pb-3 text-[15px] font-semibold transition-all ${e.textContent.trim()===r?`text-white border-b border-white`:`text-zinc-500 hover:text-zinc-300`}`}),e.innerHTML=n[r]||n.Proyectos}r(`Proyectos`),t.forEach(e=>{e.addEventListener(`click`,()=>r(e.textContent.trim()))});
+`};function r(r){t.forEach(e=>{e.className=`flex-1 pb-3 text-[12px] md-text[15px] font-semibold transition-all whitespace-nowrap ${e.textContent.trim()===r?`text-white border-b border-white`:`text-zinc-500 hover:text-zinc-300`}`}),e.innerHTML=n[r]||n.Proyectos}r(`Proyectos`),t.forEach(e=>{e.addEventListener(`click`,()=>r(e.textContent.trim()))});
