@@ -67,13 +67,44 @@ const content = {
 `,
 
 'Stack Tecnico': `
-    <div class="grid grid-cols-2 gap-3 animate-in fade-in">
-      <div class="p-3 bg-zinc-900/30 border border-zinc-800 rounded-lg text-center">Modern JS (ES6+)</div>
-      <div class="p-3 bg-zinc-900/30 border border-zinc-800 rounded-lg text-center">Tailwind CSS</div>
-      <div class="p-3 bg-zinc-900/30 border border-zinc-800 rounded-lg text-center">WordPress/Elementor</div>
-      <div class="p-3 bg-zinc-900/30 border border-zinc-800 rounded-lg text-center">Ubuntu 24.04 LTS</div>
-      <div class="p-3 bg-zinc-900/30 border border-zinc-800 rounded-lg text-center">Git & GitHub</div>
-      <div class="p-3 bg-zinc-900/30 border border-zinc-800 rounded-lg text-center">Vite</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 animate-in fade-in duration-500">
+      
+      <!-- Modern JS -->
+      <div class="flex items-center gap-3 p-4 bg-zinc-900/30 border border-zinc-800 rounded-xl hover:border-zinc-600 transition-colors group">
+        <svg class="text-zinc-500 group-hover:text-yellow-400 transition-colors" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9l-3-3H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 11l-4 4-2-2"/></svg>
+        <span class="text-[14px] font-medium text-zinc-300">Modern JS (ES6+)</span>
+      </div>
+
+      <!-- Tailwind CSS -->
+      <div class="flex items-center gap-3 p-4 bg-zinc-900/30 border border-zinc-800 rounded-xl hover:border-zinc-600 transition-colors group">
+        <svg class="text-zinc-500 group-hover:text-sky-400 transition-colors" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+        <span class="text-[14px] font-medium text-zinc-300">Tailwind CSS</span>
+      </div>
+
+      <!-- WordPress/Elementor -->
+      <div class="flex items-center gap-3 p-4 bg-zinc-900/30 border border-zinc-800 rounded-xl hover:border-zinc-600 transition-colors group">
+        <svg class="text-zinc-500 group-hover:text-blue-500 transition-colors" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <span class="text-[14px] font-medium text-zinc-300">WordPress/Elementor</span>
+      </div>
+
+      <!-- Python (Nueva Habilidad) -->
+      <div class="flex items-center gap-3 p-4 bg-zinc-900/30 border border-zinc-800 rounded-xl hover:border-zinc-600 transition-colors group">
+        <svg class="text-zinc-500 group-hover:text-blue-300 transition-colors" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
+        <span class="text-[14px] font-medium text-zinc-300">Python (básico)</span>
+      </div>
+
+      <!-- Git & GitHub -->
+      <div class="flex items-center gap-3 p-4 bg-zinc-900/30 border border-zinc-800 rounded-xl hover:border-zinc-600 transition-colors group">
+        <svg class="text-zinc-500 group-hover:text-white transition-colors" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        <span class="text-[14px] font-medium text-zinc-300">Git & GitHub</span>
+      </div>
+
+      <!-- Vite -->
+      <div class="flex items-center gap-3 p-4 bg-zinc-900/30 border border-zinc-800 rounded-xl hover:border-zinc-600 transition-colors group">
+        <svg class="text-zinc-500 group-hover:text-purple-400 transition-colors" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-2 10h8l-2 10"/></svg>
+        <span class="text-[14px] font-medium text-zinc-300">Vite</span>
+      </div>
+
     </div>
 `,
 
