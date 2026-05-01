@@ -4,6 +4,9 @@ import './style.css'
 const tabContent = document.getElementById('tab-content');
 const buttons = document.querySelectorAll('nav button');
 
+const tabWrapper = document.getElementById('tab-wrapper');
+tabWrapper.style.minHeight = "300px";
+
 const content = {
 
 'Proyectos': `
@@ -215,14 +218,39 @@ const content = {
 
 function switchTab (tabName) {
 
+
+  tabContent.style.opacity = "0";
+  tabContent.style.transform = 'translateX(-20px)'
+
+  setTimeout(() => {
+
+    tabContent.innerHTML = content[tabName] || content['Proyectos'];
+
+    const newHeight = tabContent.scrollHeight;
+    tabWrapper.style.height = `${newHeight}px`;
+
+    tabContent.style.transform = "translateX(20px)";
+
+    //tabContent.classList.remove('-translate-x-4');
+    //tabContent.classList.add('translate-x-4');
+
+    requestAnimationFrame(() => {
+      //tabContent.classList.remove('opacity-0', 'translate-x-4');
+      //tabContent.classList.add('translate-x-0');
+
+      tabContent.style.opacity = "1";
+      tabContent.style.transform = 'translateX(0)'
+    });
+  }, 200);
+
   buttons.forEach(btn => {
     const isActive = btn.textContent.trim() === tabName;
-    btn.className = `flex-1 pb-3 text-[12px] md-text[15px] font-semibold transition-all whitespace-nowrap ${ 
+    btn.className = `flex-1 pb-3 text-[12px] md:text[15px] font-semibold transition-all whitespace-nowrap ${ 
       isActive ? 'text-white border-b border-white' : 'text-zinc-500 hover:text-zinc-300'
     }`;
   });
 
-  tabContent.innerHTML = content[tabName] || content['Proyectos'];
+  
 
 }
 

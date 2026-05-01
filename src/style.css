@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+
+#tab-content {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  will-change: transform, opacity;
+}
+
+#tab-wrapper {
+  transition: height 0.4s ease-in-out;
+  will-change: height;
+}
