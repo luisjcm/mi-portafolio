@@ -36,10 +36,33 @@ const content = {
         <div class="aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800">
            <img src="./public/web1.jpg" alt="Proyecto Newe" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
         </div>
-        <h4 class="font-bold text-white text-md mb-1">Desarrollo Web - Newe (España)</h4>
+
+
+        <div class="flex justify-between items-start gap-4 mb-1">
+        <h4 class="font-bold text-white text-md mb-1">Desarrollo de Plataforma Web Corporativa | Piñero Robledillo Abogados
+        </h4>
+
+        <span class="shrink-0 text-[9px] bg-amber-500/10 text-amber-500 px-2 py-0.5 rounded-full border border-amber-500/20 font-medium mt-1">Caso de Estudio</span>
+
+        </div>
+
         <p class="text-xs text-zinc-500 mb-3">Maquetación WordPress & UI Implementation</p>
+
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-2 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            WordPress
+          </span>
+          <span class="px-2 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+            Responsive Design
+          </span>
+        </div>
+
         <p class="text-[13px] text-zinc-400 leading-relaxed">
-          Implementación de diseños complejos y funcionalidades personalizadas para agencia de marketing en España. Enfoque en pixel-perfect y adaptabilidad.
+          Desarrollé una plataforma web de alto impacto para este despacho jurídico, enfocada en proyectar solidez y autoridad profesional. Mediante una arquitectura de información estratégica y maquetación ágil con Elementor Pro y Hello, implementé una interfaz moderna y 100% responsive. El resultado fue un sitio web optimizado en rendimiento que garantiza una experiencia de usuario impecable, logrando una presencia digital robusta alineada con los estándares de confianza del sector legal.
+
+
         </p>
       </div>
 
@@ -47,10 +70,29 @@ const content = {
         <div class="aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800">
            <img src="./public/web2.png" alt="Proyecto Clinmedia" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
         </div>
-        <h4 class="font-bold text-white text-md mb-1">E-commerce - Clinmedia</h4>
+
+
+        <div class="flex justify-between items-start mb-1">
+        <h4 class="font-bold text-white text-md mb-1">Plataforma Digital de Innovación Tecnológica | DeportIA</h4>
+        <span class="shrink-0 text-[9px] bg-amber-500/10 text-amber-500 px-2 py-0.5 rounded-full border border-amber-500/20 font-medium mt-1">Caso de Estudio</span>
+        </div>
+
         <p class="text-xs text-zinc-500 mb-3">WooCommerce & Optimization</p>
+
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-2 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            WordPress
+          </span>
+          <span class="px-2 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            WooCommerce
+          </span>
+        </div>
+
         <p class="text-[13px] text-zinc-400 leading-relaxed">
-          Despliegue de tienda virtual con optimización de carga y configuración de pasarelas de pago para sector salud/media.
+                    Realicé el desarrollo inicial y la arquitectura de la plataforma, liderando el rediseño visual para alinear la interfaz con las tendencias de IA y optimizar la experiencia de usuario (UX). Implementé una maquetación ágil de interfaces bajo una estructura técnica modular, utilizando herramientas que permiten al cliente gestionar actualizaciones de forma autónoma sin comprometer la integridad del código o el diseño. Una plataforma robusta y escalable que sirve como base sólida para el crecimiento del proyecto, logrando un sitio web de alta disponibilidad que el equipo de DeportIA puede operar con total independencia técnica.
+
         </p>
       </div>
 
@@ -206,6 +248,17 @@ const content = {
 
 };
 
+window.addEventListener('resize', () => {
+
+  const newHeight = tabContent.scrollHeight;
+  tabWrapper.style.transition = 'none';
+  tabWrapper.style.height = `${newHeight}px`;
+
+  setTimeout(() => {
+    tabWrapper.style.transition = 'height 0.4s ease-in-out';
+  }, 50);
+});
+
 function switchTab (tabName) {
 
 
@@ -216,22 +269,25 @@ function switchTab (tabName) {
 
     tabContent.innerHTML = content[tabName] || content['Proyectos'];
 
-    const newHeight = tabContent.scrollHeight;
-    tabWrapper.style.height = `${newHeight}px`;
+    tabWrapper.style.height = tabWrapper.style.height;
+
+
+    requestAnimationFrame(() => {
+
+          const newHeight = tabContent.scrollHeight;
+          tabWrapper.style.height = `${newHeight}px`;
+        tabWrapper.style.minHeight = "0px";
+
+    });
 
     tabContent.style.transform = "translateX(20px)";
 
-    //tabContent.classList.remove('-translate-x-4');
-    //tabContent.classList.add('translate-x-4');
-
     requestAnimationFrame(() => {
-      //tabContent.classList.remove('opacity-0', 'translate-x-4');
-      //tabContent.classList.add('translate-x-0');
-
       tabContent.style.opacity = "1";
-      tabContent.style.transform = 'translateX(0)'
+      tabContent.style.transform = "translateX(0)";
     });
-  }, 200);
+
+  }, 300);
 
   buttons.forEach(btn => {
     const isActive = btn.textContent.trim() === tabName;

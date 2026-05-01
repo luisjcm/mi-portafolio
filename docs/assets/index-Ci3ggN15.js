@@ -1,58 +1,90 @@
 (function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();var e=document.getElementById(`tab-content`),t=document.querySelectorAll(`nav button`),n=document.getElementById(`tab-wrapper`);n.style.minHeight=`300px`;var r={Proyectos:`
-<div class="space-y-6 animate-in fade-in duration-500">
-  <p class="text-zinc-400 text-sm ml-1">Trabajos destacados como Web Developer & Systems Engineer:</p>
+<div class="space-y-8">
+  <p class="text-zinc-400 text-sm ml-1">Selección de proyectos recientes y colaboraciones internacionales:</p>
   
-  <div class="grid grid-cols-1 gap-4">
-    <!-- Proyecto 1: E-commerce -->
-    <div class="group p-5 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:bg-zinc-900/40 hover:border-zinc-700 transition-all cursor-pointer">
+  <div class="grid grid-cols-1 gap-6">
+    
+    <div class="group p-5 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:bg-zinc-900/40 hover:border-zinc-700 transition-all transform ">
       <div class="flex justify-between items-start mb-3">
-        <h3 class="font-bold text-white text-lg group-hover:text-blue-400 transition-colors">E-commerce de Alto Rendimiento</h3>
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-zinc-600 group-hover:text-white transition-colors"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <h3 class="font-bold text-white text-lg group-hover:text-emerald-400 transition-colors">Portfolio Moderno v2.0</h3>
+        <span class="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20">Proyecto en Producción</span>
       </div>
-      
       <p class="text-sm text-zinc-400 leading-relaxed mb-4">
-        Despliegue ágil de una tienda virtual utilizando el ecosistema WordPress y WooCommerce, optimizada para tiempos de carga mínimos bajo estándares de Core Web Vitals.
+        Mi proyecto más reciente: una SPA (Single Page Application) construida con Vite y Tailwind CSS, enfocada en optimización de rendimiento y micro-animaciones fluidas.
       </p>
-      
-      <!-- Badges de Tecnología -->
       <div class="flex flex-wrap gap-2">
-        <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[11px] font-medium border border-zinc-700/50 flex items-center gap-1">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          WordPress
-        </span>
-        <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[11px] font-medium border border-zinc-700/50 flex items-center gap-1">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-          WooCommerce
-        </span>
-        <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[11px] font-medium border border-zinc-700/50 flex items-center gap-1">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m13 2-2 10h8l-2 10"/></svg>
-          Optimization
-        </span>
+        <span class="px-2 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[11px] border border-zinc-700/50">Vite</span>
+        <span class="px-2 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[11px] border border-zinc-700/50">Tailwind CSS</span>
+        <span class="px-2 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[11px] border border-zinc-700/50">JavaScript ES6+</span>
       </div>
     </div>
 
-    <!-- Proyecto 2: Landing Page Moderna -->
-    <div class="group p-5 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:bg-zinc-900/40 hover:border-zinc-700 transition-all cursor-pointer">
-      <div class="flex justify-between items-start mb-3">
-        <h3 class="font-bold text-white text-lg group-hover:text-blue-400 transition-colors">Portfolio Moderno v2</h3>
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-zinc-600 group-hover:text-white transition-colors"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       
-      <p class="text-sm text-zinc-400 leading-relaxed mb-4">
-        Desarrollo de sitio personal con arquitectura SPA utilizando Vite y Tailwind CSS, enfocado en una experiencia de usuario fluida y diseño minimalista.
-      </p>
-      
-      <div class="flex flex-wrap gap-2">
-        <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[11px] font-medium border border-zinc-700/50 flex items-center gap-1">
-          Vite
-        </span>
-        <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[11px] font-medium border border-zinc-700/50 flex items-center gap-1">
-          Tailwind CSS
-        </span>
-        <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[11px] font-medium border border-zinc-700/50 flex items-center gap-1">
-          JavaScript ES6+
-        </span>
+      <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all">
+        <div class="aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800">
+           <img src="./public/web1.jpg" alt="Proyecto Newe" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+        </div>
+
+
+        <div class="flex justify-between items-start gap-4 mb-1">
+        <h4 class="font-bold text-white text-md mb-1">Desarrollo de Plataforma Web Corporativa | Piñero Robledillo Abogados
+        </h4>
+
+        <span class="shrink-0 text-[9px] bg-amber-500/10 text-amber-500 px-2 py-0.5 rounded-full border border-amber-500/20 font-medium mt-1">Caso de Estudio</span>
+
+        </div>
+
+        <p class="text-xs text-zinc-500 mb-3">Maquetación WordPress & UI Implementation</p>
+
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-2 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            WordPress
+          </span>
+          <span class="px-2 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+            Responsive Design
+          </span>
+        </div>
+
+        <p class="text-[13px] text-zinc-400 leading-relaxed">
+          Desarrollé una plataforma web de alto impacto para este despacho jurídico, enfocada en proyectar solidez y autoridad profesional. Mediante una arquitectura de información estratégica y maquetación ágil con Elementor Pro y Hello, implementé una interfaz moderna y 100% responsive. El resultado fue un sitio web optimizado en rendimiento que garantiza una experiencia de usuario impecable, logrando una presencia digital robusta alineada con los estándares de confianza del sector legal.
+
+
+        </p>
       </div>
+
+      <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all">
+        <div class="aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800">
+           <img src="./public/web2.png" alt="Proyecto Clinmedia" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+        </div>
+
+
+        <div class="flex justify-between items-start mb-1">
+        <h4 class="font-bold text-white text-md mb-1">Plataforma Digital de Innovación Tecnológica | DeportIA</h4>
+        <span class="shrink-0 text-[9px] bg-amber-500/10 text-amber-500 px-2 py-0.5 rounded-full border border-amber-500/20 font-medium mt-1">Caso de Estudio</span>
+        </div>
+
+        <p class="text-xs text-zinc-500 mb-3">WooCommerce & Optimization</p>
+
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-2 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            WordPress
+          </span>
+          <span class="px-2 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            WooCommerce
+          </span>
+        </div>
+
+        <p class="text-[13px] text-zinc-400 leading-relaxed">
+                    Realicé el desarrollo inicial y la arquitectura de la plataforma, liderando el rediseño visual para alinear la interfaz con las tendencias de IA y optimizar la experiencia de usuario (UX). Implementé una maquetación ágil de interfaces bajo una estructura técnica modular, utilizando herramientas que permiten al cliente gestionar actualizaciones de forma autónoma sin comprometer la integridad del código o el diseño. Una plataforma robusta y escalable que sirve como base sólida para el crecimiento del proyecto, logrando un sitio web de alta disponibilidad que el equipo de DeportIA puede operar con total independencia técnica.
+
+        </p>
+      </div>
+
     </div>
   </div>
 </div>
@@ -195,4 +227,4 @@
       
 
     </div>
-`};function i(i){e.style.opacity=`0`,e.style.transform=`translateX(-20px)`,setTimeout(()=>{e.innerHTML=r[i]||r.Proyectos;let t=e.scrollHeight;n.style.height=`${t}px`,e.style.transform=`translateX(20px)`,requestAnimationFrame(()=>{e.style.opacity=`1`,e.style.transform=`translateX(0)`})},200),t.forEach(e=>{e.className=`flex-1 pb-3 text-[12px] md:text[15px] font-semibold transition-all whitespace-nowrap ${e.textContent.trim()===i?`text-white border-b border-white`:`text-zinc-500 hover:text-zinc-300`}`})}i(`Proyectos`),t.forEach(e=>{e.addEventListener(`click`,()=>i(e.textContent.trim()))});
+`};window.addEventListener(`resize`,()=>{let t=e.scrollHeight;n.style.transition=`none`,n.style.height=`${t}px`,setTimeout(()=>{n.style.transition=`height 0.4s ease-in-out`},50)});function i(i){e.style.opacity=`0`,e.style.transform=`translateX(-20px)`,setTimeout(()=>{e.innerHTML=r[i]||r.Proyectos,n.style.height=n.style.height,requestAnimationFrame(()=>{let t=e.scrollHeight;n.style.height=`${t}px`,n.style.minHeight=`0px`}),e.style.transform=`translateX(20px)`,requestAnimationFrame(()=>{e.style.opacity=`1`,e.style.transform=`translateX(0)`})},300),t.forEach(e=>{e.className=`flex-1 pb-3 text-[12px] md:text[15px] font-semibold transition-all whitespace-nowrap ${e.textContent.trim()===i?`text-white border-b border-white`:`text-zinc-500 hover:text-zinc-300`}`})}i(`Proyectos`),t.forEach(e=>{e.addEventListener(`click`,()=>i(e.textContent.trim()))});
