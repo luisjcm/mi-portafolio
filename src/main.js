@@ -34,7 +34,7 @@ const content = {
       
       <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all">
         <div class="aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800">
-           <img src="./public/web1.jpg" alt="Proyecto Newe" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+           <img src="./web1.jpg" alt="Proyecto Newe" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
         </div>
 
 
@@ -68,7 +68,7 @@ const content = {
 
       <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all">
         <div class="aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800">
-           <img src="./public/web2.png" alt="Proyecto Clinmedia" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+           <img src="./web2.png" alt="Proyecto Clinmedia" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
         </div>
 
 
