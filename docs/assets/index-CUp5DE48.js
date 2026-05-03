@@ -12,37 +12,27 @@
   
   <!-- Contenedor principal -->
   <div class="grid grid-cols-1 gap-6">
-    
-
     <!-- Proyecto 1 -->
 
-    
-
-
         <div class="group p-5 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:bg-zinc-900/40 hover:border-zinc-700 transition-all transform ">
-            <div class="flex justify-between items-start mb-3">
-                    <h3 class="font-bold text-white text-lg group-hover:transition-colors">Portfolio Moderno v2.0</h3>
+                      <div class="flex justify-between items-start mb-3">
+                              <h3 class="font-bold text-white text-lg group-hover:transition-colors">Portfolio Moderno v2.0</h3>
 
-                          <span class="shrink-0 flex items-center gap-1.5 text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20">
-                            <span class="relative flex h-1.5 w-1.5">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
-                          </span>
-                        Sitio Activo
-                    </span>
+                                    <span class="shrink-0 flex items-center gap-1.5 text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                                      <span class="relative flex h-1.5 w-1.5">
+                                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                      <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                                    </span>
+                                  Sitio Activo
+                              </span>
+                      </div>
 
-            </div>
-
-                    <p class="text-xs text-zinc-500 mb-3">Maquetación WordPress & UI Implementation</p>
-
-
+                    <p class="text-xs text-zinc-500 mb-3">Maquetación WordPress & UI Implementation</p> 
                     <p class="text-sm text-zinc-400 leading-relaxed mb-4">
                             Mi proyecto más reciente es este portfolio: una SPA (Single Page Application) construida con Vite y Tailwind CSS, enfocada en optimización de rendimiento y micro-animaciones fluidas.
                     </p>
 
-
-
-                              <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap gap-2">
 
                                     <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[11px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
                                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-purple-400">
@@ -67,33 +57,43 @@
                                       </svg>
                                       JavaScript ES6+
                                     </span>
-
-                              </div>
+                    </div>
           </div>
 
  <!-- Segundo Contenedor: dividido en dos columnas por cada fila -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-
-          
 <!-- Nuevo Proyecto 2-->
 
-
-              <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
+          <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
                   
-                  <div class="relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img">
-                    <img src="./web6.png" alt="Proyecto Nuevo 2" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+                  <div class="relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img border border-zinc-800/50">
+                          <img src="./web6.png" alt="Proyecto Nuevo 2" class="w-full h-full object-cover opacity-80 group-hover/img:opacity-40 group-hover/img:scale-105 transition-all duration-500">
 
-                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 group-focus-within/img:opacity-100 transition-opacity duration-300 bg-zinc-900/40 backdrop-blur-sm">
-                          <a href="https://dev-theacceleratorwp-ljcm.pantheonsite.io/" target="_blank" class="flex items-center gap-2 px-4 py-2 text-[12px] font-bold text-white bg-white/10 backdrop-blur-md border border-white/20 rounded-full shadow-xl hover:bg-white/20 transition-all duration-300">
-                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                  <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
-                              </svg>
-                              Ver Proyecto
-                          </a>
+                          <div class="absolute top-3 right-3 flex items-center justify-center p-2 
+                            bg-white/5 backdrop-blur-md border border-white/10 rounded-xl 
+                            shadow-xl group-hover/img:opacity-0 transition-all duration-300">
+                            
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/70">
+                                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                            </svg>
+                        </div>
+
+                              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 group-focus-within/img:opacity-100 transition-opacity duration-300 bg-zinc-900/40 backdrop-blur-sm">
+
+                                  <div class="flex flex-col items-center gap-3 transform translate-y-4 group-hover/img:translate-y-0 transition-transform duration-300">
+
+                                        <a href="https://dev-theacceleratorwp-ljcm.pantheonsite.io/" 
+                                        target="_blank" 
+                                        class="flex items-center gap-2 px-4 py-2 text-[11px] font-bold text-white bg-white/10 backdrop-blur-md border border-white/20 rounded-full shadow-xl hover:bg-white/20 transition-all duration-300 uppercase tracking-wider">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                                <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+                                            </svg>
+                                            Ver Proyecto
+                                        </a>
+                                    </div>
+                                </div>
                     </div>
-
-                  </div>
 
                   <div class="flex justify-between items-start gap-4 mb-1">
                     <h4 class="font-bold text-white text-md leading-tight">Migración Landing Page "The Accelerator"
@@ -132,14 +132,12 @@
                   <p class="text-[13px] text-zinc-400 leading-relaxed text-justify">
                           Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de la landing page del programa 'The Accelerator', originalmente alojada en Unbounce, para integrarla de manera óptima en un entorno de WordPress. El cliente necesitaba la flexibilidad y el control que ofrece WordPress sin perder la identidad visual ni la efectividad de sus llamadas a la acción (CTAs) originales. Solución Implementada: Recreación pixel-perfect del diseño original utilizando Elementor Pro. Migración completa de textos, imágenes y estructura de marca. Optimización de velocidad de carga y adaptación 100% responsiva para todos los dispositivos. El resultado final fue una landing page idéntica a la original, pero ahora totalmente administrable, más rápida y lista para potenciar las conversiones del programa.
                   </p>
-
-                  
-              </div>
+          </div>
 
                  <!-- Proyecto 3 -->
                  
 
-                      <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all">
+           <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all">
 
                             <div class="aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800">
 
