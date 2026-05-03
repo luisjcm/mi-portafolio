@@ -8,6 +8,76 @@ const tabWrapper = document.getElementById('tab-wrapper');
 tabWrapper.style.minHeight = "300px";
 
 
+// Función para actualizar la latencia
+const updatePing = async () => {
+    const pingValue = document.getElementById('ping-value');
+    const pingLed = document.getElementById('ping-led');
+    const pingLabel = document.getElementById('ping-label');
+
+    // Si no existen los elementos, salimos silenciosamente
+    if (!pingValue || !pingLed || !pingLabel) return;
+
+    const resetLed = () => {
+        pingLed.classList.remove('bg-emerald-500', 'bg-amber-500', 'bg-rose-500', 'bg-zinc-600');
+    };
+
+    if (!navigator.onLine) {
+        resetLed();
+        pingValue.innerText = "OFFLINE";
+        pingLabel.innerText = "SAD 📡";
+        pingLed.classList.add('bg-zinc-600');
+        return;
+    }
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 3000);
+
+   try {
+    const startTime = performance.now();
+    
+    // Cambiamos GitHub por una URL de Google que permite pings frecuentes
+    await fetch(`https://www.google.com/favicon.ico?t=${Date.now()}`, { 
+        method: 'HEAD', 
+        mode: 'no-cors', // Fundamental para evitar errores de CORS
+        signal: controller.signal 
+    });
+    
+    clearTimeout(timeoutId);
+    const latency = Math.round(performance.now() - startTime);
+
+    resetLed();
+    pingValue.innerText = `${latency} MS`;
+
+        if (latency < 150) {
+            pingLabel.innerText = "EXCELLENT 😊";
+            pingLed.classList.add('bg-emerald-500');
+        } else if (latency < 450) {
+            pingLabel.innerText = "STABLE 😐";
+            pingLed.classList.add('bg-amber-500');
+        } else {
+            pingLabel.innerText = "LAGGY 😠";
+            pingLed.classList.add('bg-rose-500');
+        }
+
+    } catch (error) {
+        resetLed();
+        pingValue.innerText = "TIMEOUT";
+        pingLabel.innerText = "LOST 💀";
+        pingLed.classList.add('bg-rose-500');
+    }
+};
+
+// INICIALIZACIÓN SEGURA
+document.addEventListener('DOMContentLoaded', () => {
+    updatePing(); // Ejecución inicial
+    setInterval(updatePing, 5000); // Ciclo cada 5s
+});
+
+
+// Actualizar cada 5 segundos para no saturar el tráfico
+setInterval(updatePing, 5000);
+updatePing();
+
 window.showToast = (type) => {
     const toast = document.getElementById('toast');
     const message = document.getElementById('toast-message');
@@ -540,7 +610,7 @@ const content = {
 
     <div class="flex flex-wrap gap-2 mt-3">
       
-      <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-blue-400/80 text-[11px] font-medium border border-blue-900/30 flex items-center gap-1.5">
+      <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-emerald-400/80 text-[11px] font-medium border border-emerald-900/30 flex items-center gap-1.5">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         Jun. 2025 - Actualidad
       </span>
@@ -567,8 +637,8 @@ const content = {
     <p class="text-xs text-zinc-500 mb-2">Avior Airlines C.A.</p>
 
     <div class="flex flex-wrap gap-2 mt-3">
-      <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-blue-400/80 text-[11px] font-medium border border-blue-900/30 flex items-center gap-1.5">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-emerald-400/80 text-[11px] font-medium border border-emerald-900/30 flex items-center gap-1.5">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         Ene. 2020 — Actualidad
       </span>
       <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-zinc-400 text-[11px] font-medium border border-zinc-700/50 flex items-center gap-1.5">
