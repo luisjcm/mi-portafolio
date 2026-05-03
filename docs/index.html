@@ -9,8 +9,8 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <title>Portafolio de Luis Jesus</title>
-    <script type="module" crossorigin src="/mi-portafolio/assets/index-DaaP9pm1.js"></script>
-    <link rel="stylesheet" crossorigin href="/mi-portafolio/assets/index-B0C3kt0Q.css">
+    <script type="module" crossorigin src="/mi-portafolio/assets/index-2ALTpIQz.js"></script>
+    <link rel="stylesheet" crossorigin href="/mi-portafolio/assets/index-DC6qnLq_.css">
   </head>
 
  <!-- Cabecera estilo Threads: Nombre + Foto -->
@@ -78,23 +78,72 @@
     <p>Especialista en modernización de sitios y despliegue ágil.</p>
   </div>
 
-  <!-- Enlace LinkedIn -->
-  <div class="flex items-center gap-3 text-zinc-500 mt-2">
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-    
-
-    <a href="https://www.linkedin.com/in/luisjcm">Luis Jesus Curbata</a>
+  <!-- Fila de Ubicación e Información de Disponibilidad -->
+    <div class="flex items-center gap-4 text-zinc-400 text-[13px] leading-relaxed ml-1 antialiased tracking-wide">
+        <div class="flex items-center gap-2 group/loc transition-colors hover:text-zinc-300">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-zinc-500 group-hover/loc:text-emerald-400 transition-colors"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Barcelona, VZ • <span class="opacity-70">GMT-4</span></span>
+        </div>
+        
+        
+    </div>
   </div>
 </section>
 
 
-        <div class="flex gap-2 mt-6">
-            <button class="flex-1 py-2 border border-zinc-700 rounded-[10px] font-semibold text-white text-[14px] hover:bg-zinc-800 transition-colors hover:border-zinc-400 transition-colors duration-300">
-              Ver Proyectos
-            </button>
-            <button class="flex-1 py-2 border border-zinc-700 rounded-[10px] font-semibold text-white text-[14px] hover:bg-zinc-800 transition-colors hover:border-zinc-400 transition-colors duration-300">
-              Contactar
-            </button>
+      
+<div class="flex flex-col gap-6 mt-8">
+    <!-- Fila de Acciones Principales -->
+    <div class="flex items-center gap-3">
+        <!-- BOTÓN ÚNICO: Contactar (Premium Glass con Rayo de Luz) -->
+        <button
+            onclick="showToast('contact')"
+            class="group relative flex-1 max-w-[180px] py-2.5 bg-white/5 border border-white/10 rounded-[10px] font-semibold text-white text-[13px] overflow-hidden transition-all duration-300 hover:border-emerald-500/50 hover:bg-emerald-500/5 text-center backdrop-blur-sm active:scale-95">
+            
+            <!-- Efecto de rayo de luz al hover -->
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+            
+            <span class="relative flex items-center justify-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-emerald-400">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                Contactar
+            </span>
+        </button>
+
+        <button 
+                onclick="showToast('cv')" 
+                class="group flex-1 max-w-[150px] py-2.5 bg-zinc-900/50 border border-zinc-800 rounded-[10px] font-medium text-zinc-400 text-[13px] transition-all duration-300 hover:border-zinc-600 hover:bg-zinc-800 hover:text-white active:scale-95 flex items-center justify-center gap-2">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-500 group-hover:text-white transition-colors">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                <span>Descargar CV</span>
+        </button>
+
+        <!-- Accesos Sociales (Glassmorphism) -->
+        <div class="flex gap-2">
+            <a  href="https://linkedin.com/in/luisjcm" 
+                target="_blank" title="LinkedIn Profesional"
+                rel="noopener noreferrer"
+                class="p-2.5 bg-white/5 border border-white/10 rounded-[10px] text-zinc-400 hover:text-white hover:border-white/20 transition-all active:scale-90">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a  href="https://github.com/luisjcm" 
+                target="_blank" title="GitHub Repositorios"
+                rel="noopener noreferrer"
+                class="p-2.5 bg-white/5 border border-white/10 rounded-[10px] text-zinc-400 hover:text-white hover:border-white/20 transition-all active:scale-90">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </a>
+        </div>
+    </div>
+
+    
+</div>
+
       </div>
 
       <nav class="flex w-full mt-8 border-b border-zinc-800">
@@ -123,6 +172,17 @@
 
   </main>
 
+
+  <!-- Contenedor Global del Toast -->
+<div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] px-6 py-3 bg-zinc-900/90 border border-zinc-800 text-white text-sm rounded-2xl shadow-2xl transition-all duration-500 opacity-0 translate-y-10 pointer-events-none flex items-center gap-3 backdrop-blur-md">
+    <!-- Indicador de estado estilo consola -->
+    
+
+    <div id="toast-icon" class="flex items-center justify-center"></div>
+    
+    <!-- Aquí es donde se inyecta el texto -->
+    <span id="toast-message" class="font-medium tracking-wide"></span>
+</div>
 
   </body>
 </html>

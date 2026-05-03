@@ -7,6 +7,48 @@ const buttons = document.querySelectorAll('nav button');
 const tabWrapper = document.getElementById('tab-wrapper');
 tabWrapper.style.minHeight = "300px";
 
+
+window.showToast = (type) => {
+    const toast = document.getElementById('toast');
+    const message = document.getElementById('toast-message');
+    const iconContainer = document.getElementById('toast-icon');
+
+    // Definición de iconos y mensajes
+    const config = {
+        'contact': {
+            message: "En mantenimiento... ¡Casi listo!",
+            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-400">
+         <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+         <line x1="12" y1="9" x2="12" y2="13"></line>
+         <line x1="12" y1="17" x2="12.01" y2="17"></line>
+       </svg>`
+        },
+        'cv': {
+            message: "Esto aún no está disponible. ¡Gracias por tu curiosidad!",
+            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400">
+         <circle cx="12" cy="12" r="10"></circle>
+         <line x1="12" y1="16" x2="12" y2="12"></line>
+         <line x1="12" y1="8" x2="12.01" y2="8"></line>
+       </svg>` // Icono de bombilla o idea
+        }
+    };
+
+    // Aplicar configuración
+    const data = config[type];
+    message.innerText = data.message;
+    iconContainer.innerHTML = data.icon;
+
+    toast.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+    toast.classList.add('opacity-100', 'translate-y-0');
+
+    setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+    }, 5000);
+
+};
+
+
 const content = {
 
 'Proyectos': /* html */ `
@@ -24,9 +66,15 @@ const content = {
 
         <div class="group p-5 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:bg-zinc-900/40 hover:border-zinc-700 transition-all transform ">
             <div class="flex justify-between items-start mb-3">
-                    <h3 class="font-bold text-white text-lg group-hover:text-emerald-400 transition-colors">Portfolio Moderno v2.0</h3>
+                    <h3 class="font-bold text-white text-lg group-hover:transition-colors">Portfolio Moderno v2.0</h3>
 
-                          <span class="shrink-0 text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20">Proyecto en Producción</span>
+                          <span class="shrink-0 flex items-center gap-1.5 text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                            <span class="relative flex h-1.5 w-1.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                          </span>
+                        Sitio Activo
+                    </span>
 
             </div>
 
