@@ -61,23 +61,41 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
 
-           
-
+          
 <!-- Nuevo Proyecto 2-->
+
 
               <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
                   
-                  <div class="aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800">
+                  <div class="relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img">
                     <img src="./web6.png" alt="Proyecto Nuevo 2" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 group-focus-within/img:opacity-100 transition-opacity duration-300 bg-zinc-900/40 backdrop-blur-sm">
+                          <a href="https://dev-theacceleratorwp-ljcm.pantheonsite.io/" target="_blank" class="flex items-center gap-2 px-4 py-2 text-[12px] font-bold text-white bg-white/10 backdrop-blur-md border border-white/20 rounded-full shadow-xl hover:bg-white/20 transition-all duration-300">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                  <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+                              </svg>
+                              Ver Proyecto
+                          </a>
+                    </div>
+
                   </div>
 
                   <div class="flex justify-between items-start gap-4 mb-1">
-                    <h4 class="font-bold text-white text-md leading-tight">Migración de Landing Page "The Accelerator" en WordPress.
+                    <h4 class="font-bold text-white text-md leading-tight">Migración Landing Page "The Accelerator"
+
                     </h4>
-                    <span class="shrink-0 text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20">Proyecto en Producción</span>
+                    <span class="shrink-0 flex items-center gap-1.5 text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                        <span class="relative flex h-1.5 w-1.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                        </span>
+                        Sitio Activo
+                    </span>
                   </div>
 
-                  <p class="text-xs text-zinc-500 mb-3">Arquitectura de Software y UX Avanzada</p>
+                  <p class="text-xs text-zinc-500 mb-3">Réplica Pixel-Perfect y Optimización de Conversión
+                  </p>
 
                   <div class="flex flex-wrap gap-2 mb-4">
                     <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
@@ -100,9 +118,12 @@
                   <p class="text-[13px] text-zinc-400 leading-relaxed text-justify">
                           Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de la landing page del programa 'The Accelerator', originalmente alojada en Unbounce, para integrarla de manera óptima en un entorno de WordPress. El cliente necesitaba la flexibilidad y el control que ofrece WordPress sin perder la identidad visual ni la efectividad de sus llamadas a la acción (CTAs) originales. Solución Implementada: Recreación pixel-perfect del diseño original utilizando Elementor Pro. Migración completa de textos, imágenes y estructura de marca. Optimización de velocidad de carga y adaptación 100% responsiva para todos los dispositivos. El resultado final fue una landing page idéntica a la original, pero ahora totalmente administrable, más rápida y lista para potenciar las conversiones del programa.
                   </p>
+
+                  
               </div>
 
                  <!-- Proyecto 3 -->
+                 
 
                       <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all">
 
@@ -115,10 +136,12 @@
 
                       <div class="flex justify-between items-start gap-4 mb-1">
                       
-                            <h4 class="font-bold text-white text-md mb-1">Desarrollo de Plataforma Web Corporativa | Piñero Robledillo Abogados
+                            <h4 class="font-bold text-white text-md mb-1">Sitio Corporativo | Piñero Robledillo Abogados
                             </h4>
 
-                            <span class="shrink-0 text-[9px] bg-amber-500/10 text-amber-500 px-2 py-0.5 rounded-full border border-amber-500/20 font-medium mt-1">Caso de Estudio</span>
+                            <span class="shrink-0 text-[9px] bg-zinc-500/10 text-zinc-500 px-2 py-0.5 rounded-full border border-zinc-500/20 font-medium">
+                              Histórico
+                          </span>
 
                       </div>
 
@@ -140,6 +163,14 @@
                               </svg>
                               Responsive Design
                             </span>
+
+                            <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500 cursor-default select-none">
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-500">
+                                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                              </svg>
+                              Snapshot de Diseño
+                          </span>
+
                     </div>
 
                         <p class="text-[13px] text-zinc-400 leading-relaxed text-justify">
@@ -166,7 +197,9 @@
                             E-commerce Especializado para Mobiliario de Diseño | Maki Tendencias
                             </h4>
 
-                            <span class="shrink-0 text-[9px] bg-amber-500/10 text-amber-500 px-2 py-0.5 rounded-full border border-amber-500/20 font-medium mt-1">Caso de Estudio</span>
+                            <span class="shrink-0 text-[9px] bg-zinc-500/10 text-zinc-500 px-2 py-0.5 rounded-full border border-zinc-500/20 font-medium">
+                              Histórico
+                          </span>
                             </div>
 
                             <p class="text-xs text-zinc-500 mb-3">UX para E-commerce e Integración de Pasarelas de Pago</p>
@@ -188,14 +221,6 @@
                             WooCommerce
                           </span>
 
-                          <!-- ChatGPT (AI) -->
-                          <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500">
-                              <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
-                              <circle cx="12" cy="12" r="2"/>
-                            </svg>
-                            ChatGPT
-                          </span>
 
                           <!-- Gestión de Inventario -->
                           <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
@@ -207,6 +232,13 @@
                             </svg>
                             Gestión de Inventario
                           </span> 
+
+                          <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500 cursor-default select-none">
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-500">
+                                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                              </svg>
+                              Snapshot de Diseño
+                          </span>
                             
 
                             </div>
@@ -234,7 +266,9 @@
                             Web Corporativa y Catálogo de Servicios | MGC Legal
                             </h4>
 
-                            <span class="shrink-0 text-[9px] bg-amber-500/10 text-amber-500 px-2 py-0.5 rounded-full border border-amber-500/20 font-medium mt-1">Caso de Estudio</span>
+                            <span class="shrink-0 text-[9px] bg-zinc-500/10 text-zinc-500 px-2 py-0.5 rounded-full border border-zinc-500/20 font-medium">
+                              Histórico
+                          </span>
                             </div>
 
                             <p class="text-xs text-zinc-500 mb-3">Identidad Corporativa y Arquitectura de Servicios</p>
@@ -267,6 +301,13 @@
                               </svg>
                               Elementor Pro
                             </span>
+
+                            <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500 cursor-default select-none">
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-500">
+                                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                              </svg>
+                              Snapshot de Diseño
+                          </span>
                             </div>
 
                           <p class="text-[13px] text-zinc-400 leading-relaxed text-justify">
@@ -284,7 +325,11 @@
 
                   <div class="flex justify-between items-start gap-4 mb-1">
                     <h4 class="font-bold text-white text-md leading-tight">Plataforma de Gestión Inmobiliaria y Catálogo | Alicante</h4>
-                    <span class="shrink-0 text-[9px] bg-amber-500/10 text-amber-500 px-2 py-0.5 rounded-full border border-amber-500/20 font-medium mt-1">Caso de Estudio</span>
+                    
+                    <span class="shrink-0 text-[9px] bg-zinc-500/10 text-zinc-500 px-2 py-0.5 rounded-full border border-zinc-500/20 font-medium">
+                              Histórico
+                          </span>
+
                   </div>
 
                   <p class="text-xs text-zinc-500 mb-3">Estrategia Digital y Desarrollo a Medida</p>
@@ -298,10 +343,18 @@
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-emerald-400"><path d="m21 21-6-6"/><circle cx="10" cy="10" r="7"/></svg>
                       Optimización
                     </span>
+
+                    <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500 cursor-default select-none">
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-500">
+                                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                              </svg>
+                              Snapshot de Diseño
+                          </span>
+
                   </div>
 
                   <p class="text-[13px] text-zinc-400 leading-relaxed text-justify">
-Diseñé y desarrollé la web corporativa para la Inmobiliaria Alicante, enfocada en la visualización estratégica de propiedades y la generación de leads cualificados. Estructuré el sitio sobre el ecosistema WordPress + Astra, configurando galerías de alta resolución optimizadas y formularios de contacto estratégicos para facilitar la conversión de visitantes en clientes potenciales. Una herramienta de ventas digital robusta y profesional que transmite la solidez del mercado inmobiliario, optimizada para dispositivos móviles y con una arquitectura de navegación que reduce la tasa de rebote en las búsquedas de propiedades.
+                      Diseñé y desarrollé la web corporativa para la Inmobiliaria Alicante, enfocada en la visualización estratégica de propiedades y la generación de leads cualificados. Estructuré el sitio sobre el ecosistema WordPress + Astra, configurando galerías de alta resolución optimizadas y formularios de contacto estratégicos para facilitar la conversión de visitantes en clientes potenciales. Una herramienta de ventas digital robusta y profesional que transmite la solidez del mercado inmobiliario, optimizada para dispositivos móviles y con una arquitectura de navegación que reduce la tasa de rebote en las búsquedas de propiedades.
 
                   </p>
               </div>
@@ -321,7 +374,9 @@ Diseñé y desarrollé la web corporativa para la Inmobiliaria Alicante, enfocad
 
                             <h4 class="font-bold text-white text-md mb-1">Plataforma Digital de Innovación Tecnológica | DeportIA</h4>
 
-                            <span class="shrink-0 text-[9px] bg-amber-500/10 text-amber-500 px-2 py-0.5 rounded-full border border-amber-500/20 font-medium mt-1">Caso de Estudio</span>
+                            <span class="shrink-0 text-[9px] bg-zinc-500/10 text-zinc-500 px-2 py-0.5 rounded-full border border-zinc-500/20 font-medium">
+                              Histórico
+                          </span>
                             </div>
 
                             <p class="text-xs text-zinc-500 mb-3">Interfaz preparada para IA y Arquitectura Modular</p>
@@ -342,6 +397,14 @@ Diseñé y desarrollé la web corporativa para la Inmobiliaria Alicante, enfocad
                                 </svg>
                                 WooCommerce
                               </span>
+
+                          <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500 cursor-default select-none">
+                                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-500">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                                </svg>
+                                Snapshot de Diseño
+                          </span>
+
                             </div>
 
                       <p class="text-[13px] text-zinc-400 leading-relaxed text-justify">
