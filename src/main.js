@@ -55,7 +55,7 @@ const updatePing = async () => {
             pingLabel.innerText = "STABLE 😐";
             pingLed.classList.add('bg-amber-500');
         } else {
-            pingLabel.innerText = "LAGGY 😠";
+            pingLabel.innerText = "LAG 😠";
             pingLed.classList.add('bg-rose-500');
         }
 
