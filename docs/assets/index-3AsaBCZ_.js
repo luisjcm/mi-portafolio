@@ -1,15 +1,4 @@
-import './style.css'
-
-
-const tabContent = document.getElementById('tab-content');
-const buttons = document.querySelectorAll('nav button');
-
-const tabWrapper = document.getElementById('tab-wrapper');
-tabWrapper.style.minHeight = "300px";
-
-const content = {
-
-'Proyectos': /* html */ `
+(function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();var e=document.getElementById(`tab-content`),t=document.querySelectorAll(`nav button`),n=document.getElementById(`tab-wrapper`);n.style.minHeight=`300px`;var r={Proyectos:`
 <div class="space-y-8">
   <p class="text-zinc-400 text-sm ml-1">Selección de proyectos recientes y colaboraciones internacionales:</p>
   
@@ -372,9 +361,7 @@ Diseñé y desarrollé la web corporativa para la Inmobiliaria Alicante, enfocad
 
     </div>
 </div>
-`,
-
-'Stack Tecnico': /* html */ `
+`,"Stack Tecnico":`
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 animate-in fade-in duration-500">
       
       <!-- Modern JS -->
@@ -414,9 +401,7 @@ Diseñé y desarrollé la web corporativa para la Inmobiliaria Alicante, enfocad
       </div>
 
     </div>
-`,
-
-'Trayectoria': /* html */ `
+`,Trayectoria:`
 <div class="space-y-8 animate-in fade-in duration-500">
   
   <!-- Experiencia Freelance -->
@@ -480,9 +465,7 @@ Diseñé y desarrollé la web corporativa para la Inmobiliaria Alicante, enfocad
   </div>
 
 </div>
-`,
-
-'Formacion': /* html */ `
+`,Formacion:`
 <div class="space-y-6 animate-in fade-in">
 
       <div class="p-4 border border-zinc-800 rounded-xl bg-zinc-900/20">
@@ -517,64 +500,4 @@ Diseñé y desarrollé la web corporativa para la Inmobiliaria Alicante, enfocad
       
 
     </div>
-`
-
-};
-
-window.addEventListener('resize', () => {
-
-  const newHeight = tabContent.scrollHeight;
-  tabWrapper.style.transition = 'none';
-  tabWrapper.style.height = `${newHeight}px`;
-
-  setTimeout(() => {
-    tabWrapper.style.transition = 'height 0.4s ease-in-out';
-  }, 50);
-});
-
-function switchTab (tabName) {
-
-
-  tabContent.style.opacity = "0";
-  tabContent.style.transform = 'translateX(-20px)'
-
-  setTimeout(() => {
-
-    tabContent.innerHTML = content[tabName] || content['Proyectos'];
-
-    tabWrapper.style.height = tabWrapper.style.height;
-
-
-    requestAnimationFrame(() => {
-
-          const newHeight = tabContent.scrollHeight;
-          tabWrapper.style.height = `${newHeight}px`;
-        tabWrapper.style.minHeight = "0px";
-
-    });
-
-    tabContent.style.transform = "translateX(20px)";
-
-    requestAnimationFrame(() => {
-      tabContent.style.opacity = "1";
-      tabContent.style.transform = "translateX(0)";
-    });
-
-  }, 300);
-
-  buttons.forEach(btn => {
-    const isActive = btn.textContent.trim() === tabName;
-    btn.className = `flex-1 pb-3 text-[12px] md:text[15px] font-semibold transition-all whitespace-nowrap ${ 
-      isActive ? 'text-white border-b border-white' : 'text-zinc-500 hover:text-zinc-300'
-    }`;
-  });
-
-  
-
-}
-
-switchTab('Proyectos');
-
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => switchTab(btn.textContent.trim()));
-});
+`};window.addEventListener(`resize`,()=>{let t=e.scrollHeight;n.style.transition=`none`,n.style.height=`${t}px`,setTimeout(()=>{n.style.transition=`height 0.4s ease-in-out`},50)});function i(i){e.style.opacity=`0`,e.style.transform=`translateX(-20px)`,setTimeout(()=>{e.innerHTML=r[i]||r.Proyectos,n.style.height=n.style.height,requestAnimationFrame(()=>{let t=e.scrollHeight;n.style.height=`${t}px`,n.style.minHeight=`0px`}),e.style.transform=`translateX(20px)`,requestAnimationFrame(()=>{e.style.opacity=`1`,e.style.transform=`translateX(0)`})},300),t.forEach(e=>{e.className=`flex-1 pb-3 text-[12px] md:text[15px] font-semibold transition-all whitespace-nowrap ${e.textContent.trim()===i?`text-white border-b border-white`:`text-zinc-500 hover:text-zinc-300`}`})}i(`Proyectos`),t.forEach(e=>{e.addEventListener(`click`,()=>i(e.textContent.trim()))});
