@@ -8,89 +8,20 @@ const tabWrapper = document.getElementById('tab-wrapper');
 tabWrapper.style.minHeight = "300px";
 
 
-// Función para actualizar la latencia
-const updatePing = async () => {
-    const pingValue = document.getElementById('ping-value');
-    const pingLed = document.getElementById('ping-led');
-    const pingLabel = document.getElementById('ping-label');
-
-    // Si no existen los elementos, salimos silenciosamente
-    if (!pingValue || !pingLed || !pingLabel) return;
-
-    const resetLed = () => {
-        pingLed.classList.remove('bg-emerald-500', 'bg-amber-500', 'bg-rose-500', 'bg-zinc-600');
-    };
-
-    if (!navigator.onLine) {
-        resetLed();
-        pingValue.innerText = "OFFLINE";
-        pingLabel.innerText = "SAD 📡";
-        pingLed.classList.add('bg-zinc-600');
-        return;
-    }
-
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 3000);
-
-   try {
-    const startTime = performance.now();
-    
-    // Cambiamos GitHub por una URL de Google que permite pings frecuentes
-    await fetch(`https://www.google.com/favicon.ico?t=${Date.now()}`, { 
-        method: 'HEAD', 
-        mode: 'no-cors', // Fundamental para evitar errores de CORS
-        signal: controller.signal 
-    });
-    
-    clearTimeout(timeoutId);
-    const latency = Math.round(performance.now() - startTime);
-
-    resetLed();
-    pingValue.innerText = `${latency} MS`;
-
-        if (latency < 150) {
-            pingLabel.innerText = "EXCELLENT 😊";
-            pingLed.classList.add('bg-emerald-500');
-        } else if (latency < 450) {
-            pingLabel.innerText = "STABLE 😐";
-            pingLed.classList.add('bg-amber-500');
-        } else {
-            pingLabel.innerText = "LAG 😠";
-            pingLed.classList.add('bg-rose-500');
-        }
-
-    } catch (error) {
-        resetLed();
-        pingValue.innerText = "TIMEOUT";
-        pingLabel.innerText = "LOST 💀";
-        pingLed.classList.add('bg-rose-500');
-    }
-};
-
-// INICIALIZACIÓN SEGURA
-document.addEventListener('DOMContentLoaded', () => {
-    updatePing(); // Ejecución inicial
-    setInterval(updatePing, 5000); // Ciclo cada 5s
-});
-
-
-// Actualizar cada 5 segundos para no saturar el tráfico
-setInterval(updatePing, 5000);
-updatePing();
 
 
 const projectData = {
     'abogados': {
         title: "Piñero Robledillo Abogados",
-        description: "Desarrollé una plataforma web de alto impacto para este despacho jurídico, enfocada en proyectar solidez y autoridad profesional. Implementé una arquitectura de información estratégica y maquetación ágil con Elementor Pro. Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br> <br> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 
-        badges: ['WordPress', 'Elementor Pro', 'SEO Legal', 'Responsive'],
-        images: ['./web1.jpg', './web1-1.jpg', './web1-2.jpg'] // Asegúrate de tener estas rutas
+        description: "Desarrollé una plataforma web de alto impacto para este despacho jurídico, enfocada en proyectar solidez y autoridad profesional. Mediante una arquitectura de información estratégica y maquetación ágil con Elementor Pro y Hello, implementé una interfaz moderna y 100% responsive. El resultado fue un sitio web optimizado en rendimiento que garantiza una experiencia de usuario impecable, logrando una presencia digital robusta alineada con los estándares de confianza del sector legal.", 
+        badges: ['WordPress', 'Elementor Pro', 'Responsive Web Design'],
+        images: ['./web1.jpg', './web1-1.jpg', './web1-2.jpg', './web1-3.jpg', './web1-4.jpg'] // Asegúrate de tener estas rutas
     },
     'maki': {
-        title: "Maki Tendencias - E-commerce",
-        description: "Plataforma de comercio electrónico con WooCommerce enfocada en muebles de diseño. Implementé un catálogo visual de alto impacto y gestión de inventario personalizada.",
-        badges: ['WooCommerce', 'WordPress', 'Payments Integration'],
-        images: ['./web3.png', './maki-inner1.jpg']
+        title: "E-commerce Especializado para Mobiliario de Diseño | Maki Tendencias",
+        description: "Desarrollé una plataforma de comercio electrónico con WooCommerce para 'Maki Tendencias', un negocio enfocado en muebles de diseño exclusivo. Implementé un catálogo visual de alto impacto y una experiencia de compra fluida mediante la integración de pasarelas de pago y gestión de inventario personalizada. El resultado es una tienda online robusta y profesional que proyecta la calidad artesanal de la marca, facilitando la conversión de visitantes en clientes y expandiendo su alcance comercial al entorno digital.",
+        badges: ['WooCommerce', 'WordPress', 'Gestión de inventario'],
+        images: ['./web3.png', './web3-1.png', './web3-2.png', './web3-3.png', './web3-4.png', './web3-5.png', './web3-6.png', './web3-7.png']
     }
     // Agrega los demás proyectos históricos aquí...
 };
@@ -103,7 +34,7 @@ window.showToast = (type) => {
     // Definición de iconos y mensajes
     const config = {
         'contact': {
-            message: "En mantenimiento... ¡Casi listo!",
+            message: "En mantenimiento... ¡Intenta luego!",
             icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-400">
          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
          <line x1="12" y1="9" x2="12" y2="13"></line>
@@ -111,7 +42,7 @@ window.showToast = (type) => {
        </svg>`
         },
         'cv': {
-            message: "Esto aún no está disponible. ¡Gracias por tu curiosidad!",
+            message: "Esto aún no está disponible. ¡Gracias por tu interés!",
             icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400">
          <circle cx="12" cy="12" r="10"></circle>
          <line x1="12" y1="16" x2="12" y2="12"></line>
@@ -366,11 +297,27 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
               <!-- Proyecto 4 -->
               <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all">
 
-                          <div class="aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800">
+                          <div 
+                            class= "relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img border border-zinc-800/50 cursor-pointer"
+                            onclick="openProjectModal('maki')">
 
-                            <img src="./web3.png" alt="Proyecto Ecommerce" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+                                   <img src="./web3.png" alt="Proyecto Ecommerce" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+                          
+                            <div class="absolute top-3 right-3 flex items-center justify-center p-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl shadow-xl group-hover/img:opacity-0 transition-all duration-300">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/70">
+                                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                                </svg>
+                            </div>
 
-                          </div>
+                                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px]">
+                                    <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
+                                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500">
+                                              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                                          </svg>
+                                          Explorar Galería
+                                      </div>
+                                  </div>
+                  </div>
 
 
                   <div class="flex justify-between items-start mb-1">
