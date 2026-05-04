@@ -1,6 +1,28 @@
 import './style.css'
 
 
+const art = `
+ < BIENVENIDO 
+  _          _   _____  __  __ 
+ | |        | | / ____||  \\/  |
+ | |        | || |     | \\  / |
+ | |    _   | || |     | |\\/| |
+ | |___| |__| || |____ | |  | |
+ |_____\\____ /  \\_____||_|  |_|
+                               
+ >
+`;
+
+console.log(`%c${art}`, "color: #10b981; font-weight: bold; font-family: monospace;");
+console.log(
+  "%c LUIS JESUS %c | %c SYSTEMS ENGINEER %c | %c DEV ",
+  "color: #fff; background: #10b981; padding: 2px 5px; border-radius: 3px; font-weight: bold;",
+  "color: #71717a;",
+  "color: #fff; font-weight: bold;",
+  "color: #71717a;",
+  "color: #10b981; font-weight: bold; text-decoration: underline;"
+);
+
 const tabContent = document.getElementById('tab-content');
 const buttons = document.querySelectorAll('nav button');
 
