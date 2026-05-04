@@ -1,4 +1,4 @@
-(function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();var e=document.getElementById(`tab-content`),t=document.querySelectorAll(`nav button`),n=document.getElementById(`tab-wrapper`);n.style.minHeight=`300px`;var r=async()=>{let e=document.getElementById(`ping-value`),t=document.getElementById(`ping-led`),n=document.getElementById(`ping-label`);if(!e||!t||!n)return;let r=()=>{t.classList.remove(`bg-emerald-500`,`bg-amber-500`,`bg-rose-500`,`bg-zinc-600`)};if(!navigator.onLine){r(),e.innerText=`OFFLINE`,n.innerText=`SAD 📡`,t.classList.add(`bg-zinc-600`);return}let i=new AbortController,a=setTimeout(()=>i.abort(),3e3);try{let o=performance.now();await fetch(`https://www.google.com/favicon.ico?t=${Date.now()}`,{method:`HEAD`,mode:`no-cors`,signal:i.signal}),clearTimeout(a);let s=Math.round(performance.now()-o);r(),e.innerText=`${s} MS`,s<150?(n.innerText=`EXCELLENT 😊`,t.classList.add(`bg-emerald-500`)):s<450?(n.innerText=`STABLE 😐`,t.classList.add(`bg-amber-500`)):(n.innerText=`LAG 😠`,t.classList.add(`bg-rose-500`))}catch{r(),e.innerText=`TIMEOUT`,n.innerText=`LOST 💀`,t.classList.add(`bg-rose-500`)}};document.addEventListener(`DOMContentLoaded`,()=>{r(),setInterval(r,5e3)}),setInterval(r,5e3),r(),window.showToast=e=>{let t=document.getElementById(`toast`),n=document.getElementById(`toast-message`),r=document.getElementById(`toast-icon`),i={contact:{message:`En mantenimiento... ¡Casi listo!`,icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-400">
+(function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();var e=document.getElementById(`tab-content`),t=document.querySelectorAll(`nav button`),n=document.getElementById(`tab-wrapper`);n.style.minHeight=`300px`;var r=async()=>{let e=document.getElementById(`ping-value`),t=document.getElementById(`ping-led`),n=document.getElementById(`ping-label`);if(!e||!t||!n)return;let r=()=>{t.classList.remove(`bg-emerald-500`,`bg-amber-500`,`bg-rose-500`,`bg-zinc-600`)};if(!navigator.onLine){r(),e.innerText=`OFFLINE`,n.innerText=`SAD 📡`,t.classList.add(`bg-zinc-600`);return}let i=new AbortController,a=setTimeout(()=>i.abort(),3e3);try{let o=performance.now();await fetch(`https://www.google.com/favicon.ico?t=${Date.now()}`,{method:`HEAD`,mode:`no-cors`,signal:i.signal}),clearTimeout(a);let s=Math.round(performance.now()-o);r(),e.innerText=`${s} MS`,s<150?(n.innerText=`EXCELLENT 😊`,t.classList.add(`bg-emerald-500`)):s<450?(n.innerText=`STABLE 😐`,t.classList.add(`bg-amber-500`)):(n.innerText=`LAG 😠`,t.classList.add(`bg-rose-500`))}catch{r(),e.innerText=`TIMEOUT`,n.innerText=`LOST 💀`,t.classList.add(`bg-rose-500`)}};document.addEventListener(`DOMContentLoaded`,()=>{r(),setInterval(r,5e3)}),setInterval(r,5e3),r();var i={abogados:{title:`Piñero Robledillo Abogados`,description:`Desarrollé una plataforma web de alto impacto para este despacho jurídico, enfocada en proyectar solidez y autoridad profesional. Implementé una arquitectura de información estratégica y maquetación ágil con Elementor Pro. Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br> <br> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,badges:[`WordPress`,`Elementor Pro`,`SEO Legal`,`Responsive`],images:[`./web1.jpg`,`./web1-1.jpg`,`./web1-2.jpg`]},maki:{title:`Maki Tendencias - E-commerce`,description:`Plataforma de comercio electrónico con WooCommerce enfocada en muebles de diseño. Implementé un catálogo visual de alto impacto y gestión de inventario personalizada.`,badges:[`WooCommerce`,`WordPress`,`Payments Integration`],images:[`./web3.png`,`./maki-inner1.jpg`]}};window.showToast=e=>{let t=document.getElementById(`toast`),n=document.getElementById(`toast-message`),r=document.getElementById(`toast-icon`),i={contact:{message:`En mantenimiento... ¡Casi listo!`,icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-400">
          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
          <line x1="12" y1="9" x2="12" y2="13"></line>
          <line x1="12" y1="17" x2="12.01" y2="17"></line>
@@ -6,7 +6,7 @@
          <circle cx="12" cy="12" r="10"></circle>
          <line x1="12" y1="16" x2="12" y2="12"></line>
          <line x1="12" y1="8" x2="12.01" y2="8"></line>
-       </svg>`}}[e];n.innerText=i.message,r.innerHTML=i.icon,t.classList.remove(`opacity-0`,`translate-y-10`,`pointer-events-none`),t.classList.add(`opacity-100`,`translate-y-0`),setTimeout(()=>{t.classList.remove(`opacity-100`,`translate-y-0`),t.classList.add(`opacity-0`,`translate-y-10`,`pointer-events-none`)},5e3)};var i={Proyectos:`
+       </svg>`}}[e];i&&(n.innerText=i.message,r.innerHTML=i.icon,t.classList.remove(`opacity-0`,`translate-y-10`,`pointer-events-none`),t.classList.add(`opacity-100`,`translate-y-0`),setTimeout(()=>{t.classList.remove(`opacity-100`,`translate-y-0`),t.classList.add(`opacity-0`,`translate-y-10`,`pointer-events-none`)},5e3))};var a={Proyectos:`
 <div class="space-y-8">
   <p class="text-zinc-400 text-sm ml-1">Selección de proyectos recientes y colaboraciones internacionales:</p>
   
@@ -65,85 +65,120 @@
 
 <!-- Nuevo Proyecto 2-->
 
-          <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
-                  
-                  <div class="relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img border border-zinc-800/50">
-                          <img src="./web6.png" alt="Proyecto Nuevo 2" class="w-full h-full object-cover opacity-80 group-hover/img:opacity-40 group-hover/img:scale-105 transition-all duration-500">
+<div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
+          
+          <!-- CAMBIO:
+               Se añadió cursor-pointer y onclick
+               para que toda la imagen sea clickeable -->
+        
+              <a 
+                href="https://dev-theacceleratorwp-ljcm.pantheonsite.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img border border-zinc-800/50 block cursor-pointer">
 
-                          <div class="absolute top-3 right-3 flex items-center justify-center p-2 
-                            bg-white/5 backdrop-blur-md border border-white/10 rounded-xl 
-                            shadow-xl group-hover/img:opacity-0 transition-all duration-300">
-                            
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/70">
-                                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
-                            </svg>
-                        </div>
+                  <img 
+                      src="./web6.png" 
+                      alt="Proyecto Nuevo 2" 
+                      class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
 
-                              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 group-focus-within/img:opacity-100 transition-opacity duration-300 bg-zinc-900/40 backdrop-blur-sm">
+                  <!-- ICONO SUPERIOR DERECHO -->
+                  <div class="absolute top-3 right-3 flex items-center justify-center p-2 
+                    bg-white/5 backdrop-blur-md border border-white/10 rounded-xl 
+                    shadow-xl group-hover/img:opacity-0 transition-all duration-300">
+                    
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/70">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                    </svg>
+                  </div>
 
-                                  <div class="flex flex-col items-center gap-3 transform translate-y-4 group-hover/img:translate-y-0 transition-transform duration-300">
+                <!-- CAMBIO:
+                     Overlay replicado del proyecto Abogados
+                     eliminando el botón <a> -->
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px]">
 
-                                        <a href="https://dev-theacceleratorwp-ljcm.pantheonsite.io/" 
-                                        target="_blank" 
-                                        class="flex items-center gap-2 px-4 py-2 text-[11px] font-bold text-white bg-white/10 backdrop-blur-md border border-white/20 rounded-full shadow-xl hover:bg-white/20 transition-all duration-300 uppercase tracking-wider">
-                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                                <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
-                                            </svg>
-                                            Ver Proyecto
-                                        </a>
-                                    </div>
-                                </div>
+                    <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
+
+                        <!-- Icono -->
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500">
+                            <line x1="7" y1="17" x2="17" y2="7"/>
+                            <polyline points="7 7 17 7 17 17"/>
+                        </svg>
+
+                        Ver Proyecto
                     </div>
+                </div>
+  </a>
 
-                  <div class="flex justify-between items-start gap-4 mb-1">
-                    <h4 class="font-bold text-white text-md leading-tight">Migración Landing Page "The Accelerator"
+          <div class="flex justify-between items-start gap-4 mb-1">
+            <h4 class="font-bold text-white text-md leading-tight">
+              Migración Landing Page "The Accelerator"
+            </h4>
 
-                    </h4>
-                    <span class="shrink-0 flex items-center gap-1.5 text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20">
-                        <span class="relative flex h-1.5 w-1.5">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
-                        </span>
-                        Sitio Activo
-                    </span>
-                  </div>
-
-                  <p class="text-xs text-zinc-500 mb-3">Réplica Pixel-Perfect y Optimización de Conversión
-                  </p>
-
-                  <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>
-                      </svg>
-                      Landing Page Design
-                    </span>
-
-                    <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-rose-500">
-                        <path d="M17 7l-10 10"/><path d="M7 7l10 10"/>
-                      </svg>
-                      Unbounce Replica
-                    </span>
-
-                  
-                  </div>
-
-                  <p class="text-[13px] text-zinc-400 leading-relaxed text-justify">
-                          Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de la landing page del programa 'The Accelerator', originalmente alojada en Unbounce, para integrarla de manera óptima en un entorno de WordPress. El cliente necesitaba la flexibilidad y el control que ofrece WordPress sin perder la identidad visual ni la efectividad de sus llamadas a la acción (CTAs) originales. Solución Implementada: Recreación pixel-perfect del diseño original utilizando Elementor Pro. Migración completa de textos, imágenes y estructura de marca. Optimización de velocidad de carga y adaptación 100% responsiva para todos los dispositivos. El resultado final fue una landing page idéntica a la original, pero ahora totalmente administrable, más rápida y lista para potenciar las conversiones del programa.
-                  </p>
+            <span class="shrink-0 flex items-center gap-1.5 text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                <span class="relative flex h-1.5 w-1.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                </span>
+                Sitio Activo
+            </span>
           </div>
+
+          <p class="text-xs text-zinc-500 mb-3">
+            Réplica Pixel-Perfect y Optimización de Conversión
+          </p>
+
+          <div class="flex flex-wrap gap-2 mb-4">
+
+            <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <line x1="3" y1="9" x2="21" y2="9"/>
+                <line x1="9" y1="21" x2="9" y2="9"/>
+              </svg>
+              Landing Page Design
+            </span>
+
+            <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-rose-500">
+                <path d="M17 7l-10 10"/>
+                <path d="M7 7l10 10"/>
+              </svg>
+              Unbounce Replica
+            </span>
+
+          </div>
+
+          <p class="text-[13px] text-zinc-400 leading-relaxed text-justify">
+Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de la landing page del programa 'The Accelerator', originalmente alojada en Unbounce, para integrarla de manera óptima en un entorno de WordPress. El cliente necesitaba la flexibilidad y el control que ofrece WordPress sin perder la identidad visual ni la efectividad de sus llamadas a la acción (CTAs) originales. Solución Implementada: Recreación pixel-perfect del diseño original utilizando Elementor Pro. Migración completa de textos, imágenes y estructura de marca. Optimización de velocidad de carga y adaptación 100% responsiva para todos los dispositivos. El resultado final fue una landing page idéntica a la original, pero ahora totalmente administrable, más rápida y lista para potenciar las conversiones del programa.          </p>
+</div>
 
                  <!-- Proyecto 3 -->
                  
 
            <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all">
 
-                            <div class="aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800">
+                            <div 
+                            class= "relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img border border-zinc-800/50 cursor-pointer"
+                            onclick="openProjectModal('abogados')">
 
                                     <img src="./web1.jpg" alt="Proyecto Abogados" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
                           
-                            </div>
+                            <div class="absolute top-3 right-3 flex items-center justify-center p-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl shadow-xl group-hover/img:opacity-0 transition-all duration-300">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/70">
+                                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                            </svg>
+                        </div>
+
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px]">
+                        <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            Explorar Galería
+                        </div>
+                    </div>
+                  </div>
 
 
                       <div class="flex justify-between items-start gap-4 mb-1">
@@ -575,4 +610,12 @@
       
 
     </div>
-`};window.addEventListener(`resize`,()=>{let t=e.scrollHeight;n.style.transition=`none`,n.style.height=`${t}px`,setTimeout(()=>{n.style.transition=`height 0.4s ease-in-out`},50)});function a(r){e.style.opacity=`0`,e.style.transform=`translateX(-20px)`,setTimeout(()=>{e.innerHTML=i[r]||i.Proyectos,n.style.height=n.style.height,requestAnimationFrame(()=>{let t=e.scrollHeight;n.style.height=`${t}px`,n.style.minHeight=`0px`}),e.style.transform=`translateX(20px)`,requestAnimationFrame(()=>{e.style.opacity=`1`,e.style.transform=`translateX(0)`})},300),t.forEach(e=>{e.className=`flex-1 pb-3 text-[12px] md:text[15px] font-semibold transition-all whitespace-nowrap ${e.textContent.trim()===r?`text-white border-b border-white`:`text-zinc-500 hover:text-zinc-300`}`})}a(`Proyectos`),t.forEach(e=>{e.addEventListener(`click`,()=>a(e.textContent.trim()))});
+`};window.addEventListener(`resize`,()=>{let t=e.scrollHeight;n.style.transition=`none`,n.style.height=`${t}px`,setTimeout(()=>{n.style.transition=`height 0.4s ease-in-out`},50)});function o(r){e.style.opacity=`0`,e.style.transform=`translateX(-20px)`,setTimeout(()=>{e.innerHTML=a[r]||a.Proyectos,n.style.height=n.style.height,requestAnimationFrame(()=>{let t=e.scrollHeight;n.style.height=`${t}px`,n.style.minHeight=`0px`}),e.style.transform=`translateX(20px)`,requestAnimationFrame(()=>{e.style.opacity=`1`,e.style.transform=`translateX(0)`})},300),t.forEach(e=>{e.className=`flex-1 pb-3 text-[12px] md:text[15px] font-semibold transition-all whitespace-nowrap ${e.textContent.trim()===r?`text-white border-b border-white`:`text-zinc-500 hover:text-zinc-300`}`})}o(`Proyectos`),t.forEach(e=>{e.addEventListener(`click`,()=>o(e.textContent.trim()))}),window.openProjectModal=e=>{let t=i[e];if(!t)return;let n=document.getElementById(`project-modal`);document.getElementById(`modal-title`).innerText=t.title,document.getElementById(`modal-description`).innerText=t.description;let r=document.getElementById(`modal-badges`);r.innerHTML=t.badges.map(e=>`
+        <span class="px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-400 text-[10px] font-medium border border-zinc-700/50">
+            ${e}
+        </span>
+    `).join(``);let a=document.getElementById(`modal-gallery`);a.innerHTML=t.images.map(e=>`
+        <div class="w-full rounded-2xl overflow-hidden border border-zinc-800/50 shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+            <img src="${e}" class="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity duration-300" alt="Capture">
+        </div>
+    `).join(``),n.classList.remove(`hidden`),n.classList.add(`flex`),setTimeout(()=>{n.classList.add(`opacity-100`),n.querySelector(`.relative`).classList.replace(`scale-95`,`scale-100`)},10)},window.closeModal=()=>{let e=document.getElementById(`project-modal`),t=e.querySelector(`.relative`);e.classList.remove(`opacity-100`),t.classList.replace(`scale-100`,`scale-95`),setTimeout(()=>{e.classList.replace(`flex`,`hidden`)},300)};

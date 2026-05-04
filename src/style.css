@@ -10,3 +10,16 @@
   transition: height 0.4s ease-in-out;
   will-change: height;
 }
+
+/* Asegura que el modal no se pegue al borde del móvil */
+#project-modal {
+    padding: 1rem; /* p-4 en Tailwind */
+}
+
+/* Opcional: ajustar el ancho máximo en móvil */
+@media (max-width: 768px) {
+    #project-modal > div {
+        max-height: 85vh;
+        margin-bottom: 2rem;
+    }
+}
