@@ -47,13 +47,13 @@ const projectData = {
     },
     'mgc-legal': {
         title: "Web Corporativa y Catálogo de Servicios | MGC Legal",
-        description: "Diseñé y desarrollé la presencia digital de MGC Legal, un estudio jurídico con visión global. El proyecto consistió en la creación de una plataforma concisa y profesional, estructurada como una carta de presentación digital de alto impacto. Utilizando WordPress y Astra, logré una arquitectura de información práctica que organiza sus servicios de forma clara y directa. El resultado es una web ligera, funcional y optimizada, ideal para proyectar la cercanía y el enfoque resolutivo que caracteriza al bufete.",
-        badges: ['WordPress', 'Astra Theme', 'UI/UX Design', 'SEO Optimized', 'Elementor Pro'],
+        description: "Diseñé y desarrollé la presencia digital de MGC Legal, un estudio jurídico con visión global. El proyecto consistió en la creación de una plataforma concisa y profesional, estructurada como una carta de presentación digital de alto impacto. Utilizando WordPress y Hello, logré una arquitectura de información práctica que organiza sus servicios de forma clara y directa. El resultado es una web ligera, funcional y optimizada, ideal para proyectar la cercanía y el enfoque resolutivo que caracteriza al bufete.",
+        badges: ['WordPress', 'Hello Elementor', 'UI/UX Design', 'SEO Optimized', 'Elementor Pro'],
         images: ['./web4.png', './web4-1.png', './web4-2.png', './web4-3.png', './web4-4.png'] // Ajusta las rutas según tus archivos
     },
     'inmobiliaria-alicante': {
         title: "Plataforma de Gestión Inmobiliaria y Catálogo | Alicante",
-        description: "Diseñé y desarrollé la web corporativa para la Inmobiliaria Alicante, enfocada en la visualización estratégica de propiedades y la generación de leads cualificados. Estructuré el sitio sobre el ecosistema WordPress + Astra, configurando galerías de alta resolución optimizadas y formularios de contacto estratégicos para facilitar la conversión de visitantes en clientes potenciales. Una herramienta de ventas digital robusta y profesional que transmite la solidez del mercado inmobiliario, optimizada para dispositivos móviles y con una arquitectura de navegación que reduce la tasa de rebote en las búsquedas de propiedades.",
+        description: "Diseñé y desarrollé la web corporativa para la Inmobiliaria Alicante, enfocada en la visualización estratégica de propiedades y la generación de leads cualificados. Estructuré el sitio sobre el ecosistema WordPress + Hello Elementor, configurando galerías de alta resolución optimizadas y formularios de contacto estratégicos para facilitar la conversión de visitantes en clientes potenciales. Una herramienta de ventas digital robusta y profesional que transmite la solidez del mercado inmobiliario, optimizada para dispositivos móviles y con una arquitectura de navegación que reduce la tasa de rebote en las búsquedas de propiedades.",
         badges: ['WordPress', 'Estrategia Digital', 'Hello Elementor', 'Lead Generation'],
         images: ['./web5.png', './web5-1.png', './web5-2.png', './web5-3.png', './web5-4.png', './web5-5.png', './web5-6.png', './web5-7.png', './web5-8.png']
     },
@@ -121,7 +121,7 @@ const content = {
 
         <div class="group p-5 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:bg-zinc-900/40 hover:border-zinc-700 transition-all transform ">
                       <div class="flex justify-between items-start mb-3">
-                              <h3 class="font-bold text-white text-lg group-hover:transition-colors">Portfolio Moderno v2.0</h3>
+                              <h3 class="font-bold text-white text-lg group-hover:transition-colors">Portfolio Moderno v2.3</h3>
 
                                     <span class="shrink-0 flex items-center gap-1.5 text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20">
                                       <span class="relative flex h-1.5 w-1.5">
@@ -255,7 +255,7 @@ const content = {
           </div>
 
           <p class="text-[13px] text-zinc-400 leading-relaxed text-justify">
-Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de la landing page del programa 'The Accelerator', originalmente alojada en Unbounce, para integrarla de manera óptima en un entorno de WordPress. El cliente necesitaba la flexibilidad y el control que ofrece WordPress sin perder la identidad visual ni la efectividad de sus llamadas a la acción (CTAs) originales. Solución Implementada: Recreación pixel-perfect del diseño original utilizando Elementor Pro. Migración completa de textos, imágenes y estructura de marca. Optimización de velocidad de carga y adaptación 100% responsiva para todos los dispositivos. El resultado final fue una landing page idéntica a la original, pero ahora totalmente administrable, más rápida y lista para potenciar las conversiones del programa.          </p>
+Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de la landing page del programa 'The Accelerator' de Workana, originalmente alojada en Unbounce, para integrarla de manera óptima en un entorno de WordPress. El cliente necesitaba la flexibilidad y el control que ofrece WordPress sin perder la identidad visual ni la efectividad de sus llamadas a la acción (CTAs) originales. Solución Implementada: Recreación pixel-perfect del diseño original utilizando Elementor Pro. Migración completa de textos, imágenes y estructura de marca. Optimización de velocidad de carga y adaptación 100% responsiva para todos los dispositivos. El resultado final fue una landing page idéntica a la original, pero ahora totalmente administrable, más rápida y lista para potenciar las conversiones del programa.          </p>
 </div>
 
                  <!-- Proyecto 3 -->
