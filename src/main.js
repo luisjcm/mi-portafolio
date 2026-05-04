@@ -826,7 +826,7 @@ window.openProjectModal = (id) => {
     // Inyectar Badges con estilo minimalista
     const badgeDiv = document.getElementById('modal-badges');
     badgeDiv.innerHTML = data.badges.map(b => `
-        <span class="px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-400 text-[10px] font-medium border border-zinc-700/50">
+        <span class="px-2 py-0.5 rounded-md bg-zinc-800/50 text-zinc-400 text-[9px] md:text-[10px] font-medium border border-zinc-700/30 tracking-tight">
             ${b}
         </span>
     `).join('');

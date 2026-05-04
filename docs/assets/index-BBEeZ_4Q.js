@@ -611,7 +611,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
 
     </div>
 `};window.addEventListener(`resize`,()=>{let t=e.scrollHeight;n.style.transition=`none`,n.style.height=`${t}px`,setTimeout(()=>{n.style.transition=`height 0.4s ease-in-out`},50)});function o(r){e.style.opacity=`0`,e.style.transform=`translateX(-20px)`,setTimeout(()=>{e.innerHTML=a[r]||a.Proyectos,n.style.height=n.style.height,requestAnimationFrame(()=>{let t=e.scrollHeight;n.style.height=`${t}px`,n.style.minHeight=`0px`}),e.style.transform=`translateX(20px)`,requestAnimationFrame(()=>{e.style.opacity=`1`,e.style.transform=`translateX(0)`})},300),t.forEach(e=>{e.className=`flex-1 pb-3 text-[12px] md:text[15px] font-semibold transition-all whitespace-nowrap ${e.textContent.trim()===r?`text-white border-b border-white`:`text-zinc-500 hover:text-zinc-300`}`})}o(`Proyectos`),t.forEach(e=>{e.addEventListener(`click`,()=>o(e.textContent.trim()))}),window.openProjectModal=e=>{let t=i[e];if(!t)return;let n=document.getElementById(`project-modal`);document.getElementById(`modal-title`).innerText=t.title,document.getElementById(`modal-description`).innerText=t.description;let r=document.getElementById(`modal-badges`);r.innerHTML=t.badges.map(e=>`
-        <span class="px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-400 text-[10px] font-medium border border-zinc-700/50">
+        <span class="px-2 py-0.5 rounded-md bg-zinc-800/50 text-zinc-400 text-[9px] md:text-[10px] font-medium border border-zinc-700/30 tracking-tight">
             ${e}
         </span>
     `).join(``);let a=document.getElementById(`modal-gallery`);a.innerHTML=t.images.map(e=>`
