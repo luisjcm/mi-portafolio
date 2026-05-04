@@ -615,7 +615,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
             ${e}
         </span>
     `).join(``);let a=document.getElementById(`modal-gallery`);a.innerHTML=t.images.map(e=>`
-        <div class="w-full rounded-2xl overflow-hidden border border-zinc-800/50 shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
-            <img src="${e}" class="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity duration-300" alt="Capture">
-        </div>
-    `).join(``),n.classList.remove(`hidden`),n.classList.add(`flex`),setTimeout(()=>{n.classList.add(`opacity-100`),n.querySelector(`.relative`).classList.replace(`scale-95`,`scale-100`)},10)},window.closeModal=()=>{let e=document.getElementById(`project-modal`),t=e.querySelector(`.relative`);e.classList.remove(`opacity-100`),t.classList.replace(`scale-100`,`scale-95`),setTimeout(()=>{e.classList.replace(`flex`,`hidden`)},300)};
+    <div class="w-full rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 shadow-xl mb-4">
+        <img src="${e}" class="w-full h-auto block" alt="Project Capture">
+    </div>
+`).join(``),n.classList.remove(`hidden`),n.classList.add(`flex`),setTimeout(()=>{n.classList.add(`opacity-100`),n.querySelector(`.relative`).classList.replace(`scale-95`,`scale-100`)},10)},window.closeModal=()=>{let e=document.getElementById(`project-modal`),t=e.querySelector(`.relative`);e.classList.remove(`opacity-100`),t.classList.replace(`scale-100`,`scale-95`),setTimeout(()=>{e.classList.replace(`flex`,`hidden`)},300)};

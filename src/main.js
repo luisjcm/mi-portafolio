@@ -834,10 +834,10 @@ window.openProjectModal = (id) => {
     // Inyectar Galería de Imágenes
     const galleryDiv = document.getElementById('modal-gallery');
     galleryDiv.innerHTML = data.images.map(img => `
-        <div class="w-full rounded-2xl overflow-hidden border border-zinc-800/50 shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
-            <img src="${img}" class="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity duration-300" alt="Capture">
-        </div>
-    `).join('');
+    <div class="w-full rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 shadow-xl mb-4">
+        <img src="${img}" class="w-full h-auto block" alt="Project Capture">
+    </div>
+`).join('');
 
     // Mostrar con transición
     modal.classList.remove('hidden');
