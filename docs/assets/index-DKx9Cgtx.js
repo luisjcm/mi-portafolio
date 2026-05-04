@@ -68,14 +68,12 @@
                                       JavaScript ES6+
                                     </span>
                     </div>
+
+
+                    
           </div>
 
- <!-- Segundo Contenedor: dividido en dos columnas por cada fila -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-<!-- Nuevo Proyecto 2-->
-
-<div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
+          <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
           
           <!-- CAMBIO:
                Se añadió cursor-pointer y onclick
@@ -163,10 +161,9 @@
 Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de la landing page del programa 'The Accelerator' de Workana, originalmente alojada en Unbounce, para integrarla de manera óptima en un entorno de WordPress. El cliente necesitaba la flexibilidad y el control que ofrece WordPress sin perder la identidad visual ni la efectividad de sus llamadas a la acción (CTAs) originales. Solución Implementada: Recreación pixel-perfect del diseño original utilizando Elementor Pro. Migración completa de textos, imágenes y estructura de marca. Optimización de velocidad de carga y adaptación 100% responsiva para todos los dispositivos. El resultado final fue una landing page idéntica a la original, pero ahora totalmente administrable, más rápida y lista para potenciar las conversiones del programa.          </p>
 </div>
 
-                 <!-- Proyecto 3 -->
-                 
 
-           <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all">
+
+<div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all">
 
                             <div 
                             class= "relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img border border-zinc-800/50 cursor-pointer"
@@ -230,12 +227,20 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
 
                     </div>
 
-                        <p class="text-[13px] text-zinc-400 leading-relaxed text-justify">
-                          Desarrollé una plataforma web de alto impacto para este despacho jurídico, enfocada en proyectar solidez y autoridad profesional. Mediante una arquitectura de información estratégica y maquetación ágil con Elementor Pro y Hello, implementé una interfaz moderna y 100% responsive. El resultado fue un sitio web optimizado en rendimiento que garantiza una experiencia de usuario impecable, logrando una presencia digital robusta alineada con los estándares de confianza del sector legal.
-
-
-                        </p>
+                        
             </div>
+
+ <!-- Segundo Contenedor: dividido en dos columnas por cada fila -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+<!-- Nuevo Proyecto 2-->
+
+
+
+                 <!-- Proyecto 3 -->
+                 
+
+           
 
 
               <!-- Proyecto 4 -->
@@ -316,9 +321,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
 
                             </div>
 
-                      <p class="text-[13px] text-zinc-400 leading-relaxed text-justify">
-                        Desarrollé una plataforma de comercio electrónico con WooCommerce para "Maki Tendencias", un negocio enfocado en muebles de diseño exclusivo. Implementé un catálogo visual de alto impacto y una experiencia de compra fluida mediante la integración de pasarelas de pago y gestión de inventario personalizada. El resultado es una tienda online robusta y profesional que proyecta la calidad artesanal de la marca, facilitando la conversión de visitantes en clientes y expandiendo su alcance comercial al entorno digital.
-                      </p>
+                      
               </div>
 
 
@@ -399,9 +402,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
                           </span>
                             </div>
 
-                          <p class="text-[13px] text-zinc-400 leading-relaxed text-justify">
-                            Diseñé y desarrollé la presencia digital de MGC Legal, un estudio jurídico con visión global. El proyecto consistió en la creación de una plataforma concisa y profesional, estructurada como una carta de presentación digital de alto impacto. Utilizando WordPress y Astra, logré una arquitectura de información práctica que organiza sus servicios de forma clara y directa. El resultado es una web ligera, funcional y optimizada, ideal para proyectar la cercanía y el enfoque resolutivo que caracteriza al bufete.
-                          </p>
+                          
               </div>
               
                   <!-- Proyecto 6-->
@@ -460,10 +461,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
 
                   </div>
 
-                  <p class="text-[13px] text-zinc-400 leading-relaxed text-justify">
-                      Diseñé y desarrollé la web corporativa para la Inmobiliaria Alicante, enfocada en la visualización estratégica de propiedades y la generación de leads cualificados. Estructuré el sitio sobre el ecosistema WordPress + Astra, configurando galerías de alta resolución optimizadas y formularios de contacto estratégicos para facilitar la conversión de visitantes en clientes potenciales. Una herramienta de ventas digital robusta y profesional que transmite la solidez del mercado inmobiliario, optimizada para dispositivos móviles y con una arquitectura de navegación que reduce la tasa de rebote en las búsquedas de propiedades.
-
-                  </p>
+                  
               </div>
 
               <!-- Proyecto 7-->
@@ -530,10 +528,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
 
                             </div>
 
-                      <p class="text-[13px] text-zinc-400 leading-relaxed text-justify">
-                                  Realicé el desarrollo inicial y la arquitectura de la plataforma, liderando el rediseño visual para alinear la interfaz con las tendencias de IA y optimizar la experiencia de usuario (UX). Implementé una maquetación ágil de interfaces bajo una estructura técnica modular, utilizando herramientas que permiten al cliente gestionar actualizaciones de forma autónoma sin comprometer la integridad del código o el diseño. Una plataforma robusta y escalable que sirve como base sólida para el crecimiento del proyecto, logrando un sitio web de alta disponibilidad que el equipo de DeportIA puede operar con total independencia técnica.
-
-                      </p>
+                      
               </div>
 
               
@@ -547,13 +542,13 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
 
     </div>
 </div>
-`,"Stack Tecnico":`
+`,"Stack Técnico":`
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 animate-in fade-in duration-500">
       
       <!-- Modern JS -->
       <div class="flex items-center gap-3 p-4 bg-zinc-900/30 border border-zinc-800 rounded-xl hover:border-zinc-600 transition-colors group">
         <svg class="text-zinc-500 group-hover:text-yellow-400 transition-colors" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9l-3-3H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 11l-4 4-2-2"/></svg>
-        <span class="text-[14px] font-medium text-zinc-300">Modern JS (ES6+)</span>
+        <span class="text-[14px] font-medium text-zinc-300">JavaScript (ES6+)</span>
       </div>
 
       <!-- Tailwind CSS -->
@@ -651,36 +646,36 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
   </div>
 
 </div>
-`,Formacion:`
+`,Formación:`
 <div class="space-y-6 animate-in fade-in">
 
       <div class="p-4 border border-zinc-800 rounded-xl bg-zinc-900/20">
-        <h4 class="font-bold text-white">Ingeniería de Sistemas
+        <h4 class="text-xs md:text-xl font-bold text-white">Ingeniería de Sistemas
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-blue-500 inline-block ml-1 mb-1">
         <path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.49 4.49 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.49 4.49 0 01-1.307 3.497 4.49 4.49 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.49 4.49 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
       </svg>
         </h4>
-        <p class="text-sm text-zinc-400 font-medium">Pregrado | 2014 - 2021</p>
+        <p class="text-xs md:text-sm text-zinc-400 font-medium">Pregrado | 2014 - 2021</p>
       </div>
 
       <div class="p-4 border border-zinc-800 rounded-xl bg-zinc-900/20">
-        <h4 class="font-bold text-white">Master en Full Stack Development
+        <h4 class="text-xs md:text-xl font-bold text-white">Master en Full Stack Development
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-blue-500 inline-block ml-1 mb-1">
         <path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.49 4.49 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.49 4.49 0 01-1.307 3.497 4.49 4.49 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.49 4.49 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
       </svg>
         </h4>
-        <p class="text-sm text-zinc-400">UCV - Diplomadosonline.com | 2024 — 2025</p>
+        <p class="text-xs md:text-sm  text-zinc-400">UCV - Diplomadosonline.com | 2024 — 2025</p>
       </div>
 
       <div class="p-4 border border-zinc-800 rounded-xl bg-zinc-900/20">
-        <h4 class="font-bold text-white text-teal-400">Certificación JavaScript Moderno
+        <h4 class="text-xs md:text-xl font-bold text-white text-teal-400">Certificación JavaScript Moderno
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-blue-500 inline-block ml-1 mb-1">
         <path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.49 4.49 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.49 4.49 0 01-1.307 3.497 4.49 4.49 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.49 4.49 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
       </svg>
         </h4>
-        <p class="text-sm text-zinc-400 italic">Udemy - Completado en Abril 2026</p>
+        <p class="text-xs md:text-sm  text-zinc-400 italic">Udemy - Completado en Abril 2026</p>
       </div>
 
       
