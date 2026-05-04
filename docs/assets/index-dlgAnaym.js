@@ -1,4 +1,4 @@
-(function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();var e=document.getElementById(`tab-content`),t=document.querySelectorAll(`nav button`),n=document.getElementById(`tab-wrapper`);n.style.minHeight=`300px`;var r={abogados:{title:`Piñero Robledillo Abogados`,description:`Desarrollé una plataforma web de alto impacto para este despacho jurídico, enfocada en proyectar solidez y autoridad profesional. Mediante una arquitectura de información estratégica y maquetación ágil con Elementor Pro y Hello, implementé una interfaz moderna y 100% responsive. El resultado fue un sitio web optimizado en rendimiento que garantiza una experiencia de usuario impecable, logrando una presencia digital robusta alineada con los estándares de confianza del sector legal.`,badges:[`WordPress`,`Elementor Pro`,`Responsive Web Design`],images:[`./web1.jpg`,`./web1-1.jpg`,`./web1-2.jpg`,`./web1-3.jpg`,`./web1-4.jpg`]},maki:{title:`E-commerce Especializado para Mobiliario de Diseño | Maki Tendencias`,description:`Desarrollé una plataforma de comercio electrónico con WooCommerce para 'Maki Tendencias', un negocio enfocado en muebles de diseño exclusivo. Implementé un catálogo visual de alto impacto y una experiencia de compra fluida mediante la integración de pasarelas de pago y gestión de inventario personalizada. El resultado es una tienda online robusta y profesional que proyecta la calidad artesanal de la marca, facilitando la conversión de visitantes en clientes y expandiendo su alcance comercial al entorno digital.`,badges:[`WooCommerce`,`WordPress`,`Gestión de inventario`],images:[`./web3.png`,`./web3-1.png`,`./web3-2.png`,`./web3-3.png`,`./web3-4.png`,`./web3-5.png`,`./web3-6.png`,`./web3-7.png`]}};window.showToast=e=>{let t=document.getElementById(`toast`),n=document.getElementById(`toast-message`),r=document.getElementById(`toast-icon`),i={contact:{message:`En mantenimiento... ¡Intenta luego!`,icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-400">
+(function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();var e=document.getElementById(`tab-content`),t=document.querySelectorAll(`nav button`),n=document.getElementById(`tab-wrapper`);n.style.minHeight=`300px`;var r={abogados:{title:`Piñero Robledillo Abogados`,description:`Desarrollé una plataforma web de alto impacto para este despacho jurídico, enfocada en proyectar solidez y autoridad profesional. Mediante una arquitectura de información estratégica y maquetación ágil con Elementor Pro y Hello, implementé una interfaz moderna y 100% responsive. El resultado fue un sitio web optimizado en rendimiento que garantiza una experiencia de usuario impecable, logrando una presencia digital robusta alineada con los estándares de confianza del sector legal.`,badges:[`WordPress`,`Elementor Pro`,`Responsive Web Design`],images:[`./web1.jpg`,`./web1-1.jpg`,`./web1-2.jpg`,`./web1-3.jpg`,`./web1-4.jpg`]},maki:{title:`E-commerce Especializado para Mobiliario de Diseño | Maki Tendencias`,description:`Desarrollé una plataforma de comercio electrónico con WooCommerce para 'Maki Tendencias', un negocio enfocado en muebles de diseño exclusivo. Implementé un catálogo visual de alto impacto y una experiencia de compra fluida mediante la integración de pasarelas de pago y gestión de inventario personalizada. El resultado es una tienda online robusta y profesional que proyecta la calidad artesanal de la marca, facilitando la conversión de visitantes en clientes y expandiendo su alcance comercial al entorno digital.`,badges:[`WooCommerce`,`WordPress`,`Gestión de inventario`],images:[`./web3.png`,`./web3-1.png`,`./web3-2.png`,`./web3-3.png`,`./web3-4.png`,`./web3-5.png`,`./web3-6.png`,`./web3-7.png`]},"mgc-legal":{title:`Web Corporativa y Catálogo de Servicios | MGC Legal`,description:`Diseñé y desarrollé la presencia digital de MGC Legal, un estudio jurídico con visión global. El proyecto consistió en la creación de una plataforma concisa y profesional, estructurada como una carta de presentación digital de alto impacto. Utilizando WordPress y Astra, logré una arquitectura de información práctica que organiza sus servicios de forma clara y directa. El resultado es una web ligera, funcional y optimizada, ideal para proyectar la cercanía y el enfoque resolutivo que caracteriza al bufete.`,badges:[`WordPress`,`Astra Theme`,`UI/UX Design`,`SEO Optimized`,`Elementor Pro`],images:[`./web4.png`,`./web4-1.png`,`./web4-2.png`,`./web4-3.png`,`./web4-4.png`]},"inmobiliaria-alicante":{title:`Plataforma de Gestión Inmobiliaria y Catálogo | Alicante`,description:`Diseñé y desarrollé la web corporativa para la Inmobiliaria Alicante, enfocada en la visualización estratégica de propiedades y la generación de leads cualificados. Estructuré el sitio sobre el ecosistema WordPress + Astra, configurando galerías de alta resolución optimizadas y formularios de contacto estratégicos para facilitar la conversión de visitantes en clientes potenciales. Una herramienta de ventas digital robusta y profesional que transmite la solidez del mercado inmobiliario, optimizada para dispositivos móviles y con una arquitectura de navegación que reduce la tasa de rebote en las búsquedas de propiedades.`,badges:[`WordPress`,`Estrategia Digital`,`Hello Elementor`,`Lead Generation`],images:[`./web5.png`,`./web5-1.png`,`./web5-2.png`,`./web5-3.png`,`./web5-4.png`,`./web5-5.png`,`./web5-6.png`,`./web5-7.png`,`./web5-8.png`]},deportia:{title:`Plataforma Digital de Innovación Tecnológica | DeportIA`,description:`Realicé el desarrollo inicial y la arquitectura de la plataforma, liderando el rediseño visual para alinear la interfaz con las tendencias de IA y optimizar la experiencia de usuario (UX). Implementé una maquetación ágil de interfaces bajo una estructura técnica modular, utilizando herramientas que permiten al cliente gestionar actualizaciones de forma autónoma sin comprometer la integridad del código o el diseño. Una plataforma robusta y escalable que sirve como base sólida para el crecimiento del proyecto, logrando un sitio web de alta disponibilidad.`,badges:[`WordPress`,`WooCommerce`],images:[`./web2.png`,`./web2-1.png`,`./web2-2.png`,`./web2-3.png`,`./web2-4.png`,`./web2-5.png`,`./web2-6.png`,`./web2-7.png`,`./web2-8.png`,`./web2-9.png`,`./web2-10.png`,`./web2-11.png`]}};window.showToast=e=>{let t=document.getElementById(`toast`),n=document.getElementById(`toast-message`),r=document.getElementById(`toast-icon`),i={contact:{message:`En mantenimiento... ¡Intenta luego!`,icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-400">
          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
          <line x1="12" y1="9" x2="12" y2="13"></line>
          <line x1="12" y1="17" x2="12.01" y2="17"></line>
@@ -316,11 +316,27 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
 
               <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all">
 
-                          <div class="aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800">
+                          <div 
+                            class= "relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img border border-zinc-800/50 cursor-pointer"
+                            onclick="openProjectModal('mgc-legal')">
 
-                            <img src="./web4.png" alt="Proyecto WordPress" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+                                   <img src="./web4.png" alt="Proyecto WordPress" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+                          
+                            <div class="absolute top-3 right-3 flex items-center justify-center p-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl shadow-xl group-hover/img:opacity-0 transition-all duration-300">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/70">
+                                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                                </svg>
+                            </div>
 
-                          </div>
+                                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px]">
+                                    <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
+                                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500">
+                                              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                                          </svg>
+                                          Explorar Galería
+                                      </div>
+                                  </div>
+                  </div>
 
 
                   <div class="flex justify-between items-start mb-1">
@@ -382,8 +398,26 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
 
                   <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
                   
-                  <div class="aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800">
-                    <img src="./web5.png" alt="Proyecto Nuevo 1" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+                  <div 
+                            class= "relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img border border-zinc-800/50 cursor-pointer"
+                            onclick="openProjectModal('inmobiliaria-alicante')">
+
+                                   <img src="./web5.png" alt="Proyecto WordPress" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+                          
+                            <div class="absolute top-3 right-3 flex items-center justify-center p-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl shadow-xl group-hover/img:opacity-0 transition-all duration-300">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/70">
+                                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                                </svg>
+                            </div>
+
+                                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px]">
+                                    <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
+                                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500">
+                                              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                                          </svg>
+                                          Explorar Galería
+                                      </div>
+                                  </div>
                   </div>
 
                   <div class="flex justify-between items-start gap-4 mb-1">
@@ -426,11 +460,27 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
 
               <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all">
 
-                          <div class="aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800">
+                          <div 
+                            class= "relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img border border-zinc-800/50 cursor-pointer"
+                            onclick="openProjectModal('deportia')">
 
-                            <img src="./web2.png" alt="Proyecto DeportIA" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+                                   <img src="./web2.png" alt="Proyecto DeportIA" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+                          
+                            <div class="absolute top-3 right-3 flex items-center justify-center p-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl shadow-xl group-hover/img:opacity-0 transition-all duration-300">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/70">
+                                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                                </svg>
+                            </div>
 
-                          </div>
+                                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px]">
+                                    <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
+                                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500">
+                                              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                                          </svg>
+                                          Explorar Galería
+                                      </div>
+                                  </div>
+                  </div>
 
 
                   <div class="flex justify-between items-start mb-1">
