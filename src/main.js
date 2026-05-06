@@ -660,11 +660,24 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
         <span class="text-[14px] font-medium text-zinc-300">WordPress/Elementor</span>
       </div>
 
-      <!-- Python (Nueva Habilidad) -->
       <div class="flex items-center gap-3 p-4 bg-zinc-900/30 border border-zinc-800 rounded-xl hover:border-zinc-600 transition-colors group">
-        <svg class="text-zinc-500 group-hover:text-blue-300 transition-colors" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-        <span class="text-[14px] font-medium text-zinc-300">Python (básico)</span>
-      </div>
+  <svg 
+    class="text-zinc-500 group-hover:text-emerald-400 transition-colors" 
+    width="20" 
+    height="20" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    stroke-width="2" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+  >
+    <polyline points="16 18 22 12 16 6"></polyline>
+    <polyline points="8 6 2 12 8 18"></polyline>
+  </svg>
+  
+  <span class="text-[14px] font-medium text-zinc-300">HTML & CSS</span>
+</div>
 
       <!-- Git & GitHub -->
       <div class="flex items-center gap-3 p-4 bg-zinc-900/30 border border-zinc-800 rounded-xl hover:border-zinc-600 transition-colors group">
