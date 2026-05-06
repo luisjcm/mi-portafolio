@@ -121,7 +121,7 @@ const content = {
 
         <div class="group p-5 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:bg-zinc-900/40 hover:border-zinc-700 transition-all transform ">
                       <div class="flex justify-between items-start mb-3">
-                              <h3 class="font-bold text-white text-lg group-hover:transition-colors">Portfolio Moderno v2.3</h3>
+                              <h3 class="font-bold text-white text-lg group-hover:transition-colors">Portfolio Moderno v3.1</h3>
 
                                     <span class="shrink-0 flex items-center gap-1.5 text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20">
                                       <span class="relative flex h-1.5 w-1.5">
