@@ -1,22 +1,38 @@
 @import "tailwindcss";
 
+@theme {
+  /* --- COLORES AZUL ELÉCTRICO VIBRANTE --- */
+  --color-brand-primary: #0070ff;       /* Azul Eléctrico Puro */
+  --color-brand-secondary: #0056b3;     /* Azul para estados de hover */
+  --color-brand-surface: rgba(0, 112, 255, 0.1); /* Brillo sutil de fondo */
+  
+  /* --- TIPOGRAFÍA --- */
+  --font-sans: 'Inter', ui-sans-serif, system-ui;
 
+  /* --- EFECTO DE GLOW TECNOLÓGICO --- */
+  --shadow-brand-glow: 0 0 25px rgba(0, 112, 255, 0.4);
+}
+
+/* --- ESTILOS BASE --- */
+@layer base {
+  body {
+    @apply bg-zinc-950 text-zinc-100 antialiased;
+  }
+}
+
+/* --- TUS TRANSICIONES PERSONALIZADAS --- */
 #tab-content {
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  will-change: transform, opacity;
 }
 
 #tab-wrapper {
   transition: height 0.4s ease-in-out;
-  will-change: height;
 }
 
-/* Asegura que el modal no se pegue al borde del móvil */
 #project-modal {
-    padding: 1rem; /* p-4 en Tailwind */
+    padding: 1rem;
 }
 
-/* Opcional: ajustar el ancho máximo en móvil */
 @media (max-width: 768px) {
     #project-modal > div {
         max-height: 85vh;
