@@ -4,5 +4,9 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [tailwindcss()],
   base: '/mi-portafolio/',
+  build: {
+    outDir: 'docs',
+    emptyOutDir: true, 
+  }
 })
 
