@@ -27,7 +27,7 @@ export const Header: React.FC = () => {
           </div>
           <div className="flex items-center gap-1.5 text-zinc-400 text-[11px] bg-zinc-900/50 px-3 py-1 rounded-full border border-zinc-800">
             <Bot size={12} className="text-brand-primary" />
-            <span>Full-Stack</span>
+            <span>Front-end</span>
           </div>
           <a href="#contacto" className="ml-4 bg-brand-primary text-zinc-950 px-4 py-1.5 rounded-lg text-xs font-bold hover:bg-white transition-colors">
             Contacto
@@ -75,7 +75,7 @@ export const Header: React.FC = () => {
             </div>
             <div className="flex items-center gap-3 text-zinc-400 text-sm">
               <Bot size={14} className="text-brand-primary" />
-              <span>Desarrollador Full-Stack</span>
+              <span>Desarrollador Front-end</span>
             </div>
             <div className="flex items-center gap-3 text-zinc-400 text-sm">
               <MapPin size={14} className="text-brand-primary" />

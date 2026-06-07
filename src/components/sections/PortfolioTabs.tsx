@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { PROJECTS_DATA } from '../../data/projects';
+import { ProjectCard } from '../ui/ProjectCard';
 
 const TABS = ['Proyectos', 'Stack', 'Trayectoria', 'Formación'];
 
@@ -43,7 +45,19 @@ export const PortfolioTabs: React.FC = () => {
             transition={{ duration: 0.2 }}
           >
             {/* Aquí renderizaremos el contenido según el estado */}
-            {activeTab === 'Proyectos' && <p className="text-zinc-400">Cargando tus proyectos...</p>}
+            {activeTab === 'Proyectos' && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {PROJECTS_DATA.map((project) => (
+            <ProjectCard 
+              key={project.id}
+              title={project.title}
+              description={project.description}
+              tags={project.tags}
+              link={project.link}
+            />
+          ))}
+        </div>
+      )}
             {activeTab === 'Stack' && <p className="text-zinc-400">React, TypeScript, Tailwind...</p>}
             {/* ... etc */}
           </motion.div>
