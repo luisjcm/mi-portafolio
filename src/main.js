@@ -124,10 +124,10 @@ const content = {
                       <div class="flex justify-between items-start mb-3">
                               <h3 class="font-bold text-white text-lg group-hover:transition-colors">Portfolio Moderno v3.1</h3>
 
-                                    <span class="shrink-0 flex items-center gap-1.5 text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                                    <span class="shrink-0 flex items-center gap-1.5 text-[10px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full border border-blue-500/20">
                                       <span class="relative flex h-1.5 w-1.5">
-                                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                      <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                      <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
                                     </span>
                                   Sitio Activo
                               </span>
@@ -204,7 +204,7 @@ const content = {
                     <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
 
                         <!-- Icono -->
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
                             <line x1="7" y1="17" x2="17" y2="7"/>
                             <polyline points="7 7 17 7 17 17"/>
                         </svg>
@@ -219,10 +219,10 @@ const content = {
               Migración Landing Page "The Accelerator"
             </h4>
 
-            <span class="shrink-0 flex items-center gap-1.5 text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20">
+            <span class="shrink-0 flex items-center gap-1.5 text-[10px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full border border-blue-500/20">
                 <span class="relative flex h-1.5 w-1.5">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
                 </span>
                 Sitio Activo
             </span>
@@ -275,7 +275,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
 
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px]">
                         <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
                                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
                             </svg>
                             Explorar Galería
@@ -307,7 +307,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
 
                     
                             <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
-                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400">
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400">
                                 <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
                                 <line x1="2" y1="20" x2="22" y2="20"/>
                               </svg>
@@ -356,7 +356,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
 
                                 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px]">
                                     <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
-                                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500">
+                                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
                                               <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
                                           </svg>
                                           Explorar Galería
@@ -439,7 +439,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
 
                                 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px]">
                                     <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
-                                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500">
+                                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
                                               <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
                                           </svg>
                                           Explorar Galería
@@ -477,7 +477,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
                             </span>
 
                             <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
-                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400">
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400">
                                 <path d="m21 21-6-6"/><circle cx="10" cy="10" r="7"/><path d="M7 10h6"/><path d="M10 7v6"/>
                               </svg>
                               SEO Optimized
@@ -519,7 +519,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
 
                                 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px]">
                                     <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
-                                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500">
+                                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
                                               <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
                                           </svg>
                                           Explorar Galería
@@ -544,7 +544,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
                       WordPress
                     </span>
                     <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-emerald-400"><path d="m21 21-6-6"/><circle cx="10" cy="10" r="7"/></svg>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-blue-400"><path d="m21 21-6-6"/><circle cx="10" cy="10" r="7"/></svg>
                       Optimización
                     </span>
 
@@ -578,7 +578,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
 
                                 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px]">
                                     <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
-                                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500">
+                                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
                                               <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
                                           </svg>
                                           Explorar Galería
@@ -663,7 +663,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
 
       <div class="flex items-center gap-3 p-4 bg-zinc-900/30 border border-zinc-800 rounded-xl hover:border-zinc-600 transition-colors group">
   <svg 
-    class="text-zinc-500 group-hover:text-emerald-400 transition-colors" 
+    class="text-zinc-500 group-hover:text-blue-400 transition-colors" 
     width="20" 
     height="20" 
     viewBox="0 0 24 24" 
@@ -708,7 +708,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
 
     <div class="flex flex-wrap gap-2 mt-3">
       
-      <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-emerald-400/80 text-[11px] font-medium border border-emerald-900/30 flex items-center gap-1.5">
+      <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-blue-400/80 text-[11px] font-medium border border-blue-900/30 flex items-center gap-1.5">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         Jun. 2025 - Actualidad
       </span>
@@ -735,7 +735,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
     <p class="text-xs text-zinc-500 mb-2">Avior Airlines C.A.</p>
 
     <div class="flex flex-wrap gap-2 mt-3">
-      <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-emerald-400/80 text-[11px] font-medium border border-emerald-900/30 flex items-center gap-1.5">
+      <span class="px-2.5 py-1 rounded-md bg-zinc-800/50 text-blue-400/80 text-[11px] font-medium border border-blue-900/30 flex items-center gap-1.5">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         Ene. 2020 — Actualidad
       </span>

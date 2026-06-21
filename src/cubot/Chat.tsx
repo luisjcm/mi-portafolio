@@ -130,8 +130,8 @@ export const Chat = () => {
               </div>
               <div>
                 <h3 className="text-zinc-100 font-bold text-sm">Cubot</h3>
-                <p className="text-emerald-400 text-xs flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> En línea
+                <p className="text-blue-400 text-xs flex items-center gap-1">
+                  <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span> En línea
                 </p>
               </div>
             </div>
