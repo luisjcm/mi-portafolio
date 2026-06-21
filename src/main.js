@@ -1,4 +1,5 @@
 import './style.css'
+import './cubot/mount.tsx';
 
 
 const art = `
