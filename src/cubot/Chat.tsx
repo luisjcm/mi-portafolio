@@ -81,12 +81,21 @@ export const Chat = () => {
           setInputText('');
           setIsTyping(true);
 
+
+                    // 2. Mapea tus mensajes locales al formato que espera Groq/Supabase
+          const formattedHistory = messages.map(msg => ({
+            role: msg.sender === 'bot' ? 'assistant' : 'user',
+            content: msg.text
+          }));
+
+                    // 3. Agrega el nuevo mensaje del usuario al final
+          formattedHistory.push({ role: 'user', content: userMsg });
           try {
-            // 2. Enviamos el mensaje a Gemini y esperamos su razonamiento
-            const botResponseText = await getAIResponse(userMsg);
+                    // 4. Envía el historial completo a la función
+          const aiResponseText = await getAIResponse(formattedHistory);
             
             // 3. Imprimimos la respuesta inteligente en el chat
-            setMessages((prev) => [...prev, { id: (Date.now() + 1).toString(), text: botResponseText, sender: 'bot' }]);
+            setMessages((prev) => [...prev, { id: (Date.now() + 1).toString(), text: aiResponseText, sender: 'bot' }]);
           } catch (error) {
             console.error("Error en el chat:", error);
             setMessages((prev) => [...prev, { id: (Date.now() + 1).toString(), text: "Tuve un pequeño cortocircuito, ¿puedes repetirlo?", sender: 'bot' }]);
