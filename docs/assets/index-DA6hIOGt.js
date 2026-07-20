@@ -56,17 +56,7 @@ REGLAS ESTRICTAS DE COMPORTAMIENTO:
    - LA REGLA DE ESCAPE: Si el usuario pregunta por información personal, detalles técnicos no mencionados, proyectos específicos o precios que no manejes, NO inventes. Responde de forma natural que no dispones de esa información y sugiere contactar a Luis en: contacto@luisjcm.com.
 4. PROTECCIÓN DE PRIVACIDAD: Si el usuario afirma saber algo de Luis que no está en este prompt, sé escéptico de forma educada, no confirmes datos externos y redirige al contacto directo para validación.
 5. TOLERANCIA CERO A LA ALUCINACIÓN: Si un usuario te pregunta por un proyecto, trabajo o dato personal que NO está explícitamente en tu sección de "CONTEXTO" o "DATOS PERSONALES", tu respuesta debe ser SIEMPRE: "No cuento con esa información específica en mi base de datos actual. Si deseas detalles sobre otros proyectos o experiencias, por favor contáctame en contacto@luisjcm.com". BAJO NINGUNA CIRCUNSTANCIA inventes nombres de proyectos, empresas o experiencias.
-`,Da=`https://knbkpjffihzyfceytojr.supabase.co/functions/v1/cubot-proxy`,Oa=async e=>{try{let t=[{role:`system`,content:Ea},...e],n=await fetch(Da,{method:`POST`,headers:{"Content-Type":`application/json`,Authorization:`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtuYmtwamZmaWh6eWZjZXl0b2pyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1OTQ3OTQsImV4cCI6MjA5NjE3MDc5NH0.QxS6SpwaCCk-xLw6QeUILU3QjH7EZ4RmfUTfQqhgHHg`,apikey:`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtuYmtwamZmaWh6eWZjZXl0b2pyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1OTQ3OTQsImV4cCI6MjA5NjE3MDc5NH0.QxS6SpwaCCk-xLw6QeUILU3QjH7EZ4RmfUTfQqhgHHg`},body:JSON.stringify({messages:t})});if(!n.ok)throw Error(`Error en el servidor intermediario: ${n.statusText}`);return(await n.json()).choices[0].message.content}catch(e){throw console.error(`Error al comunicarse con el proxy de Cubot:`,e),e}},ka=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),z=o(((e,t)=>{t.exports=ka()}))(),Aa=()=>{let[e,t]=(0,S.useState)(!1),[n,r]=(0,S.useState)(!1),[i,a]=(0,S.useState)({nombre:``,correo:``}),[o,s]=(0,S.useState)([]),[c,l]=(0,S.useState)(``),[u,d]=(0,S.useState)(!1),f=(0,S.useRef)(null);return(0,S.useEffect)(()=>{f.current?.scrollIntoView({behavior:`smooth`})},[o,u]),(0,z.jsxs)(z.Fragment,{children:[!e&&(0,z.jsxs)(`button`,{onClick:()=>t(!0),className:`fixed bottom-6 right-6 w-16 h-16 bg-zinc-900 border-2 border-blue-500 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)] flex items-center justify-center hover:scale-110 transition-transform duration-300 z-50 group`,"aria-label":`Abrir asistente virtual`,children:[(0,z.jsx)(`span`,{className:`text-3xl transform group-hover:rotate-12 transition-transform duration-300`,children:(0,z.jsx)(re,{className:`w-8 h-8 text-blue-500 group-hover:rotate-12 transition-transform duration-300`,strokeWidth:1.5})}),(0,z.jsxs)(`span`,{className:`absolute -top-1 -right-1 flex h-4 w-4`,children:[(0,z.jsx)(`span`,{className:`animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75`}),(0,z.jsx)(`span`,{className:`relative inline-flex rounded-full h-4 w-4 bg-blue-500 border-2 border-zinc-900`})]})]}),e&&(0,z.jsxs)(`div`,{className:`fixed bottom-0 right-0 left-0 sm:left-auto sm:bottom-24 sm:right-6 w-full sm:w-[350px] max-h-[100dvh] sm:max-h-[600px] bg-zinc-900 flex flex-col z-50 animate-fade-in-up border-t sm:border border-zinc-800 sm:rounded-xl shadow-2xl h-full sm:h-[500px]`,children:[(0,z.jsxs)(`div`,{className:`bg-zinc-950 p-4 border-b border-zinc-800 flex items-center justify-between`,children:[(0,z.jsxs)(`div`,{className:`flex items-center gap-3`,children:[(0,z.jsx)(`div`,{className:`w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-xl shadow-[0_0_10px_rgba(59,130,246,0.5)]`,children:(0,z.jsx)(re,{className:`w-6 h-6 text-white`,strokeWidth:2})}),(0,z.jsxs)(`div`,{children:[(0,z.jsx)(`h3`,{className:`text-zinc-100 font-bold text-sm`,children:`Cubot`}),(0,z.jsxs)(`p`,{className:`text-blue-400 text-xs flex items-center gap-1`,children:[(0,z.jsx)(`span`,{className:`w-2 h-2 rounded-full bg-blue-400 animate-pulse`}),` En línea`]})]})]}),(0,z.jsx)(`button`,{onClick:()=>t(!1),className:`text-zinc-400 hover:text-white transition-colors p-2 rounded-md hover:bg-zinc-800`,title:`Minimizar`,children:(0,z.jsx)(`svg`,{xmlns:`http://www.w3.org/2000/svg`,width:`20`,height:`20`,viewBox:`0 0 24 24`,fill:`none`,stroke:`currentColor`,strokeWidth:`2`,strokeLinecap:`round`,strokeLinejoin:`round`,children:(0,z.jsx)(`line`,{x1:`5`,y1:`12`,x2:`19`,y2:`12`})})})]}),(0,z.jsx)(`div`,{className:`flex-1 overflow-y-auto p-4 flex flex-col gap-4`,children:n?(0,z.jsxs)(`div`,{className:`flex flex-col gap-3`,children:[o.map(e=>(0,z.jsx)(`div`,{className:`flex ${e.sender===`user`?`justify-end`:`justify-start`}`,children:(0,z.jsx)(`div`,{className:`max-w-[85%] p-3 text-sm leading-relaxed shadow-sm ${e.sender===`user`?`bg-blue-600 text-white rounded-2xl rounded-tr-sm`:`bg-zinc-800 text-zinc-200 rounded-2xl rounded-tl-sm`}`,children:e.text})},e.id)),u&&(0,z.jsx)(`div`,{className:`flex justify-start`,children:(0,z.jsxs)(`div`,{className:`bg-zinc-800 text-zinc-400 p-3 rounded-2xl rounded-tl-sm text-sm flex gap-1 items-center h-10 shadow-sm`,children:[(0,z.jsx)(`span`,{className:`w-1.5 h-1.5 bg-zinc-400 rounded-full animate-bounce`}),(0,z.jsx)(`span`,{className:`w-1.5 h-1.5 bg-zinc-400 rounded-full animate-bounce`,style:{animationDelay:`0.15s`}}),(0,z.jsx)(`span`,{className:`w-1.5 h-1.5 bg-zinc-400 rounded-full animate-bounce`,style:{animationDelay:`0.3s`}})]})}),(0,z.jsx)(`div`,{ref:f})]}):(0,z.jsxs)(`div`,{className:`flex flex-col h-full justify-center animate-fade-in`,children:[(0,z.jsx)(`div`,{className:`bg-zinc-800 p-4 rounded-2xl rounded-tl-sm mb-6 text-sm text-zinc-200 leading-relaxed shadow-sm`,children:`¡Hola! Soy Cubot, el asistente virtual. Para brindarte una mejor experiencia, ¿me indicas tu nombre y correo profesional?`}),(0,z.jsxs)(`form`,{onSubmit:async e=>{e.preventDefault();let t=i.nombre.trim(),n=i.correo.trim();if(t!==``&&n!==``)try{let{error:e}=await Ta.from(`leads_portafolio`).insert([{nombre:t,correo:n}]);e?console.error(`Error al guardar el lead:`,e):console.log(`Lead guardado exitosamente en la nube ☁️`)}catch(e){console.error(`Error de conexión:`,e)}finally{r(!0),s([{id:`1`,text:`¡Excelente, ${t}! Ya guardé tus datos. ¿En qué te puedo ayudar hoy? Puedes preguntarme sobre mi formación, experiencia o servicios.`,sender:`bot`}])}},className:`flex flex-col gap-3`,children:[(0,z.jsx)(`input`,{type:`text`,placeholder:`Tu Nombre o Empresa`,className:`w-full bg-zinc-950 border border-zinc-700 text-zinc-100 px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 text-sm`,value:i.nombre,onChange:e=>a({...i,nombre:e.target.value}),required:!0}),(0,z.jsx)(`input`,{type:`email`,placeholder:`correo@ejemplo.com`,className:`w-full bg-zinc-950 border border-zinc-700 text-zinc-100 px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 text-sm`,value:i.correo,onChange:e=>a({...i,correo:e.target.value}),required:!0}),(0,z.jsx)(`button`,{type:`submit`,className:`w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 rounded-lg text-sm mt-2 shadow-md`,children:`Comenzar Chat`})]})]})}),n&&(0,z.jsx)(`div`,{className:`p-3 bg-zinc-950 border-t border-zinc-800`,children:(0,z.jsxs)(`form`,{onSubmit:async e=>{e.preventDefault();let t=c.trim();if(!t)return;let n={id:Date.now().toString(),text:t,sender:`user`};s(e=>[...e,n]),l(``),d(!0);let r=o.map(e=>({role:e.sender===`bot`?`assistant`:`user`,content:e.text}));r.push({role:`user`,content:t});try{let e=await Oa(r);s(t=>[...t,{id:(Date.now()+1).toString(),text:e,sender:`bot`}])}catch(e){console.error(`Error en el chat:`,e),s(e=>[...e,{id:(Date.now()+1).toString(),text:`Tuve un pequeño cortocircuito, ¿puedes repetirlo?`,sender:`bot`}])}finally{d(!1)}},className:`flex gap-2`,children:[(0,z.jsx)(`input`,{type:`text`,placeholder:`Escribe tu pregunta...`,className:`flex-1 bg-zinc-900 border border-zinc-700 text-zinc-100 px-4 py-2.5 rounded-lg focus:outline-none focus:border-blue-500 text-sm`,value:c,onChange:e=>l(e.target.value),disabled:u,autoComplete:`off`}),(0,z.jsx)(`button`,{type:`submit`,disabled:u||!c.trim(),className:`bg-blue-600 hover:bg-blue-500 disabled:bg-zinc-700 disabled:text-zinc-500 text-white px-4 py-2.5 rounded-lg font-medium`,children:`Enviar`})]})})]})]})},ja=document.getElementById(`cubot-root`);ja&&(0,ie.createRoot)(ja).render((0,z.jsx)(S.StrictMode,{children:(0,z.jsx)(Aa,{})})),console.log(`%c
- < BIENVENIDO 
-  _          _   _____  __  __ 
- | |        | | / ____||  \\/  |
- | |        | || |     | \\  / |
- | |    _   | || |     | |\\/| |
- | |___| |__| || |____ | |  | |
- |_____\\____ /  \\_____||_|  |_|
-                               
- >
-`,`color: #10b981; font-weight: bold; font-family: monospace;`),console.log(`%c LUIS JESUS %c | %c SYSTEMS ENGINEER %c | %c DEV `,`color: #fff; background: #10b981; padding: 2px 5px; border-radius: 3px; font-weight: bold;`,`color: #71717a;`,`color: #fff; font-weight: bold;`,`color: #71717a;`,`color: #10b981; font-weight: bold; text-decoration: underline;`);var Ma=document.getElementById(`tab-content`),Na=document.querySelectorAll(`nav button`),Pa=document.getElementById(`tab-wrapper`);Pa.style.minHeight=`300px`;var Fa={abogados:{title:`Piñero Robledillo Abogados`,description:`Desarrollé una plataforma web de alto impacto para este despacho jurídico, enfocada en proyectar solidez y autoridad profesional. Mediante una arquitectura de información estratégica y maquetación ágil con Elementor Pro y Hello, implementé una interfaz moderna y 100% responsive. El resultado fue un sitio web optimizado en rendimiento que garantiza una experiencia de usuario impecable, logrando una presencia digital robusta alineada con los estándares de confianza del sector legal.`,badges:[`WordPress`,`Elementor Pro`,`Responsive Web Design`],images:[`./web1.jpg`,`./web1-1.jpg`,`./web1-2.jpg`,`./web1-3.jpg`,`./web1-4.jpg`]},maki:{title:`E-commerce Especializado para Mobiliario de Diseño | Maki Tendencias`,description:`Desarrollé una plataforma de comercio electrónico con WooCommerce para 'Maki Tendencias', un negocio enfocado en muebles de diseño exclusivo. Implementé un catálogo visual de alto impacto y una experiencia de compra fluida mediante la integración de pasarelas de pago y gestión de inventario personalizada. El resultado es una tienda online robusta y profesional que proyecta la calidad artesanal de la marca, facilitando la conversión de visitantes en clientes y expandiendo su alcance comercial al entorno digital.`,badges:[`WooCommerce`,`WordPress`,`Gestión de inventario`],images:[`./web3.png`,`./web3-1.png`,`./web3-2.png`,`./web3-3.png`,`./web3-4.png`,`./web3-5.png`,`./web3-6.png`,`./web3-7.png`]},"mgc-legal":{title:`Web Corporativa y Catálogo de Servicios | MGC Legal`,description:`Diseñé y desarrollé la presencia digital de MGC Legal, un estudio jurídico con visión global. El proyecto consistió en la creación de una plataforma concisa y profesional, estructurada como una carta de presentación digital de alto impacto. Utilizando WordPress y Hello, logré una arquitectura de información práctica que organiza sus servicios de forma clara y directa. El resultado es una web ligera, funcional y optimizada, ideal para proyectar la cercanía y el enfoque resolutivo que caracteriza al bufete.`,badges:[`WordPress`,`Hello Elementor`,`UI/UX Design`,`SEO Optimized`,`Elementor Pro`],images:[`./web4.png`,`./web4-1.png`,`./web4-2.png`,`./web4-3.png`,`./web4-4.png`]},"inmobiliaria-alicante":{title:`Plataforma de Gestión Inmobiliaria y Catálogo | Alicante`,description:`Diseñé y desarrollé la web corporativa para la Inmobiliaria Alicante, enfocada en la visualización estratégica de propiedades y la generación de leads cualificados. Estructuré el sitio sobre el ecosistema WordPress + Hello Elementor, configurando galerías de alta resolución optimizadas y formularios de contacto estratégicos para facilitar la conversión de visitantes en clientes potenciales. Una herramienta de ventas digital robusta y profesional que transmite la solidez del mercado inmobiliario, optimizada para dispositivos móviles y con una arquitectura de navegación que reduce la tasa de rebote en las búsquedas de propiedades.`,badges:[`WordPress`,`Estrategia Digital`,`Hello Elementor`,`Lead Generation`],images:[`./web5.png`,`./web5-1.png`,`./web5-2.png`,`./web5-3.png`,`./web5-4.png`,`./web5-5.png`,`./web5-6.png`,`./web5-7.png`,`./web5-8.png`]},deportia:{title:`Plataforma Digital de Innovación Tecnológica | DeportIA`,description:`Realicé el desarrollo inicial y la arquitectura de la plataforma, liderando el rediseño visual para alinear la interfaz con las tendencias de IA y optimizar la experiencia de usuario (UX). Implementé una maquetación ágil de interfaces bajo una estructura técnica modular, utilizando herramientas que permiten al cliente gestionar actualizaciones de forma autónoma sin comprometer la integridad del código o el diseño. Una plataforma robusta y escalable que sirve como base sólida para el crecimiento del proyecto, logrando un sitio web de alta disponibilidad.`,badges:[`WordPress`,`WooCommerce`],images:[`./web2.png`,`./web2-1.png`,`./web2-2.png`,`./web2-3.png`,`./web2-4.png`,`./web2-5.png`,`./web2-6.png`,`./web2-7.png`,`./web2-8.png`,`./web2-9.png`,`./web2-10.png`,`./web2-11.png`]}};window.showToast=e=>{let t=document.getElementById(`toast`),n=document.getElementById(`toast-message`),r=document.getElementById(`toast-icon`),i={contact:{message:`En mantenimiento... ¡Intenta luego!`,icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-400">
+`,Da=`https://knbkpjffihzyfceytojr.supabase.co/functions/v1/cubot-proxy`,Oa=async e=>{try{let t=[{role:`system`,content:Ea},...e],n=await fetch(Da,{method:`POST`,headers:{"Content-Type":`application/json`,Authorization:`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtuYmtwamZmaWh6eWZjZXl0b2pyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1OTQ3OTQsImV4cCI6MjA5NjE3MDc5NH0.QxS6SpwaCCk-xLw6QeUILU3QjH7EZ4RmfUTfQqhgHHg`,apikey:`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtuYmtwamZmaWh6eWZjZXl0b2pyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1OTQ3OTQsImV4cCI6MjA5NjE3MDc5NH0.QxS6SpwaCCk-xLw6QeUILU3QjH7EZ4RmfUTfQqhgHHg`},body:JSON.stringify({messages:t})});if(!n.ok)throw Error(`Error en el servidor intermediario: ${n.statusText}`);return(await n.json()).choices[0].message.content}catch(e){throw console.error(`Error al comunicarse con el proxy de Cubot:`,e),e}},ka=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),z=o(((e,t)=>{t.exports=ka()}))(),Aa=()=>{let[e,t]=(0,S.useState)(!1),[n,r]=(0,S.useState)(!1),[i,a]=(0,S.useState)({nombre:``,correo:``}),[o,s]=(0,S.useState)([]),[c,l]=(0,S.useState)(``),[u,d]=(0,S.useState)(!1),f=(0,S.useRef)(null);return(0,S.useEffect)(()=>{f.current?.scrollIntoView({behavior:`smooth`})},[o,u]),(0,z.jsxs)(z.Fragment,{children:[!e&&(0,z.jsxs)(`button`,{onClick:()=>t(!0),className:`fixed bottom-6 right-6 w-16 h-16 bg-zinc-900 border-2 border-blue-500 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)] flex items-center justify-center hover:scale-110 transition-transform duration-300 z-50 group`,"aria-label":`Abrir asistente virtual`,children:[(0,z.jsx)(`span`,{className:`text-3xl transform group-hover:rotate-12 transition-transform duration-300`,children:(0,z.jsx)(re,{className:`w-8 h-8 text-blue-500 group-hover:rotate-12 transition-transform duration-300`,strokeWidth:1.5})}),(0,z.jsxs)(`span`,{className:`absolute -top-1 -right-1 flex h-4 w-4`,children:[(0,z.jsx)(`span`,{className:`animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75`}),(0,z.jsx)(`span`,{className:`relative inline-flex rounded-full h-4 w-4 bg-blue-500 border-2 border-zinc-900`})]})]}),e&&(0,z.jsxs)(`div`,{className:`fixed bottom-0 right-0 left-0 sm:left-auto sm:bottom-24 sm:right-6 w-full sm:w-[350px] max-h-[100dvh] sm:max-h-[600px] bg-zinc-900 flex flex-col z-50 animate-fade-in-up border-t sm:border border-zinc-800 sm:rounded-xl shadow-2xl h-full sm:h-[500px]`,children:[(0,z.jsxs)(`div`,{className:`bg-zinc-950 p-4 border-b border-zinc-800 flex items-center justify-between`,children:[(0,z.jsxs)(`div`,{className:`flex items-center gap-3`,children:[(0,z.jsx)(`div`,{className:`w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-xl shadow-[0_0_10px_rgba(59,130,246,0.5)]`,children:(0,z.jsx)(re,{className:`w-6 h-6 text-white`,strokeWidth:2})}),(0,z.jsxs)(`div`,{children:[(0,z.jsx)(`h3`,{className:`text-zinc-100 font-bold text-sm`,children:`Cubot`}),(0,z.jsxs)(`p`,{className:`text-blue-400 text-xs flex items-center gap-1`,children:[(0,z.jsx)(`span`,{className:`w-2 h-2 rounded-full bg-blue-400 animate-pulse`}),` En línea`]})]})]}),(0,z.jsx)(`button`,{onClick:()=>t(!1),className:`text-zinc-400 hover:text-white transition-colors p-2 rounded-md hover:bg-zinc-800`,title:`Minimizar`,children:(0,z.jsx)(`svg`,{xmlns:`http://www.w3.org/2000/svg`,width:`20`,height:`20`,viewBox:`0 0 24 24`,fill:`none`,stroke:`currentColor`,strokeWidth:`2`,strokeLinecap:`round`,strokeLinejoin:`round`,children:(0,z.jsx)(`line`,{x1:`5`,y1:`12`,x2:`19`,y2:`12`})})})]}),(0,z.jsx)(`div`,{className:`flex-1 overflow-y-auto p-4 flex flex-col gap-4`,children:n?(0,z.jsxs)(`div`,{className:`flex flex-col gap-3`,children:[o.map(e=>(0,z.jsx)(`div`,{className:`flex ${e.sender===`user`?`justify-end`:`justify-start`}`,children:(0,z.jsx)(`div`,{className:`max-w-[85%] p-3 text-sm leading-relaxed shadow-sm ${e.sender===`user`?`bg-blue-600 text-white rounded-2xl rounded-tr-sm`:`bg-zinc-800 text-zinc-200 rounded-2xl rounded-tl-sm`}`,children:e.text})},e.id)),u&&(0,z.jsx)(`div`,{className:`flex justify-start`,children:(0,z.jsxs)(`div`,{className:`bg-zinc-800 text-zinc-400 p-3 rounded-2xl rounded-tl-sm text-sm flex gap-1 items-center h-10 shadow-sm`,children:[(0,z.jsx)(`span`,{className:`w-1.5 h-1.5 bg-zinc-400 rounded-full animate-bounce`}),(0,z.jsx)(`span`,{className:`w-1.5 h-1.5 bg-zinc-400 rounded-full animate-bounce`,style:{animationDelay:`0.15s`}}),(0,z.jsx)(`span`,{className:`w-1.5 h-1.5 bg-zinc-400 rounded-full animate-bounce`,style:{animationDelay:`0.3s`}})]})}),(0,z.jsx)(`div`,{ref:f})]}):(0,z.jsxs)(`div`,{className:`flex flex-col h-full justify-center animate-fade-in`,children:[(0,z.jsx)(`div`,{className:`bg-zinc-800 p-4 rounded-2xl rounded-tl-sm mb-6 text-sm text-zinc-200 leading-relaxed shadow-sm`,children:`¡Hola! Soy Cubot, el asistente virtual. Para brindarte una mejor experiencia, ¿me indicas tu nombre y correo profesional?`}),(0,z.jsxs)(`form`,{onSubmit:async e=>{e.preventDefault();let t=i.nombre.trim(),n=i.correo.trim();if(t!==``&&n!==``)try{let{error:e}=await Ta.from(`leads_portafolio`).insert([{nombre:t,correo:n}]);e?console.error(`Error al guardar el lead:`,e):console.log(`Lead guardado exitosamente en la nube ☁️`)}catch(e){console.error(`Error de conexión:`,e)}finally{r(!0),s([{id:`1`,text:`¡Excelente, ${t}! Ya guardé tus datos. ¿En qué te puedo ayudar hoy? Puedes preguntarme sobre mi formación, experiencia o servicios.`,sender:`bot`}])}},className:`flex flex-col gap-3`,children:[(0,z.jsx)(`input`,{type:`text`,placeholder:`Tu Nombre o Empresa`,className:`w-full bg-zinc-950 border border-zinc-700 text-zinc-100 px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 text-sm`,value:i.nombre,onChange:e=>a({...i,nombre:e.target.value}),required:!0}),(0,z.jsx)(`input`,{type:`email`,placeholder:`correo@ejemplo.com`,className:`w-full bg-zinc-950 border border-zinc-700 text-zinc-100 px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 text-sm`,value:i.correo,onChange:e=>a({...i,correo:e.target.value}),required:!0}),(0,z.jsx)(`button`,{type:`submit`,className:`w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 rounded-lg text-sm mt-2 shadow-md`,children:`Comenzar Chat`})]})]})}),n&&(0,z.jsx)(`div`,{className:`p-3 bg-zinc-950 border-t border-zinc-800`,children:(0,z.jsxs)(`form`,{onSubmit:async e=>{e.preventDefault();let t=c.trim();if(!t)return;let n={id:Date.now().toString(),text:t,sender:`user`};s(e=>[...e,n]),l(``),d(!0);let r=o.map(e=>({role:e.sender===`bot`?`assistant`:`user`,content:e.text}));r.push({role:`user`,content:t});try{let e=await Oa(r);s(t=>[...t,{id:(Date.now()+1).toString(),text:e,sender:`bot`}])}catch(e){console.error(`Error en el chat:`,e),s(e=>[...e,{id:(Date.now()+1).toString(),text:`Tuve un pequeño cortocircuito, ¿puedes repetirlo?`,sender:`bot`}])}finally{d(!1)}},className:`flex gap-2`,children:[(0,z.jsx)(`input`,{type:`text`,placeholder:`Escribe tu pregunta...`,className:`flex-1 bg-zinc-900 border border-zinc-700 text-zinc-100 px-4 py-2.5 rounded-lg focus:outline-none focus:border-blue-500 text-sm`,value:c,onChange:e=>l(e.target.value),disabled:u,autoComplete:`off`}),(0,z.jsx)(`button`,{type:`submit`,disabled:u||!c.trim(),className:`bg-blue-600 hover:bg-blue-500 disabled:bg-zinc-700 disabled:text-zinc-500 text-white px-4 py-2.5 rounded-lg font-medium`,children:`Enviar`})]})})]})]})},ja=document.getElementById(`cubot-root`);ja&&(0,ie.createRoot)(ja).render((0,z.jsx)(S.StrictMode,{children:(0,z.jsx)(Aa,{})}));var Ma=document.getElementById(`tab-content`),Na=document.querySelectorAll(`nav button`),Pa=document.getElementById(`tab-wrapper`);Pa.style.minHeight=`300px`;var Fa={abogados:{title:`Piñero Robledillo Abogados`,description:`Desarrollé una plataforma web de alto impacto para este despacho jurídico, enfocada en proyectar solidez y autoridad profesional. Mediante una arquitectura de información estratégica y maquetación ágil con Elementor Pro y Hello, implementé una interfaz moderna y 100% responsive. El resultado fue un sitio web optimizado en rendimiento que garantiza una experiencia de usuario impecable, logrando una presencia digital robusta alineada con los estándares de confianza del sector legal.`,badges:[`WordPress`,`Elementor Pro`,`Responsive Web Design`],images:[`./web1.jpg`,`./web1-1.jpg`,`./web1-2.jpg`,`./web1-3.jpg`,`./web1-4.jpg`]},maki:{title:`E-commerce Especializado para Mobiliario de Diseño | Maki Tendencias`,description:`Desarrollé una plataforma de comercio electrónico con WooCommerce para 'Maki Tendencias', un negocio enfocado en muebles de diseño exclusivo. Implementé un catálogo visual de alto impacto y una experiencia de compra fluida mediante la integración de pasarelas de pago y gestión de inventario personalizada. El resultado es una tienda online robusta y profesional que proyecta la calidad artesanal de la marca, facilitando la conversión de visitantes en clientes y expandiendo su alcance comercial al entorno digital.`,badges:[`WooCommerce`,`WordPress`,`Gestión de inventario`],images:[`./web3.png`,`./web3-1.png`,`./web3-2.png`,`./web3-3.png`,`./web3-4.png`,`./web3-5.png`,`./web3-6.png`,`./web3-7.png`]},"mgc-legal":{title:`Web Corporativa y Catálogo de Servicios | MGC Legal`,description:`Diseñé y desarrollé la presencia digital de MGC Legal, un estudio jurídico con visión global. El proyecto consistió en la creación de una plataforma concisa y profesional, estructurada como una carta de presentación digital de alto impacto. Utilizando WordPress y Hello, logré una arquitectura de información práctica que organiza sus servicios de forma clara y directa. El resultado es una web ligera, funcional y optimizada, ideal para proyectar la cercanía y el enfoque resolutivo que caracteriza al bufete.`,badges:[`WordPress`,`Hello Elementor`,`UI/UX Design`,`SEO Optimized`,`Elementor Pro`],images:[`./web4.png`,`./web4-1.png`,`./web4-2.png`,`./web4-3.png`,`./web4-4.png`]},"inmobiliaria-alicante":{title:`Plataforma de Gestión Inmobiliaria y Catálogo | Alicante`,description:`Diseñé y desarrollé la web corporativa para la Inmobiliaria Alicante, enfocada en la visualización estratégica de propiedades y la generación de leads cualificados. Estructuré el sitio sobre el ecosistema WordPress + Hello Elementor, configurando galerías de alta resolución optimizadas y formularios de contacto estratégicos para facilitar la conversión de visitantes en clientes potenciales. Una herramienta de ventas digital robusta y profesional que transmite la solidez del mercado inmobiliario, optimizada para dispositivos móviles y con una arquitectura de navegación que reduce la tasa de rebote en las búsquedas de propiedades.`,badges:[`WordPress`,`Estrategia Digital`,`Hello Elementor`,`Lead Generation`],images:[`./web5.png`,`./web5-1.png`,`./web5-2.png`,`./web5-3.png`,`./web5-4.png`,`./web5-5.png`,`./web5-6.png`,`./web5-7.png`,`./web5-8.png`]},deportia:{title:`Plataforma Digital de Innovación Tecnológica | DeportIA`,description:`Realicé el desarrollo inicial y la arquitectura de la plataforma, liderando el rediseño visual para alinear la interfaz con las tendencias de IA y optimizar la experiencia de usuario (UX). Implementé una maquetación ágil de interfaces bajo una estructura técnica modular, utilizando herramientas que permiten al cliente gestionar actualizaciones de forma autónoma sin comprometer la integridad del código o el diseño. Una plataforma robusta y escalable que sirve como base sólida para el crecimiento del proyecto, logrando un sitio web de alta disponibilidad.`,badges:[`WordPress`,`WooCommerce`],images:[`./web2.png`,`./web2-1.png`,`./web2-2.png`,`./web2-3.png`,`./web2-4.png`,`./web2-5.png`,`./web2-6.png`,`./web2-7.png`,`./web2-8.png`,`./web2-9.png`,`./web2-10.png`,`./web2-11.png`]},authapp:{title:`AuthApp MFA | Sistema de Autenticación Segura`,description:`Desarrollo de un Producto Mínimo Viable (MVP) enfocado en la seguridad mediante autenticación de múltiples factores (MFA). Este prototipo funcional demuestra la viabilidad técnica de flujos de registro robustos, gestión de sesiones y validación estricta en el frontend. Como prueba de concepto (PoC), presenta una interfaz limpia y directa que sienta las bases estructurales para una futura implementación a gran escala, priorizando los estándares de protección de datos.`,badges:[`Seguridad`,`MFA`,`Frontend`,`UI/UX`],images:[`./authapp1.jpg`,`./authapp2.jpg`,`./authapp3.jpg`,`./authapp4.jpg`,`./authapp5.jpg`,`./authapp6.jpg`,`./authapp7.jpg`]},zstephanie:{title:`Portafolio Creativo | Zstephanie`,description:`Diseño y desarrollo de un portafolio web personalizado integrando Sanity como Headless CMS para la gestión dinámica del contenido visual. Una arquitectura moderna que separa el contenido de la presentación, garantizando un rendimiento óptimo y una experiencia visual fluida que resalta el trabajo de la artista.`,badges:[`Sanity CMS`,`Headless`,`Web Design`,`UI/UX`],images:[`./zstephanie1.png`,`./zstephanie2.png`,`./zstephanie3.png`]},teffy:{title:`Plataforma de Estética y Belleza | Teffy Beauty Lab`,description:`Creación de una plataforma digital atractiva y funcional centrada en la identidad visual de la marca. El sitio integra un carrito de compras dinámico y está estructurado para facilitar tanto la exploración de servicios como la venta directa de productos. Una solución enfocada en optimizar la tasa de conversión y la captura de clientes potenciales, asegurando una experiencia de compra intuitiva y 100% responsiva en dispositivos móviles.`,badges:[`Web Design`,`UI/UX`,`Estrategia Digital`],images:[`./teffy1.png`,`./teffy2.png`,`./teffy3.png`,`./teffy4.png`,`./teffy5.png`,`./teffy6.png`]},portafolio:{title:`Portfolio Moderno v3.1 | Single Page Application`,description:`Desarrollo de mi portafolio personal. Una SPA (Single Page Application) construida desde cero con Vite y Tailwind CSS. Me enfoqué en una arquitectura estática super ligera sin dependencias innecesarias, con micro-animaciones fluidas, manipulación directa del DOM con Vanilla JS y un diseño oscuro moderno enfocado en la experiencia de usuario (UX).`,badges:[`Vite`,`Tailwind CSS`,`JavaScript ES6+`,`UI/UX`],images:[`./portafolio.png`]}};window.showToast=e=>{let t=document.getElementById(`toast`),n=document.getElementById(`toast-message`),r=document.getElementById(`toast-icon`),i={contact:{message:`En mantenimiento... ¡Intenta luego!`,icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-400">
          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
          <line x1="12" y1="9" x2="12" y2="13"></line>
          <line x1="12" y1="17" x2="12.01" y2="17"></line>
@@ -82,56 +72,225 @@ REGLAS ESTRICTAS DE COMPORTAMIENTO:
   <div class="grid grid-cols-1 gap-6">
     <!-- Proyecto 1 -->
 
-        <div class="group p-5 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:bg-zinc-900/40 hover:border-zinc-700 transition-all transform ">
-                      <div class="flex justify-between items-start mb-3">
-                              <h3 class="font-bold text-white text-lg group-hover:transition-colors">Portfolio Moderno v3.1</h3>
+    
 
-                                    <span class="shrink-0 flex items-center gap-1.5 text-[10px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full border border-blue-500/20">
-                                      <span class="relative flex h-1.5 w-1.5">
-                                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                                      <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
-                                    </span>
-                                  Sitio Activo
-                              </span>
+             
+
+        
+
+        
+
+
+
+ <!-- Segundo Contenedor: dividido en dos columnas por cada fila -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+     <!-- Proyecto Authapp -->
+              <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
+                  
+                  <div class="relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-950 group/img border border-zinc-800/50 cursor-pointer flex items-center justify-center" onclick="openProjectModal('authapp')">
+                      
+                      <!-- 1. FONDO DIFUMINADO: Rellena el espacio vacío -->
+                      <img src="./authapp1.jpg" alt="Fondo" class="absolute inset-0 w-full h-full object-cover blur-xl opacity-30 scale-125 transition-all duration-500 group-hover:opacity-40">
+                      
+                      <!-- 2. IMAGEN PRINCIPAL: Más grande (115% de alto) para efecto cercanía y con sombra -->
+                      <img src="./authapp1.jpg" alt="Proyecto AuthApp" class="relative z-10 h-[115%] w-auto object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] rounded-lg group-hover:scale-105 transition-all duration-500">
+                      
+                      <!-- Botón superior derecho (z-20 para estar encima de la imagen) -->
+                      <div class="absolute top-3 right-3 flex items-center justify-center p-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl shadow-xl group-hover/img:opacity-0 transition-all duration-300 z-20">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/70">
+                              <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                          </svg>
                       </div>
 
-                    <p class="text-xs text-zinc-500 mb-3">Maquetación WordPress & UI Implementation</p> 
-                    <p class="text-sm text-zinc-400 leading-relaxed mb-4">
-                            Mi proyecto más reciente es este portfolio: una SPA (Single Page Application) construida con Vite y Tailwind CSS, enfocada en optimización de rendimiento y micro-animaciones fluidas.
-                    </p>
+                      <!-- Overlay Hover (z-20 para estar encima de todo) -->
+                      <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px] z-20">
+                          <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
+                                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                              </svg>
+                              Explorar Galería
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="flex justify-between items-start gap-4 mb-1">
+                      <h4 class="font-bold text-white text-md leading-tight">AuthApp MFA | Autenticación Segura</h4>
+                      <span class="shrink-0 text-[9px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full border border-blue-500/20 font-medium">Nuevo</span>
+                  </div>
+                  <p class="text-xs text-zinc-500 mb-3">Gestión de Accesos y Seguridad Frontend</p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                  <!-- React Native -->
+                  <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400">
+                      <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                      <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                    </svg>
+                    React Native
+                  </span>
+                  <!-- Expo Go -->
+                  <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-violet-400">
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Expo Go
+                  </span>
+                      <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-emerald-400"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                          MFA Security
+                      </span>
+                  </div>
+              </div>
 
-                    <div class="flex flex-wrap gap-2">
+              <!-- Proyecto Zstephanie -->
+              <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
+                  <div class="relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img border border-zinc-800/50 cursor-pointer" onclick="openProjectModal('zstephanie')">
+                      <img src="./zstephanie1.png" alt="Portafolio Zstephanie" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+                      <div class="absolute top-3 right-3 flex items-center justify-center p-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl shadow-xl group-hover/img:opacity-0 transition-all duration-300">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/70">
+                              <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                          </svg>
+                      </div>
+                      <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px]">
+                          <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
+                                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                              </svg>
+                              Explorar Galería
+                          </div>
+                      </div>
+                  </div>
+                  <div class="flex justify-between items-start gap-4 mb-1">
+                      <h4 class="font-bold text-white text-md leading-tight">Portafolio Creativo | Zstephanie</h4>
+                      <span class="shrink-0 text-[9px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full border border-blue-500/20 font-medium">Nuevo</span>
+                  </div>
+                  <p class="text-xs text-zinc-500 mb-3">Integración Headless CMS y Diseño UI</p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                  <!-- React -->
+                  <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-cyan-400">
+                      <circle cx="12" cy="12" r="2"></circle>
+                      <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"></ellipse>
+                      <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"></ellipse>
+                    </svg>
+                    React
+                  </span>
+                      <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-rose-500"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                          Sanity CMS
+                      </span>
+                  </div>
+              </div>
 
-                                    <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[11px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
-                                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-purple-400">
-                                        <path d="m13 2-2 10h8l-2 10"/>
-                                      </svg>
-                                      Vite
-                                    </span>
+       <!-- Proyecto Teffy -->
+              <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
+                  <div class="relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img border border-zinc-800/50 cursor-pointer" onclick="openProjectModal('teffy')">
+                      <img src="./teffy1.png" alt="Teffy Beauty Lab" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+                      <div class="absolute top-3 right-3 flex items-center justify-center p-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl shadow-xl group-hover/img:opacity-0 transition-all duration-300">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/70">
+                              <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                          </svg>
+                      </div>
+                      <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px]">
+                          <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
+                                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                              </svg>
+                              Explorar Galería
+                          </div>
+                      </div>
+                  </div>
+                  <div class="flex justify-between items-start gap-4 mb-1">
+                      <h4 class="font-bold text-white text-md leading-tight">Plataforma Digital | Teffy Beauty Lab</h4>
+                      <span class="shrink-0 text-[9px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full border border-blue-500/20 font-medium">Nuevo</span>
+                  </div>
+                  <p class="text-xs text-zinc-500 mb-3">Identidad Visual y Experiencia de Usuario</p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                  <!-- React -->
+                    <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-cyan-400">
+                        <circle cx="12" cy="12" r="2"></circle>
+                        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"></ellipse>
+                        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"></ellipse>
+                      </svg>
+                      React
+                    </span>
+                      <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-pink-400"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                          UI/UX Design
+                      </span>
+                      <!-- WooCommerce -->
+                          <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-amber-500">
+                              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            </svg>
+                            E-commerce
+                          </span>
+                  </div>
+              </div>
 
-                                    <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[11px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
-                                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400">
-                                        <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
-                                        <line x1="16" y1="8" x2="2" y2="22"/>
-                                        <line x1="17.5" y1="15" x2="9" y2="15"/>
-                                      </svg>
-                                      Tailwind CSS
-                                    </span>
+      <!-- Proyecto Portafolio -->
+              <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
+                  
+                  <div class="relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img border border-zinc-800/50 cursor-pointer" onclick="openProjectModal('portafolio')">
+                      
+                      <img src="./portafolio.png" alt="Portfolio Personal" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+                      
+                      <div class="absolute top-3 right-3 flex items-center justify-center p-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl shadow-xl group-hover/img:opacity-0 transition-all duration-300">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/70">
+                              <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                          </svg>
+                      </div>
 
-                                    <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[11px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
-                                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-400">
-                                        <path d="M20 7h-9l-3-3H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-                                        <path d="M16 11l-4 4-2-2"/>
-                                      </svg>
-                                      JavaScript ES6+
-                                    </span>
-                    </div>
+                      <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px]">
+                          <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
+                                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                              </svg>
+                              Explorar Galería
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="flex justify-between items-start gap-4 mb-1">
+                      <h4 class="font-bold text-white text-md leading-tight">Portfolio Moderno v3.1</h4>
+                      
+                      <span class="shrink-0 flex items-center gap-1.5 text-[10px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full border border-blue-500/20">
+                          <span class="relative flex h-1.5 w-1.5">
+                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                              <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
+                          </span>
+                          Sitio Activo
+                      </span>
+                  </div>
+
+                  <p class="text-xs text-zinc-500 mb-3">Single Page Application SPA</p>
+
+                  <div class="flex flex-wrap gap-2 mb-4">
+                      <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-purple-400">
+                              <path d="m13 2-2 10h8l-2 10"/>
+                          </svg>
+                          Vite
+                      </span>
+                      <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400">
+                              <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/>
+                          </svg>
+                          Tailwind CSS
+                      </span>
+                      <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-400">
+                              <path d="M20 7h-9l-3-3H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 11l-4 4-2-2"/>
+                          </svg>
+                          JavaScript ES6+
+                      </span>
+                  </div>
+              </div>
 
 
-                    
-          </div>
-
-          <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
+      <!-- Proyecto Workana-->
+    <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
           
           <!-- CAMBIO:
                Se añadió cursor-pointer y onclick
@@ -215,13 +374,15 @@ REGLAS ESTRICTAS DE COMPORTAMIENTO:
 
           </div>
 
-          <p class="text-[13px] text-zinc-400 leading-relaxed text-justify">
-Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de la landing page del programa 'The Accelerator' de Workana, originalmente alojada en Unbounce, para integrarla de manera óptima en un entorno de WordPress. El cliente necesitaba la flexibilidad y el control que ofrece WordPress sin perder la identidad visual ni la efectividad de sus llamadas a la acción (CTAs) originales. Solución Implementada: Recreación pixel-perfect del diseño original utilizando Elementor Pro. Migración completa de textos, imágenes y estructura de marca. Optimización de velocidad de carga y adaptación 100% responsiva para todos los dispositivos. El resultado final fue una landing page idéntica a la original, pero ahora totalmente administrable, más rápida y lista para potenciar las conversiones del programa.          </p>
-</div>
+        <!--  <p class="text-[13px] text-zinc-400 leading-relaxed text-justify">
+Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de la landing page del programa 'The Accelerator' de Workana, originalmente alojada en Unbounce, para integrarla de manera óptima en un entorno de WordPress.        </p>-->
+</div> 
 
 
 
-<div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all">
+              <!-- Proyecto de Robledillo Abogados -->
+
+               <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all">
 
                             <div 
                             class= "relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img border border-zinc-800/50 cursor-pointer"
@@ -286,17 +447,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
                     </div>
 
                         
-            </div>
-
- <!-- Segundo Contenedor: dividido en dos columnas por cada fila -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-<!-- Nuevo Proyecto 2-->
-
-
-
-                 <!-- Proyecto 3 -->
-                 
+            </div>  
 
            
 
@@ -764,7 +915,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
             ${e}
         </span>
     `).join(``);let i=document.getElementById(`modal-gallery`);i.innerHTML=t.images.map(e=>`
-    <div class="w-full rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 shadow-xl mb-4">
-        <img src="${e}" class="w-full h-auto block" alt="Project Capture">
+    <div class="w-full rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/40 shadow-xl mb-4 flex justify-center p-2 md:p-4">
+        <img src="${e}" class="w-full max-h-[60vh] md:max-h-[75vh] object-contain block rounded-xl" alt="Project Capture">
     </div>
 `).join(``),n.classList.remove(`hidden`),n.classList.add(`flex`),setTimeout(()=>{n.classList.add(`opacity-100`),n.querySelector(`.relative`).classList.replace(`scale-95`,`scale-100`)},10)},window.closeModal=()=>{let e=document.getElementById(`project-modal`),t=e.querySelector(`.relative`);e.classList.remove(`opacity-100`),t.classList.replace(`scale-100`,`scale-95`),setTimeout(()=>{e.classList.replace(`flex`,`hidden`)},300)};

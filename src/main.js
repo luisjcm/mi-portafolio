@@ -2,28 +2,6 @@ import './style.css'
 import './cubot/mount.tsx';
 
 
-const art = `
- < BIENVENIDO 
-  _          _   _____  __  __ 
- | |        | | / ____||  \\/  |
- | |        | || |     | \\  / |
- | |    _   | || |     | |\\/| |
- | |___| |__| || |____ | |  | |
- |_____\\____ /  \\_____||_|  |_|
-                               
- >
-`;
-
-console.log(`%c${art}`, "color: #10b981; font-weight: bold; font-family: monospace;");
-console.log(
-  "%c LUIS JESUS %c | %c SYSTEMS ENGINEER %c | %c DEV ",
-  "color: #fff; background: #10b981; padding: 2px 5px; border-radius: 3px; font-weight: bold;",
-  "color: #71717a;",
-  "color: #fff; font-weight: bold;",
-  "color: #71717a;",
-  "color: #10b981; font-weight: bold; text-decoration: underline;"
-);
-
 const tabContent = document.getElementById('tab-content');
 const buttons = document.querySelectorAll('nav button');
 
@@ -64,6 +42,32 @@ const projectData = {
         badges: ['WordPress', 'WooCommerce'],
         images: ['./web2.png', './web2-1.png', './web2-2.png', './web2-3.png', './web2-4.png', './web2-5.png', './web2-6.png', './web2-7.png', './web2-8.png', './web2-9.png', './web2-10.png', './web2-11.png']
     },
+    'authapp': {
+        title: "AuthApp MFA | Sistema de Autenticación Segura",
+        description: "Desarrollo de un Producto Mínimo Viable (MVP) enfocado en la seguridad mediante autenticación de múltiples factores (MFA). Este prototipo funcional demuestra la viabilidad técnica de flujos de registro robustos, gestión de sesiones y validación estricta en el frontend. Como prueba de concepto (PoC), presenta una interfaz limpia y directa que sienta las bases estructurales para una futura implementación a gran escala, priorizando los estándares de protección de datos.",
+        badges: ['Seguridad', 'MFA', 'Frontend', 'UI/UX'],
+        images: ['./authapp1.jpg', './authapp2.jpg','./authapp3.jpg', './authapp4.jpg','./authapp5.jpg', './authapp6.jpg','./authapp7.jpg',] // Ajusta estas rutas a tus imágenes .webp
+    },
+    'zstephanie': {
+        title: "Portafolio Creativo | Zstephanie",
+        description: "Diseño y desarrollo de un portafolio web personalizado integrando Sanity como Headless CMS para la gestión dinámica del contenido visual. Una arquitectura moderna que separa el contenido de la presentación, garantizando un rendimiento óptimo y una experiencia visual fluida que resalta el trabajo de la artista.",
+        badges: ['Sanity CMS', 'Headless', 'Web Design', 'UI/UX'],
+        images: ['./zstephanie1.png', './zstephanie2.png', './zstephanie3.png']
+    },
+    'teffy': {
+        title: "Plataforma de Estética y Belleza | Teffy Beauty Lab",
+        description: "Creación de una plataforma digital atractiva y funcional centrada en la identidad visual de la marca. El sitio integra un carrito de compras dinámico y está estructurado para facilitar tanto la exploración de servicios como la venta directa de productos. Una solución enfocada en optimizar la tasa de conversión y la captura de clientes potenciales, asegurando una experiencia de compra intuitiva y 100% responsiva en dispositivos móviles.",
+        badges: ['Web Design', 'UI/UX', 'Estrategia Digital'],
+        images: ['./teffy1.png', './teffy2.png', './teffy3.png','./teffy4.png', './teffy5.png', './teffy6.png']
+    },
+    'portafolio': {
+        title: "Portfolio Moderno v3.1 | Single Page Application",
+        description: "Desarrollo de mi portafolio personal. Una SPA (Single Page Application) construida desde cero con Vite y Tailwind CSS. Me enfoqué en una arquitectura estática super ligera sin dependencias innecesarias, con micro-animaciones fluidas, manipulación directa del DOM con Vanilla JS y un diseño oscuro moderno enfocado en la experiencia de usuario (UX).",
+        badges: ['Vite', 'Tailwind CSS', 'JavaScript ES6+', 'UI/UX'],
+        // Nota: asumo que "portafolio.img" te referías a un archivo de imagen. 
+        // Cambia la extensión .png por .webp o .jpg si es necesario.
+        images: ['./portafolio.png'] 
+    }
 };
 
 window.showToast = (type) => {
@@ -120,56 +124,225 @@ const content = {
   <div class="grid grid-cols-1 gap-6">
     <!-- Proyecto 1 -->
 
-        <div class="group p-5 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:bg-zinc-900/40 hover:border-zinc-700 transition-all transform ">
-                      <div class="flex justify-between items-start mb-3">
-                              <h3 class="font-bold text-white text-lg group-hover:transition-colors">Portfolio Moderno v3.1</h3>
+    
 
-                                    <span class="shrink-0 flex items-center gap-1.5 text-[10px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full border border-blue-500/20">
-                                      <span class="relative flex h-1.5 w-1.5">
-                                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                                      <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
-                                    </span>
-                                  Sitio Activo
-                              </span>
+             
+
+        
+
+        
+
+
+
+ <!-- Segundo Contenedor: dividido en dos columnas por cada fila -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+     <!-- Proyecto Authapp -->
+              <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
+                  
+                  <div class="relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-950 group/img border border-zinc-800/50 cursor-pointer flex items-center justify-center" onclick="openProjectModal('authapp')">
+                      
+                      <!-- 1. FONDO DIFUMINADO: Rellena el espacio vacío -->
+                      <img src="./authapp1.jpg" alt="Fondo" class="absolute inset-0 w-full h-full object-cover blur-xl opacity-30 scale-125 transition-all duration-500 group-hover:opacity-40">
+                      
+                      <!-- 2. IMAGEN PRINCIPAL: Más grande (115% de alto) para efecto cercanía y con sombra -->
+                      <img src="./authapp1.jpg" alt="Proyecto AuthApp" class="relative z-10 h-[115%] w-auto object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] rounded-lg group-hover:scale-105 transition-all duration-500">
+                      
+                      <!-- Botón superior derecho (z-20 para estar encima de la imagen) -->
+                      <div class="absolute top-3 right-3 flex items-center justify-center p-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl shadow-xl group-hover/img:opacity-0 transition-all duration-300 z-20">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/70">
+                              <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                          </svg>
                       </div>
 
-                    <p class="text-xs text-zinc-500 mb-3">Maquetación WordPress & UI Implementation</p> 
-                    <p class="text-sm text-zinc-400 leading-relaxed mb-4">
-                            Mi proyecto más reciente es este portfolio: una SPA (Single Page Application) construida con Vite y Tailwind CSS, enfocada en optimización de rendimiento y micro-animaciones fluidas.
-                    </p>
+                      <!-- Overlay Hover (z-20 para estar encima de todo) -->
+                      <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px] z-20">
+                          <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
+                                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                              </svg>
+                              Explorar Galería
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="flex justify-between items-start gap-4 mb-1">
+                      <h4 class="font-bold text-white text-md leading-tight">AuthApp MFA | Autenticación Segura</h4>
+                      <span class="shrink-0 text-[9px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full border border-blue-500/20 font-medium">Nuevo</span>
+                  </div>
+                  <p class="text-xs text-zinc-500 mb-3">Gestión de Accesos y Seguridad Frontend</p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                  <!-- React Native -->
+                  <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400">
+                      <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                      <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                    </svg>
+                    React Native
+                  </span>
+                  <!-- Expo Go -->
+                  <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-violet-400">
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Expo Go
+                  </span>
+                      <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-emerald-400"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                          MFA Security
+                      </span>
+                  </div>
+              </div>
 
-                    <div class="flex flex-wrap gap-2">
+              <!-- Proyecto Zstephanie -->
+              <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
+                  <div class="relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img border border-zinc-800/50 cursor-pointer" onclick="openProjectModal('zstephanie')">
+                      <img src="./zstephanie1.png" alt="Portafolio Zstephanie" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+                      <div class="absolute top-3 right-3 flex items-center justify-center p-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl shadow-xl group-hover/img:opacity-0 transition-all duration-300">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/70">
+                              <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                          </svg>
+                      </div>
+                      <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px]">
+                          <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
+                                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                              </svg>
+                              Explorar Galería
+                          </div>
+                      </div>
+                  </div>
+                  <div class="flex justify-between items-start gap-4 mb-1">
+                      <h4 class="font-bold text-white text-md leading-tight">Portafolio Creativo | Zstephanie</h4>
+                      <span class="shrink-0 text-[9px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full border border-blue-500/20 font-medium">Nuevo</span>
+                  </div>
+                  <p class="text-xs text-zinc-500 mb-3">Integración Headless CMS y Diseño UI</p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                  <!-- React -->
+                  <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-cyan-400">
+                      <circle cx="12" cy="12" r="2"></circle>
+                      <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"></ellipse>
+                      <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"></ellipse>
+                    </svg>
+                    React
+                  </span>
+                      <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-rose-500"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                          Sanity CMS
+                      </span>
+                  </div>
+              </div>
 
-                                    <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[11px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
-                                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-purple-400">
-                                        <path d="m13 2-2 10h8l-2 10"/>
-                                      </svg>
-                                      Vite
-                                    </span>
+       <!-- Proyecto Teffy -->
+              <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
+                  <div class="relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img border border-zinc-800/50 cursor-pointer" onclick="openProjectModal('teffy')">
+                      <img src="./teffy1.png" alt="Teffy Beauty Lab" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+                      <div class="absolute top-3 right-3 flex items-center justify-center p-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl shadow-xl group-hover/img:opacity-0 transition-all duration-300">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/70">
+                              <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                          </svg>
+                      </div>
+                      <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px]">
+                          <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
+                                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                              </svg>
+                              Explorar Galería
+                          </div>
+                      </div>
+                  </div>
+                  <div class="flex justify-between items-start gap-4 mb-1">
+                      <h4 class="font-bold text-white text-md leading-tight">Plataforma Digital | Teffy Beauty Lab</h4>
+                      <span class="shrink-0 text-[9px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full border border-blue-500/20 font-medium">Nuevo</span>
+                  </div>
+                  <p class="text-xs text-zinc-500 mb-3">Identidad Visual y Experiencia de Usuario</p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                  <!-- React -->
+                    <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-cyan-400">
+                        <circle cx="12" cy="12" r="2"></circle>
+                        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"></ellipse>
+                        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"></ellipse>
+                      </svg>
+                      React
+                    </span>
+                      <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-pink-400"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                          UI/UX Design
+                      </span>
+                      <!-- WooCommerce -->
+                          <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-amber-500">
+                              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            </svg>
+                            E-commerce
+                          </span>
+                  </div>
+              </div>
 
-                                    <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[11px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
-                                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400">
-                                        <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
-                                        <line x1="16" y1="8" x2="2" y2="22"/>
-                                        <line x1="17.5" y1="15" x2="9" y2="15"/>
-                                      </svg>
-                                      Tailwind CSS
-                                    </span>
+      <!-- Proyecto Portafolio -->
+              <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
+                  
+                  <div class="relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img border border-zinc-800/50 cursor-pointer" onclick="openProjectModal('portafolio')">
+                      
+                      <img src="./portafolio.png" alt="Portfolio Personal" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+                      
+                      <div class="absolute top-3 right-3 flex items-center justify-center p-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl shadow-xl group-hover/img:opacity-0 transition-all duration-300">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/70">
+                              <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                          </svg>
+                      </div>
 
-                                    <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[11px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
-                                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-400">
-                                        <path d="M20 7h-9l-3-3H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-                                        <path d="M16 11l-4 4-2-2"/>
-                                      </svg>
-                                      JavaScript ES6+
-                                    </span>
-                    </div>
+                      <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-zinc-900/60 backdrop-blur-[2px]">
+                          <div class="flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold text-white bg-zinc-800/50 border border-zinc-700 rounded-full uppercase tracking-widest">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
+                                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                              </svg>
+                              Explorar Galería
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="flex justify-between items-start gap-4 mb-1">
+                      <h4 class="font-bold text-white text-md leading-tight">Portfolio Moderno v3.1</h4>
+                      
+                      <span class="shrink-0 flex items-center gap-1.5 text-[10px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full border border-blue-500/20">
+                          <span class="relative flex h-1.5 w-1.5">
+                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                              <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
+                          </span>
+                          Sitio Activo
+                      </span>
+                  </div>
+
+                  <p class="text-xs text-zinc-500 mb-3">Single Page Application SPA</p>
+
+                  <div class="flex flex-wrap gap-2 mb-4">
+                      <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-purple-400">
+                              <path d="m13 2-2 10h8l-2 10"/>
+                          </svg>
+                          Vite
+                      </span>
+                      <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400">
+                              <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/>
+                          </svg>
+                          Tailwind CSS
+                      </span>
+                      <span class="px-2.5 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-[10px] border border-zinc-700/50 flex items-center gap-1.5 transition-all hover:border-zinc-500">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-400">
+                              <path d="M20 7h-9l-3-3H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 11l-4 4-2-2"/>
+                          </svg>
+                          JavaScript ES6+
+                      </span>
+                  </div>
+              </div>
 
 
-                    
-          </div>
-
-          <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
+      <!-- Proyecto Workana-->
+    <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all flex flex-col">
           
           <!-- CAMBIO:
                Se añadió cursor-pointer y onclick
@@ -253,13 +426,15 @@ const content = {
 
           </div>
 
-          <p class="text-[13px] text-zinc-400 leading-relaxed text-justify">
-Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de la landing page del programa 'The Accelerator' de Workana, originalmente alojada en Unbounce, para integrarla de manera óptima en un entorno de WordPress. El cliente necesitaba la flexibilidad y el control que ofrece WordPress sin perder la identidad visual ni la efectividad de sus llamadas a la acción (CTAs) originales. Solución Implementada: Recreación pixel-perfect del diseño original utilizando Elementor Pro. Migración completa de textos, imágenes y estructura de marca. Optimización de velocidad de carga y adaptación 100% responsiva para todos los dispositivos. El resultado final fue una landing page idéntica a la original, pero ahora totalmente administrable, más rápida y lista para potenciar las conversiones del programa.          </p>
-</div>
+        <!--  <p class="text-[13px] text-zinc-400 leading-relaxed text-justify">
+Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de la landing page del programa 'The Accelerator' de Workana, originalmente alojada en Unbounce, para integrarla de manera óptima en un entorno de WordPress.        </p>-->
+</div> 
 
 
 
-<div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all">
+              <!-- Proyecto de Robledillo Abogados -->
+
+               <div class="group p-4 border border-zinc-800 rounded-2xl bg-zinc-900/10 hover:border-zinc-700 transition-all">
 
                             <div 
                             class= "relative aspect-video mb-4 overflow-hidden rounded-xl bg-zinc-800 group/img border border-zinc-800/50 cursor-pointer"
@@ -324,17 +499,7 @@ Este proyecto consistió en replicar fielmente el diseño y la funcionalidad de 
                     </div>
 
                         
-            </div>
-
- <!-- Segundo Contenedor: dividido en dos columnas por cada fila -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-<!-- Nuevo Proyecto 2-->
-
-
-
-                 <!-- Proyecto 3 -->
-                 
+            </div>  
 
            
 
@@ -883,11 +1048,11 @@ window.openProjectModal = (id) => {
         </span>
     `).join('');
     
-    // Inyectar Galería de Imágenes
+    // Inyectar Galería de Imágenes (¡AQUÍ ESTÁ EL AJUSTE RESPONSIVE!)
     const galleryDiv = document.getElementById('modal-gallery');
     galleryDiv.innerHTML = data.images.map(img => `
-    <div class="w-full rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 shadow-xl mb-4">
-        <img src="${img}" class="w-full h-auto block" alt="Project Capture">
+    <div class="w-full rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/40 shadow-xl mb-4 flex justify-center p-2 md:p-4">
+        <img src="${img}" class="w-full max-h-[60vh] md:max-h-[75vh] object-contain block rounded-xl" alt="Project Capture">
     </div>
 `).join('');
 
