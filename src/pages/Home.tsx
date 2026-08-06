@@ -1,4 +1,5 @@
 import React from 'react';
+import ProjectCard from '../components/ProjectCard';
 
 export default function Home() {
   return (
@@ -106,7 +107,31 @@ export default function Home() {
         <div className="relative w-full mt-8 overflow-hidden transition-[height] duration-500 ease-in-out">
           <div className="w-full transition-all duration-500 ease-in-out transform px-2">
              {/* Aquí inyectaremos los componentes de Proyectos, Stack, etc. más adelante */}
-             <p className="text-zinc-500 text-sm text-center py-10">Contenido en construcción...</p>
+             
+              {/* CONTENT WRAPPER */}
+        <div className="relative w-full mt-8 overflow-hidden transition-[height] duration-500 ease-in-out">
+          <div className="w-full transition-all duration-500 ease-in-out transform px-2">
+             
+             {/* Grid de Proyectos */}
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <ProjectCard 
+                  title="CRM Core API" 
+                  description="Backend transaccional para gestión de clientes con consultas nativas."
+                  techStack={["Node.js", "PostgreSQL", "Express"]}
+                  slug="crm-core-api"
+                />
+                
+                <ProjectCard 
+                  title="Portfolio v4" 
+                  description="Plataforma de experimentación técnica con micro-frontends."
+                  techStack={["React", "Tailwind CSS", "Vite"]}
+                  slug="portfolio-v4"
+                />
+             </div>
+
+          </div>
+        </div>
+
           </div>
         </div>
       </main>
