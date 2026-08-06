@@ -114,15 +114,26 @@ export default function Home() {
              
              {/* Grid de Proyectos */}
              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* Tarjeta sin imagen (Ideal para Backend) */}
+                
+                {/* 1. Proyecto API (Usará el diseño de Servidor) */}
                 <ProjectCard 
                   title="CRM Core API" 
                   description="Backend transaccional para gestión de clientes con consultas nativas."
                   techStack={["Node.js", "PostgreSQL", "Express"]}
                   slug="crm-core-api"
+                  wireframeType="server" 
+                />
+
+                {/* 2. Proyecto Dashboard (Usará el diseño de Analíticas) */}
+                <ProjectCard 
+                  title="Panel SEO Analytics" 
+                  description="Dashboard de métricas en tiempo real."
+                  techStack={["React", "Chart.js", "Supabase"]}
+                  slug="panel-seo"
+                  wireframeType="dashboard" 
                 />
                 
-                {/* Tarjeta con imagen (Ideal para Frontend) */}
+                {/* 3. Proyecto Frontend (Con Imagen) */}
                 <ProjectCard 
                   title="Portfolio v4" 
                   description="Plataforma de experimentación técnica con micro-frontends."
@@ -130,6 +141,15 @@ export default function Home() {
                   slug="portfolio-v4"
                   imageUrl="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
                 />
+
+                {/* 4. Proyecto Script (Usará Terminal por defecto al no enviarle tipo) */}
+                <ProjectCard 
+                  title="Data Scraper CLI" 
+                  description="Herramienta de línea de comandos para automatización."
+                  techStack={["Python", "BeautifulSoup"]}
+                  slug="data-scraper"
+                />
+
              </div>
 
           </div>
