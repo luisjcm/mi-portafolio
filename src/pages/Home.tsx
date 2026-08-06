@@ -114,6 +114,7 @@ export default function Home() {
              
              {/* Grid de Proyectos */}
              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Tarjeta sin imagen (Ideal para Backend) */}
                 <ProjectCard 
                   title="CRM Core API" 
                   description="Backend transaccional para gestión de clientes con consultas nativas."
@@ -121,11 +122,13 @@ export default function Home() {
                   slug="crm-core-api"
                 />
                 
+                {/* Tarjeta con imagen (Ideal para Frontend) */}
                 <ProjectCard 
                   title="Portfolio v4" 
                   description="Plataforma de experimentación técnica con micro-frontends."
                   techStack={["React", "Tailwind CSS", "Vite"]}
                   slug="portfolio-v4"
+                  imageUrl="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
                 />
              </div>
 
