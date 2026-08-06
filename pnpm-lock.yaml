@@ -20,6 +20,9 @@ importers:
       '@types/react-dom':
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.17)
+      front-matter:
+        specifier: ^4.0.2
+        version: 4.0.2
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
@@ -506,6 +509,9 @@ packages:
 
   fraction.js@5.3.4:
     resolution: {integrity: sha512-1X1NTtiJphryn/uLQz3whtY6jK3fTqoE3ohKs0tT+Ujr1W59oopxmoEh7Lu5p6vBaPbgoM0bzveAW4Qi5RyWDQ==}
+
+  front-matter@4.0.2:
+    resolution: {integrity: sha512-I8ZuJ/qG92NWX8i5x1Y8qyj3vizhXS31OxjKDu3LKP+7/qBgfIKValiZIEwoVoJKUHlhWtYrktkxV1XsX+pPlg==}
 
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
@@ -1294,6 +1300,10 @@ snapshots:
       picomatch: 4.0.4
 
   fraction.js@5.3.4: {}
+
+  front-matter@4.0.2:
+    dependencies:
+      js-yaml: 3.15.1
 
   fsevents@2.3.3:
     optional: true

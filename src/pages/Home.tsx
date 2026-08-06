@@ -1,5 +1,23 @@
 import React from 'react';
 import ProjectCard from '../components/ProjectCard';
+import frontMatter from 'front-matter';
+
+// 1. Vite lee TODOS los archivos .md en crudo (raw) de forma síncrona (eager)
+const mdFiles = import.meta.glob('../content/proyectos/*.md', { query: '?raw', eager: true });
+
+// 2. Transformamos esos archivos en un arreglo de objetos para React
+const projects = Object.entries(mdFiles).map(([path, module]) => {
+  // Extraemos el nombre del archivo para usarlo como ruta (ej: crm-core-api.md -> crm-core-api)
+  const slug = path.split('/').pop()?.replace('.md', '');
+  
+  // Extraemos las variables que pusiste entre los "---" en el archivo .md
+  const { attributes } = frontMatter(module.default as string);
+
+  return {
+    slug,
+    ...(attributes as any) // Título, descripción, techStack, etc.
+  };
+});
 
 export default function Home() {
   return (
@@ -14,7 +32,7 @@ export default function Home() {
       </header>
 
       {/* MAIN CONTENT */}
-      <main className="w-full max-w-[800px] p-4 md:p-6 mt-16 px-6">
+      <main className="w-full max-w-[800px] p-4 md:p-6 mt-16 px-6 mx-auto">
         
         {/* HERO INFO */}
         <section className="flex justify-between items-start w-full mb-6">
@@ -35,7 +53,6 @@ export default function Home() {
           </div>
 
           <div className="w-[70px] h-[70px] md:w-[84px] md:h-[84px] rounded-full border border-zinc-800 overflow-hidden bg-zinc-900 flex-shrink-0">
-            {/* Asegúrate de que la ruta de la imagen sea correcta o impórtala desde assets */}
             <img src="/src/assets/perfil.jpg" alt="Luis Jesus" className="w-full h-full object-cover" />
           </div>
         </section>
@@ -104,57 +121,22 @@ export default function Home() {
         </nav>
 
         {/* CONTENT WRAPPER */}
-        <div className="relative w-full mt-8 overflow-hidden transition-[height] duration-500 ease-in-out">
-          <div className="w-full transition-all duration-500 ease-in-out transform px-2">
-             {/* Aquí inyectaremos los componentes de Proyectos, Stack, etc. más adelante */}
-             
-              {/* CONTENT WRAPPER */}
-        <div className="relative w-full mt-8 overflow-hidden transition-[height] duration-500 ease-in-out">
-          <div className="w-full transition-all duration-500 ease-in-out transform px-2">
-             
-             {/* Grid de Proyectos */}
+        <div className="relative w-full mt-8 overflow-hidden">
+          <div className="w-full px-2">
+             {/* Grid de Proyectos Dinámico */}
              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                
-                {/* 1. Proyecto API (Usará el diseño de Servidor) */}
-                <ProjectCard 
-                  title="CRM Core API" 
-                  description="Backend transaccional para gestión de clientes con consultas nativas."
-                  techStack={["Node.js", "PostgreSQL", "Express"]}
-                  slug="crm-core-api"
-                  wireframeType="server" 
-                />
-
-                {/* 2. Proyecto Dashboard (Usará el diseño de Analíticas) */}
-                <ProjectCard 
-                  title="Panel SEO Analytics" 
-                  description="Dashboard de métricas en tiempo real."
-                  techStack={["React", "Chart.js", "Supabase"]}
-                  slug="panel-seo"
-                  wireframeType="dashboard" 
-                />
-                
-                {/* 3. Proyecto Frontend (Con Imagen) */}
-                <ProjectCard 
-                  title="Portfolio v4" 
-                  description="Plataforma de experimentación técnica con micro-frontends."
-                  techStack={["React", "Tailwind CSS", "Vite"]}
-                  slug="portfolio-v4"
-                  imageUrl="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
-                />
-
-                {/* 4. Proyecto Script (Usará Terminal por defecto al no enviarle tipo) */}
-                <ProjectCard 
-                  title="Data Scraper CLI" 
-                  description="Herramienta de línea de comandos para automatización."
-                  techStack={["Python", "BeautifulSoup"]}
-                  slug="data-scraper"
-                />
-
+                {projects.map((project) => (
+                  <ProjectCard 
+                    key={project.slug}
+                    title={project.title} 
+                    description={project.description}
+                    techStack={project.techStack || []}
+                    slug={project.slug}
+                    imageUrl={project.imageUrl}
+                    wireframeType={project.wireframeType}
+                  />
+                ))}
              </div>
-
-          </div>
-        </div>
-
           </div>
         </div>
       </main>
