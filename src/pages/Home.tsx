@@ -22,14 +22,7 @@ const projects = Object.entries(mdFiles).map(([path, module]) => {
 export default function Home() {
   return (
     <>
-      {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full z-[50] py-4 px-6 backdrop-blur-md border-b border-white/5 bg-zinc-950/20">
-        <div className="max-w-[760px] mx-auto flex items-center justify-between">
-          <div className="text-white font-bold text-lg tracking-tighter hover:opacity-80 transition-opacity cursor-pointer">
-            LUIS<span className="text-blue-500">JCM</span>
-          </div>
-        </div>
-      </header>
+      
 
       {/* MAIN CONTENT */}
       <main className="w-full max-w-[800px] p-4 md:p-6 mt-16 px-6 mx-auto">
