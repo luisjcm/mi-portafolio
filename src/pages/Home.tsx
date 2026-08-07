@@ -134,29 +134,6 @@ export default function Home() {
         </div>
       </main>
 
-      {/* FOOTER */}
-      <footer className="mt-20 border-t border-zinc-800/50 py-10 w-full max-w-[800px] px-6 mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex flex-col items-center md:items-start">
-            <h4 className="text-white font-bold tracking-tight">LUIS JESUS CURBATA</h4>
-            <p className="text-[11px] text-zinc-500 tracking-widest mt-1">Ingeniero de Sistemas & Desarrollador Web Freelance</p>
-          </div>
-          <div className="flex flex-col items-center md:items-end gap-3">
-            <div className="flex items-center gap-6 text-[11px] font-bold text-zinc-400">
-              <a href="https://linkedin.com/in/luisjcm" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors">LINKEDIN</a>
-              <a href="https://github.com/luisjcm" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors">GITHUB</a>
-              <span className="flex items-center gap-1.5 px-2 py-0.5 bg-zinc-800/30 border border-zinc-700/30 rounded text-[9px] font-mono text-blue-500/80 shadow-sm">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-pulse absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-20"></span>
-                  <span className="relative inline-flex rounded-full h-1 w-1 bg-blue-500/50"></span>
-                </span>
-                BUILD v.4.0.0
-              </span>
-            </div>
-            <p className="text-[10px] text-zinc-600 uppercase tracking-tight">© 2026 / DESARROLLADO POR <span className="text-zinc-400">LUISJCM</span></p>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }

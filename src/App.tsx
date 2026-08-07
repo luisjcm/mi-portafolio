@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import ProjectDetail from './pages/ProjectDetail';
 import ProjectsIndex from './pages/ProjectsIndex';
@@ -20,6 +21,8 @@ function App() {
         {/* Ruta dinámica para cada proyecto (El :slug indica que es una variable) */}
         <Route path="/proyectos/:slug" element={<ProjectDetail />} />
       </Routes>
+
+      <Footer />
     </Router>
   );
 }
