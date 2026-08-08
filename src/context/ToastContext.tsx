@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 // 1. Definimos los tipos de alertas disponibles
-export type ToastType = 'success' | 'error' | 'info';
+export type ToastType = 'success' | 'error' | 'info' | 'warning';
 
 interface ToastContextType {
   showToast: (message: string, type?: ToastType) => void;
@@ -31,6 +31,7 @@ return (
           ${toast.type === 'success' ? 'border-green-500/50 text-green-400' : ''}
           ${toast.type === 'error' ? 'border-red-500/50 text-red-400' : ''}
           ${toast.type === 'info' ? 'border-blue-500/50 text-blue-400' : ''}
+          ${toast.type === 'warning' ? 'border-yellow-500/50 text-yellow-400' : ''}
         `}>
           {/* Icono Dinámico según el tipo */}
           {toast.type === 'success' && (
@@ -41,6 +42,9 @@ return (
           )}
           {toast.type === 'info' && (
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          )}
+          {toast.type === 'warning' && (
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
           )}
           
           <span className="text-[14px] font-medium tracking-wide text-white">
