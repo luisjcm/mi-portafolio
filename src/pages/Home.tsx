@@ -34,6 +34,7 @@ export default function Home() {
           slug={project.slug}
           imageUrl={project.imageUrl}
           wireframeType={project.wireframeType}
+          projectUrl={project.projectUrl}
         />
       ))}
     </div>

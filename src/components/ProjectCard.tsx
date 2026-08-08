@@ -8,13 +8,14 @@ interface ProjectCardProps {
   slug: string;
   imageUrl?: string;
   wireframeType?: string;
+  projectUrl?: string;
 }
 
-export default function ProjectCard({ title, description, techStack, slug, imageUrl }: ProjectCardProps) {
+export default function ProjectCard({ title, description, techStack, slug, imageUrl, projectUrl }: ProjectCardProps) {
   return (
     <Link 
       to={`/proyectos/${slug}`}
-      className="group bg-zinc-950 border border-zinc-800/80 rounded-2xl overflow-hidden hover:border-zinc-700 transition-all duration-300 flex flex-col justify-between shadow-xl"
+      className="group bg-zinc-950 border border-zinc-800/80 rounded-2xl overflow-hidden hover:border-zinc-700 transition-all duration-300 flex flex-col justify-between shadow-xl relative"
     >
       <div className="w-full h-48 bg-zinc-900/60 border-b border-zinc-800/80 overflow-hidden relative flex items-center justify-center">
         {imageUrl && imageUrl.trim() !== "" ? (
@@ -36,10 +37,21 @@ export default function ProjectCard({ title, description, techStack, slug, image
               <div className="w-3/4 h-2.5 bg-zinc-800 rounded-full"></div>
               <div className="w-1/2 h-2.5 bg-zinc-800/60 rounded-full"></div>
             </div>
-            <div className="absolute right-6 bottom-6 text-zinc-700 group-hover:text-blue-400 transition-colors">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </div>
           </div>
+        )}
+
+        {/* Botón flotante rápido para ver sitio si existe projectUrl */}
+        {projectUrl && (
+          <a 
+            href={projectUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()} // Evita que abra el detalle del proyecto al hacer clic en el botón externo
+            className="absolute top-3 right-3 px-3 py-1.5 bg-zinc-900/90 hover:bg-white hover:text-black text-white text-[11px] font-semibold rounded-lg border border-zinc-700/80 backdrop-blur-md transition-all flex items-center gap-1.5 shadow-lg"
+          >
+            <span>Ver Sitio</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
         )}
       </div>
 
@@ -47,7 +59,6 @@ export default function ProjectCard({ title, description, techStack, slug, image
         <div>
           <h3 className="text-white font-bold text-base mb-2 group-hover:text-blue-400 transition-colors flex items-center justify-between">
             {title}
-            <svg className="opacity-0 group-hover:opacity-100 transition-opacity transform -translate-x-2 group-hover:translate-x-0 duration-300" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </h3>
           <p className="text-zinc-400 text-sm leading-relaxed mb-6 line-clamp-2">
             {description}
