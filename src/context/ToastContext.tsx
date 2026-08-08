@@ -25,29 +25,31 @@ return (
     <ToastContext.Provider value={{ showToast }}>
       {children}
       
-      {/* COMPONENTE VISUAL DEL TOAST (Bottom-Left y fondo destacado) */}
+      {/* COMPONENTE VISUAL DEL TOAST (Responsivo: Protege el espacio de Cubot en móvil) */}
       {toast && (
-        <div className={`fixed bottom-6 left-6 z-[200] flex items-center gap-3 px-5 py-3.5 rounded-xl border bg-zinc-800 shadow-2xl shadow-black/50 transition-all duration-300 animate-page-enter
+        <div className={`fixed bottom-4 md:bottom-6 left-4 md:left-6 z-[200] flex items-start md:items-center gap-2.5 md:gap-3 px-4 md:px-5 py-3 md:py-3.5 rounded-lg md:rounded-xl border bg-zinc-800 shadow-2xl shadow-black/50 transition-all duration-300 animate-page-enter max-w-[calc(100vw-5.5rem)] md:max-w-md
           ${toast.type === 'success' ? 'border-green-500/50 text-green-400' : ''}
           ${toast.type === 'error' ? 'border-red-500/50 text-red-400' : ''}
           ${toast.type === 'info' ? 'border-blue-500/50 text-blue-400' : ''}
           ${toast.type === 'warning' ? 'border-yellow-500/50 text-yellow-400' : ''}
         `}>
-          {/* Icono Dinámico según el tipo */}
+          
+          {/* Iconos con tamaño responsivo y flex-shrink-0 para evitar que se aplasten si el texto baja de línea */}
           {toast.type === 'success' && (
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <svg className="w-4 h-4 md:w-[18px] md:h-[18px] flex-shrink-0 mt-0.5 md:mt-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
           )}
           {toast.type === 'error' && (
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <svg className="w-4 h-4 md:w-[18px] md:h-[18px] flex-shrink-0 mt-0.5 md:mt-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
           )}
           {toast.type === 'info' && (
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            <svg className="w-4 h-4 md:w-[18px] md:h-[18px] flex-shrink-0 mt-0.5 md:mt-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
           )}
           {toast.type === 'warning' && (
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            <svg className="w-4 h-4 md:w-[18px] md:h-[18px] flex-shrink-0 mt-0.5 md:mt-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
           )}
           
-          <span className="text-[14px] font-medium tracking-wide text-white">
+          {/* Texto ligeramente más pequeño en móviles */}
+          <span className="text-[12px] md:text-[14px] font-medium tracking-wide text-white leading-snug">
             {toast.message}
           </span>
         </div>
