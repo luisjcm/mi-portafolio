@@ -1,13 +1,21 @@
 import React, { useEffect } from 'react';
+import { useToast } from '../context/ToastContext';
 
 export default function Contacto() {
+  const { showToast } = useToast();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("¡Funcionalidad de envío en construcción!");
+    
+    // Disparamos nuestra notificación centralizada con estilo
+    showToast("¡Mensaje recibido! Nos pondremos en contacto pronto.", "success");
+    
+    // Opcional: Limpiar los campos del formulario tras enviar
+    (e.target as HTMLFormElement).reset();
   };
 
   return (
