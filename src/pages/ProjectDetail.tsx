@@ -33,7 +33,7 @@ export default function ProjectDetail() {
   const project = attributes as any;
 
   return (
-    <main className="w-full max-w-3xl mx-auto p-6 mt-12 md:mt-20 min-h-screen">
+    <main className="w-full max-w-3xl mx-auto p-6 mt-12 md:mt-20 min-h-screen animate-page-enter">
       
       {/* Botón de Regreso */}
       <Link to="/" className="inline-flex items-center gap-2 text-[13px] text-zinc-500 hover:text-white transition-colors mb-10 group">

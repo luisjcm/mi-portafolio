@@ -25,7 +25,7 @@ export default function Home() {
       
 
       {/* MAIN CONTENT */}
-      <main className="w-full max-w-[800px] p-4 md:p-6 mt-16 px-6 mx-auto">
+      <main className="w-full max-w-[800px] p-4 md:p-6 mt-16 px-6 mx-auto animate-page-enter">
         
         {/* HERO INFO */}
         <section className="flex justify-between items-start w-full mb-6">
