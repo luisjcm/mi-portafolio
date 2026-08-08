@@ -5,13 +5,14 @@ import { marked } from 'marked';
 
 const mdFiles = import.meta.glob('../content/proyectos/*.md', { query: '?raw', eager: true });
 
-// Interfaz para tipar los sub-proyectos dinámicos del Markdown
 interface SubProject {
   id: string;
   title: string;
   client: string;
   description: string;
   tech: string[];
+  image?: string;
+  gallery?: string[];
 }
 
 export default function ProjectDetail() {
@@ -48,7 +49,6 @@ export default function ProjectDetail() {
     subProjects?: SubProject[];
   };
 
-  // Si hay sub-proyectos, inicializamos el activo con el primero por defecto
   const subProjects = project.subProjects || [];
   const currentActiveId = activeSubId || (subProjects.length > 0 ? subProjects[0].id : null);
   const currentSub = subProjects.find(p => p.id === currentActiveId) || subProjects[0];
@@ -82,7 +82,6 @@ export default function ProjectDetail() {
         )}
       </header>
 
-      {/* SI EL MARKDOWN TIENE SUB-PROYECTOS, RENDERIZAMOS LA GALERÍA DINÁMICAMENTE */}
       {subProjects.length > 0 && (
         <div className="mb-12">
           <div className="flex items-center justify-between mb-4 border-b border-zinc-800/80 pb-3">
@@ -106,35 +105,74 @@ export default function ProjectDetail() {
             ))}
           </div>
 
-          {/* Wireframe / Visor dinámico */}
           {currentSub && (
-            <div className="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl mb-8">
-              <div className="h-9 bg-zinc-950/80 border-b border-zinc-800/80 px-4 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+            <div className="space-y-4">
+              <div className="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl relative">
+                <div className="h-9 bg-zinc-950/90 border-b border-zinc-800/80 px-4 flex items-center justify-between relative z-10">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+                  </div>
+                  <div className="bg-zinc-900 border border-zinc-800/60 rounded-md px-8 py-1 text-[11px] text-zinc-400 font-mono tracking-tight">
+                    https://{currentSub.id}.client-preview.dev
+                  </div>
+                  <div className="w-10"></div>
                 </div>
-                <div className="bg-zinc-900 border border-zinc-800/60 rounded-md px-12 py-1 text-[11px] text-zinc-500 font-mono tracking-tight">
-                  https://{currentSub.id}.client-preview.dev
+
+                <div className="relative w-full h-[320px] md:h-[380px] bg-zinc-950 flex flex-col justify-end p-6 md:p-8 overflow-hidden group">
+                  {currentSub.image && currentSub.image.trim() !== "" ? (
+                    <>
+                      <img 
+                        src={currentSub.image} 
+                        alt={currentSub.title} 
+                        className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent"></div>
+                    </>
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/40 to-zinc-950"></div>
+                  )}
+
+                  <div className="relative z-10">
+                    <span className="inline-block px-2.5 py-1 bg-blue-500/20 border border-blue-500/30 text-blue-400 text-[11px] font-semibold rounded-md mb-2 backdrop-blur-md">
+                      {currentSub.client}
+                    </span>
+                    <h4 className="text-white font-bold text-xl md:text-2xl mb-1 drop-shadow-md">{currentSub.title}</h4>
+                    <p className="text-zinc-300 text-xs md:text-sm max-w-xl mb-4 drop-shadow">{currentSub.description}</p>
+                    
+                    <div className="flex flex-wrap gap-1.5">
+                      {currentSub.tech.map(t => (
+                        <span key={t} className="px-2.5 py-1 bg-zinc-900/80 backdrop-blur-md border border-zinc-700/50 rounded text-[11px] text-zinc-200 font-medium">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <div className="w-10"></div>
               </div>
 
-              <div className="p-8 md:p-12 flex flex-col items-center justify-center text-center bg-gradient-to-b from-zinc-900/50 to-zinc-950 min-h-[260px]">
-                <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-4">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              {currentSub.gallery && currentSub.gallery.length > 0 && (
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3">Capturas Adicionales de la Plataforma</h4>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    {currentSub.gallery.map((imgUrl, index) => (
+                      <div key={index} className="h-28 bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden relative group/thumb">
+                        <img 
+                          src={imgUrl} 
+                          alt={`Captura ${index + 1}`} 
+                          className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover/thumb:bg-transparent transition-colors"></div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <h4 className="text-white font-bold text-lg mb-2">{currentSub.title}</h4>
-                <p className="text-zinc-400 text-sm max-w-md mb-6">{currentSub.description}</p>
-                <div className="flex flex-wrap justify-center gap-1.5">
-                  {currentSub.tech.map(t => (
-                    <span key={t} className="px-2.5 py-1 bg-zinc-800/80 border border-zinc-700/50 rounded text-[11px] text-zinc-300 font-medium">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              )}
             </div>
           )}
         </div>
