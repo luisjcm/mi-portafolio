@@ -6,23 +6,33 @@ import Home from './pages/Home';
 import ProjectDetail from './pages/ProjectDetail';
 import ProjectsIndex from './pages/ProjectsIndex';
 
+import SobreMi from './pages/SobreMi';
+import Contacto from './pages/Contacto';
+
 function App() {
   return (
     <Router>
 
       <Header />
 
-      <Routes>
-        {/* Tu portafolio principal */}
-        <Route path="/" element={<Home />} />
+        <div className="flex flex-col min-h-screen">
+          <div className="flex-grow">
 
-        <Route path="/proyectos" element={<ProjectsIndex />} />
+                <Routes>
+                  {/* Tu portafolio principal */}
+                  <Route path="/" element={<Home />} />
+                  <Route path="/proyectos" element={<ProjectsIndex />} />
 
-        {/* Ruta dinámica para cada proyecto (El :slug indica que es una variable) */}
-        <Route path="/proyectos/:slug" element={<ProjectDetail />} />
-      </Routes>
+                  <Route path="/proyectos/:slug" element={<ProjectDetail />} />
+                  <Route path="/sobre-mi" element={<SobreMi />} />       {/* <--- Nueva ruta */}
+                  <Route path="/contacto" element={<Contacto />} />      {/* <--- Nueva ruta */}
+                </Routes>
+
+          </div>
+        </div>
 
       <Footer />
+      
     </Router>
   );
 }
