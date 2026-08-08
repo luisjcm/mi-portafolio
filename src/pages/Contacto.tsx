@@ -1,21 +1,69 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useToast } from '../context/ToastContext';
 
 export default function Contacto() {
   const { showToast } = useToast();
+  // Estado para rastrear qué campos específicos tienen error
+  const [errors, setErrors] = useState<{ name?: boolean; email?: boolean; message?: boolean }>({});
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); 
     
-    // Disparamos nuestra notificación centralizada con estilo
-    showToast("¡Mensaje recibido! Nos pondremos en contacto pronto.", "success");
-    
-    // Opcional: Limpiar los campos del formulario tras enviar
-    (e.target as HTMLFormElement).reset();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const message = formData.get('message') as string;
+
+    const newErrors: { name?: boolean; email?: boolean; message?: boolean } = {};
+    let hasEmptyFields = false;
+
+    // 1. Validar campos vacíos individualmente
+    if (!name.trim()) { newErrors.name = true; hasEmptyFields = true; }
+    if (!email.trim()) { newErrors.email = true; hasEmptyFields = true; }
+    if (!message.trim()) { newErrors.message = true; hasEmptyFields = true; }
+
+    if (hasEmptyFields) {
+      setErrors(newErrors);
+      showToast("Por favor, completa los campos resaltados en rojo.", "error");
+      return;
+    }
+
+    // 2. Validar formato de correo electrónico
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setErrors({ email: true });
+      showToast("Por favor, ingresa un correo electrónico válido.", "error");
+      return;
+    }
+
+    // 3. Simulación de envío exitosa
+    setErrors({}); // Limpiamos cualquier error residual
+    showToast("Formulario inactivo temporalmente. ¡Escríbeme directo al WhatsApp!", "warning");
+    form.reset();
+  };
+
+  // Función para quitar el borde rojo en cuanto el usuario empieza a escribir
+  const clearError = (field: 'name' | 'email' | 'message') => {
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: false }));
+    }
+  };
+
+  // Helpers para inyectar clases dinámicas basadas en el estado de error
+  const getInputClasses = (hasError?: boolean) => {
+    const base = "w-full bg-zinc-900/50 border rounded-lg px-4 py-3 text-[14px] text-white placeholder-zinc-600 focus:outline-none focus:ring-1 transition-all resize-none";
+    return hasError 
+      ? `${base} border-red-500/50 focus:border-red-500 focus:ring-red-500/50`
+      : `${base} border-zinc-800 focus:border-blue-500/50 focus:ring-blue-500/50`;
+  };
+
+  const getLabelClasses = (hasError?: boolean) => {
+    return `text-[13px] font-medium ml-1 transition-colors ${hasError ? 'text-red-400' : 'text-zinc-300'}`;
   };
 
   return (
@@ -32,50 +80,54 @@ const handleSubmit = (e: React.FormEvent) => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         
-        {/* Formulario */}
-        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+        <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
           <div className="flex flex-col gap-2">
-            <label htmlFor="name" className="text-[13px] text-zinc-300 font-medium ml-1">Nombre</label>
+            <label htmlFor="name" className={getLabelClasses(errors.name)}>Nombre</label>
             <input 
               type="text" 
               id="name" 
+              name="name" 
               required
               placeholder="Ej. Carlos Pérez"
-              className="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-[14px] text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all"
+              className={getInputClasses(errors.name)}
+              onChange={() => clearError('name')}
             />
           </div>
 
           <div className="flex flex-col gap-2">
-            <label htmlFor="email" className="text-[13px] text-zinc-300 font-medium ml-1">Email</label>
+            <label htmlFor="email" className={getLabelClasses(errors.email)}>Email</label>
             <input 
               type="email" 
               id="email" 
+              name="email"
               required
               placeholder="carlos@ejemplo.com"
-              className="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-[14px] text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all"
+              className={getInputClasses(errors.email)}
+              onChange={() => clearError('email')}
             />
           </div>
 
           <div className="flex flex-col gap-2">
-            <label htmlFor="message" className="text-[13px] text-zinc-300 font-medium ml-1">Mensaje</label>
+            <label htmlFor="message" className={getLabelClasses(errors.message)}>Mensaje</label>
             <textarea 
               id="message" 
+              name="message"
               rows={4} 
               required
               placeholder="Cuéntame sobre tu proyecto..."
-              className="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-[14px] text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all resize-none"
+              className={getInputClasses(errors.message)}
+              onChange={() => clearError('message')}
             ></textarea>
           </div>
 
           <button 
             type="submit" 
-            className="mt-2 w-full bg-white text-black font-semibold text-[14px] py-3 rounded-lg hover:bg-zinc-200 transition-colors active:scale-[0.98]"
+            className="mt-2 w-full font-semibold text-[14px] py-3 rounded-lg transition-all bg-white text-black hover:bg-zinc-200 active:scale-[0.98]"
           >
             Enviar Mensaje
           </button>
         </form>
 
-        {/* Info de contacto directo */}
         <div className="flex flex-col gap-8 md:pl-8">
           <div>
             <h3 className="text-zinc-500 text-[11px] font-bold uppercase tracking-widest mb-3">Email Directo</h3>
