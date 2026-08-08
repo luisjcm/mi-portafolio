@@ -6,7 +6,7 @@ import frontMatter from 'front-matter';
 // Extraemos los proyectos de la misma forma eficiente
 const mdFiles = import.meta.glob('../content/proyectos/*.md', { query: '?raw', eager: true });
 
-const projects = Object.entries(mdFiles).map(([path, module]) => {
+const projects = Object.entries(mdFiles).map(([path, module]: [string, any]) => {
   const slug = path.split('/').pop()?.replace('.md', '');
   const { attributes } = frontMatter(module.default as string);
   return { slug, ...(attributes as any) };

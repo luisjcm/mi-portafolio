@@ -29,7 +29,7 @@ export default function ProjectDetail() {
 
   // Extraemos el contenido
   const [_, module] = fileEntry;
-  const { attributes, body } = frontMatter(module.default as string);
+  const { attributes, body } = frontMatter((module as any).default);
   const project = attributes as any;
 
   return (

@@ -6,7 +6,7 @@ import frontMatter from 'front-matter';
 const mdFiles = import.meta.glob('../content/proyectos/*.md', { query: '?raw', eager: true });
 
 // 2. Transformamos esos archivos en un arreglo de objetos para React
-const projects = Object.entries(mdFiles).map(([path, module]) => {
+const projects = Object.entries(mdFiles).map(([path, module]: [string, any]) => {
   // Extraemos el nombre del archivo para usarlo como ruta (ej: crm-core-api.md -> crm-core-api)
   const slug = path.split('/').pop()?.replace('.md', '');
   
