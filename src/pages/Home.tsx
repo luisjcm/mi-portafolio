@@ -48,7 +48,7 @@ export default function Home() {
           Desarrollo Frontend
         </h3>
         <div className="flex flex-wrap gap-2">
-          {['JavaScript (ES6+)', 'React', 'Tailwind CSS', 'Vite', 'HTML5 & CSS3'].map(tech => (
+          {['JavaScript (ES6+)', 'React', 'Tailwind CSS', 'Vite', 'HTML5 & CSS3', 'WordPress', 'Elementor'].map(tech => (
             <span key={tech} className="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700/50 rounded-md text-[12px] text-zinc-300">{tech}</span>
           ))}
         </div>
