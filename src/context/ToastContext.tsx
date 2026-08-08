@@ -21,29 +21,29 @@ export function ToastProvider({ children }: { children: ReactNode }) {
     }, 4000);
   };
 
- return (
+return (
     <ToastContext.Provider value={{ showToast }}>
       {children}
       
-      {/* COMPONENTE VISUAL DEL TOAST (Top-Center y diseño de píldora) */}
+      {/* COMPONENTE VISUAL DEL TOAST (Bottom-Left y fondo destacado) */}
       {toast && (
-        <div className={`fixed top-24 left-1/2 -translate-x-1/2 z-[200] flex items-center gap-3 px-5 py-3 rounded-full border backdrop-blur-xl bg-zinc-900/95 shadow-2xl transition-all duration-300 animate-page-enter
-          ${toast.type === 'success' ? 'border-green-500/30 text-green-400' : ''}
-          ${toast.type === 'error' ? 'border-red-500/30 text-red-400' : ''}
-          ${toast.type === 'info' ? 'border-blue-500/30 text-blue-400' : ''}
+        <div className={`fixed bottom-6 left-6 z-[200] flex items-center gap-3 px-5 py-3.5 rounded-xl border bg-zinc-800 shadow-2xl shadow-black/50 transition-all duration-300 animate-page-enter
+          ${toast.type === 'success' ? 'border-green-500/50 text-green-400' : ''}
+          ${toast.type === 'error' ? 'border-red-500/50 text-red-400' : ''}
+          ${toast.type === 'info' ? 'border-blue-500/50 text-blue-400' : ''}
         `}>
           {/* Icono Dinámico según el tipo */}
           {toast.type === 'success' && (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
           )}
           {toast.type === 'error' && (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
           )}
           {toast.type === 'info' && (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
           )}
           
-          <span className="text-[13px] font-medium tracking-wide text-zinc-200">
+          <span className="text-[14px] font-medium tracking-wide text-white">
             {toast.message}
           </span>
         </div>
