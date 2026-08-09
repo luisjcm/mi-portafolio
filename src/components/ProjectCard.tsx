@@ -28,7 +28,7 @@ export default function ProjectCard({ title, description, techStack, slug, image
             }}
           />
         ) : (
-          <div className="w-full h-full p-6 flex flex-col justify-center bg-gradient-to-br from-zinc-900/80 to-zinc-950">
+          <div className="w-full h-full p-6 flex flex-col justify-center bg-linear-to-br from-zinc-900/80 to-zinc-950">
             <div className="flex items-center gap-1.5 mb-3">
               <div className="w-2 h-2 rounded-full bg-zinc-700"></div>
               <div className="w-2 h-2 rounded-full bg-zinc-700"></div>
@@ -55,7 +55,7 @@ export default function ProjectCard({ title, description, techStack, slug, image
         )}
       </div>
 
-      <div className="p-6 flex flex-col flex-grow justify-between">
+      <div className="p-6 flex flex-col grow justify-between">
         <div>
           <h3 className="text-white font-bold text-base mb-2 group-hover:text-blue-400 transition-colors flex items-center justify-between">
             {title}

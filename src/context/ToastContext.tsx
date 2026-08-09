@@ -27,12 +27,12 @@ return (
       
       {/* COMPONENTE VISUAL DEL TOAST (Responsivo: Protege el espacio de Cubot en móvil) */}
       {toast && (
-        <div className={`fixed bottom-4 md:bottom-6 left-4 md:left-6 z-[200] flex items-start md:items-center gap-2.5 md:gap-3 px-4 md:px-5 py-3 md:py-3.5 rounded-lg md:rounded-xl border bg-zinc-800 shadow-2xl shadow-black/50 transition-all duration-300 animate-page-enter max-w-[calc(100vw-5.5rem)] md:max-w-md
-          ${toast.type === 'success' ? 'border-green-500/50 text-green-400' : ''}
-          ${toast.type === 'error' ? 'border-red-500/50 text-red-400' : ''}
-          ${toast.type === 'info' ? 'border-blue-500/50 text-blue-400' : ''}
-          ${toast.type === 'warning' ? 'border-yellow-500/50 text-yellow-400' : ''}
-        `}>
+        <div className={`fixed top-5 left-1/2 -translate-x-1/2 md:top-auto md:bottom-6 md:left-6 md:translate-x-0 z-200 flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl border bg-zinc-800 shadow-2xl shadow-black/50 transition-all duration-300 animate-page-enter w-fit max-w-[85vw] md:max-w-sm text-left
+    ${toast.type === 'success' ? 'border-green-500/50 text-green-400' : ''}
+    ${toast.type === 'error' ? 'border-red-500/50 text-red-400' : ''}
+    ${toast.type === 'info' ? 'border-blue-500/50 text-blue-400' : ''}
+    ${toast.type === 'warning' ? 'border-yellow-500/50 text-yellow-400' : ''}
+  `}>
           
           {/* Iconos con tamaño responsivo y flex-shrink-0 para evitar que se aplasten si el texto baja de línea */}
           {toast.type === 'success' && (
@@ -49,9 +49,9 @@ return (
           )}
           
           {/* Texto ligeramente más pequeño en móviles */}
-          <span className="text-[12px] md:text-[14px] font-medium tracking-wide text-white leading-snug">
+          <p className="text-[12px] md:text-[13px] text-zinc-200 font-normal leading-snug">            
             {toast.message}
-          </span>
+          </p>
         </div>
       )}
     </ToastContext.Provider>

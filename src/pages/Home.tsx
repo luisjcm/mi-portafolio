@@ -9,6 +9,7 @@ import formacionData from '../content/formacion.json';
 
 import TechIcon from '../components/TechIcon';
 
+
 // Extraemos la data de los proyectos
 const mdFiles = import.meta.glob('../content/proyectos/*.md', { query: '?raw', eager: true });
 const projects = Object.entries(mdFiles).map(([path, module]: [string, any]) => {
@@ -18,6 +19,8 @@ const projects = Object.entries(mdFiles).map(([path, module]: [string, any]) => 
 });
 
 export default function Home() {
+  const [imageError, setImageError] = useState(false);
+
   const [activeTab, setActiveTab] = useState('Proyectos');
   const { showToast } = useToast();
 
@@ -139,15 +142,26 @@ export default function Home() {
           </div>
           
           {/* Avatar con hover de semi-ampliamiento */}
-          <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border border-zinc-700 bg-zinc-900 shrink-0 group cursor-pointer">
-            <img 
-              src="https://github.com/luisjcm.png" 
-              alt="Luis Jesus Curbata" 
-              className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-115"
-              onError={(e) => {
-                e.currentTarget.src = "https://ui-avatars.com/api/?name=Luis+Curbata&background=0D0D0E&color=3b82f6";
-              }}
-            />
+          <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border border-zinc-700 bg-zinc-900 shrink-0 group cursor-pointer flex items-center justify-center">
+            {!imageError ? (
+              <img 
+                src="/assets/perfil.jpg" 
+                alt="Luis Jesus Curbata" 
+                className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-115"
+                onError={() => setImageError(true)}
+              />
+            ) : (
+              /* Wireframe silueta de usuario neutro (tipo Facebook/perfil por defecto) */
+              <div className="w-full h-full bg-zinc-800 flex items-center justify-center text-zinc-500 group-hover:text-zinc-400 transition-colors">
+                <svg 
+                  className="w-10 h-10 md:w-12 md:h-12 translate-y-1" 
+                  viewBox="0 0 24 24" 
+                  fill="currentColor"
+                >
+                  <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z" />
+                </svg>
+              </div>
+            )}
           </div>
         </div>
 
@@ -199,7 +213,7 @@ export default function Home() {
 
           {/* Botón Descargar CV */}
           <button
-            onClick={() => showToast("El currículum estará disponible pronto. ¡En construcción!", "warning")}
+            onClick={() => showToast("El currículum estará disponible pronto.", "warning")}
             className="group relative flex-1 max-w-40 py-2.5 bg-white/5 border border-white/10 rounded-[10px] font-semibold text-white text-[13px] overflow-hidden transition-all duration-300 hover:border-blue-500/50 hover:bg-blue-500/5 text-center backdrop-blur-sm active:scale-95 cursor-pointer"
           >
             <div className="absolute inset-0 bg-linear-to-r from-transparent via-blue-400/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
