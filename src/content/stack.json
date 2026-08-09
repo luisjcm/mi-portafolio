@@ -1,0 +1,18 @@
+[
+  {
+    "category": "Desarrollo Frontend",
+    "icon": "frontend",
+    "spanFull":true,
+    "skills": ["JavaScript (ES6+)", "React", "Tailwind CSS", "Vite", "HTML5 & CSS3", "WordPress", "Elementor"]
+  },
+  {
+    "category": "Backend & Base de Datos",
+    "icon": "terminal",
+    "skills": ["Node.js", "Express", "PostgreSQL", "Consultas Nativas (SQL)", "API REST"]
+  },
+  {
+    "category": "Infraestructura & OS",
+    "icon": "backend",
+    "skills": ["Linux Ubuntu", "Git", "GitHub"]
+  }
+]

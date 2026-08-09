@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "role": "Desarrollador Web Freelance",
+    "company": "Clinmedia & Newe Marketing",
+    "period": "Remoto",
+    "active": true,
+    "description": "Construcción, despliegue y gestión diaria de múltiples sitios web de alto volumen para agencias de marketing digital. Optimización de tiempos de entrega sin sacrificar semántica, rendimiento ni diseño responsivo."
+  },
+  {
+    "id": 2,
+    "role": "Analista de HelpDesk & Soporte TI",
+    "company": "Avior Airlines",
+    "period": "Ene 2020 - Presente",
+    "active": false,
+    "description": "Soporte técnico de misión crítica en entorno corporativo. Resolución de incidencias de infraestructura, mantenimiento de equipos y asistencia a usuarios garantizando la continuidad operativa de la aerolínea."
+  },
+  {
+    "id": 3,
+    "role": "Agente de Call Center",
+    "company": "Avior Airlines",
+    "period": "Abr 2018 - Ene 2020",
+    "active": false,
+    "description": "Atención directa al cliente y manejo de sistemas de reservas. Esta experiencia forjó mi entendimiento profundo de la operación interna antes de transicionar al departamento de TI en 2020."
+  }
+]

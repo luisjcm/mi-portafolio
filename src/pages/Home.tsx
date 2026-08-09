@@ -3,6 +3,12 @@ import ProjectCard from '../components/ProjectCard';
 import frontMatter from 'front-matter';
 import { useToast } from '../context/ToastContext';
 
+import stackData from '../content/stack.json';
+import trayectoriaData from '../content/trayectoria.json';
+import formacionData from '../content/formacion.json';
+
+import TechIcon from '../components/TechIcon';
+
 // Extraemos la data de los proyectos
 const mdFiles = import.meta.glob('../content/proyectos/*.md', { query: '?raw', eager: true });
 const projects = Object.entries(mdFiles).map(([path, module]: [string, any]) => {
@@ -40,124 +46,76 @@ export default function Home() {
     </div>
   );
 
-  const renderStack = () => (
+ const renderStack = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {/* Frontend */}
-      <div className="bg-zinc-900/30 border border-zinc-800/80 p-6 rounded-xl hover:border-zinc-700/80 transition-colors">
-        <h3 className="text-white font-semibold text-[14px] mb-4 flex items-center gap-2">
-          <svg className="text-blue-500" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-          Desarrollo Frontend
-        </h3>
-        <div className="flex flex-wrap gap-2">
-          {['JavaScript (ES6+)', 'React', 'Tailwind CSS', 'Vite', 'HTML5 & CSS3', 'WordPress', 'Elementor'].map(tech => (
-            <span key={tech} className="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700/50 rounded-md text-[12px] text-zinc-300">{tech}</span>
-          ))}
+      {stackData.map((group, idx) => (
+        <div 
+          key={idx} 
+          className={`bg-zinc-900/30 border border-zinc-800/80 p-6 rounded-xl hover:border-zinc-700/80 transition-colors ${group.spanFull ? 'md:col-span-2' : ''}`}
+        >
+          <h3 className="text-white font-semibold text-[14px] mb-4 flex items-center gap-2">
+            <TechIcon name={group.icon} />
+            {group.category}
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {group.skills.map(tech => (
+              <span key={tech} className="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700/50 rounded-md text-[12px] text-zinc-300">
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
-
-      {/* Backend & DB */}
-      <div className="bg-zinc-900/30 border border-zinc-800/80 p-6 rounded-xl hover:border-zinc-700/80 transition-colors">
-        <h3 className="text-white font-semibold text-[14px] mb-4 flex items-center gap-2">
-          <svg className="text-blue-500" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
-          Backend & Base de Datos
-        </h3>
-        <div className="flex flex-wrap gap-2">
-          {['Node.js', 'Express', 'PostgreSQL', 'Consultas Nativas (SQL)', 'API REST'].map(tech => (
-            <span key={tech} className="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700/50 rounded-md text-[12px] text-zinc-300">{tech}</span>
-          ))}
-        </div>
-      </div>
-
-      {/* Herramientas */}
-      <div className="bg-zinc-900/30 border border-zinc-800/80 p-6 rounded-xl hover:border-zinc-700/80 transition-colors md:col-span-2">
-        <h3 className="text-white font-semibold text-[14px] mb-4 flex items-center gap-2">
-          <svg className="text-blue-500" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
-          Infraestructura & OS
-        </h3>
-        <div className="flex flex-wrap gap-2">
-          {['Linux Ubuntu', 'Git', 'GitHub (Pages & Actions)', 'Moodle LMS', 'CPanel'].map(tech => (
-            <span key={tech} className="px-3 py-1.5 bg-zinc-800/50 border border-zinc-700/50 rounded-md text-[12px] text-zinc-300">{tech}</span>
-          ))}
-        </div>
-      </div>
+      ))}
     </div>
   );
 
   const renderTrayectoria = () => (
     <div className="relative border-l border-zinc-800 ml-3 pl-8 py-2 space-y-10">
-      
-      {/* Item 1 */}
-      <div className="relative">
-        <div className="absolute -left-9.25 top-1 w-2.75 h-2.75 rounded-full bg-blue-500 ring-4 ring-zinc-950"></div>
-        <h3 className="text-white font-bold text-[15px]">Desarrollador Web Freelance</h3>
-        <p className="text-blue-400 text-[12px] font-medium mb-3">Clinmedia & Newe Marketing • Remoto</p>
-        <p className="text-zinc-400 text-[14px] leading-relaxed">
-          Construcción, despliegue y gestión diaria de múltiples sitios web de alto volumen para agencias de marketing digital. Optimización de tiempos de entrega sin sacrificar semántica, rendimiento ni diseño responsivo.
-        </p>
-      </div>
-
-      {/* Item 2 */}
-      <div className="relative">
-        <div className="absolute -left-9.25 top-1 w-2.75 h-2.75 rounded-full bg-zinc-700 ring-4 ring-zinc-950"></div>
-        <h3 className="text-white font-bold text-[15px]">Analista de HelpDesk & Soporte TI</h3>
-        <p className="text-zinc-500 text-[12px] font-medium mb-3">Avior Airlines • Ene 2020 - Presente</p>
-        <p className="text-zinc-400 text-[14px] leading-relaxed">
-          Soporte técnico de misión crítica en entorno corporativo. Resolución de incidencias de infraestructura, mantenimiento de equipos y asistencia a usuarios garantizando la continuidad operativa de la aerolínea.
-        </p>
-      </div>
-
-      {/* Item 3 */}
-      <div className="relative">
-        <div className="absolute -left-9.25 top-1 w-2.75 h-2.75 rounded-full bg-zinc-800 ring-4 ring-zinc-950"></div>
-        <h3 className="text-white font-bold text-[15px]">Agente de Call Center</h3>
-        <p className="text-zinc-500 text-[12px] font-medium mb-3">Avior Airlines • Abr 2018 - Ene 2020</p>
-        <p className="text-zinc-400 text-[14px] leading-relaxed">
-          Atención directa al cliente y manejo de sistemas de reservas. Esta experiencia forjó mi entendimiento profundo de la operación interna antes de transicionar al departamento de TI en 2020.
-        </p>
-      </div>
+      {trayectoriaData.map((item) => (
+        <div key={item.id} className="relative">
+          <div className={`absolute -left-9.25 top-1 w-2.75 h-2.75 rounded-full ring-4 ring-zinc-950 ${item.active ? 'bg-blue-500' : 'bg-zinc-700'}`}></div>
+          <h3 className="text-white font-bold text-[15px]">{item.role}</h3>
+          <p className={`${item.active ? 'text-blue-400' : 'text-zinc-500'} text-[12px] font-medium mb-3`}>
+            {item.company} • {item.period}
+          </p>
+          <p className="text-zinc-400 text-[14px] leading-relaxed">
+            {item.description}
+          </p>
+        </div>
+      ))}
     </div>
   );
 
   const renderFormacion = () => (
     <div className="space-y-6">
-      
-      <div className="flex gap-4 p-5 rounded-xl border border-zinc-800/60 bg-zinc-900/20 hover:bg-zinc-900/40 transition-colors">
-        <div className="hidden sm:flex mt-1 w-10 h-10 rounded-full bg-blue-500/10 border border-blue-500/20 items-center justify-center text-blue-400 shrink-0">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+      {formacionData.map((item) => (
+        <div key={item.id} className="flex gap-4 p-5 rounded-xl border border-zinc-800/60 bg-zinc-900/20 hover:bg-zinc-900/40 transition-colors">
+          <div className={`hidden sm:flex mt-1 w-10 h-10 rounded-full items-center justify-center shrink-0 ${
+            item.featured 
+              ? 'bg-blue-500/10 border border-blue-500/20 text-blue-400' 
+              : 'bg-zinc-800 border border-zinc-700 text-zinc-400'
+          }`}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 className="text-white font-bold text-[15px]">{item.title}</h3>
+            <p className="text-zinc-500 text-[12px] font-medium mb-2">
+              {item.institution} {item.date ? `• ${item.date}` : ''}
+            </p>
+            {item.description && <p className="text-zinc-400 text-[14px]">{item.description}</p>}
+            {item.items && (
+              <ul className="text-zinc-400 text-[13px] list-disc ml-4 space-y-1">
+                {item.items.map((subItem, sIdx) => (
+                  <li key={sIdx}>{subItem}</li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
-        <div>
-          <h3 className="text-white font-bold text-[15px]">Máster en Full Stack Development</h3>
-          <p className="text-zinc-500 text-[12px] font-medium mb-2">Universidad Central de Venezuela (UCV) • Oct 2025</p>
-          <p className="text-zinc-400 text-[14px]">Titulación académica oficial validando competencias en arquitecturas frontend y backend, bases de datos y despliegue de aplicaciones.</p>
-        </div>
-      </div>
-
-      <div className="flex gap-4 p-5 rounded-xl border border-zinc-800/60 bg-zinc-900/20 hover:bg-zinc-900/40 transition-colors">
-        <div className="hidden sm:flex mt-1 w-10 h-10 rounded-full bg-zinc-800 border border-zinc-700 items-center justify-center text-zinc-400 shrink-0">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-        </div>
-        <div>
-          <h3 className="text-white font-bold text-[15px]">Ingeniería de Sistemas</h3>
-          <p className="text-zinc-500 text-[12px] font-medium mb-2">Titulación Profesional</p>
-          <p className="text-zinc-400 text-[14px]">Formación base en lógica de programación, arquitectura de computadores, cálculo y resolución algorítmica de problemas.</p>
-        </div>
-      </div>
-
-      <div className="flex gap-4 p-5 rounded-xl border border-zinc-800/60 bg-zinc-900/20 hover:bg-zinc-900/40 transition-colors">
-        <div className="hidden sm:flex mt-1 w-10 h-10 rounded-full bg-zinc-800 border border-zinc-700 items-center justify-center text-zinc-400 shrink-0">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-        </div>
-        <div>
-          <h3 className="text-white font-bold text-[15px]">Especializaciones & Bootcamps</h3>
-          <p className="text-zinc-500 text-[12px] font-medium mb-2">Educación Continua • 2025 - 2026</p>
-          <ul className="text-zinc-400 text-[13px] list-disc ml-4 space-y-1">
-            <li>Workana The Accelerator (Escalabilidad de negocios freelance - Mar 2026).</li>
-            <li>Masterclass Udemy: JavaScript Moderno & Especificaciones Avanzadas.</li>
-            <li>Masterclass Udemy: Node.js, React & Arquitecturas Web.</li>
-          </ul>
-        </div>
-      </div>
-
+      ))}
     </div>
   );
 
