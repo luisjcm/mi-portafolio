@@ -70,7 +70,11 @@ export default function LegalPage() {
   }
 
   return (
-    <main className="w-full max-w-[800px] min-w-0 mx-auto px-5 md:px-6 py-6 md:py-8 pb-28 md:pb-16 min-h-screen animate-page-enter">
+    /* 💡 Agregamos key={pathname} para que React reinicie la animación al cambiar de página legal */
+    <main 
+      key={pathname} 
+      className="w-full max-w-[800px] min-w-0 mx-auto px-5 md:px-6 py-6 md:py-8 pb-28 md:pb-16 min-h-screen animate-page-enter"
+    >
       
       {/* BOTÓN VOLVER */}
       <div className="mb-6">
