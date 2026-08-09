@@ -19,7 +19,7 @@ export default function ProjectsIndex() {
   }, []);
 
   return (
-    <main className="w-full max-w-200 mx-auto p-6 mt-12 md:mt-20 min-h-screen animate-page-enter">
+    <main className="w-full max-w-[800px] mx-auto p-6 mt-20 md:mt-24 min-h-screen animate-page-enter">
       
       {/* Navegación de regreso */}
       <Link to="/" className="inline-flex items-center gap-2 text-[13px] text-zinc-500 hover:text-white transition-colors mb-10 group">

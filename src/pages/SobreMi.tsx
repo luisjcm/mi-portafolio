@@ -7,7 +7,7 @@ export default function SobreMi() {
   }, []);
 
   return (
-    <main className="w-full max-w-[800px] mx-auto p-6 mt-12 md:mt-20 min-h-screen animate-page-enter">
+    <main className="w-full max-w-[800px] mx-auto p-6 mt-20 md:mt-24 min-h-screen animate-page-enter">
       
       <header className="mb-12 relative">
         <div className="absolute -top-10 -left-10 w-32 h-32 bg-blue-500/10 blur-[60px] rounded-full pointer-events-none"></div>

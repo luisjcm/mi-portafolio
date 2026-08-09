@@ -27,11 +27,11 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-[100] backdrop-blur-md border-b border-white/5 bg-zinc-950/70 transition-all duration-300">
+    <header className="fixed top-0 left-0 w-full z-100 backdrop-blur-md border-b border-white/5 bg-zinc-950/70 transition-all duration-300">
       <div className="max-w-[800px] mx-auto px-6 h-16 flex items-center justify-between">
         
         {/* LOGO */}
-        <Link to="/" className="text-white font-bold text-lg tracking-tighter hover:opacity-80 transition-opacity no-underline relative z-[110]" onClick={closeMenu}>
+        <Link to="/" className="text-white font-bold text-lg tracking-tighter hover:opacity-80 transition-opacity no-underline relative z-100" onClick={closeMenu}>
           LUIS<span className="text-blue-500">JCM</span>
         </Link>
 
@@ -49,7 +49,7 @@ export default function Header() {
               >
                 {link.name}
                 {/* Indicador de activo / hover */}
-                <span className={`absolute -bottom-1.5 left-0 w-full h-[2px] rounded-full transition-all duration-300 ${isActive ? 'bg-blue-500 scale-x-100' : 'bg-zinc-600 scale-x-0 group-hover:scale-x-100 opacity-50'}`}></span>
+                <span className={`absolute -bottom-1.5 left-0 w-full h-0.5 rounded-full transition-all duration-300 ${isActive ? 'bg-blue-500 scale-x-100' : 'bg-zinc-600 scale-x-0 group-hover:scale-x-100 opacity-50'}`}></span>
               </Link>
             );
           })}
@@ -57,20 +57,20 @@ export default function Header() {
 
         {/* MOBILE HAMBURGER BUTTON */}
         <button 
-          className="md:hidden relative z-[110] p-2 -mr-2 text-zinc-400 hover:text-white transition-colors focus:outline-none"
+          className="md:hidden relative z-110 p-2 -mr-2 text-zinc-400 hover:text-white transition-colors focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
           <div className="w-5 h-3.5 flex flex-col justify-between overflow-hidden">
             <span className={`w-full h-[1.5px] bg-current rounded transform transition-all duration-300 origin-left ${isMenuOpen ? 'rotate-[42deg] translate-x-px' : ''}`}></span>
             <span className={`w-full h-[1.5px] bg-current rounded transform transition-all duration-300 ${isMenuOpen ? 'opacity-0 translate-x-4' : ''}`}></span>
-            <span className={`w-full h-[1.5px] bg-current rounded transform transition-all duration-300 origin-left ${isMenuOpen ? '-rotate-[42deg] translate-x-px' : ''}`}></span>
+            <span className={`w-full h-[1.5px] bg-current rounded transform transition-all duration-300 origin-left ${isMenuOpen ? 'rotate-[42deg] translate-x-px' : ''}`}></span>
           </div>
         </button>
       </div>
 
       {/* MOBILE MENU OVERLAY */}
-      <div className={`md:hidden fixed inset-0 w-full h-[100dvh] bg-zinc-950/95 backdrop-blur-2xl transition-all duration-500 ease-in-out z-[105] flex flex-col items-center justify-center ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+      <div className={`md:hidden fixed inset-0 w-full h-dvh bg-zinc-950/95 backdrop-blur-2xl transition-all duration-500 ease-in-out z-105 flex flex-col items-center justify-center ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
         <nav className="flex flex-col items-center gap-8">
           {navLinks.map((link, index) => {
             const isActive = location.pathname === link.path || (link.path !== '/' && location.pathname.startsWith(link.path));

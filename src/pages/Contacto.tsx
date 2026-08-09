@@ -67,7 +67,7 @@ export default function Contacto() {
   };
 
   return (
-    <main className="w-full max-w-[800px] mx-auto p-6 mt-12 md:mt-20 min-h-screen animate-page-enter">
+    <main className="w-full max-w-[800px] mx-auto p-6 mt-20 md:mt-24 min-h-screen animate-page-enter">
       
       <header className="mb-12">
         <h1 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">

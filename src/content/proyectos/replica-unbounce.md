@@ -4,7 +4,7 @@ description: "Ejercicio de maquetación avanzada replicando la landing page de U
 techStack: ["HTML5", "CSS3", "JavaScript", "Responsive Design"]
 imageUrl: "/projects/workana-unbounce.png"
 wireframeType: "browser"
-projectUrl: "https://tu-enlace-de-ejemplo.com" 
+projectUrl: "https://dev-theacceleratorwp-ljcm.pantheonsite.io/" 
 ---
 
 ## Resumen del Proyecto
