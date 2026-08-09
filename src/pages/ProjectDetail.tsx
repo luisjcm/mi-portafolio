@@ -123,11 +123,11 @@ export default function ProjectDetail() {
 
       {/* CABECERA DEL PROYECTO */}
       <header className="mb-10">
-        <h1 className="text-2xl md:text-4xl font-bold text-white tracking-tight mb-4">
+        <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight mb-4">
           {project.title}
         </h1>
 
-        <p className="text-[15px] md:text-lg text-zinc-400 leading-relaxed max-w-2xl mb-6">
+        <p className="text-[13px] md:text-sm text-zinc-400 leading-relaxed max-w-2xl mb-6">
           {project.description}
         </p>
 
@@ -235,7 +235,7 @@ export default function ProjectDetail() {
 
       {/* CONTENIDO TEXTUAL MARKDOWN */}
       <div 
-        className="prose prose-invert max-w-none text-zinc-300 text-[14px] md:text-[15px] leading-relaxed space-y-6
+        className="prose prose-invert max-w-none text-zinc-300 text-[11px] md:text-[15px] leading-relaxed space-y-6
           [&>h2]:text-white [&>h2]:text-xl [&>h2]:font-bold [&>h2]:mt-8 [&>h2]:mb-3
           [&>h3]:text-zinc-100 [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:mt-6 [&>h3]:mb-2
           [&>p]:text-zinc-300 [&>p]:leading-relaxed
