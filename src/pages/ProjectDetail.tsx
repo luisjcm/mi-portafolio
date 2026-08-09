@@ -19,6 +19,9 @@ export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
   const [activeSubId, setActiveSubId] = useState<string | null>(null);
 
+  // Lógica para manejar el carrusel de imágenes
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
@@ -49,7 +52,19 @@ export default function ProjectDetail() {
     subProjects?: SubProject[];
     projectUrl?: string; 
     imageUrl?: string;
+    images?: string[]
   };
+
+  // Función helper para cambiar imagen
+  const changeImage = (direction: 'next' | 'prev', total: number) => {
+    setCurrentImageIndex((prev) => 
+      direction === 'next' ? (prev + 1) % total : (prev - 1 + total) % total
+    );
+  };
+
+  // Definimos la galería principal (si es un proyecto simple)
+  // Usamos un array de imágenes si existe, o el imageUrl original
+  const mainGallery = project.images || [project.imageUrl].filter(Boolean);
 
   const subProjects = project.subProjects || [];
   const currentActiveId = activeSubId || (subProjects.length > 0 ? subProjects[0].id : null);
@@ -104,128 +119,72 @@ export default function ProjectDetail() {
         </div>
       </header>
 
-      {/* AQUÍ ESTÁ EL BLOQUE RECUPERADO PARA PROYECTOS INDIVIDUALES COMO UNBOUNCE */}
-      {subProjects.length === 0 && project.imageUrl && (
-        <div className="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl mb-12 relative animate-page-enter">
-          <div className="h-9 bg-zinc-950/90 border-b border-zinc-800/80 px-4 flex items-center justify-between relative z-10">
+     {subProjects.length === 0 && (project.imageUrl || (project.images && project.images.length > 0)) && (
+        <div className="w-full bg-zinc-950 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl mb-12 relative animate-page-enter">
+          
+          {/* Barra superior de la ventana (Estilo PC con URL simulada) */}
+          <div className="h-9 bg-zinc-900 border-b border-zinc-800 px-4 flex items-center justify-between relative z-10">
             <div className="flex items-center gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
               <div className="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
               <div className="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
             </div>
+            
             {project.projectUrl && (
-              <div className="bg-zinc-900 border border-zinc-800/60 rounded-md px-6 py-1 text-[11px] text-zinc-500 font-mono tracking-tight truncate max-w-[200px] md:max-w-md">
+              <div className="bg-zinc-950/80 border border-zinc-800/60 rounded-md px-6 py-1 text-[11px] text-zinc-400 font-mono tracking-tight truncate max-w-[200px] md:max-w-md">
                 {project.projectUrl.replace(/^https?:\/\//, '')}
               </div>
             )}
-            <div className="w-10"></div>
+            
+            <div className="text-[11px] text-zinc-500 font-mono">
+              {mainGallery.length > 1 ? `${currentImageIndex + 1} / ${mainGallery.length}` : ''}
+            </div>
           </div>
           
-          <div className="relative w-full h-[250px] md:h-[400px] bg-zinc-950 border-b border-zinc-800/50">
+          {/* Contenedor de la Imagen con Flechas de Navegación */}
+          <div className="relative w-full aspect-video md:aspect-[16/10] bg-zinc-950 overflow-hidden flex items-center justify-center group">
             <img 
-              src={project.imageUrl} 
-              alt={project.title} 
-              className="absolute inset-0 w-full h-full object-cover object-top"
+              src={mainGallery[currentImageIndex]} 
+              alt={`${project.title} - Captura ${currentImageIndex + 1}`} 
+              className="w-full h-full object-cover object-top transition-all duration-300"
               onError={(e) => { e.currentTarget.style.display = 'none'; }}
             />
-          </div>
-        </div>
-      )}
 
-      {/* BLOQUE DE GALERÍA PARA PROYECTOS CON SUB-PROYECTOS (Ej. Agencias) */}
-      {subProjects.length > 0 && (
-        <div className="mb-12">
-          <div className="flex items-center justify-between mb-4 border-b border-zinc-800/80 pb-3">
-            <h3 className="text-white font-bold text-sm tracking-wide uppercase text-zinc-300">Galería de Desarrollos</h3>
-            <span className="text-xs text-zinc-500 font-mono">Ver Proyectos</span>
-          </div>
+            {/* Flechas del Carrusel (Solo aparecen si hay más de 1 imagen) */}
+            {mainGallery.length > 1 && (
+              <>
+                <button 
+                  onClick={(e) => { e.stopPropagation(); changeImage('prev', mainGallery.length); }}
+                  aria-label="Imagen anterior"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-zinc-950/80 border border-white/10 text-white flex items-center justify-center backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer hover:bg-zinc-900"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
 
-          <div className="flex gap-2 overflow-x-auto pb-3 mb-4 scrollbar-hide">
-            {subProjects.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setActiveSubId(item.id)}
-                className={`px-4 py-2 rounded-lg text-xs font-medium transition-all whitespace-nowrap border ${
-                  currentActiveId === item.id 
-                    ? 'bg-zinc-800 text-white border-zinc-700 shadow-lg' 
-                    : 'bg-zinc-900/40 text-zinc-400 border-zinc-800/60 hover:border-zinc-700 hover:text-zinc-200'
-                }`}
-              >
-                {item.title}
-              </button>
-            ))}
-          </div>
+                <button 
+                  onClick={(e) => { e.stopPropagation(); changeImage('next', mainGallery.length); }}
+                  aria-label="Imagen siguiente"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-zinc-950/80 border border-white/10 text-white flex items-center justify-center backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer hover:bg-zinc-900"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
 
-          {currentSub && (
-            <div className="space-y-4">
-              <div className="w-full bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl relative">
-                <div className="h-9 bg-zinc-950/90 border-b border-zinc-800/80 px-4 flex items-center justify-between relative z-10">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
-                  </div>
-                  <div className="bg-zinc-900 border border-zinc-800/60 rounded-md px-8 py-1 text-[11px] text-zinc-400 font-mono tracking-tight">
-                    https://{currentSub.id}.client-preview.dev
-                  </div>
-                  <div className="w-10"></div>
+                {/* Indicadores de puntos (Dots) */}
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-zinc-950/80 backdrop-blur-md border border-white/10">
+                  {mainGallery.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentImageIndex(idx)}
+                      className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                        idx === currentImageIndex ? 'w-5 bg-blue-500' : 'w-1.5 bg-zinc-600 hover:bg-zinc-400'
+                      }`}
+                      aria-label={`Ir a imagen ${idx + 1}`}
+                    />
+                  ))}
                 </div>
-
-                <div className="relative w-full h-[320px] md:h-[380px] bg-zinc-950 flex flex-col justify-end p-6 md:p-8 overflow-hidden group">
-                  {currentSub.image && currentSub.image.trim() !== "" ? (
-                    <>
-                      <img 
-                        src={currentSub.image} 
-                        alt={currentSub.title} 
-                        className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent"></div>
-                    </>
-                  ) : (
-                    <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/40 to-zinc-950"></div>
-                  )}
-
-                  <div className="relative z-10">
-                    <span className="inline-block px-2.5 py-1 bg-blue-500/20 border border-blue-500/30 text-blue-400 text-[11px] font-semibold rounded-md mb-2 backdrop-blur-md">
-                      {currentSub.client}
-                    </span>
-                    <h4 className="text-white font-bold text-xl md:text-2xl mb-1 drop-shadow-md">{currentSub.title}</h4>
-                    <p className="text-zinc-300 text-xs md:text-sm max-w-xl mb-4 drop-shadow">{currentSub.description}</p>
-                    
-                    <div className="flex flex-wrap gap-1.5">
-                      {currentSub.tech.map(t => (
-                        <span key={t} className="px-2.5 py-1 bg-zinc-900/80 backdrop-blur-md border border-zinc-700/50 rounded text-[11px] text-zinc-200 font-medium">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {currentSub.gallery && currentSub.gallery.length > 0 && (
-                <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3">Capturas Adicionales de la Plataforma</h4>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                    {currentSub.gallery.map((imgUrl, index) => (
-                      <div key={index} className="h-28 bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden relative group/thumb">
-                        <img 
-                          src={imgUrl} 
-                          alt={`Captura ${index + 1}`} 
-                          className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300"
-                          onError={(e) => {
-                            e.currentTarget.style.display = 'none';
-                          }}
-                        />
-                        <div className="absolute inset-0 bg-black/20 group-hover/thumb:bg-transparent transition-colors"></div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
+              </>
+            )}
+          </div>
         </div>
       )}
 
