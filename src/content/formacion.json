@@ -2,29 +2,29 @@
   {
     "id": 1,
     "title": "Máster en Full Stack Development",
-    "institution": "Universidad Central de Venezuela (UCV)",
-    "date": "Oct 2025",
+    "institution": "Universidad Central de Venezuela (UCV - Diplomadosonline.com)",
+    "date": "Ene 2024 - Oct 2025",
     "featured": true,
-    "description": "Titulación académica oficial validando competencias en arquitecturas frontend y backend, bases de datos y despliegue de aplicaciones."
+    "description": ""
   },
   {
     "id": 2,
     "title": "Ingeniería de Sistemas",
-    "institution": "Titulación Profesional",
-    "date": "",
-    "featured": false,
-    "description": "Formación base en lógica de programación, arquitectura de computadores, cálculo y resolución algorítmica de problemas."
+    "institution": "I.U.P 'Santiago Mariño' Sede Barcelona",
+    "date": "Sep 2014 - Sep 2020",
+    "featured": true,
+    "description": ""
   },
   {
     "id": 3,
     "title": "Especializaciones & Bootcamps",
     "institution": "Educación Continua",
     "date": "2025 - 2026",
-    "featured": false,
+    "featured": true,
     "items": [
       "Workana The Accelerator (Escalabilidad de negocios freelance - Mar 2026).",
-      "Masterclass Udemy: JavaScript Moderno & Especificaciones Avanzadas.",
-      "Masterclass Udemy: Node.js, React & Arquitecturas Web."
+      "Udemy: JavaScript Moderno & Especificaciones Avanzadas."
+      
     ]
   }
 ]
