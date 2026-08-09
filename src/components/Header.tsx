@@ -5,10 +5,8 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Función para cerrar el menú móvil al hacer clic
   const closeMenu = () => setIsMenuOpen(false);
 
-  // Bloquear el scroll del body cuando el menú móvil está abierto
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -18,7 +16,6 @@ export default function Header() {
     return () => { document.body.style.overflow = 'unset'; };
   }, [isMenuOpen]);
 
-  // Arreglo de rutas para iterar fácilmente
   const navLinks = [
     { name: 'Inicio', path: '/' },
     { name: 'Proyectos', path: '/proyectos' },
@@ -38,9 +35,7 @@ export default function Header() {
         {/* DESKTOP NAVIGATION */}
         <nav className="hidden md:flex items-center gap-7">
           {navLinks.map((link) => {
-            // Verificamos si la URL actual coincide con la ruta del enlace
             const isActive = location.pathname === link.path || (link.path !== '/' && location.pathname.startsWith(link.path));
-            
             return (
               <Link 
                 key={link.name} 
@@ -48,23 +43,22 @@ export default function Header() {
                 className={`text-[13px] font-medium transition-colors duration-300 relative group ${isActive ? 'text-white' : 'text-zinc-400 hover:text-white'}`}
               >
                 {link.name}
-                {/* Indicador de activo / hover */}
                 <span className={`absolute -bottom-1.5 left-0 w-full h-0.5 rounded-full transition-all duration-300 ${isActive ? 'bg-blue-500 scale-x-100' : 'bg-zinc-600 scale-x-0 group-hover:scale-x-100 opacity-50'}`}></span>
               </Link>
             );
           })}
         </nav>
 
-        {/* MOBILE HAMBURGER BUTTON */}
+        {/* MOBILE HAMBURGER BUTTON (Corregido a X perfecta) */}
         <button 
-          className="md:hidden relative z-110 p-2 -mr-2 text-zinc-400 hover:text-white transition-colors focus:outline-none"
+          className="md:hidden relative z-110 p-2 -mr-2 text-zinc-400 hover:text-white transition-colors focus:outline-none flex items-center justify-center cursor-pointer"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
-          <div className="w-5 h-3.5 flex flex-col justify-between overflow-hidden">
-            <span className={`w-full h-[1.5px] bg-current rounded transform transition-all duration-300 origin-left ${isMenuOpen ? 'rotate-[42deg] translate-x-px' : ''}`}></span>
-            <span className={`w-full h-[1.5px] bg-current rounded transform transition-all duration-300 ${isMenuOpen ? 'opacity-0 translate-x-4' : ''}`}></span>
-            <span className={`w-full h-[1.5px] bg-current rounded transform transition-all duration-300 origin-left ${isMenuOpen ? 'rotate-[42deg] translate-x-px' : ''}`}></span>
+          <div className="w-5 h-4 relative flex flex-col justify-between">
+            <span className={`w-full h-0.5 bg-white rounded-full transition-all duration-300 ease-in-out ${isMenuOpen ? 'rotate-45 translate-y-[7px]' : ''}`}></span>
+            <span className={`w-full h-0.5 bg-white rounded-full transition-all duration-200 ease-in-out ${isMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'}`}></span>
+            <span className={`w-full h-0.5 bg-white rounded-full transition-all duration-300 ease-in-out ${isMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`}></span>
           </div>
         </button>
       </div>
