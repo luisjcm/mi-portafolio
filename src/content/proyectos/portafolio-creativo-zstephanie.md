@@ -12,12 +12,14 @@ tags:
   - "Headless"
   - "Web Design"
   - "UI/UX"
-imageUrl: "/projects/zstephanie-1.png"
+imageUrl: "/projects/zstephanie/zstephanie1.png"
 images:
-  - "/projects/zstephanie-1.png"
-  - "/projects/zstephanie-2.png"
-  - "/projects/zstephanie-3.png"
-  - "/projects/zstephanie-4.png"
+  - "/projects/zstephanie/zstephanie1.png"
+  - "/projects/zstephanie/zstephanie2.png"
+  - "/projects/zstephanie/zstephanie3.png"
+  - "/projects/zstephanie/zstephanie4.png"
+  - "/projects/zstephanie/zstephanie5.png"
+  - "/projects/zstephanie/zstephanie6.png"
 wireframeType: "web"
 projectUrl: "https://zstephanie.luisjcm.com/" # O la URL de producción/demo
 order: 2
