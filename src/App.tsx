@@ -7,6 +7,7 @@ import ProjectDetail from './pages/ProjectDetail';
 import ProjectsIndex from './pages/ProjectsIndex';
 import SobreMi from './pages/SobreMi';
 import Contacto from './pages/Contacto';
+import LegalPage from './pages/LegalPage';
 
 function App() {
   return (
@@ -22,6 +23,11 @@ function App() {
             <Route path="/proyectos/:slug" element={<ProjectDetail />} />
             <Route path="/sobre-mi" element={<SobreMi />} />
             <Route path="/contacto" element={<Contacto />} />
+
+            <Route path="/privacidad" element={<LegalPage />} />
+            <Route path="/terminos" element={<LegalPage />} />
+            <Route path="/accesibilidad" element={<LegalPage />} />
+            <Route path="/cookies" element={<LegalPage />} />
           </Routes>
         </div>
         <Footer />

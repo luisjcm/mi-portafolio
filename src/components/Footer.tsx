@@ -20,10 +20,10 @@ export default function Footer() {
               Ingeniero de Sistemas y Desarrollador Web. Transformando ideas complejas en experiencias digitales limpias, optimizadas y escalables para el navegador.
             </p>
             <a
-              href="mailto:hola@luisjcm.com"
+              href="mailto:contacto@luisjcm.com"
               className="inline-flex items-center justify-center px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-[12px] font-medium text-zinc-300 hover:text-white hover:border-zinc-700 hover:bg-zinc-850 transition-all shadow-sm active:scale-95"
             >
-              hola@luisjcm.com
+              contacto@luisjcm.com
             </a>
           </div>
 
@@ -43,13 +43,13 @@ export default function Footer() {
 
             <div className="text-left">
               <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-3">
-                Áreas Tech
+                Legal
               </h4>
               <ul className="space-y-2 text-[13px] text-zinc-400">
-                <li>Desarrollo Frontend</li>
-                <li>Arquitectura Backend</li>
-                <li>Diseño de Bases de Datos</li>
-                <li>Soporte IT & Servidores</li>
+                <li><Link to="/privacidad" className="hover:text-white transition-colors">Privacidad</Link></li>
+                <li><Link to="/terminos" className="hover:text-white transition-colors">Términos de Uso</Link></li>
+                <li><Link to="/accesibilidad" className="hover:text-white transition-colors">Accesibilidad</Link></li>
+                <li><Link to="/cookies" className="hover:text-white transition-colors">Cookies</Link></li>
               </ul>
             </div>
           </div>
@@ -71,7 +71,7 @@ export default function Footer() {
               BUILD v.4.0.0
             </span>
             <span className="text-zinc-700 hidden sm:inline">•</span>
-            <span>Diseñado y desarrollado en Venezuela</span>
+            <span>Desarrollado por luisjcm</span>
           </div>
         </div>
 
