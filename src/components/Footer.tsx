@@ -8,10 +8,10 @@ export default function Footer() {
     <footer className="w-full border-t border-zinc-800/80 bg-zinc-950 text-zinc-400">
       <div className="max-w-[800px] mx-auto px-6 pt-12 pb-28 md:pb-12 space-y-10">
         
-        {/* BLOQUE SUPERIOR: Responsive Grid (Centrado en Móvil / Horizontal en Desktop) */}
+        {/* BLOQUE SUPERIOR */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-zinc-800/60 items-start">
           
-          {/* Marca + Bio + Email */}
+          {/* Marca + Bio + Email (Centrado en Móvil / A la izquierda en Desktop) */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left md:col-span-6">
             <Link to="/" className="text-white font-bold text-xl tracking-tighter inline-block mb-3">
               LUIS<span className="text-blue-500">JCM</span>
@@ -27,30 +27,31 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Enlaces: Explorar */}
-          <div className="text-left col-span-1 md:col-span-3">
-            <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-3">
-              Explorar
-            </h4>
-            <ul className="space-y-2 text-[13px]">
-              <li><Link to="/" className="hover:text-white transition-colors">Inicio</Link></li>
-              <li><Link to="/proyectos" className="hover:text-white transition-colors">Proyectos</Link></li>
-              <li><Link to="/sobre-mi" className="hover:text-white transition-colors">Sobre Mí</Link></li>
-              <li><Link to="/contacto" className="hover:text-white transition-colors">Contacto</Link></li>
-            </ul>
-          </div>
+          {/* Enlaces: Explorar y Áreas Tech juntos en la misma fila horizontal en móvil (grid-cols-2) */}
+          <div className="grid grid-cols-2 gap-6 w-full md:col-span-6">
+            <div className="text-left">
+              <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-3">
+                Explorar
+              </h4>
+              <ul className="space-y-2 text-[13px]">
+                <li><Link to="/" className="hover:text-white transition-colors">Inicio</Link></li>
+                <li><Link to="/proyectos" className="hover:text-white transition-colors">Proyectos</Link></li>
+                <li><Link to="/sobre-mi" className="hover:text-white transition-colors">Sobre Mí</Link></li>
+                <li><Link to="/contacto" className="hover:text-white transition-colors">Contacto</Link></li>
+              </ul>
+            </div>
 
-          {/* Enlaces: Áreas Tech */}
-          <div className="text-left col-span-1 md:col-span-3">
-            <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-3">
-              Áreas Tech
-            </h4>
-            <ul className="space-y-2 text-[13px] text-zinc-400">
-              <li>Desarrollo Frontend</li>
-              <li>Arquitectura Backend</li>
-              <li>Diseño de Bases de Datos</li>
-              <li>Soporte IT & Servidores</li>
-            </ul>
+            <div className="text-left">
+              <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-3">
+                Áreas Tech
+              </h4>
+              <ul className="space-y-2 text-[13px] text-zinc-400">
+                <li>Desarrollo Frontend</li>
+                <li>Arquitectura Backend</li>
+                <li>Diseño de Bases de Datos</li>
+                <li>Soporte IT & Servidores</li>
+              </ul>
+            </div>
           </div>
 
         </div>
@@ -62,7 +63,6 @@ export default function Footer() {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-2.5 text-[11px] text-zinc-500">
-            {/* Badge BUILD con animación ping/pulse */}
             <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-zinc-900 border border-zinc-800/90 text-[10px] font-mono text-zinc-400">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
