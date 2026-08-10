@@ -50,15 +50,15 @@ export default function Header() {
         </nav>
 
         {/* MOBILE HAMBURGER BUTTON (Corregido a X perfecta) */}
-        <button 
-          className="md:hidden relative z-110 p-2 -mr-2 text-brand-muted hover:text-brand-text transition-colors focus:outline-none flex items-center justify-center cursor-pointer"
+       <button 
+          className="md:hidden relative z-110 p-2 -mr-2 text-brand-text hover:text-brand-accent transition-colors focus:outline-none flex items-center justify-center cursor-pointer"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
           <div className="w-5 h-4 relative flex flex-col justify-between">
-            <span className={`w-full h-0.5 bg-brand-surface rounded-full transition-all duration-300 ease-in-out ${isMenuOpen ? 'rotate-45 translate-y-[7px]' : ''}`}></span>
-            <span className={`w-full h-0.5 bg-brand-surface rounded-full transition-all duration-200 ease-in-out ${isMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'}`}></span>
-            <span className={`w-full h-0.5 bg-brand-surface rounded-full transition-all duration-300 ease-in-out ${isMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`}></span>
+            <span className={`w-full h-0.5 bg-brand-text rounded-full transition-all duration-300 ease-in-out ${isMenuOpen ? 'rotate-45 translate-y-[7px]' : ''}`}></span>
+            <span className={`w-full h-0.5 bg-brand-text rounded-full transition-all duration-200 ease-in-out ${isMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'}`}></span>
+            <span className={`w-full h-0.5 bg-brand-text rounded-full transition-all duration-300 ease-in-out ${isMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`}></span>
           </div>
         </button>
       </div>
