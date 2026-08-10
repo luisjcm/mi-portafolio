@@ -33,7 +33,7 @@ export default function ProjectsIndex() {
       {/* Cabecera distintiva de la sección */}
       <header className="mb-10 relative">
         {/* Efecto de brillo sutil de fondo */}
-        <div className="absolute -top-10 left-0 w-32 h-32 bg-blue-500/10 blur-[50px] rounded-full pointer-events-none"></div>
+        <div className="absolute -top-10 left-0 w-32 h-32 bg-brand-accent/10 blur-[50px] rounded-full pointer-events-none"></div>
         
         <h1 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-3 relative z-10">
           Casos de Estudio

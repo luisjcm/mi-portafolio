@@ -29,8 +29,8 @@ export default function Header() {
         
         {/* LOGO */}
         <Link to="/" className="text-white font-bold text-lg tracking-tighter hover:opacity-80 transition-opacity no-underline relative z-100" onClick={closeMenu}>
-          LUIS<span className="text-blue-500">JCM</span>
-        </Link>
+          LUIS<span className="text-brand-accent">JCM</span>
+          </Link>
 
         {/* DESKTOP NAVIGATION */}
         <nav className="hidden md:flex items-center gap-7">
@@ -43,7 +43,7 @@ export default function Header() {
                 className={`text-[13px] font-medium transition-colors duration-300 relative group ${isActive ? 'text-white' : 'text-zinc-400 hover:text-white'}`}
               >
                 {link.name}
-                <span className={`absolute -bottom-1.5 left-0 w-full h-0.5 rounded-full transition-all duration-300 ${isActive ? 'bg-blue-500 scale-x-100' : 'bg-zinc-600 scale-x-0 group-hover:scale-x-100 opacity-50'}`}></span>
+                <span className={`absolute -bottom-1.5 left-0 w-full h-0.5 rounded-full transition-all duration-300 ${isActive ? 'bg-brand-accent scale-x-100' : 'bg-zinc-600 scale-x-0 group-hover:scale-x-100 opacity-50'}`}></span>
               </Link>
             );
           })}
@@ -73,7 +73,7 @@ export default function Header() {
                 key={link.name}
                 to={link.path}
                 onClick={closeMenu}
-                className={`text-2xl font-bold tracking-tight transition-all duration-500 transform ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} ${isActive ? 'text-blue-400' : 'text-zinc-400 hover:text-white'}`}
+                className={`text-2xl font-bold tracking-tight transition-all duration-500 transform ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} ${isActive ? 'text-brand-accent' : 'text-zinc-400 hover:text-white'}`}
                 style={{ transitionDelay: `${index * 75}ms` }}
               >
                 {link.name}

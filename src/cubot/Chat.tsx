@@ -105,16 +105,16 @@ export const Chat = () => {
       {!isOpen && (
         <button 
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 w-14 h-14 md:w-16 md:h-16 bg-zinc-900 border-2 border-blue-500 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)] flex items-center justify-center hover:scale-110 transition-transform duration-300 z-50 group cursor-pointer"
+          className="fixed bottom-6 right-6 w-14 h-14 md:w-16 md:h-16 bg-zinc-900 border-2 border-brand-accent rounded-full shadow-[0_0_15px_rgba(56,189,248,0.5)] flex items-center justify-center hover:scale-110 transition-transform duration-300 z-50 group cursor-pointer"
           aria-label="Abrir asistente virtual"
         >
           <span className="transform group-hover:rotate-12 transition-transform duration-300">
-            <Bot className="w-7 h-7 md:w-8 md:h-8 text-blue-500" strokeWidth={1.5} />
+            <Bot className="w-7 h-7 md:w-8 md:h-8 text-brand-accent" strokeWidth={1.5} />
           </span>
           
           <span className="absolute -top-1 -right-1 flex h-4 w-4">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-4 w-4 bg-blue-500 border-2 border-zinc-900"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-4 w-4 bg-brand-accent border-2 border-zinc-900"></span>
           </span>
         </button>
       )}
@@ -134,13 +134,13 @@ export const Chat = () => {
           {/* Cabecera */}
           <div className="bg-zinc-900/80 backdrop-blur-md p-4 border-b border-zinc-800 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.4)]">
+              <div className="w-9 h-9 bg-brand-primary rounded-xl flex items-center justify-center shadow-[0_0_10px_rgba(56,189,248,0.4)]">
                 <Bot className="w-5 h-5 text-white" strokeWidth={2} />
               </div>
               <div>
                 <h3 className="text-zinc-100 font-bold text-sm leading-tight">Cubot</h3>
-                <p className="text-blue-400 text-[11px] font-medium flex items-center gap-1.5 mt-0.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span> En línea
+                <p className="text-brand-accent text-[11px] font-medium flex items-center gap-1.5 mt-0.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"></span> En línea
                 </p>
               </div>
             </div>
@@ -168,7 +168,7 @@ export const Chat = () => {
                   <input 
                     type="text" 
                     placeholder="Tu Nombre o Empresa" 
-                    className="w-full bg-zinc-900/90 border border-zinc-800 text-zinc-100 px-3.5 py-2.5 rounded-xl focus:outline-none focus:border-blue-500 text-[13px]" 
+                    className="w-full bg-zinc-900/90 border border-zinc-800 text-zinc-100 px-3.5 py-2.5 rounded-xl focus:outline-none focus:border-brand-accent text-[13px]" 
                     value={userData.nombre} 
                     onChange={(e) => setUserData({ ...userData, nombre: e.target.value })} 
                     required 
@@ -176,14 +176,14 @@ export const Chat = () => {
                   <input 
                     type="email" 
                     placeholder="correo@ejemplo.com" 
-                    className="w-full bg-zinc-900/90 border border-zinc-800 text-zinc-100 px-3.5 py-2.5 rounded-xl focus:outline-none focus:border-blue-500 text-[13px]" 
+                    className="w-full bg-zinc-900/90 border border-zinc-800 text-zinc-100 px-3.5 py-2.5 rounded-xl focus:outline-none focus:border-brand-accent text-[13px]" 
                     value={userData.correo} 
                     onChange={(e) => setUserData({ ...userData, correo: e.target.value })} 
                     required 
                   />
                   <button 
                     type="submit" 
-                    className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2.5 rounded-xl text-[13px] mt-1 shadow-md cursor-pointer transition-colors active:scale-98"
+                    className="w-full bg-brand-primary hover:bg-brand-accent text-white font-semibold py-2.5 rounded-xl text-[13px] mt-1 shadow-md cursor-pointer transition-colors active:scale-98"
                   >
                     Comenzar Chat
                   </button>
@@ -195,7 +195,7 @@ export const Chat = () => {
                   <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                     <div className={`max-w-[85%] p-3 text-[13px] leading-relaxed shadow-sm ${
                       msg.sender === 'user' 
-                        ? 'bg-blue-600 text-white rounded-2xl rounded-tr-sm' 
+                        ? 'bg-brand-primary text-white rounded-2xl rounded-tr-sm'
                         : 'bg-zinc-900 border border-zinc-800 text-zinc-200 rounded-2xl rounded-tl-sm'
                     }`}>
                       {msg.text}
@@ -223,7 +223,7 @@ export const Chat = () => {
                 <input 
                   type="text" 
                   placeholder="Escribe tu pregunta..." 
-                  className="flex-1 bg-zinc-900 border border-zinc-800 text-zinc-100 px-3.5 py-2 rounded-xl focus:outline-none focus:border-blue-500 text-[13px]" 
+                    className="flex-1 bg-zinc-900 border border-zinc-800 text-zinc-100 px-3.5 py-2 rounded-xl focus:outline-none focus:border-brand-accent text-[13px]"
                   value={inputText} 
                   onChange={(e) => setInputText(e.target.value)} 
                   disabled={isTyping} 
@@ -232,7 +232,7 @@ export const Chat = () => {
                 <button 
                   type="submit" 
                   disabled={isTyping || !inputText.trim()} 
-                  className="bg-blue-600 hover:bg-blue-500 disabled:bg-zinc-800 disabled:text-zinc-500 text-white px-4 py-2 rounded-xl font-semibold text-[13px] transition-colors cursor-pointer shrink-0"
+                  className="bg-brand-primary hover:bg-brand-accent disabled:bg-zinc-800 disabled:text-zinc-500 text-white px-4 py-2 rounded-xl font-semibold text-[13px] transition-colors cursor-pointer shrink-0"
                 >
                   Enviar
                 </button>

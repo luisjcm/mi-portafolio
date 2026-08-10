@@ -4,8 +4,8 @@
   /* Tu paleta de colores semántica */
   --color-brand-dark: #121212;
   --color-brand-surface: #1E1E1E;
-  --color-brand-primary: #2563EB;
-  --color-brand-accent: #38BDF8;
+  --color-brand-primary: #1D4ED8; /* Azul equilibrado y profesional */
+  --color-brand-accent: #3B82F6;
   --color-brand-muted: #94A3B8;
 
   /* Tu tipografía base (asegúrate de tenerla importada en tu index.html o acá arriba) */

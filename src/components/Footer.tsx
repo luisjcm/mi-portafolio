@@ -14,7 +14,7 @@ export default function Footer() {
           {/* Marca + Bio + Email (Centrado en Móvil / A la izquierda en Desktop) */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left md:col-span-6">
             <Link to="/" className="text-white font-bold text-xl tracking-tighter inline-block mb-3">
-              LUIS<span className="text-blue-500">JCM</span>
+              LUIS<span className="text-brand-accent">JCM</span>
             </Link>
             <p className="text-[13px] text-zinc-400 leading-relaxed mb-4 max-w-sm">
               Ingeniero de Sistemas y Desarrollador Web. Transformando ideas complejas en experiencias digitales limpias, optimizadas y escalables para el navegador.
@@ -65,8 +65,8 @@ export default function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-2.5 text-[11px] text-zinc-500">
             <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-zinc-900 border border-zinc-800/90 text-[10px] font-mono text-zinc-400">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-accent"></span>
               </span>
               BUILD v.4.0.0
             </span>

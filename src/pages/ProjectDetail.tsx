@@ -139,7 +139,7 @@ export default function ProjectDetail() {
               href={project.projectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs rounded-xl transition-all shadow-md shadow-blue-600/20 active:scale-95 shrink-0 w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-brand-primary hover:bg-brand-accent text-white font-semibold text-xs rounded-xl transition-all shadow-md shadow-brand-primary/20 active:scale-95 shrink-0 w-full sm:w-auto"
             >
               <span>Visitar Sitio en Vivo</span>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
@@ -201,7 +201,7 @@ export default function ProjectDetail() {
                 <button 
                   onClick={(e) => { e.stopPropagation(); changeImage('prev', mainGallery.length); }}
                   aria-label="Imagen anterior"
-                  className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-zinc-950/85 border border-white/10 text-white flex items-center justify-center backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all cursor-pointer hover:bg-blue-600 active:scale-95 z-10 shadow-lg"
+                  className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-zinc-950/85 border border-white/10 text-white flex items-center justify-center backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all cursor-pointer hover:bg-brand-primary active:scale-95 z-10 shadow-lg"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
                 </button>
@@ -209,7 +209,7 @@ export default function ProjectDetail() {
                 <button 
                   onClick={(e) => { e.stopPropagation(); changeImage('next', mainGallery.length); }}
                   aria-label="Imagen siguiente"
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-zinc-950/85 border border-white/10 text-white flex items-center justify-center backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all cursor-pointer hover:bg-blue-600 active:scale-95 z-10 shadow-lg"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-zinc-950/85 border border-white/10 text-white flex items-center justify-center backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all cursor-pointer hover:bg-brand-primary active:scale-95 z-10 shadow-lg"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
@@ -221,7 +221,7 @@ export default function ProjectDetail() {
                       key={idx}
                       onClick={() => setCurrentImageIndex(idx)}
                       className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                        idx === currentImageIndex ? 'w-4 bg-blue-500' : 'w-1.5 bg-zinc-600 hover:bg-zinc-400'
+                        idx === currentImageIndex ? 'w-4 bg-brand-accent' : 'w-1.5 bg-zinc-600 hover:bg-zinc-400'
                       }`}
                       aria-label={`Ir a imagen ${idx + 1}`}
                     />

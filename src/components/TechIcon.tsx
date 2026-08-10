@@ -6,7 +6,7 @@ interface TechIconProps {
   size?: number;
 }
 
-export default function TechIcon({ name, className = "text-blue-500", size = 18 }: TechIconProps) {
+export default function TechIcon({ name, className = "text-brand-accent", size = 18 }: TechIconProps) {
   const iconProps = {
     width: size,
     height: size,

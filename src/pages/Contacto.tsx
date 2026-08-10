@@ -59,7 +59,7 @@ export default function Contacto() {
     const base = "w-full bg-zinc-900/50 border rounded-lg px-4 py-3 text-[14px] text-white placeholder-zinc-600 focus:outline-none focus:ring-1 transition-all resize-none";
     return hasError 
       ? `${base} border-red-500/50 focus:border-red-500 focus:ring-red-500/50`
-      : `${base} border-zinc-800 focus:border-blue-500/50 focus:ring-blue-500/50`;
+      : `${base} border-zinc-800 focus:border-brand-accent/50 focus:ring-brand-accent/50`;
   };
 
   const getLabelClasses = (hasError?: boolean) => {
@@ -131,14 +131,14 @@ export default function Contacto() {
         <div className="flex flex-col gap-8 md:pl-8">
           <div>
             <h3 className="text-zinc-500 text-[11px] font-bold uppercase tracking-widest mb-3">Email Directo</h3>
-            <a href="mailto:hola@luisjcm.com" className="text-white hover:text-blue-400 transition-colors text-[15px]">
+            <a href="mailto:hola@luisjcm.com" className="text-white hover:text-brand-accent transition-colors text-[15px]">
               hola@luisjcm.com
             </a>
           </div>
 
           <div>
             <h3 className="text-zinc-500 text-[11px] font-bold uppercase tracking-widest mb-3">WhatsApp</h3>
-            <a href="https://wa.me/584248887150" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors text-[15px]">
+            <a href="https://wa.me/584248887150" target="_blank" rel="noopener noreferrer" className="text-white hover:text-brand-accent transition-colors text-[15px]">
               +58 424 888 7150
             </a>
           </div>
@@ -146,8 +146,8 @@ export default function Contacto() {
           <div>
             <h3 className="text-zinc-500 text-[11px] font-bold uppercase tracking-widest mb-3">Redes</h3>
             <div className="flex gap-4">
-              <a href="https://linkedin.com/in/luisjcm" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white transition-colors underline underline-offset-4 decoration-zinc-700 hover:decoration-blue-500">LinkedIn</a>
-              <a href="https://github.com/luisjcm" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white transition-colors underline underline-offset-4 decoration-zinc-700 hover:decoration-blue-500">GitHub</a>
+              <a href="https://linkedin.com/in/luisjcm" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white transition-colors underline underline-offset-4 decoration-zinc-700 hover:decoration-brand-accent">LinkedIn</a>
+              <a href="https://github.com/luisjcm" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white transition-colors underline underline-offset-4 decoration-zinc-700 hover:decoration-brand-accent">GitHub</a>
             </div>
           </div>
         </div>

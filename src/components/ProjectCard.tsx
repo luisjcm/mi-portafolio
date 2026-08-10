@@ -70,7 +70,7 @@ export default function ProjectCard({
       <div className="p-6 flex flex-col grow justify-between min-w-0">
         <div className="min-w-0">
           <Link to={`/proyectos/${slug}`} className="block">
-            <h3 className="text-white font-bold text-base mb-2 group-hover:text-blue-400 transition-colors truncate">
+            <h3 className="text-white font-bold text-base mb-2 group-hover:text-brand-accent transition-colors truncate">
               {title}
             </h3>
           </Link>
