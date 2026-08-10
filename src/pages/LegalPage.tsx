@@ -61,8 +61,8 @@ export default function LegalPage() {
   if (!content) {
     return (
       <main className="w-full max-w-[800px] mx-auto p-6 mt-20 text-center min-h-screen flex flex-col justify-center items-center">
-        <h1 className="text-xl font-bold text-white mb-3">Página no encontrada</h1>
-        <Link to="/" className="px-4 py-2 bg-white text-black font-semibold text-xs rounded-xl hover:bg-zinc-200 transition-colors">
+        <h1 className="text-xl font-bold text-brand-text mb-3">Página no encontrada</h1>
+        <Link to="/" className="px-4 py-2 bg-brand-surface text-brand-text font-semibold text-xs rounded-xl hover:bg-brand-surface-subtle transition-colors">
           Volver al Inicio
         </Link>
       </main>
@@ -78,7 +78,7 @@ export default function LegalPage() {
       
       {/* BOTÓN VOLVER */}
       <div className="mb-6">
-        <Link to="/" className="inline-flex items-center gap-2 text-xs font-medium text-zinc-400 hover:text-white transition-colors bg-zinc-900/60 border border-zinc-800 px-3 py-1.5 rounded-lg active:scale-95">
+        <Link to="/" className="inline-flex items-center gap-2 text-xs font-medium text-brand-muted hover:text-brand-text transition-colors bg-brand-surface/60 border border-brand-border px-3 py-1.5 rounded-lg active:scale-95">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
@@ -88,11 +88,11 @@ export default function LegalPage() {
       </div>
 
       {/* ENCABEZADO */}
-      <header className="mb-8 border-b border-zinc-800/60 pb-6">
-        <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight mb-2">
+      <header className="mb-8 border-b border-brand-border/60 pb-6">
+        <h1 className="text-xl md:text-2xl font-bold text-brand-text tracking-tight mb-2">
           {content.title}
         </h1>
-        <p className="text-[13px] text-zinc-400 leading-relaxed max-w-2xl">
+        <p className="text-[13px] text-brand-muted leading-relaxed max-w-2xl">
           {content.description}
         </p>
       </header>
@@ -101,19 +101,19 @@ export default function LegalPage() {
       <div className="space-y-6">
         {content.sections.map((section, idx) => (
           <section key={idx} className="space-y-2">
-            <h2 className="text-sm md:text-base font-bold text-white">
+            <h2 className="text-sm md:text-base font-bold text-brand-text">
               {section.heading}
             </h2>
             {Array.isArray(section.text) ? (
               <ul className="space-y-1.5 pl-2">
                 {section.text.map((line, i) => (
-                  <li key={i} className="text-[13px] md:text-sm text-zinc-300 leading-relaxed">
+                  <li key={i} className="text-[13px] md:text-sm text-brand-muted leading-relaxed">
                     {line}
                   </li>
                 ))}
               </ul>
             ) : (
-              <p className="text-[13px] md:text-sm text-zinc-300 leading-relaxed">
+              <p className="text-[13px] md:text-sm text-brand-muted leading-relaxed">
                 {section.text}
               </p>
             )}

@@ -27,7 +27,7 @@ return (
       
       {/* COMPONENTE VISUAL DEL TOAST (Responsivo: Protege el espacio de Cubot en móvil) */}
       {toast && (
-        <div className={`fixed top-5 left-1/2 -translate-x-1/2 md:top-auto md:bottom-6 md:left-6 md:translate-x-0 z-200 flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl border bg-zinc-800 shadow-2xl shadow-black/50 transition-all duration-300 animate-page-enter w-fit max-w-[85vw] md:max-w-sm text-left
+        <div className={`fixed top-5 left-1/2 -translate-x-1/2 md:top-auto md:bottom-6 md:left-6 md:translate-x-0 z-200 flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl border bg-brand-surface-subtle shadow-2xl shadow-brand-border/50 transition-all duration-300 animate-page-enter w-fit max-w-[85vw] md:max-w-sm text-left
     ${toast.type === 'success' ? 'border-green-500/50 text-green-400' : ''}
     ${toast.type === 'error' ? 'border-red-500/50 text-red-400' : ''}
     ${toast.type === 'info' ? 'border-brand-accent/50 text-brand-accent' : ''}
@@ -49,7 +49,7 @@ return (
           )}
           
           {/* Texto ligeramente más pequeño en móviles */}
-          <p className="text-[12px] md:text-[13px] text-zinc-200 font-normal leading-snug">            
+          <p className="text-[12px] md:text-[13px] text-brand-muted font-normal leading-snug">            
             {toast.message}
           </p>
         </div>

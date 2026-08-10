@@ -56,24 +56,24 @@ export default function Contacto() {
 
   // Helpers para inyectar clases dinámicas basadas en el estado de error
   const getInputClasses = (hasError?: boolean) => {
-    const base = "w-full bg-zinc-900/50 border rounded-lg px-4 py-3 text-[14px] text-white placeholder-zinc-600 focus:outline-none focus:ring-1 transition-all resize-none";
+    const base = "w-full bg-brand-surface-subtle border rounded-lg px-4 py-3 text-[14px] text-brand-text placeholder-brand-muted focus:outline-none focus:ring-1 transition-all resize-none";
     return hasError 
       ? `${base} border-red-500/50 focus:border-red-500 focus:ring-red-500/50`
-      : `${base} border-zinc-800 focus:border-brand-accent/50 focus:ring-brand-accent/50`;
+      : `${base} border-brand-border focus:border-brand-accent/50 focus:ring-brand-accent/50`;
   };
 
   const getLabelClasses = (hasError?: boolean) => {
-    return `text-[13px] font-medium ml-1 transition-colors ${hasError ? 'text-red-400' : 'text-zinc-300'}`;
+    return `text-[13px] font-medium ml-1 transition-colors ${hasError ? 'text-red-400' : 'text-brand-muted'}`;
   };
 
   return (
     <main className="w-full max-w-[800px] mx-auto p-6 mt-20 md:mt-24 min-h-screen animate-page-enter">
       
       <header className="mb-12">
-        <h1 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+        <h1 className="text-3xl md:text-4xl font-bold text-brand-text tracking-tight mb-4">
           Trabajemos Juntos
         </h1>
-        <p className="text-lg text-zinc-400 leading-relaxed max-w-xl">
+        <p className="text-lg text-brand-muted leading-relaxed max-w-xl">
           ¿Tienes un proyecto en mente, necesitas soporte técnico especializado o buscas un perfil para tu equipo? Hablemos.
         </p>
       </header>
@@ -122,7 +122,7 @@ export default function Contacto() {
 
           <button 
             type="submit" 
-            className="mt-2 w-full font-semibold text-[14px] py-3 rounded-lg transition-all bg-white text-black hover:bg-zinc-200 active:scale-[0.98]"
+            className="mt-2 w-full font-semibold text-[14px] py-3 rounded-lg transition-all bg-brand-surface text-brand-text hover:bg-brand-surface-subtle active:scale-[0.98]"
           >
             Enviar Mensaje
           </button>
@@ -130,24 +130,24 @@ export default function Contacto() {
 
         <div className="flex flex-col gap-8 md:pl-8">
           <div>
-            <h3 className="text-zinc-500 text-[11px] font-bold uppercase tracking-widest mb-3">Email Directo</h3>
-            <a href="mailto:hola@luisjcm.com" className="text-white hover:text-brand-accent transition-colors text-[15px]">
+            <h3 className="text-brand-muted text-[11px] font-bold uppercase tracking-widest mb-3">Email Directo</h3>
+            <a href="mailto:hola@luisjcm.com" className="text-brand-text hover:text-brand-accent transition-colors text-[15px]">
               hola@luisjcm.com
             </a>
           </div>
 
           <div>
-            <h3 className="text-zinc-500 text-[11px] font-bold uppercase tracking-widest mb-3">WhatsApp</h3>
-            <a href="https://wa.me/584248887150" target="_blank" rel="noopener noreferrer" className="text-white hover:text-brand-accent transition-colors text-[15px]">
+            <h3 className="text-brand-muted text-[11px] font-bold uppercase tracking-widest mb-3">WhatsApp</h3>
+            <a href="https://wa.me/584248887150" target="_blank" rel="noopener noreferrer" className="text-brand-text hover:text-brand-accent transition-colors text-[15px]">
               +58 424 888 7150
             </a>
           </div>
 
           <div>
-            <h3 className="text-zinc-500 text-[11px] font-bold uppercase tracking-widest mb-3">Redes</h3>
+            <h3 className="text-brand-muted text-[11px] font-bold uppercase tracking-widest mb-3">Redes</h3>
             <div className="flex gap-4">
-              <a href="https://linkedin.com/in/luisjcm" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white transition-colors underline underline-offset-4 decoration-zinc-700 hover:decoration-brand-accent">LinkedIn</a>
-              <a href="https://github.com/luisjcm" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white transition-colors underline underline-offset-4 decoration-zinc-700 hover:decoration-brand-accent">GitHub</a>
+              <a href="https://linkedin.com/in/luisjcm" target="_blank" rel="noopener noreferrer" className="text-brand-muted hover:text-brand-text transition-colors underline underline-offset-4 decoration-brand-border hover:decoration-brand-accent">LinkedIn</a>
+              <a href="https://github.com/luisjcm" target="_blank" rel="noopener noreferrer" className="text-brand-muted hover:text-brand-text transition-colors underline underline-offset-4 decoration-brand-border hover:decoration-brand-accent">GitHub</a>
             </div>
           </div>
         </div>

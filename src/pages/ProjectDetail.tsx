@@ -36,9 +36,9 @@ export default function ProjectDetail() {
   if (!fileEntry) {
     return (
       <main className="w-full max-w-[800px] mx-auto p-6 mt-20 text-center min-h-screen animate-page-enter">
-        <h1 className="text-xl font-bold text-white mb-3">Proyecto no encontrado</h1>
-        <p className="text-xs text-zinc-400 mb-6">El caso de estudio que buscas no existe o fue movido.</p>
-        <Link to="/" className="px-4 py-2 bg-white text-black font-semibold text-xs rounded-lg hover:bg-zinc-200 transition-colors">
+        <h1 className="text-xl font-bold text-brand-text mb-3">Proyecto no encontrado</h1>
+        <p className="text-xs text-brand-muted mb-6">El caso de estudio que buscas no existe o fue movido.</p>
+        <Link to="/" className="px-4 py-2 bg-brand-surface text-brand-text font-semibold text-xs rounded-lg hover:bg-brand-surface-subtle transition-colors">
           Volver al Inicio
         </Link>
       </main>
@@ -117,7 +117,7 @@ export default function ProjectDetail() {
       
       {/* BOTÓN VOLVER */}
       <div className="mb-6">
-        <Link to="/" className="inline-flex items-center gap-2 text-xs font-medium text-zinc-400 hover:text-white transition-colors bg-zinc-900/60 border border-zinc-800 px-3 py-1.5 rounded-lg active:scale-95">
+        <Link to="/" className="inline-flex items-center gap-2 text-xs font-medium text-brand-muted hover:text-brand-text transition-colors bg-brand-surface/60 border border-brand-border px-3 py-1.5 rounded-lg active:scale-95">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
           Volver al Inicio
         </Link>
@@ -125,11 +125,11 @@ export default function ProjectDetail() {
 
       {/* CABECERA DEL PROYECTO */}
       <header className="mb-8">
-        <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight mb-3">
+        <h1 className="text-xl md:text-2xl font-bold text-brand-text tracking-tight mb-3">
           {project.title}
         </h1>
 
-        <p className="text-[13px] md:text-sm text-zinc-400 leading-relaxed max-w-2xl mb-5">
+        <p className="text-[13px] md:text-sm text-brand-muted leading-relaxed max-w-2xl mb-5">
           {project.description}
         </p>
 
@@ -139,7 +139,7 @@ export default function ProjectDetail() {
               href={project.projectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-brand-primary hover:bg-brand-accent text-white font-semibold text-xs rounded-xl transition-all shadow-md shadow-brand-primary/20 active:scale-95 shrink-0 w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-brand-primary hover:bg-brand-accent text-brand-text font-semibold text-xs rounded-xl transition-all shadow-md shadow-brand-primary/20 active:scale-95 shrink-0 w-full sm:w-auto"
             >
               <span>Visitar Sitio en Vivo</span>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
@@ -149,7 +149,7 @@ export default function ProjectDetail() {
           {project.techStack && project.techStack.length > 0 && (
             <div className="flex flex-wrap gap-1.5">
               {project.techStack.map((tech) => (
-                <span key={tech} className="px-2.5 py-1 bg-zinc-900 border border-zinc-800/80 rounded-md text-[11px] text-zinc-300 font-medium">
+                <span key={tech} className="px-2.5 py-1 bg-brand-surface border border-brand-border/80 rounded-md text-[11px] text-brand-muted font-medium">
                   {tech}
                 </span>
               ))}
@@ -160,23 +160,23 @@ export default function ProjectDetail() {
 
       {/* MOCKUP VISOR DE IMÁGENES */}
       {subProjects.length === 0 && mainGallery.length > 0 && (
-        <div className="w-full bg-zinc-950 border border-zinc-800 rounded-2xl overflow-hidden shadow-xl mb-10 relative select-none">
+        <div className="w-full bg-brand-bg border border-brand-border rounded-2xl overflow-hidden shadow-xl mb-10 relative select-none">
           
           {/* Barra de ventana estilo navegador */}
-          <div className="h-9 bg-zinc-900/90 border-b border-zinc-800 px-3.5 flex items-center justify-between gap-2.5">
+          <div className="h-9 bg-brand-surface/90 border-b border-brand-border px-3.5 flex items-center justify-between gap-2.5">
             <div className="flex items-center gap-1.5 shrink-0">
-              <div className="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-brand-surface-subtle"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-brand-surface-subtle"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-brand-surface-subtle"></div>
             </div>
             
             {project.projectUrl && (
-              <div className="flex-1 min-w-0 max-w-[240px] md:max-w-md bg-zinc-950/80 border border-zinc-800/80 rounded-md px-3 py-0.5 text-[11px] text-zinc-400 font-mono tracking-tight truncate text-center mx-auto">
+              <div className="flex-1 min-w-0 max-w-[240px] md:max-w-md bg-brand-bg/80 border border-brand-border/80 rounded-md px-3 py-0.5 text-[11px] text-brand-muted font-mono tracking-tight truncate text-center mx-auto">
                 {project.projectUrl.replace(/^https?:\/\//, '')}
               </div>
             )}
             
-            <div className="text-[11px] text-zinc-500 font-mono shrink-0">
+            <div className="text-[11px] text-brand-muted font-mono shrink-0">
               {mainGallery.length > 1 ? `${currentImageIndex + 1}/${mainGallery.length}` : ''}
             </div>
           </div>
@@ -186,7 +186,7 @@ export default function ProjectDetail() {
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
-            className="relative w-full aspect-video md:aspect-[16/10] bg-zinc-950 overflow-hidden flex items-center justify-center group touch-pan-y"
+            className="relative w-full aspect-video md:aspect-[16/10] bg-brand-bg overflow-hidden flex items-center justify-center group touch-pan-y"
           >
             <img 
               src={mainGallery[currentImageIndex]} 
@@ -201,7 +201,7 @@ export default function ProjectDetail() {
                 <button 
                   onClick={(e) => { e.stopPropagation(); changeImage('prev', mainGallery.length); }}
                   aria-label="Imagen anterior"
-                  className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-zinc-950/85 border border-white/10 text-white flex items-center justify-center backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all cursor-pointer hover:bg-brand-primary active:scale-95 z-10 shadow-lg"
+                  className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-brand-bg/85 border border-brand-border/20 text-brand-text flex items-center justify-center backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all cursor-pointer hover:bg-brand-primary active:scale-95 z-10 shadow-lg"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
                 </button>
@@ -209,19 +209,19 @@ export default function ProjectDetail() {
                 <button 
                   onClick={(e) => { e.stopPropagation(); changeImage('next', mainGallery.length); }}
                   aria-label="Imagen siguiente"
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-zinc-950/85 border border-white/10 text-white flex items-center justify-center backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all cursor-pointer hover:bg-brand-primary active:scale-95 z-10 shadow-lg"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-brand-bg/85 border border-brand-border/20 text-brand-text flex items-center justify-center backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all cursor-pointer hover:bg-brand-primary active:scale-95 z-10 shadow-lg"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
 
                 {/* Puntos de paginación (Dots) */}
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-zinc-950/85 backdrop-blur-md border border-white/10 max-w-[90%] overflow-x-auto">
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-brand-bg/85 backdrop-blur-md border border-brand-border/20 max-w-[90%] overflow-x-auto">
                   {mainGallery.map((_, idx) => (
                     <button
                       key={idx}
                       onClick={() => setCurrentImageIndex(idx)}
                       className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                        idx === currentImageIndex ? 'w-4 bg-brand-accent' : 'w-1.5 bg-zinc-600 hover:bg-zinc-400'
+                        idx === currentImageIndex ? 'w-4 bg-brand-accent' : 'w-1.5 bg-brand-surface-subtle hover:bg-brand-bg'
                       }`}
                       aria-label={`Ir a imagen ${idx + 1}`}
                     />
@@ -235,12 +235,12 @@ export default function ProjectDetail() {
 
       {/* CONTENIDO MARKDOWN */}
       <div 
-        className="prose prose-invert max-w-none text-zinc-300 text-[13px] md:text-sm leading-relaxed space-y-4
-          [&>h2]:text-white [&>h2]:text-base md:[&>h2]:text-lg [&>h2]:font-bold [&>h2]:mt-7 [&>h2]:mb-2.5
-          [&>h3]:text-zinc-200 [&>h3]:text-sm [&>h3]:font-semibold [&>h3]:mt-5 [&>h3]:mb-2
-          [&>p]:text-zinc-300 [&>p]:leading-relaxed [&>p]:mb-3
-          [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-1.5 [&>li]:text-zinc-300
-          [&>hr]:border-zinc-800/80 [&>hr]:my-6"
+        className="prose prose-invert max-w-none text-brand-muted text-[13px] md:text-sm leading-relaxed space-y-4
+          [&>h2]:text-brand-text [&>h2]:text-base md:[&>h2]:text-lg [&>h2]:font-bold [&>h2]:mt-7 [&>h2]:mb-2.5
+          [&>h3]:text-brand-muted [&>h3]:text-sm [&>h3]:font-semibold [&>h3]:mt-5 [&>h3]:mb-2
+          [&>p]:text-brand-muted [&>p]:leading-relaxed [&>p]:mb-3
+          [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-1.5 [&>li]:text-brand-muted
+          [&>hr]:border-brand-border/80 [&>hr]:my-6"
         dangerouslySetInnerHTML={{ __html: marked(body) as string }}
       />
 

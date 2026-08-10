@@ -11,10 +11,10 @@ export default function SobreMi() {
       
       <header className="mb-12 relative">
         <div className="absolute -top-10 -left-10 w-32 h-32 bg-brand-accent/10 blur-[60px] rounded-full pointer-events-none"></div>
-        <h1 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4 relative z-10">
+        <h1 className="text-3xl md:text-4xl font-bold text-brand-text tracking-tight mb-4 relative z-10">
           Sobre Mí
         </h1>
-        <p className="text-lg text-zinc-400 leading-relaxed max-w-2xl relative z-10">
+        <p className="text-lg text-brand-muted leading-relaxed max-w-2xl relative z-10">
           Ingeniero de Sistemas fusionando el soporte técnico de misión crítica con el desarrollo web de alto rendimiento.
         </p>
       </header>
@@ -22,7 +22,7 @@ export default function SobreMi() {
       <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
         
         {/* Columna Izquierda: Historia */}
-        <div className="md:col-span-3 space-y-6 text-zinc-300 text-[15px] leading-relaxed">
+        <div className="md:col-span-3 space-y-6 text-brand-muted text-[15px] leading-relaxed">
           <p>
             Soy Luis Jesus Curbata. Mi enfoque profesional se basa en la intersección entre la infraestructura tecnológica y la creación de interfaces de usuario eficientes y escalables.
           </p>
@@ -40,29 +40,29 @@ export default function SobreMi() {
         {/* Columna Derecha: Datos rápidos */}
         <div className="md:col-span-2 space-y-8">
           <div>
-            <h3 className="text-white font-bold text-[13px] uppercase tracking-wider mb-4 border-b border-zinc-800 pb-2">Experiencia Core</h3>
+            <h3 className="text-brand-text font-bold text-[13px] uppercase tracking-wider mb-4 border-b border-brand-border pb-2">Experiencia Core</h3>
             <ul className="space-y-4">
               <li className="flex flex-col gap-1">
-                <span className="text-white text-[14px] font-medium">Analista HelpDesk IT</span>
-                <span className="text-zinc-500 text-[12px]">Avior Airlines • 2020 - Pres.</span>
+                <span className="text-brand-text text-[14px] font-medium">Analista HelpDesk IT</span>
+                <span className="text-brand-muted text-[12px]">Avior Airlines • 2020 - Pres.</span>
               </li>
               <li className="flex flex-col gap-1">
-                <span className="text-white text-[14px] font-medium">Web Developer Freelance</span>
-                <span className="text-zinc-500 text-[12px]">Clinmedia & Newe Marketing</span>
+                <span className="text-brand-text text-[14px] font-medium">Web Developer Freelance</span>
+                <span className="text-brand-muted text-[12px]">Clinmedia & Newe Marketing</span>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-white font-bold text-[13px] uppercase tracking-wider mb-4 border-b border-zinc-800 pb-2">Educación</h3>
+            <h3 className="text-brand-text font-bold text-[13px] uppercase tracking-wider mb-4 border-b border-brand-border pb-2">Educación</h3>
             <ul className="space-y-4">
               <li className="flex flex-col gap-1">
-                <span className="text-white text-[14px] font-medium">Ingeniería de Sistemas</span>
-                <span className="text-zinc-500 text-[12px]">Titulación Profesional</span>
+                <span className="text-brand-text text-[14px] font-medium">Ingeniería de Sistemas</span>
+                <span className="text-brand-muted text-[12px]">Titulación Profesional</span>
               </li>
               <li className="flex flex-col gap-1">
-                <span className="text-white text-[14px] font-medium">Máster Full Stack Dev</span>
-                <span className="text-zinc-500 text-[12px]">UCV</span>
+                <span className="text-brand-text text-[14px] font-medium">Máster Full Stack Dev</span>
+                <span className="text-brand-muted text-[12px]">UCV</span>
               </li>
             </ul>
           </div>

@@ -20,10 +20,10 @@ export default function ProjectCard({
   projectUrl 
 }: ProjectCardProps) {
   return (
-    <div className="group w-full min-w-0 bg-zinc-950 border border-zinc-800/80 rounded-2xl overflow-hidden hover:border-zinc-700 transition-all duration-300 flex flex-col justify-between shadow-xl relative">
+    <div className="group w-full min-w-0 bg-brand-bg border border-brand-border/80 rounded-2xl overflow-hidden hover:border-brand-border transition-all duration-300 flex flex-col justify-between shadow-xl relative">
       
       {/* VISTA PREVIA / IMAGEN */}
-      <div className="w-full h-48 bg-zinc-900/60 border-b border-zinc-800/80 overflow-hidden relative flex items-center justify-center">
+      <div className="w-full h-48 bg-brand-surface/60 border-b border-brand-border/80 overflow-hidden relative flex items-center justify-center">
         <Link to={`/proyectos/${slug}`} className="w-full h-full block">
           {imageUrl && imageUrl.trim() !== "" ? (
             <img 
@@ -35,14 +35,14 @@ export default function ProjectCard({
               }}
             />
           ) : (
-            <div className="w-full h-full p-6 flex flex-col justify-center bg-linear-to-br from-zinc-900/80 to-zinc-950">
+            <div className="w-full h-full p-6 flex flex-col justify-center bg-linear-to-br from-brand-surface/80 to-brand-bg">
               <div className="flex items-center gap-1.5 mb-3">
-                <div className="w-2 h-2 rounded-full bg-zinc-700"></div>
-                <div className="w-2 h-2 rounded-full bg-zinc-700"></div>
+                <div className="w-2 h-2 rounded-full bg-brand-surface-subtle"></div>
+                <div className="w-2 h-2 rounded-full bg-brand-surface-subtle"></div>
               </div>
               <div className="space-y-2">
-                <div className="w-3/4 h-2.5 bg-zinc-800 rounded-full"></div>
-                <div className="w-1/2 h-2.5 bg-zinc-800/60 rounded-full"></div>
+                <div className="w-3/4 h-2.5 bg-brand-surface-subtle rounded-full"></div>
+                <div className="w-1/2 h-2.5 bg-brand-surface/60 rounded-full"></div>
               </div>
             </div>
           )}
@@ -54,7 +54,7 @@ export default function ProjectCard({
             href={projectUrl} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="absolute top-3 right-3 z-10 px-3 py-1.5 bg-zinc-900/90 hover:bg-white hover:text-black text-white text-[11px] font-semibold rounded-lg border border-zinc-700/80 backdrop-blur-md transition-all flex items-center gap-1.5 shadow-lg active:scale-95"
+            className="absolute top-3 right-3 z-10 px-3 py-1.5 bg-brand-surface/90 hover:bg-brand-surface hover:text-brand-text text-brand-text text-[11px] font-semibold rounded-lg border border-brand-border/80 backdrop-blur-md transition-all flex items-center gap-1.5 shadow-lg active:scale-95"
           >
             <span>Ver Sitio</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -70,18 +70,18 @@ export default function ProjectCard({
       <div className="p-6 flex flex-col grow justify-between min-w-0">
         <div className="min-w-0">
           <Link to={`/proyectos/${slug}`} className="block">
-            <h3 className="text-white font-bold text-base mb-2 group-hover:text-brand-accent transition-colors truncate">
+            <h3 className="text-brand-text font-bold text-base mb-2 group-hover:text-brand-accent transition-colors truncate">
               {title}
             </h3>
           </Link>
-          <p className="text-zinc-400 text-sm leading-relaxed mb-6 line-clamp-2">
+          <p className="text-brand-muted text-sm leading-relaxed mb-6 line-clamp-2">
             {description}
           </p>
         </div>
 
         <div className="flex flex-wrap gap-1.5 min-w-0">
           {techStack.map((tech) => (
-            <span key={tech} className="px-2.5 py-1 bg-zinc-900 border border-zinc-800/80 rounded-md text-[11px] text-zinc-300 font-medium">
+            <span key={tech} className="px-2.5 py-1 bg-brand-surface border border-brand-border/80 rounded-md text-[11px] text-brand-muted font-medium">
               {tech}
             </span>
           ))}
