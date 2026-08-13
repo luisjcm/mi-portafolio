@@ -20,6 +20,8 @@ const projects = Object.entries(mdFiles).map(([path, module]: [string, any]) => 
 export default function Home() {
   const [imageError, setImageError] = useState(false);
   const [activeTab, setActiveTab] = useState('Proyectos');
+
+  const [slideDir, setSlideDir] = useState<'right' | 'left'>('right'); 
   const { showToast } = useToast();
 
   useEffect(() => {
@@ -28,8 +30,23 @@ export default function Home() {
 
   const tabs = ['Proyectos', 'Stack Técnico', 'Trayectoria', 'Formación'];
 
-  // --- RENDERIZADORES DE PESTAÑAS ---
+  const handleTabChange = (newTab: string) => {
+    const currentIndex = tabs.indexOf(activeTab);
+    const newIndex = tabs.indexOf(newTab);
 
+    // Si hace clic en la misma pestaña, no hacemos nada
+    if (currentIndex === newIndex) return;
+
+    if (newIndex > currentIndex) {
+      setSlideDir('right'); // Navega hacia adelante (entra por la derecha)
+    } else {
+      setSlideDir('left'); // Navega hacia atrás (entra por la izquierda)
+    }
+    
+    setActiveTab(newTab);
+  };
+
+  // --- RENDERIZADORES DE PESTAÑAS ---
   const renderProyectos = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {projects.map((project) => (
@@ -186,13 +203,13 @@ export default function Home() {
           </div>
         </div>
 
-       <div className="flex flex-wrap items-center gap-2 w-full select-none">
+       <div className="flex flex-wrap items-center gap-1 w-full select-none">
                 {/* Botón Contactar */}
                 <a 
                   href="https://wa.me/584248887150?text=Hola%20Luis,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex-1 min-w-[115px] max-w-[140px] py-2 md:py-2.5 bg-brand-surface-subtle border border-brand-border/20 rounded-[10px] font-semibold text-brand-text text-[12.5px] md:text-[13px] overflow-hidden text-center active:scale-95 transition-all no-underline"
+                  className="group relative flex-1 min-w-[115px] max-w-[140px] py-2 md:py-2.5 bg-brand-surface-subtle border border-brand-border rounded-[10px] font-semibold text-brand-text text-[12px] md:text-[13px] overflow-hidden text-center active:scale-95 transition-all no-underline"
                 >
                   {/* Rayo de luz usando brand-accent */}
                   <div className="absolute inset-0 bg-linear-to-r from-transparent via-brand-accent/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
@@ -208,7 +225,7 @@ export default function Home() {
                 {/* Botón Descargar CV */}
                 <button
                   onClick={() => showToast("El currículum estará disponible pronto.", "warning")}
-                  className="group relative flex-1 min-w-[115px] max-w-[140px] py-2 md:py-2.5 bg-brand-surface-subtle border border-brand-border/20 rounded-[10px] font-semibold text-brand-text text-[12.5px] md:text-[13px] overflow-hidden text-center active:scale-95 transition-all cursor-pointer"
+                  className="group relative flex-1 min-w-[115px] max-w-[140px] py-2 md:py-2.5 bg-brand-surface-subtle border border-brand-border rounded-[10px] font-semibold text-brand-text text-[12px] md:text-[13px] overflow-hidden text-center active:scale-95 transition-all cursor-pointer"
                 >
                   <div className="absolute inset-0 bg-linear-to-r from-transparent via-brand-accent/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                   
@@ -230,7 +247,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Perfil de LinkedIn"
-                  className="group relative inline-flex items-center justify-center h-9 w-9 md:h-10 md:w-10 rounded-[10px] bg-brand-surface-subtle border border-brand-border/20 text-brand-muted hover:text-brand-text transition-all active:scale-95 overflow-hidden shrink-0"
+                  className="group relative inline-flex items-center justify-center h-9 w-9 md:h-10 md:w-10 rounded-[10px] bg-brand-surface-subtle border border-brand-border text-brand-muted hover:text-brand-text transition-all active:scale-95 overflow-hidden shrink-0"
                 >
                   <div className="absolute inset-0 bg-linear-to-r from-transparent via-brand-accent/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                   
@@ -247,7 +264,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Perfil de GitHub"
-                  className="group relative inline-flex items-center justify-center h-9 w-9 md:h-10 md:w-10 rounded-[10px] bg-brand-surface-subtle border border-brand-border/20 text-brand-muted hover:text-brand-text transition-all active:scale-95 overflow-hidden shrink-0"
+                  className="group relative inline-flex items-center justify-center h-9 w-9 md:h-10 md:w-10 rounded-[10px] bg-brand-surface-subtle border border-brand-border text-brand-muted hover:text-brand-text transition-all active:scale-95 overflow-hidden shrink-0"
                 >
                   <div className="absolute inset-0 bg-linear-to-r from-transparent via-brand-accent/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                   
@@ -263,7 +280,7 @@ export default function Home() {
         {tabs.map((tab) => (
           <button
             key={tab}
-            onClick={() => setActiveTab(tab)}
+            onClick={() => handleTabChange(tab)}
             className={`pb-4 text-[13px] font-medium transition-all relative whitespace-nowrap cursor-pointer shrink-0 ${
               activeTab === tab ? 'text-brand-text' : 'text-brand-muted hover:text-brand-muted'
             }`}
@@ -277,7 +294,7 @@ export default function Home() {
       </nav>
 
       {/* CONTENIDO DINÁMICO */}
-      <div key={activeTab} className="animate-page-enter w-full" style={{ animationDuration: '0.5s' }}>
+      <div key={activeTab} className={`w-full ${slideDir === 'right' ? 'animate-slide-right' : 'animate-slide-left'}`}>
         {activeTab === 'Proyectos' && renderProyectos()}
         {activeTab === 'Stack Técnico' && renderStack()}
         {activeTab === 'Trayectoria' && renderTrayectoria()}

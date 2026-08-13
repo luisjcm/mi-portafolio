@@ -40,3 +40,23 @@
 .animate-page-enter {
   animation: pageEnter 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
+
+@keyframes slideInRight {
+  0% { opacity: 0; transform: translateX(80px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(-80px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.animate-slide-right {
+  /* Aumentado a 1s con una curva de desaceleración extra suave */
+  animation: slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-left {
+  /* Aumentado a 1s con una curva de desaceleración extra suave */
+  animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
