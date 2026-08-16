@@ -9,13 +9,23 @@ import formacionData from '../content/formacion.json';
 
 import TechIcon from '../components/TechIcon';
 
+
+
 // Extraemos la data de los proyectos
 const mdFiles = import.meta.glob('../content/proyectos/*.md', { query: '?raw', eager: true });
 const projects = Object.entries(mdFiles).map(([path, module]: [string, any]) => {
   const slug = path.split('/').pop()?.replace('.md', '');
   const { attributes } = frontMatter(module.default);
   return { slug, ...(attributes as any) };
-});
+}
+)
+  .sort((a, b) => {
+    // Le asignamos un valor alto (999) por defecto a los que no tengan 'order' 
+    // para que se vayan al final, pero antes del 9999 si existiera.
+    const orderA = a.order || 999;
+    const orderB = b.order || 999;
+    return orderA - orderB;
+  });
 
 export default function Home() {
   const [imageError, setImageError] = useState(false);

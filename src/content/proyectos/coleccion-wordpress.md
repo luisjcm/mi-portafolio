@@ -9,6 +9,7 @@ techStack:
   - UI/UX Design
 imageUrl: /projects/wordpress/collection.jpeg
 projectUrl: #
+order: 99
 wireframeType: "web"
 ---
 

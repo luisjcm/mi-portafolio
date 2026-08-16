@@ -16,7 +16,7 @@ images:
   - "/projects/teffy/teffy7.png"
 wireframeType: "web"
 projectUrl: https://teffy.luisjcm.com/
-
+order: 2
 ---
 
 ### Detalles del Proyecto

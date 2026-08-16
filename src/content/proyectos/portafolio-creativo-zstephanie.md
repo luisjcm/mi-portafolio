@@ -22,7 +22,7 @@ images:
   - "/projects/zstephanie/zstephanie6.png"
 wireframeType: "web"
 projectUrl: "https://zstephanie.luisjcm.com/" # O la URL de producción/demo
-order: 2
+order: 1
 ---
 
 ### Arquitectura y Despliegue
