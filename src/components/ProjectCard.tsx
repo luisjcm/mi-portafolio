@@ -9,6 +9,8 @@ interface ProjectCardProps {
   imageUrl?: string;
   wireframeType?: string;
   projectUrl?: string;
+  isNew?: boolean; // <-- NUEVA PROP
+  badge?: string;  // <-- NUEVA PROP
 }
 
 export default function ProjectCard({ 
@@ -17,7 +19,9 @@ export default function ProjectCard({
   techStack = [], 
   slug, 
   imageUrl, 
-  projectUrl 
+  projectUrl,
+  isNew,           // <-- RECIBIMOS LA PROP
+  badge            // <-- RECIBIMOS LA PROP
 }: ProjectCardProps) {
   return (
     <div className="group w-full min-w-0 bg-brand-bg border border-brand-border/80 rounded-2xl overflow-hidden hover:border-brand-border transition-all duration-300 flex flex-col justify-between shadow-xl relative">
@@ -69,11 +73,23 @@ export default function ProjectCard({
       {/* DETALLES */}
       <div className="p-6 flex flex-col grow justify-between min-w-0">
         <div className="min-w-0">
-          <Link to={`/proyectos/${slug}`} className="block">
-            <h3 className="text-brand-text font-bold text-base mb-2 group-hover:text-brand-accent transition-colors truncate">
-              {title}
-            </h3>
-          </Link>
+          
+          {/* TÍTULO Y BADGE DINÁMICO */}
+          <div className="flex items-start justify-between gap-3 mb-2">
+            <Link to={`/proyectos/${slug}`} className="block min-w-0">
+              <h3 className="text-brand-text font-bold text-base group-hover:text-brand-accent transition-colors truncate">
+                {title}
+              </h3>
+            </Link>
+            
+            {/* Lógica para renderizar el badge si isNew es true */}
+            {isNew && (
+              <span className="px-2 py-0.5 rounded-full bg-brand-accent/10 text-brand-accent border border-brand-accent/20 text-[10px] font-bold uppercase tracking-wider shrink-0 mt-0.5">
+                {badge || 'Nuevo'}
+              </span>
+            )}
+          </div>
+
           <p className="text-brand-muted text-sm leading-relaxed mb-6 line-clamp-2">
             {description}
           </p>

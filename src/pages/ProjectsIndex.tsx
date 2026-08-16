@@ -5,12 +5,17 @@ import frontMatter from 'front-matter';
 
 // Extraemos los proyectos de la misma forma eficiente
 const mdFiles = import.meta.glob('../content/proyectos/*.md', { query: '?raw', eager: true });
-
-const projects = Object.entries(mdFiles).map(([path, module]: [string, any]) => {
-  const slug = path.split('/').pop()?.replace('.md', '');
-  const { attributes } = frontMatter(module.default as string);
-  return { slug, ...(attributes as any) };
-});
+const projects = Object.entries(mdFiles)
+  .map(([path, module]: [string, any]) => {
+    const slug = path.split('/').pop()?.replace('.md', '');
+    const { attributes } = frontMatter(module.default);
+    return { slug, ...(attributes as any) };
+  })
+  .sort((a, b) => {
+    const orderA = a.order || 999;
+    const orderB = b.order || 999;
+    return orderA - orderB;
+  });
 
 export default function ProjectsIndex() {
   // Asegura que la página cargue siempre desde arriba
@@ -41,12 +46,7 @@ export default function ProjectsIndex() {
         {projects.map((project) => (
           <ProjectCard 
             key={project.slug}
-            title={project.title} 
-            description={project.description}
-            techStack={project.techStack || []}
-            slug={project.slug}
-            imageUrl={project.imageUrl}
-            wireframeType={project.wireframeType}
+            {...project}
           />
         ))}
       </div>

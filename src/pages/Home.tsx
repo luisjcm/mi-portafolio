@@ -69,6 +69,8 @@ export default function Home() {
           imageUrl={project.imageUrl}
           wireframeType={project.wireframeType}
           projectUrl={project.projectUrl}
+          isNew={project.isNew} 
+          badge={project.badge}
         />
       ))}
     </div>
