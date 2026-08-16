@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 export default function Header() {
@@ -6,15 +6,6 @@ export default function Header() {
   const location = useLocation();
 
   const closeMenu = () => setIsMenuOpen(false);
-
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => { document.body.style.overflow = 'unset'; };
-  }, [isMenuOpen]);
 
   const navLinks = [
     { name: 'Inicio', path: '/' },
@@ -24,13 +15,15 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-100 backdrop-blur-md border-b border-brand-border/10 bg-brand-bg/70 transition-all duration-300">
-      <div className="max-w-[800px] mx-auto px-6 h-16 flex items-center justify-between">
+    <header className="fixed top-0 left-0 w-full z-100 bg-brand-bg/90 backdrop-blur-md border-b border-brand-border/10 transition-all duration-300">
+      
+      {/* CONTENEDOR PRINCIPAL DEL HEADER */}
+      <div className="max-w-[800px] mx-auto px-6 h-16 flex items-center justify-between relative z-20">
         
         {/* LOGO */}
-        <Link to="/" className="text-brand-text font-bold text-lg tracking-tighter hover:opacity-80 transition-opacity no-underline relative z-100" onClick={closeMenu}>
+        <Link to="/" className="text-brand-text font-bold text-lg tracking-tighter hover:opacity-80 transition-opacity no-underline" onClick={closeMenu}>
           LUIS<span className="text-brand-accent">JCM</span>
-          </Link>
+        </Link>
 
         {/* DESKTOP NAVIGATION */}
         <nav className="hidden md:flex items-center gap-7">
@@ -49,9 +42,9 @@ export default function Header() {
           })}
         </nav>
 
-        {/* MOBILE HAMBURGER BUTTON (Corregido a X perfecta) */}
-       <button 
-          className="md:hidden relative z-110 p-2 -mr-2 text-brand-text hover:text-brand-accent transition-colors focus:outline-none flex items-center justify-center cursor-pointer"
+        {/* MOBILE HAMBURGER BUTTON */}
+        <button 
+          className="md:hidden relative p-2 -mr-2 text-brand-text hover:text-brand-accent transition-colors focus:outline-none flex items-center justify-center cursor-pointer"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -63,25 +56,37 @@ export default function Header() {
         </button>
       </div>
 
-      {/* MOBILE MENU OVERLAY */}
-      <div className={`md:hidden fixed inset-0 w-full h-dvh bg-brand-bg/95 backdrop-blur-2xl transition-all duration-500 ease-in-out z-105 flex flex-col items-center justify-center ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-        <nav className="flex flex-col items-center gap-8">
-          {navLinks.map((link, index) => {
-            const isActive = location.pathname === link.path || (link.path !== '/' && location.pathname.startsWith(link.path));
-            return (
-              <Link
-                key={link.name}
-                to={link.path}
-                onClick={closeMenu}
-                className={`text-2xl font-bold tracking-tight transition-all duration-500 transform ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} ${isActive ? 'text-brand-accent' : 'text-brand-muted hover:text-brand-text'}`}
-                style={{ transitionDelay: `${index * 75}ms` }}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
-        </nav>
+      {/* MOBILE MENU DROPDOWN (Grid Trick para animación perfecta) */}
+      <div 
+        className={`md:hidden absolute top-full left-0 w-full bg-brand-bg/95 backdrop-blur-xl border-b border-brand-border/10 shadow-2xl grid transition-all duration-500 ease-in-out ${
+          isMenuOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+        }`}
+      >
+        <div className="overflow-hidden">
+          <nav className="flex flex-col py-2 px-4 pb-6">
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.path || (link.path !== '/' && location.pathname.startsWith(link.path));
+              return (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  onClick={closeMenu}
+                  className={`group flex items-center py-4 px-4 text-base font-semibold tracking-wide border-b border-brand-border/10 last:border-b-0 rounded-lg transition-all duration-300 ${
+                    isActive 
+                      ? 'text-brand-accent bg-brand-accent/5' 
+                      : 'text-brand-muted hover:text-brand-text hover:bg-brand-surface/50'
+                  }`}
+                >
+                  <span className={`transition-transform duration-300 ease-out ${isActive ? 'translate-x-2' : 'group-hover:translate-x-2'}`}>
+                    {link.name}
+                  </span>
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
       </div>
+
     </header>
   );
 }

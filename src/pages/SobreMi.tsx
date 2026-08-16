@@ -34,7 +34,7 @@ export default function SobreMi() {
             {/* Texto Resumido */}
             <div className="space-y-5 text-brand-muted text-[15px] md:text-base leading-relaxed">
               <p>
-                Soy Ingeniero de Sistemas. Tengo 6 años de experiencia abarca desde el soporte técnico en entornos corporativos de alta exigencia, y actualmente tengo 1 año emprendiendo como Desarrollador Web freelance remotamente para agencias digitales.
+                Soy Ingeniero de Sistemas. Tengo 6 años de experiencia en el sector Soporte Técnico IT, y actualmente tengo 1 año emprendiendo como Desarrollador Web freelance remotamente para agencias digitales.
               </p>
              
             </div>

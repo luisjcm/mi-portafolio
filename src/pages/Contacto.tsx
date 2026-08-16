@@ -131,8 +131,8 @@ export default function Contacto() {
         <div className="flex flex-col gap-8 md:pl-8">
           <div>
             <h3 className="text-brand-muted text-[11px] font-bold uppercase tracking-widest mb-3">Email Directo</h3>
-            <a href="mailto:hola@luisjcm.com" className="text-brand-text hover:text-brand-accent transition-colors text-[15px]">
-              hola@luisjcm.com
+            <a href="mailto:contacto@luisjcm.com" className="text-brand-text hover:text-brand-accent transition-colors text-[15px]">
+              contacto@luisjcm.com
             </a>
           </div>
 
