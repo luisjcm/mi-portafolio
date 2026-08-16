@@ -186,12 +186,12 @@ export default function ProjectDetail() {
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
-            className="relative w-full aspect-video md:aspect-[16/10] bg-brand-bg overflow-hidden flex items-center justify-center group touch-pan-y"
+            className="relative w-full h-auto rounded-b-xl overflow-hidden bg-brand-surface group touch-pan-y"
           >
             <img 
               src={mainGallery[currentImageIndex]} 
               alt={`${project.title} - Captura ${currentImageIndex + 1}`} 
-              className="w-full h-full object-cover object-top pointer-events-none transition-opacity duration-300"
+              className="w-full h-auto block"
               onError={(e) => { e.currentTarget.style.display = 'none'; }}
             />
 
