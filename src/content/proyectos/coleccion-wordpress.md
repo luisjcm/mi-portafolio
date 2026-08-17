@@ -15,7 +15,7 @@ wireframeType: "web"
 
 ### El Contexto
 
-Durante mi trayectoria como desarrollador web remoto, tuve la oportunidad de diseñar y desarrollar múltiples plataformas orientadas a la conversión, rendimiento y autogestión para clientes de diversos sectores en Europa y Latinoamérica. 
+Durante mi trayectoria como desarrollador web remoto, tuve la oportunidad de diseñar y desarrollar múltiples plataformas orientadas a la conversión, rendimiento y autogestión para diversos clientes en España.
 
 A continuación, presento una selección de los proyectos más destacados de esta etapa, donde el enfoque principal fue combinar una estética atractiva con una arquitectura de información sólida utilizando el ecosistema de WordPress.
 

@@ -5,7 +5,11 @@
     "company": "Clinmedia & Newe Marketing",
     "period": "Jun 2025 - Mar 2026",
     "active": false,
-    "description": " Diseño y desarrollo de plataformas web orientadas a la conversión y alto rendimiento. Implementación de interfaces intuitivas (UI/UX), optimización SEO técnica y despliegue de soluciones e-commerce escalables para clientes B2B en España."
+    "description": [
+      "Desarrollo de Alto Rendimiento: Arquitectura y despliegue de plataformas web orientadas a la conversión, optimizando tiempos de carga y SEO técnico.",
+      "Soluciones E-commerce: Implementación de tiendas virtuales escalables y seguras para clientes del sector B2B en Europa.",
+      "Diseño UI/UX: Maquetación ágil de interfaces intuitivas y 100% responsivas, garantizando una experiencia de usuario impecable en cualquier dispositivo."
+    ]
   },
   {
     "id": 1,
@@ -13,7 +17,11 @@
     "company": "Avior Airlines",
     "period": "Ene 2020 - Presente",
     "active": true,
-    "description": "Soporte técnico a gran escala garantizando la continuidad operativa de más de 800 usuarios corporativos. Monitoreo constante de Data Center, resolución de incidencias críticas y mantenimiento de infraestructura IT bajo entornos de alta exigencia. "
+    "description": [
+      "Soporte Corporativo: Administración de infraestructura IT y resolución de incidencias para garantizar la continuidad operativa de más de 800 usuarios.",
+      "Gestión Crítica: Monitoreo proactivo de Data Center y resolución de fallos bajo SLAs estrictos en entornos de alta exigencia.",
+      "Mantenimiento Preventivo: Despliegue de actualizaciones y mantenimiento de hardware/software para minimizar tiempos de inactividad."
+    ]
   },
   {
     "id": 3,
@@ -21,6 +29,10 @@
     "company": "Avior Airlines",
     "period": "Abr 2018 - Ene 2020",
     "active": false,
-    "description": "Atención telefónica al cliente, manejo de sistema de reservación y ventas de pasaje SABRE. Esta experiencia forjó mi entendimiento profundo de la operación interna antes de transicionar al departamento de TI en 2020."
+    "description": [
+      "Operación de Sistemas: Manejo avanzado del sistema global de reservaciones GDS SABRE para la gestión de ventas y control de boletería.",
+      "Resolución bajo presión: Atención de alto volumen a clientes, desarrollando habilidades críticas de troubleshooting y manejo de crisis.",
+      "Transición Técnica: Dominio de la lógica operativa interna de la aerolínea, sentando bases sólidas para el posterior ascenso al departamento de TI."
+    ]
   }
 ]
