@@ -1,5 +1,18 @@
 [
   {
+    "id": 3,
+    "title": "Certificaciones y Formación Continua",
+    "institution": "Educación Continua",
+    "date": "2025 - 2026",
+    "featured": true,
+    "description": [
+      "Mouredev & BIG school: Certificado de Iniciación al Desarrollo con IA (Jul 2026).",
+      "Workana The Accelerator: Escalabilidad de negocios freelance (Mar 2026).",
+      "Daxus Latam: Python aplicado - Semana de la práctica.",
+      "Udemy: JavaScript Moderno & Especificaciones Avanzadas."
+    ]
+  },
+  {
     "id": 1,
     "title": "Máster en Full Stack Development",
     "institution": "Universidad Central de Venezuela (UCV - Diplomadosonline.com)",
@@ -14,17 +27,5 @@
     "date": "Sep 2014 - Sep 2020",
     "featured": true,
     "description": ""
-  },
-  {
-    "id": 3,
-    "title": "Especializaciones & Bootcamps",
-    "institution": "Educación Continua",
-    "date": "2025 - 2026",
-    "featured": true,
-    "items": [
-      "Workana The Accelerator (Escalabilidad de negocios freelance - Mar 2026).",
-      "Udemy: JavaScript Moderno & Especificaciones Avanzadas."
-      
-    ]
   }
 ]

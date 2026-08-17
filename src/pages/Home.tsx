@@ -151,11 +151,13 @@ const renderTrayectoria = () => (
     </div>
   );
 
-  const renderFormacion = () => (
+const renderFormacion = () => (
     <div className="space-y-6">
       {formacionData.map((item) => (
-        <div key={item.id} className="flex gap-4 p-5 rounded-xl border border-brand-border/60 bg-brand-surface/20 hover:bg-brand-surface-subtle transition-colors">
-          <div className={`hidden sm:flex mt-1 w-10 h-10 rounded-full items-center justify-center shrink-0 ${
+        <div key={item.id} className="flex gap-4 p-4 md:p-5 rounded-xl border border-brand-border/60 bg-brand-surface/20 hover:bg-brand-surface-subtle transition-colors">
+          
+          {/* AQUÍ ESTÁ EL CAMBIO: Se eliminó 'hidden sm:flex' y se dejó solo 'flex' */}
+          <div className={`flex mt-1 w-10 h-10 rounded-full items-center justify-center shrink-0 ${
             item.featured 
               ? 'bg-brand-accent/10 border border-brand-accent/20 text-brand-accent' 
               : 'bg-brand-surface-subtle border border-brand-border text-brand-muted'
@@ -165,18 +167,46 @@ const renderTrayectoria = () => (
               <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
             </svg>
           </div>
+
           <div>
             <h3 className="text-brand-text font-bold text-[15px]">{item.title}</h3>
             <p className="text-brand-muted text-[12px] font-medium mb-2">
               {item.institution} {item.date ? `• ${item.date}` : ''}
             </p>
-            {item.description && <p className="text-brand-muted text-[14px]">{item.description}</p>}
-            {item.items && (
-              <ul className="text-brand-muted text-[13px] list-disc ml-4 space-y-1">
-                {item.items.map((subItem, sIdx) => (
-                  <li key={sIdx}>{subItem}</li>
-                ))}
+            
+            {/* RENDERIZADO DINÁMICO DE DESCRIPCIÓN (String o Array) */}
+            {Array.isArray(item.description) ? (
+              <ul className="flex flex-col gap-1.5 mt-3">
+                {item.description.map((bullet: string, index: number) => {
+                  const colonIndex = bullet.indexOf(':');
+                  
+                  // Si el bullet tiene dos puntos ":", resaltamos la primera parte
+                  if (colonIndex !== -1) {
+                    const title = bullet.substring(0, colonIndex);
+                    const text = bullet.substring(colonIndex + 1);
+                    return (
+                      <li key={index} className="text-brand-muted text-[13px] leading-relaxed relative pl-4">
+                        <span className="absolute left-0 top-2 w-1.5 h-1.5 bg-brand-border rounded-full"></span>
+                        <strong className="text-brand-text font-medium">{title}:</strong>{text}
+                      </li>
+                    );
+                  }
+                  
+                  // Bullet normal
+                  return (
+                    <li key={index} className="text-brand-muted text-[13px] leading-relaxed relative pl-4">
+                      <span className="absolute left-0 top-2 w-1.5 h-1.5 bg-brand-border rounded-full"></span>
+                      {bullet}
+                    </li>
+                  );
+                })}
               </ul>
+            ) : (
+              item.description && (
+                <p className="text-brand-muted text-[14px] leading-relaxed mt-2">
+                  {item.description}
+                </p>
+              )
             )}
           </div>
         </div>
