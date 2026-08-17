@@ -206,7 +206,7 @@ export default function Home() {
 
           <div className="flex items-start gap-2.5">
             <svg className="w-3.5 h-3.5 text-brand-muted shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-            <span className="leading-snug">Apasionado por crear experiencias web modernas y eficientes, mientras me encuentro en constante aprendizaje para mejorar mis habilidades</span>
+            <span className="leading-snug">Centrado en el rendimiento y la experiencia de usuario, respaldado por años de experiencia en la resolución de problemas técnicos en un entorno corporativo.</span>
           </div>
 
           <div className="flex items-center gap-2.5">

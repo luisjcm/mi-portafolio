@@ -23,7 +23,7 @@ export default function SobreMi() {
             Sobre Mí
           </h1>
           <p className="text-[14px] md:text-lg text-brand-muted leading-relaxed max-w-2xl m-0">
-            Soy Ingeniero de Sistemas. Tengo 6 años de experiencia en el sector Soporte Técnico IT, y actualmente tengo 1 año emprendiendo como Desarrollador Web freelance remotamente para agencias digitales.
+            Desarrollador Frontend Web y Soporte TI. Mi trayectoria me ha enseñado que el buen diseño web requiere una base técnica impecable. Traduzco requerimientos complejos en aplicaciones web rápidas, responsivas y listas para escalar.
           </p>
         </header>
 

@@ -17,7 +17,7 @@ export default function Footer() {
               LUIS<span className="text-brand-accent">JCM</span>
             </Link>
             <p className="text-[13px] text-brand-muted leading-relaxed mb-4 max-w-sm">
-              Ingeniero de Sistemas y Desarrollador Web. Transformando ideas complejas en experiencias digitales limpias, optimizadas y escalables para el navegador.
+              Desarrollo web con base en ingeniería. Experiencias digitales limpias, código escalable y rendimiento optimizado.
             </p>
             <a
               href="mailto:contacto@luisjcm.com"
