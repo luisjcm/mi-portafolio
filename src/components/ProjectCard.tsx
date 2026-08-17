@@ -77,7 +77,7 @@ export default function ProjectCard({
           {/* TÍTULO Y BADGE DINÁMICO */}
           <div className="flex items-start justify-between gap-3 mb-2">
             <Link to={`/proyectos/${slug}`} className="block min-w-0">
-              <h3 className="text-brand-text font-bold text-base group-hover:text-brand-accent transition-colors truncate">
+              <h3 className="text-brand-text font-bold text-xs group-hover:text-brand-accent transition-colors truncate">
                 {title}
               </h3>
             </Link>
@@ -90,7 +90,7 @@ export default function ProjectCard({
             )}
           </div>
 
-          <p className="text-brand-muted text-sm leading-relaxed mb-6 line-clamp-2">
+          <p className="text-brand-muted text-xs leading-relaxed mb-6 line-clamp-2">
             {description}
           </p>
         </div>

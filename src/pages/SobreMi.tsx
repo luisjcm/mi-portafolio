@@ -17,30 +17,23 @@ export default function SobreMi() {
 
       <div className="max-w-6xl mx-auto px-6 mt-20 md:mt-24 relative z-10">
         
-        {/* CABECERA */}
-        <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-brand-text mb-4 tracking-tight">
+        {/* CABECERA ESTANDARIZADA */}
+        <header className="flex flex-col gap-3 mb-10 md:mb-12 relative z-10">
+          <h1 className="text-3xl md:text-4xl font-bold text-brand-text tracking-tight m-0">
             Sobre Mí
           </h1>
-        
-        </div>
+          <p className="text-[14px] md:text-lg text-brand-muted leading-relaxed max-w-2xl m-0">
+            Soy Ingeniero de Sistemas. Tengo 6 años de experiencia en el sector Soporte Técnico IT, y actualmente tengo 1 año emprendiendo como Desarrollador Web freelance remotamente para agencias digitales.
+          </p>
+        </header>
 
         {/* CONTENIDO PRINCIPAL A 3 COLUMNAS (12 Grid) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           
-          {/* SECCIÓN IZQUIERDA: TEXTO REDUCIDO Y GRÁFICO TECH (Ocupa 8 columnas) */}
+          {/* SECCIÓN IZQUIERDA: GRÁFICO TECH (Ocupa 8 columnas) */}
           <div className="lg:col-span-8 space-y-10">
             
-            {/* Texto Resumido */}
-            <div className="space-y-5 text-brand-muted text-[15px] md:text-base leading-relaxed">
-              <p>
-                Soy Ingeniero de Sistemas. Tengo 6 años de experiencia en el sector Soporte Técnico IT, y actualmente tengo 1 año emprendiendo como Desarrollador Web freelance remotamente para agencias digitales.
-              </p>
-             
-            </div>
-
             {/* GRÁFICO TECNOLÓGICO: Ventana de Código */}
-            {/* Si prefieres usar una imagen de un muñeco, puedes borrar este div de la ventana y descomentar la imagen de abajo */}
             <div className="w-full rounded-xl overflow-hidden border border-brand-border/60 bg-[#0d1117] shadow-2xl relative group">
               <div className="absolute inset-0 bg-linear-to-tr from-brand-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
@@ -77,13 +70,6 @@ export default function SobreMi() {
                 <span className="text-[#e6edf3]">{'};'}</span>
               </div>
             </div>
-
-            {/* ESPACIO PARA AVATAR (Descomentar si prefieres imagen en vez de código) */}
-            {/* 
-            <div className="w-full flex justify-center py-4">
-              <img src="/assets/tu-avatar-tech.svg" alt="Luis JCM Workspace" className="w-64 md:w-80 opacity-90 drop-shadow-2xl" />
-            </div> 
-            */}
 
           </div>
 

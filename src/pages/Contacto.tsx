@@ -69,11 +69,12 @@ export default function Contacto() {
   return (
     <main className="w-full max-w-[800px] mx-auto p-6 mt-20 md:mt-24 min-h-screen animate-page-enter">
       
-      <header className="mb-12">
-        <h1 className="text-3xl md:text-4xl font-bold text-brand-text tracking-tight mb-4">
+      {/* CABECERA ESTANDARIZADA */}
+      <header className="flex flex-col gap-3 mb-10 md:mb-12">
+        <h1 className="text-3xl md:text-4xl font-bold text-brand-text tracking-tight m-0 relative z-10">
           Trabajemos Juntos
         </h1>
-        <p className="text-lg text-brand-muted leading-relaxed max-w-xl">
+        <p className="text-[14px] md:text-lg text-brand-muted leading-relaxed max-w-2xl m-0">
           ¿Tienes un proyecto en mente, necesitas soporte técnico especializado o buscas un perfil para tu equipo? Hablemos.
         </p>
       </header>
