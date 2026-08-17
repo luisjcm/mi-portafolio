@@ -269,9 +269,20 @@ const renderTrayectoria = () => (
                   </span>
                 </a>
 
-                {/* Botón Descargar CV */}
+            {/* Botón Descargar CV */}
                 <button
-                  onClick={() => showToast("El currículum estará disponible pronto.", "warning")}
+                  onClick={() => {
+                    // 1. Mostramos la notificación verde
+                    showToast("Descargando...", "success");
+                    
+                    // 2. Forzamos la descarga del archivo desde la carpeta public
+                    const link = document.createElement('a');
+                    link.href = '/Luis_Curbata_CV_Frontend.pdf'; // Ruta absoluta a la carpeta public
+                    link.download = 'Luis_Curbata_CV_Frontend.pdf'; // Nombre con el que se guardará
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
                   className="group relative flex-1 min-w-[115px] max-w-[140px] py-2 md:py-2.5 bg-brand-surface-subtle border border-brand-border rounded-[10px] font-semibold text-brand-text text-[12px] md:text-[13px] overflow-hidden text-center active:scale-95 transition-all cursor-pointer"
                 >
                   <div className="absolute inset-0 bg-linear-to-r from-transparent via-brand-accent/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
