@@ -301,7 +301,7 @@ const renderTrayectoria = () => (
 
                 {/* Icono LinkedIn */}
                 <a
-                  href="https://linkedin.com/in/tu-perfil"
+                  href="https://linkedin.com/in/luisjcm"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Perfil de LinkedIn"
@@ -318,7 +318,7 @@ const renderTrayectoria = () => (
 
                 {/* Icono GitHub */}
                 <a
-                  href="https://github.com/tu-usuario"
+                  href="https://github.com/luisjcm"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Perfil de GitHub"
