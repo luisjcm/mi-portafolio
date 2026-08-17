@@ -307,8 +307,8 @@ const renderFormacion = () => (
                     
                     // 2. Forzamos la descarga del archivo desde la carpeta public
                     const link = document.createElement('a');
-                    link.href = '/Luis_Curbata_CV_Frontend.pdf'; // Ruta absoluta a la carpeta public
-                    link.download = 'Luis_Curbata_CV_Frontend.pdf'; // Nombre con el que se guardará
+                    link.href = '/CV_Luis_Curbata.pdf'; // Ruta absoluta a la carpeta public
+                    link.download = 'CV_Luis_Curbata.pdf'; // Nombre con el que se guardará
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
