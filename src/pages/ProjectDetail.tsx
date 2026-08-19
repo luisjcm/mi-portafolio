@@ -113,7 +113,7 @@ export default function ProjectDetail() {
   };
 
   return (
-    <main className="w-full max-w-[800px] min-w-0 mx-auto px-5 md:px-6 py-6 md:py-8 pb-28 md:pb-16 min-h-screen animate-page-enter">
+    <main className="w-full max-w-[900px] min-w-0 mx-auto px-5 md:px-6 py-6 md:py-8 pb-28 md:pb-16 min-h-screen animate-page-enter">
       
       {/* BOTÓN VOLVER */}
       <div className="mb-6">
@@ -158,92 +158,138 @@ export default function ProjectDetail() {
         </div>
       </header>
 
-      {/* MOCKUP VISOR DE IMÁGENES */}
-      {subProjects.length === 0 && mainGallery.length > 0 && (
-        <div className="w-full bg-brand-bg border border-brand-border rounded-2xl overflow-hidden shadow-xl mb-10 relative select-none">
-          
-          {/* Barra de ventana estilo navegador */}
-          <div className="h-9 bg-brand-surface/90 border-b border-brand-border px-3.5 flex items-center justify-between gap-2.5">
-            <div className="flex items-center gap-1.5 shrink-0">
-              <div className="w-2.5 h-2.5 rounded-full bg-brand-surface-subtle"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-brand-surface-subtle"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-brand-surface-subtle"></div>
-            </div>
-            
-            {project.projectUrl && (
-              <div className="flex-1 min-w-0 max-w-[240px] md:max-w-md bg-brand-bg/80 border border-brand-border/80 rounded-md px-3 py-0.5 text-[11px] text-brand-muted font-mono tracking-tight truncate text-center mx-auto">
-                {project.projectUrl.replace(/^https?:\/\//, '')}
+      {/* CONTENEDOR PRINCIPAL: SPLIT MÓVIL (IZQ: GALERÍA / DER: TEXTO) O STACK WEB */}
+      <div className={project.wireframeType === 'mobile' ? 'grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start' : 'block'}>
+        
+        {/* COLUMNA IZQUIERDA: GALERÍA MOCKUPS */}
+        <div className={project.wireframeType === 'mobile' ? 'lg:col-span-5 min-w-0' : 'w-full mb-10'}>
+          {subProjects.length === 0 && mainGallery.length > 0 && (
+            project.wireframeType === 'mobile' ? (
+              
+              /* --- WIREFRAME: MÓVIL ANDROID PREMIUM (CARRUSEL HORIZONTAL) --- */
+              <div className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-6 pt-2 px-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden relative">
+                {mainGallery.map((img, idx) => (
+                  <div key={idx} className="shrink-0 snap-center flex justify-center">
+                    
+                    {/* Chasis del teléfono: Más pequeño y ajustado */}
+                    <div className="relative w-[220px] sm:w-[240px] aspect-[9/19.5] bg-[#09090b] rounded-[2rem] border-[5px] border-[#18181b] shadow-xl shadow-black/40 overflow-hidden ring-1 ring-white/10 flex-shrink-0">
+                      
+                      {/* Botones laterales simulados */}
+                      <div className="absolute top-[20%] -right-[5px] w-[2px] h-10 bg-[#27272a] rounded-r-md"></div>
+                      <div className="absolute top-[32%] -right-[5px] w-[2px] h-7 bg-[#27272a] rounded-r-md"></div>
+
+                      {/* Cámara frontal (Punch-hole) */}
+                      <div className="absolute top-2.5 inset-x-0 mx-auto w-3 h-3 bg-black rounded-full z-20 shadow-[inset_0_-1px_2px_rgba(255,255,255,0.15)] ring-1 ring-black/50"></div>
+                      
+                      {/* Altavoz superior */}
+                      <div className="absolute top-1 inset-x-0 mx-auto w-8 h-0.5 bg-[#18181b] rounded-full z-20"></div>
+                      
+                      {/* Reflejo cristal fijo (Sin interactividad) */}
+                      <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent opacity-10 pointer-events-none z-10"></div>
+                      
+                      {/* Imagen de la App: SIN EFECTO HOVER DE ZOOM */}
+                      <img
+                        src={img}
+                        alt={`${project.title} - Captura ${idx + 1}`}
+                        className="w-full h-full object-cover object-top"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                ))}
               </div>
-            )}
-            
-            <div className="text-[11px] text-brand-muted font-mono shrink-0">
-              {mainGallery.length > 1 ? `${currentImageIndex + 1}/${mainGallery.length}` : ''}
-            </div>
-          </div>
-          
-          {/* Contenedor de la Imagen con Gestos Calibrados */}
-          <div 
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            className="relative w-full h-auto rounded-b-xl overflow-hidden bg-brand-surface group touch-pan-y"
-          >
-            <img 
-              src={mainGallery[currentImageIndex]} 
-              alt={`${project.title} - Captura ${currentImageIndex + 1}`} 
-              className="w-full h-auto block"
-              onError={(e) => { e.currentTarget.style.display = 'none'; }}
-            />
 
-            {/* Flechas de navegación (Siempre visibles en móvil para control directo) */}
-            {mainGallery.length > 1 && (
-              <>
-                <button 
-                  onClick={(e) => { e.stopPropagation(); changeImage('prev', mainGallery.length); }}
-                  aria-label="Imagen anterior"
-                  className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-brand-bg/85 border border-brand-border/20 text-brand-text flex items-center justify-center backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all cursor-pointer hover:bg-brand-primary active:scale-95 z-10 shadow-lg"
-                >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                </button>
-
-                <button 
-                  onClick={(e) => { e.stopPropagation(); changeImage('next', mainGallery.length); }}
-                  aria-label="Imagen siguiente"
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-brand-bg/85 border border-brand-border/20 text-brand-text flex items-center justify-center backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all cursor-pointer hover:bg-brand-primary active:scale-95 z-10 shadow-lg"
-                >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </button>
-
-                {/* Puntos de paginación (Dots) */}
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-brand-bg/85 backdrop-blur-md border border-brand-border/20 max-w-[90%] overflow-x-auto">
-                  {mainGallery.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentImageIndex(idx)}
-                      className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                        idx === currentImageIndex ? 'w-4 bg-brand-accent' : 'w-1.5 bg-brand-surface-subtle hover:bg-brand-bg'
-                      }`}
-                      aria-label={`Ir a imagen ${idx + 1}`}
-                    />
-                  ))}
+            ) : (
+              /* --- WIREFRAME: WEB (VISOR TIPO NAVEGADOR CON SLIDER) --- */
+              <div className="w-full bg-brand-bg border border-brand-border rounded-2xl overflow-hidden shadow-xl mb-10 relative select-none">
+                
+                {/* Barra de ventana estilo navegador */}
+                <div className="h-9 bg-brand-surface/90 border-b border-brand-border px-3.5 flex items-center justify-between gap-2.5">
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    <div className="w-2.5 h-2.5 rounded-full bg-brand-surface-subtle"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-brand-surface-subtle"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-brand-surface-subtle"></div>
+                  </div>
+                  
+                  {project.projectUrl && (
+                    <div className="flex-1 min-w-0 max-w-[240px] md:max-w-md bg-brand-bg/80 border border-brand-border/80 rounded-md px-3 py-0.5 text-[11px] text-brand-muted font-mono tracking-tight truncate text-center mx-auto">
+                      {project.projectUrl.replace(/^https?:\/\//, '')}
+                    </div>
+                  )}
+                  
+                  <div className="text-[11px] text-brand-muted font-mono shrink-0">
+                    {mainGallery.length > 1 ? `${currentImageIndex + 1}/${mainGallery.length}` : ''}
+                  </div>
                 </div>
-              </>
-            )}
-          </div>
+                
+                {/* Contenedor de la Imagen con Gestos Calibrados */}
+                <div 
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
+                  className="relative w-full h-auto rounded-b-xl overflow-hidden bg-brand-surface group touch-pan-y"
+                >
+                  <img 
+                    src={mainGallery[currentImageIndex]} 
+                    alt={`${project.title} - Captura ${currentImageIndex + 1}`} 
+                    className="w-full h-auto block"
+                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                  />
+
+                  {/* Flechas de navegación (Siempre visibles en móvil para control directo) */}
+                  {mainGallery.length > 1 && (
+                    <>
+                      <button 
+                        onClick={(e) => { e.stopPropagation(); changeImage('prev', mainGallery.length); }}
+                        aria-label="Imagen anterior"
+                        className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-brand-bg/85 border border-brand-border/20 text-brand-text flex items-center justify-center backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all cursor-pointer hover:bg-brand-primary active:scale-95 z-10 shadow-lg"
+                      >
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                      </button>
+
+                      <button 
+                        onClick={(e) => { e.stopPropagation(); changeImage('next', mainGallery.length); }}
+                        aria-label="Imagen siguiente"
+                        className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-brand-bg/85 border border-brand-border/20 text-brand-text flex items-center justify-center backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all cursor-pointer hover:bg-brand-primary active:scale-95 z-10 shadow-lg"
+                      >
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </button>
+
+                      {/* Puntos de paginación (Dots) */}
+                      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-brand-bg/85 backdrop-blur-md border border-brand-border/20 max-w-[90%] overflow-x-auto">
+                        {mainGallery.map((_, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => setCurrentImageIndex(idx)}
+                            className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                              idx === currentImageIndex ? 'w-4 bg-brand-accent' : 'w-1.5 bg-brand-surface-subtle hover:bg-brand-bg'
+                            }`}
+                            aria-label={`Ir a imagen ${idx + 1}`}
+                          />
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+            )
+          )}
         </div>
-      )}
 
-      {/* CONTENIDO MARKDOWN */}
-      <div 
-        className="prose prose-invert max-w-none text-brand-muted text-[13px] md:text-sm leading-relaxed space-y-4
-          [&>h2]:text-brand-text [&>h2]:text-base md:[&>h2]:text-lg [&>h2]:font-bold [&>h2]:mt-7 [&>h2]:mb-2.5
-          [&>h3]:text-brand-muted [&>h3]:text-sm [&>h3]:font-semibold [&>h3]:mt-5 [&>h3]:mb-2
-          [&>p]:text-brand-muted [&>p]:leading-relaxed [&>p]:mb-3
-          [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-1.5 [&>li]:text-brand-muted
-          [&>hr]:border-brand-border/80 [&>hr]:my-6"
-        dangerouslySetInnerHTML={{ __html: marked(body) as string }}
-      />
+        {/* COLUMNA DERECHA: CONTENIDO MARKDOWN */}
+        <div className={project.wireframeType === 'mobile' ? 'lg:col-span-7' : 'w-full'}>
+          <div 
+            className="prose prose-invert max-w-none text-brand-muted text-[13px] md:text-sm leading-relaxed space-y-4
+              [&>h2]:text-brand-text [&>h2]:text-base md:[&>h2]:text-lg [&>h2]:font-bold [&>h2]:mt-7 [&>h2]:mb-2.5 [&>h2:first-child]:mt-0
+              [&>h3]:text-brand-muted [&>h3]:text-sm [&>h3]:font-semibold [&>h3]:mt-5 [&>h3]:mb-2 [&>h3:first-child]:mt-0
+              [&>p]:text-brand-muted [&>p]:leading-relaxed [&>p]:mb-3 [&>p:first-child]:mt-0
+              [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-1.5 [&>li]:text-brand-muted
+              [&>hr]:border-brand-border/80 [&>hr]:my-6"
+            dangerouslySetInnerHTML={{ __html: marked(body) as string }}
+          />
+        </div>
 
+      </div>
     </main>
   );
 }
