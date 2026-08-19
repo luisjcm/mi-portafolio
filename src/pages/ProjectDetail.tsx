@@ -15,12 +15,47 @@ interface SubProject {
   gallery?: string[];
 }
 
+// --- MINI COMPONENTE: WIREFRAME ANDROID REUTILIZABLE ---
+// Se usa tanto en el carrusel normal como en la galería a pantalla completa
+const MobileMockup = ({ src, isLightbox }: { src: string, isLightbox: boolean }) => {
+  const sizeClasses = isLightbox 
+    ? "h-[70vh] md:h-[80vh] aspect-[9/19.5]" // Tamaño grande para el Lightbox
+    : "w-[160px] sm:w-[190px] aspect-[9/19.5] hover:scale-[1.02] active:scale-95 cursor-zoom-in"; // Tamaño para carrusel
+
+  return (
+    <div className={`relative ${sizeClasses} bg-[#09090b] rounded-[1.8rem] md:rounded-[2.2rem] border-[4px] md:border-[6px] border-[#18181b] shadow-2xl shadow-black/50 overflow-hidden ring-1 ring-white/10 shrink-0 transition-transform duration-300 flex flex-col`}>
+      
+      {/* Botones físicos laterales */}
+      <div className="absolute top-[20%] -right-[4px] md:-right-[6px] w-[2px] md:w-[3px] h-8 md:h-10 bg-[#27272a] rounded-l-md"></div>
+      <div className="absolute top-[32%] -right-[4px] md:-right-[6px] w-[2px] md:w-[3px] h-6 md:h-7 bg-[#27272a] rounded-l-md"></div>
+      
+      {/* Notch / Punch-hole y altavoz */}
+      <div className="absolute top-2.5 md:top-3 inset-x-0 mx-auto w-2.5 h-2.5 md:w-3 md:h-3 bg-black rounded-full z-20 shadow-[inset_0_-1px_2px_rgba(255,255,255,0.15)] ring-1 ring-black/80"></div>
+      <div className="absolute top-1 md:top-1.5 inset-x-0 mx-auto w-6 md:w-8 h-0.5 md:h-1 bg-[#18181b] rounded-full z-20"></div>
+
+      {/* Pantalla - El p-1 (padding) evita que los bordes redondeados recorten la captura */}
+      <div className="relative w-full h-full p-1 bg-black overflow-hidden rounded-[1.5rem] md:rounded-[1.8rem]">
+        <img src={src} alt="Captura App" className="w-full h-full object-contain" loading="lazy" />
+      </div>
+
+      {/* Reflejo cristal (solo en vista normal, se quita en Lightbox para evitar distracciones) */}
+      {!isLightbox && (
+        <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent opacity-10 pointer-events-none z-30"></div>
+      )}
+    </div>
+  );
+};
+
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const [activeSubId, setActiveSubId] = useState<string | null>(null);
+  
+  // Estados
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
-  // Referencias para detección precisa en 2 ejes (X e Y)
+  // Referencias para Swipe y Carrusel
+  const carouselRef = useRef<HTMLDivElement>(null);
   const touchStartCoords = useRef<{ x: number; y: number } | null>(null);
   const touchEndCoords = useRef<{ x: number; y: number } | null>(null);
 
@@ -29,15 +64,12 @@ export default function ProjectDetail() {
     setCurrentImageIndex(0);
   }, [slug]);
 
-  const fileEntry = Object.entries(mdFiles).find(([path]) => 
-    path.includes(`${slug}.md`)
-  );
+  const fileEntry = Object.entries(mdFiles).find(([path]) => path.includes(`${slug}.md`));
 
   if (!fileEntry) {
     return (
       <main className="w-full max-w-[800px] mx-auto p-6 mt-20 text-center min-h-screen animate-page-enter">
         <h1 className="text-xl font-bold text-brand-text mb-3">Proyecto no encontrado</h1>
-        <p className="text-xs text-brand-muted mb-6">El caso de estudio que buscas no existe o fue movido.</p>
         <Link to="/" className="px-4 py-2 bg-brand-surface text-brand-text font-semibold text-xs rounded-lg hover:bg-brand-surface-subtle transition-colors">
           Volver al Inicio
         </Link>
@@ -48,74 +80,61 @@ export default function ProjectDetail() {
   const [_, module] = fileEntry;
   const { attributes, body } = frontMatter((module as any).default);
   const project = attributes as { 
-    title: string; 
-    description: string; 
-    techStack?: string[]; 
-    wireframeType?: string;
-    subProjects?: SubProject[];
-    projectUrl?: string; 
-    imageUrl?: string;
-    images?: string[];
+    title: string; description: string; techStack?: string[]; wireframeType?: string; subProjects?: SubProject[]; projectUrl?: string; imageUrl?: string; images?: string[];
   };
 
   const mainGallery = project.images || [project.imageUrl].filter(Boolean);
-  const subProjects = project.subProjects || [];
 
-  const changeImage = (direction: 'next' | 'prev', total: number) => {
-    setCurrentImageIndex((prev) => 
-      direction === 'next' ? (prev + 1) % total : (prev - 1 + total) % total
-    );
+  const getNextIndex = (current: number, dir: 'next' | 'prev', total: number) => {
+    return dir === 'next' ? (current + 1) % total : (current - 1 + total) % total;
   };
 
-  // 1. Capturamos X e Y iniciales al tocar la pantalla
+  // --- GESTOS TÁCTILES ---
   const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartCoords.current = {
-      x: e.targetTouches[0].clientX,
-      y: e.targetTouches[0].clientY,
-    };
+    touchStartCoords.current = { x: e.targetTouches[0].clientX, y: e.targetTouches[0].clientY };
     touchEndCoords.current = null;
   };
 
-  // 2. Capturamos X e Y mientras se mueve el dedo
   const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndCoords.current = {
-      x: e.targetTouches[0].clientX,
-      y: e.targetTouches[0].clientY,
-    };
+    touchEndCoords.current = { x: e.targetTouches[0].clientX, y: e.targetTouches[0].clientY };
   };
 
-  // 3. Evaluamos si el movimiento fue intencionalmente horizontal
-  const handleTouchEnd = () => {
-    if (!touchStartCoords.current || !touchEndCoords.current) {
-      touchStartCoords.current = null;
-      touchEndCoords.current = null;
-      return;
-    }
-
+  const handleTouchEnd = (isForLightbox = false) => {
+    if (!touchStartCoords.current || !touchEndCoords.current) return;
     const deltaX = touchStartCoords.current.x - touchEndCoords.current.x;
     const deltaY = touchStartCoords.current.y - touchEndCoords.current.y;
-    const absX = Math.abs(deltaX);
-    const absY = Math.abs(deltaY);
-
-    // Condición: Movimiento horizontal mínimo de 60px Y predominancia horizontal sobre vertical
-    const isHorizontalSwipe = absX > 60 && absX > absY * 1.6;
-
-    if (isHorizontalSwipe && mainGallery.length > 1) {
-      if (deltaX > 0) {
-        changeImage('next', mainGallery.length); // Deslizar hacia la izquierda -> Siguiente
+    
+    if (Math.abs(deltaX) > 60 && Math.abs(deltaX) > Math.abs(deltaY) * 1.6 && mainGallery.length > 1) {
+      if (isForLightbox) {
+        setLightboxIndex(prev => getNextIndex(prev, deltaX > 0 ? 'next' : 'prev', mainGallery.length));
       } else {
-        changeImage('prev', mainGallery.length); // Deslizar hacia la derecha -> Anterior
+        setCurrentImageIndex(prev => getNextIndex(prev, deltaX > 0 ? 'next' : 'prev', mainGallery.length));
       }
     }
+  };
 
-    touchStartCoords.current = null;
-    touchEndCoords.current = null;
+  const scrollCarousel = (direction: 'left' | 'right') => {
+    if (carouselRef.current) {
+      const scrollAmount = direction === 'left' ? -220 : 220;
+      carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setIsLightboxOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+  
+  const closeLightbox = () => {
+    setIsLightboxOpen(false);
+    document.body.style.overflow = 'auto';
   };
 
   return (
     <main className="w-full max-w-[900px] min-w-0 mx-auto px-5 md:px-6 py-6 md:py-8 pb-28 md:pb-16 min-h-screen animate-page-enter">
       
-      {/* BOTÓN VOLVER */}
+      {/* BOTÓN VOLVER GENERAL */}
       <div className="mb-6">
         <Link to="/" className="inline-flex items-center gap-2 text-xs font-medium text-brand-muted hover:text-brand-text transition-colors bg-brand-surface/60 border border-brand-border px-3 py-1.5 rounded-lg active:scale-95">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
@@ -123,151 +142,72 @@ export default function ProjectDetail() {
         </Link>
       </div>
 
-      {/* CABECERA DEL PROYECTO */}
       <header className="mb-8">
-        <h1 className="text-xl md:text-2xl font-bold text-brand-text tracking-tight mb-3">
-          {project.title}
-        </h1>
-
-        <p className="text-[13px] md:text-sm text-brand-muted leading-relaxed max-w-2xl mb-5">
-          {project.description}
-        </p>
-
+        <h1 className="text-xl md:text-2xl font-bold text-brand-text tracking-tight mb-3">{project.title}</h1>
+        <p className="text-[13px] md:text-sm text-brand-muted leading-relaxed max-w-2xl mb-5">{project.description}</p>
         <div className="flex flex-col sm:flex-row sm:items-center gap-3">
           {project.projectUrl && (
-            <a 
-              href={project.projectUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-brand-primary hover:bg-brand-accent text-brand-text font-semibold text-xs rounded-xl transition-all shadow-md shadow-brand-primary/20 active:scale-95 shrink-0 w-full sm:w-auto"
-            >
+            <a href={project.projectUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-brand-primary hover:bg-brand-accent text-brand-text font-semibold text-xs rounded-xl transition-all shadow-md shadow-brand-primary/20 active:scale-95 shrink-0 w-full sm:w-auto">
               <span>Visitar Sitio en Vivo</span>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
             </a>
           )}
-
-          {project.techStack && project.techStack.length > 0 && (
+          {project.techStack && (
             <div className="flex flex-wrap gap-1.5">
-              {project.techStack.map((tech) => (
-                <span key={tech} className="px-2.5 py-1 bg-brand-surface border border-brand-border/80 rounded-md text-[11px] text-brand-muted font-medium">
-                  {tech}
-                </span>
-              ))}
+              {project.techStack.map(tech => <span key={tech} className="px-2.5 py-1 bg-brand-surface border border-brand-border/80 rounded-md text-[11px] text-brand-muted font-medium">{tech}</span>)}
             </div>
           )}
         </div>
       </header>
 
-      {/* CONTENEDOR PRINCIPAL: SPLIT MÓVIL (IZQ: GALERÍA / DER: TEXTO) O STACK WEB */}
-      <div className={project.wireframeType === 'mobile' ? 'grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start' : 'block'}>
+      <div className={project.wireframeType === 'mobile' ? 'grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start' : 'flex flex-col items-center'}>
         
-        {/* COLUMNA IZQUIERDA: GALERÍA MOCKUPS */}
-        <div className={project.wireframeType === 'mobile' ? 'lg:col-span-5 min-w-0' : 'w-full mb-10'}>
-          {subProjects.length === 0 && mainGallery.length > 0 && (
+        {/* COLUMNA VISUAL: GALERÍA MOCKUPS */}
+        <div className={project.wireframeType === 'mobile' ? 'lg:col-span-5 min-w-0 w-full relative' : 'w-full max-w-[700px] mb-10'}>
+          {mainGallery.length > 0 && (
             project.wireframeType === 'mobile' ? (
               
-              /* --- WIREFRAME: MÓVIL ANDROID PREMIUM (CARRUSEL HORIZONTAL) --- */
-              <div className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-6 pt-2 px-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden relative">
-                {mainGallery.map((img, idx) => (
-                  <div key={idx} className="shrink-0 snap-center flex justify-center">
-                    
-                    {/* Chasis del teléfono: Más pequeño y ajustado */}
-                    <div className="relative w-[220px] sm:w-[240px] aspect-[9/19.5] bg-[#09090b] rounded-[2rem] border-[5px] border-[#18181b] shadow-xl shadow-black/40 overflow-hidden ring-1 ring-white/10 flex-shrink-0">
-                      
-                      {/* Botones laterales simulados */}
-                      <div className="absolute top-[20%] -right-[5px] w-[2px] h-10 bg-[#27272a] rounded-r-md"></div>
-                      <div className="absolute top-[32%] -right-[5px] w-[2px] h-7 bg-[#27272a] rounded-r-md"></div>
+              /* --- WIREFRAME: MÓVIL (CARRUSEL) --- */
+              <div className="relative group/carousel">
+                {mainGallery.length > 1 && (
+                  <button onClick={() => scrollCarousel('left')} className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-brand-bg/90 border border-brand-border text-brand-text flex items-center justify-center shadow-lg hover:bg-brand-surface transition-colors">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                  </button>
+                )}
 
-                      {/* Cámara frontal (Punch-hole) */}
-                      <div className="absolute top-2.5 inset-x-0 mx-auto w-3 h-3 bg-black rounded-full z-20 shadow-[inset_0_-1px_2px_rgba(255,255,255,0.15)] ring-1 ring-black/50"></div>
-                      
-                      {/* Altavoz superior */}
-                      <div className="absolute top-1 inset-x-0 mx-auto w-8 h-0.5 bg-[#18181b] rounded-full z-20"></div>
-                      
-                      {/* Reflejo cristal fijo (Sin interactividad) */}
-                      <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent opacity-10 pointer-events-none z-10"></div>
-                      
-                      {/* Imagen de la App: SIN EFECTO HOVER DE ZOOM */}
-                      <img
-                        src={img}
-                        alt={`${project.title} - Captura ${idx + 1}`}
-                        className="w-full h-full object-cover object-top"
-                        loading="lazy"
-                      />
+                <div ref={carouselRef} className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-6 pt-2 px-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden relative scroll-smooth">
+                  {mainGallery.map((img, idx) => (
+                    <div key={idx} className="shrink-0 snap-center flex justify-center" onClick={() => openLightbox(idx)}>
+                      <MobileMockup src={img} isLightbox={false} />
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+
+                {mainGallery.length > 1 && (
+                  <button onClick={() => scrollCarousel('right')} className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-brand-bg/90 border border-brand-border text-brand-text flex items-center justify-center shadow-lg hover:bg-brand-surface transition-colors">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  </button>
+                )}
               </div>
 
             ) : (
-              /* --- WIREFRAME: WEB (VISOR TIPO NAVEGADOR CON SLIDER) --- */
-              <div className="w-full bg-brand-bg border border-brand-border rounded-2xl overflow-hidden shadow-xl mb-10 relative select-none">
-                
-                {/* Barra de ventana estilo navegador */}
-                <div className="h-9 bg-brand-surface/90 border-b border-brand-border px-3.5 flex items-center justify-between gap-2.5">
+              /* --- WIREFRAME: WEB (VISOR) --- */
+              <div className="w-full bg-brand-bg border border-brand-border rounded-xl overflow-hidden shadow-xl mb-10 relative select-none">
+                <div className="h-7 md:h-8 bg-brand-surface/90 border-b border-brand-border px-3.5 flex items-center justify-between gap-2.5">
                   <div className="flex items-center gap-1.5 shrink-0">
-                    <div className="w-2.5 h-2.5 rounded-full bg-brand-surface-subtle"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-brand-surface-subtle"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-brand-surface-subtle"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-brand-surface-subtle"></div><div className="w-2.5 h-2.5 rounded-full bg-brand-surface-subtle"></div><div className="w-2.5 h-2.5 rounded-full bg-brand-surface-subtle"></div>
                   </div>
-                  
-                  {project.projectUrl && (
-                    <div className="flex-1 min-w-0 max-w-[240px] md:max-w-md bg-brand-bg/80 border border-brand-border/80 rounded-md px-3 py-0.5 text-[11px] text-brand-muted font-mono tracking-tight truncate text-center mx-auto">
-                      {project.projectUrl.replace(/^https?:\/\//, '')}
-                    </div>
-                  )}
-                  
-                  <div className="text-[11px] text-brand-muted font-mono shrink-0">
-                    {mainGallery.length > 1 ? `${currentImageIndex + 1}/${mainGallery.length}` : ''}
-                  </div>
+                  {project.projectUrl && <div className="flex-1 min-w-0 max-w-[200px] md:max-w-xs bg-brand-bg/80 border border-brand-border/80 rounded-md px-2 py-0.5 text-[10px] md:text-[11px] text-brand-muted font-mono tracking-tight truncate text-center mx-auto">{project.projectUrl.replace(/^https?:\/\//, '')}</div>}
+                  <div className="text-[10px] md:text-[11px] text-brand-muted font-mono shrink-0">{mainGallery.length > 1 ? `${currentImageIndex + 1}/${mainGallery.length}` : ''}</div>
                 </div>
                 
-                {/* Contenedor de la Imagen con Gestos Calibrados */}
-                <div 
-                  onTouchStart={handleTouchStart}
-                  onTouchMove={handleTouchMove}
-                  onTouchEnd={handleTouchEnd}
-                  className="relative w-full h-auto rounded-b-xl overflow-hidden bg-brand-surface group touch-pan-y"
-                >
-                  <img 
-                    src={mainGallery[currentImageIndex]} 
-                    alt={`${project.title} - Captura ${currentImageIndex + 1}`} 
-                    className="w-full h-auto block"
-                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                  />
-
-                  {/* Flechas de navegación (Siempre visibles en móvil para control directo) */}
+                <div onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={() => handleTouchEnd(false)} onClick={() => openLightbox(currentImageIndex)} className="relative w-full h-auto bg-brand-surface group touch-pan-y cursor-zoom-in">
+                  <img src={mainGallery[currentImageIndex]} alt="Captura web" className="w-full h-auto block" />
+                  
                   {mainGallery.length > 1 && (
                     <>
-                      <button 
-                        onClick={(e) => { e.stopPropagation(); changeImage('prev', mainGallery.length); }}
-                        aria-label="Imagen anterior"
-                        className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-brand-bg/85 border border-brand-border/20 text-brand-text flex items-center justify-center backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all cursor-pointer hover:bg-brand-primary active:scale-95 z-10 shadow-lg"
-                      >
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                      </button>
-
-                      <button 
-                        onClick={(e) => { e.stopPropagation(); changeImage('next', mainGallery.length); }}
-                        aria-label="Imagen siguiente"
-                        className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-brand-bg/85 border border-brand-border/20 text-brand-text flex items-center justify-center backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all cursor-pointer hover:bg-brand-primary active:scale-95 z-10 shadow-lg"
-                      >
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
-
-                      {/* Puntos de paginación (Dots) */}
-                      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-brand-bg/85 backdrop-blur-md border border-brand-border/20 max-w-[90%] overflow-x-auto">
-                        {mainGallery.map((_, idx) => (
-                          <button
-                            key={idx}
-                            onClick={() => setCurrentImageIndex(idx)}
-                            className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                              idx === currentImageIndex ? 'w-4 bg-brand-accent' : 'w-1.5 bg-brand-surface-subtle hover:bg-brand-bg'
-                            }`}
-                            aria-label={`Ir a imagen ${idx + 1}`}
-                          />
-                        ))}
-                      </div>
+                      <button onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(prev => getNextIndex(prev, 'prev', mainGallery.length)); }} className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-brand-bg/85 border border-brand-border/20 text-brand-text flex items-center justify-center backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all hover:bg-brand-primary active:scale-95 z-10"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                      <button onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(prev => getNextIndex(prev, 'next', mainGallery.length)); }} className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-brand-bg/85 border border-brand-border/20 text-brand-text flex items-center justify-center backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all hover:bg-brand-primary active:scale-95 z-10"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
                     </>
                   )}
                 </div>
@@ -278,18 +218,56 @@ export default function ProjectDetail() {
 
         {/* COLUMNA DERECHA: CONTENIDO MARKDOWN */}
         <div className={project.wireframeType === 'mobile' ? 'lg:col-span-7' : 'w-full'}>
-          <div 
-            className="prose prose-invert max-w-none text-brand-muted text-[13px] md:text-sm leading-relaxed space-y-4
-              [&>h2]:text-brand-text [&>h2]:text-base md:[&>h2]:text-lg [&>h2]:font-bold [&>h2]:mt-7 [&>h2]:mb-2.5 [&>h2:first-child]:mt-0
-              [&>h3]:text-brand-muted [&>h3]:text-sm [&>h3]:font-semibold [&>h3]:mt-5 [&>h3]:mb-2 [&>h3:first-child]:mt-0
-              [&>p]:text-brand-muted [&>p]:leading-relaxed [&>p]:mb-3 [&>p:first-child]:mt-0
-              [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-1.5 [&>li]:text-brand-muted
-              [&>hr]:border-brand-border/80 [&>hr]:my-6"
-            dangerouslySetInnerHTML={{ __html: marked(body) as string }}
-          />
+          <div dangerouslySetInnerHTML={{ __html: marked(body) as string }} className="prose prose-invert max-w-none text-brand-muted text-[13px] md:text-sm leading-relaxed space-y-4 [&>h2]:text-brand-text [&>h2]:text-base md:[&>h2]:text-lg [&>h2]:font-bold [&>h2]:mt-7 [&>h2]:mb-2.5 [&>h2:first-child]:mt-0 [&>h3]:text-brand-muted [&>h3]:text-sm [&>h3]:font-semibold [&>h3]:mt-5 [&>h3]:mb-2 [&>h3:first-child]:mt-0 [&>p]:text-brand-muted [&>p]:leading-relaxed [&>p]:mb-3 [&>p:first-child]:mt-0 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-1.5 [&>li]:text-brand-muted [&>hr]:border-brand-border/80 [&>hr]:my-6" />
         </div>
-
       </div>
+
+      {/* --- MODAL LIGHTBOX (ZOOM A PANTALLA COMPLETA REFINADO) --- */}
+      {isLightboxOpen && (
+        <div 
+          className="fixed inset-0 z-[9990] flex flex-col items-center justify-center bg-brand-bg/98 backdrop-blur-md animate-fade-in touch-none"
+          onClick={closeLightbox}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={() => handleTouchEnd(true)}
+        >
+          {/* Botón Volver FIJO a prueba de fallos */}
+          <button 
+            onClick={closeLightbox}
+            className="fixed top-4 left-4 md:top-6 md:left-6 z-[9999] inline-flex items-center gap-2 text-xs md:text-sm font-medium text-brand-text hover:text-brand-accent transition-colors bg-brand-surface/90 border border-brand-border px-4 py-2.5 rounded-xl active:scale-95 backdrop-blur-md shadow-xl cursor-pointer"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Volver a la Galería
+          </button>
+
+          {/* Flechas Laterales (PC) */}
+          {mainGallery.length > 1 && (
+            <button onClick={(e) => { e.stopPropagation(); setLightboxIndex(prev => getNextIndex(prev, 'prev', mainGallery.length)); }} className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-brand-surface/80 border border-brand-border text-brand-text hidden md:flex items-center justify-center hover:bg-brand-surface hover:text-brand-accent z-[9995] transition-colors backdrop-blur-md cursor-pointer"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          )}
+
+          {/* Contenedor de Imagen o Teléfono */}
+          <div className="relative flex items-center justify-center w-full h-full px-4" onClick={(e) => e.stopPropagation()}>
+            {project.wireframeType === 'mobile' ? (
+              <MobileMockup src={mainGallery[lightboxIndex]} isLightbox={true} />
+            ) : (
+              <img src={mainGallery[lightboxIndex]} className="w-auto h-auto max-w-full max-h-[85vh] object-contain rounded-md ring-1 ring-white/10 shadow-2xl" />
+            )}
+          </div>
+
+          {/* Flechas Laterales (PC) */}
+          {mainGallery.length > 1 && (
+            <button onClick={(e) => { e.stopPropagation(); setLightboxIndex(prev => getNextIndex(prev, 'next', mainGallery.length)); }} className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-brand-surface/80 border border-brand-border text-brand-text hidden md:flex items-center justify-center hover:bg-brand-surface hover:text-brand-accent z-[9995] transition-colors backdrop-blur-md cursor-pointer"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+          )}
+
+          {/* Indicador de número */}
+          {mainGallery.length > 1 && (
+            <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[9999] text-brand-muted text-[11px] md:text-xs font-mono tracking-widest bg-brand-surface/90 border border-brand-border px-4 py-2 rounded-lg backdrop-blur-md">
+              {lightboxIndex + 1} / {mainGallery.length}
+            </div>
+          )}
+        </div>
+      )}
+
     </main>
   );
 }
