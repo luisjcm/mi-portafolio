@@ -3,6 +3,7 @@ title: AuthApp MFA | Autenticación Segura
 description: Gestión de Accesos y Seguridad Frontend
 techStack: ['React Native', 'Expo Go', 'MFA Security', 'TOTP']
 wireframeType: mobile
+imageUrl: 
 projectUrl: #
 isNew: true
 order: 1
