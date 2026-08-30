@@ -1,4 +1,93 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
+
+  // Subcomponente aislado para la animación
+const AnimatedTerminal = () => {
+  const [text, setText] = useState('');
+  
+  const fullText = `const luisjcm = {
+  rol: 'Freelance Web Developer',
+  ubicacion: 'Barcelona, Venezuela',
+  stackPrincipal: [
+    'React', 'Tailwind CSS',
+    'WordPress', 'Elementor'
+  ],
+  entorno: [
+  'Linux Ubuntu', 'Windows', 
+  'VS Code', 'GitHub'
+  ],
+  estado: 'Desarrollando...'
+};`;
+
+  useEffect(() => {
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      setText(fullText.slice(0, currentIndex));
+      currentIndex++;
+      if (currentIndex > fullText.length) {
+        clearInterval(interval);
+      }
+    }, 35); 
+    return () => clearInterval(interval);
+  }, [fullText]);
+
+  // Parseador seguro: Usa tokens invisibles
+  const highlight = (code: string) => {
+    let res = code
+      .replace(/'[^']*'?/g, (m) => `\x01${m}\x02`)
+      .replace(/\b(const)\b/g, (m) => `\x03${m}\x04`)
+      .replace(/(luisjcm|rol:|ubicacion:|stackPrincipal:|entorno:|estado:)/g, (m) => `\x05${m}\x06`)
+      .replace(/([={}\[\].,])/g, (m) => `\x07${m}\x08`);
+
+    res = res
+      .replace(/\x01/g, '<span style="color: #a5d6ff">')
+      .replace(/\x02/g, '</span>')
+      .replace(/\x03/g, '<span style="color: #ff7b72">')
+      .replace(/\x04/g, '</span>')
+      .replace(/\x05/g, '<span style="color: #79c0ff">')
+      .replace(/\x06/g, '</span>')
+      .replace(/\x07/g, '<span style="color: #e6edf3">')
+      .replace(/\x08/g, '</span>');
+
+    return { __html: res };
+  };
+
+  return (
+    <div className="w-full rounded-xl overflow-hidden border border-brand-border/60 bg-[#0d1117] shadow-2xl relative group">
+      
+      {/* 1. PASO: Inyectamos la animación suave estilo VS Code */}
+      <style>{`
+        @keyframes vscodeSmoothBlink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+        .animate-vscode-blink {
+          animation: vscodeSmoothBlink 1s ease-in-out infinite;
+        }
+      `}</style>
+
+      <div className="absolute inset-0 bg-linear-to-tr from-brand-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      
+      {/* Barra superior estilo Mac */}
+      <div className="flex items-center px-4 py-3 bg-[#161b22] border-b border-brand-border/40">
+        <div className="flex space-x-2">
+          <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+          <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+          <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+        </div>
+        <div className="mx-auto text-[11px] text-brand-muted font-mono">developer.ts</div>
+      </div>
+      
+      {/* Contenedor con ALTURA FIJA */}
+      <div className="p-5 h-[340px] sm:h-[380px] md:h-[440px] font-mono text-[10px] sm:text-[12px] md:text-[14px] leading-loose overflow-x-auto whitespace-pre-wrap text-[#e6edf3]">
+        <code dangerouslySetInnerHTML={highlight(text)}></code>
+        
+        {/* 2. PASO: Aplicamos la nueva clase 'animate-vscode-blink' al cursor */}
+        <span className="inline-block w-[1.5px] sm:w-[2px] h-3 sm:h-4 md:h-5 bg-brand-accent animate-vscode-blink align-middle ml-[1px] -mt-0.5"></span>
+      </div>
+    </div>
+  );
+};
 
 export default function SobreMi() {
   useEffect(() => {
@@ -33,43 +122,8 @@ export default function SobreMi() {
           {/* SECCIÓN IZQUIERDA: GRÁFICO TECH (Ocupa 8 columnas) */}
           <div className="lg:col-span-8 space-y-10">
             
-            {/* GRÁFICO TECNOLÓGICO: Ventana de Código */}
-            <div className="w-full rounded-xl overflow-hidden border border-brand-border/60 bg-[#0d1117] shadow-2xl relative group">
-              <div className="absolute inset-0 bg-linear-to-tr from-brand-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              {/* Barra superior estilo Mac */}
-              <div className="flex items-center px-4 py-3 bg-[#161b22] border-b border-brand-border/40">
-                <div className="flex space-x-2">
-                  <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-                  <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-                  <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
-                </div>
-                <div className="mx-auto text-[11px] text-brand-muted font-mono">developer.ts</div>
-              </div>
-              
-              {/* Contenido del Código */}
-              <div className="p-5 font-mono text-[13px] md:text-[14px] leading-loose overflow-x-auto">
-                <span className="text-[#ff7b72]">const</span> <span className="text-[#79c0ff]">luisjcm</span> <span className="text-[#ff7b72]">=</span> <span className="text-[#e6edf3]">{'{'}</span>
-                <br/>
-                <span className="ml-4 text-[#79c0ff]">rol:</span> <span className="text-[#a5d6ff]">'Frontend Web Developer'</span><span className="text-[#e6edf3]">,</span>
-                <br/>
-                <span className="ml-4 text-[#79c0ff]">ubicacion:</span> <span className="text-[#a5d6ff]">'Barcelona, Venezuela'</span><span className="text-[#e6edf3]">,</span>
-                <br/>
-                <span className="ml-4 text-[#79c0ff]">stackPrincipal:</span> <span className="text-[#e6edf3]">[</span>
-                <br/>
-                <span className="ml-8 text-[#a5d6ff]">'React'</span><span className="text-[#e6edf3]">,</span> <span className="text-[#a5d6ff]">'Tailwind CSS'</span><span className="text-[#e6edf3]">,</span>
-                <br/>
-                <span className="ml-8 text-[#a5d6ff]">'WordPress'</span><span className="text-[#e6edf3]">,</span> <span className="text-[#a5d6ff]">'Elementor'</span>
-                <br/>
-                <span className="ml-4 text-[#e6edf3]">],</span>
-                <br/>
-                <span className="ml-4 text-[#79c0ff]">entorno:</span><span className="text-[#a5d6ff]">'Linux Ubuntu'</span>
-                <br/>
-                <span className="ml-4 text-[#79c0ff]">estado:</span> <span className="text-[#a5d6ff]">'Desarrollando...'</span>
-                <br/>
-                <span className="text-[#e6edf3]">{'};'}</span>
-              </div>
-            </div>
+            {/* GRÁFICO TECNOLÓGICO ANIMADO */}
+            <AnimatedTerminal />
 
           </div>
 
