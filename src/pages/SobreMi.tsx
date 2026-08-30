@@ -32,21 +32,26 @@ const AnimatedTerminal = () => {
   }, [fullText]);
 
   // Parseador seguro: Usa tokens invisibles
+// Parseador de sintaxis con colores hardcodeados profesionales estilo VS Code
   const highlight = (code: string) => {
     let res = code
-      .replace(/'[^']*'?/g, (m) => `\x01${m}\x02`)
+      // 1. Strings (Comillas simples y contenido) -> #a5d6ff (Azul claro/blanquecino)
+      .replace(/'[^']*'/g, (m) => `\x01${m}\x02`)
+      // 2. Palabras clave (const) -> #ff7b72 (Rojo/Coral)
       .replace(/\b(const)\b/g, (m) => `\x03${m}\x04`)
-      .replace(/(luisjcm|rol:|ubicacion:|stackPrincipal:|entorno:|estado:)/g, (m) => `\x05${m}\x06`)
+      // 3. Claves de objetos y variable principal -> #79c0ff (Azul IDE)
+      .replace(/\b(luisjcm|rol|ubicacion|stackPrincipal|entorno|estado)\b/g, (m) => `\x05${m}\x06`)
+      // 4. Símbolos, llaves y puntuación ({}, [], :, , =) -> #e6edf3 (Blanco suave)
       .replace(/([={}\[\].,])/g, (m) => `\x07${m}\x08`);
 
     res = res
-      .replace(/\x01/g, '<span style="color: var(--color-brand-accent)">')
+      .replace(/\x01/g, '<span class="text-[#ecf4fc]">') // Strings
       .replace(/\x02/g, '</span>')
-      .replace(/\x03/g, '<span style="color: var(--color-brand-primary)">')
+      .replace(/\x03/g, '<span class="text-[#ff7b72]">') // Keyword 'const'
       .replace(/\x04/g, '</span>')
-      .replace(/\x05/g, '<span style="color: var(--color-brand-text)">')
+      .replace(/\x05/g, '<span class="text-[#3ca4ff]">') // Propiedades y variable
       .replace(/\x06/g, '</span>')
-      .replace(/\x07/g, '<span style="color: var(--color-brand-muted)">')
+      .replace(/\x07/g, '<span class="text-[#e6edf3]">') // Llaves y símbolos
       .replace(/\x08/g, '</span>');
 
     return { __html: res };
@@ -71,11 +76,11 @@ const AnimatedTerminal = () => {
       {/* Barra superior estilo Mac */}
       <div className="flex items-center px-4 py-3 bg-brand-surface-subtle border-b border-brand-border/40">
         <div className="flex space-x-2">
-          <div className="w-3 h-3 rounded-full bg-brand-primary"></div>
-          <div className="w-3 h-3 rounded-full bg-brand-accent"></div>
-          <div className="w-3 h-3 rounded-full bg-brand-border"></div>
+          <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+          <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+          <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
         </div>
-        <div className="mx-auto text-[11px] text-brand-muted font-mono">developer.ts</div>
+        <div className="mx-auto text-[11px] text-brand-muted font-mono">luisjcm.ts</div>
       </div>
       
       {/* Contenedor con ALTURA FIJA */}
@@ -137,7 +142,7 @@ export default function SobreMi() {
               </h3>
               <div className="space-y-6">
                 <div className="relative pl-5 border-l border-brand-accent/30 hover:border-brand-accent transition-colors">
-                  <div className="absolute w-2.5 h-2.5 bg-brand-accent rounded-full -left-[5.5px] top-1 shadow-brand-accent/70"></div>
+                  <div className="absolute w-2.5 h-2.5 bg-brand-accent rounded-full -left-[5.5px] top-1 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></div>
                   <h4 className="text-brand-text font-semibold text-[14px]">Analista HelpDesk IT</h4>
                   <p className="text-brand-muted text-[13px] mt-1">Avior Airlines • 2020 - Pres.</p>
                 </div>
@@ -156,7 +161,7 @@ export default function SobreMi() {
               </h3>
               <div className="space-y-6">
                 <div className="relative pl-5 border-l border-brand-accent/30 hover:border-brand-accent transition-colors">
-                  <div className="absolute w-2.5 h-2.5 bg-brand-accent rounded-full -left-[5.5px] top-1 shadow-brand-accent/70"></div>
+                  <div className="absolute w-2.5 h-2.5 bg-brand-accent rounded-full -left-[5.5px] top-1 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></div>
                   <h4 className="text-brand-text font-semibold text-[14px]">Master Full Stack Dev</h4>
                   <p className="text-brand-muted text-[13px] mt-1">DiplomadosOnline.com</p>
                 </div>
