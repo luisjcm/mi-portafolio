@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { useParams, Link } from 'react-router-dom';
 import frontMatter from 'front-matter';
 import { marked } from 'marked';
+import { LazyImage } from '../components/LazyImage'; // <-- Importación del componente
 
 const mdFiles = import.meta.glob('../content/proyectos/*.md', { query: '?raw', eager: true });
 
@@ -16,7 +17,7 @@ interface SubProject {
   gallery?: string[];
 }
 
-// --- MINI COMPONENTE: WIREFRAME ANDROID REUTILIZABLE (CORNERS CORREGIDOS) ---
+// --- MINI COMPONENTE: WIREFRAME ANDROID REUTILIZABLE ---
 const MobileMockup = ({ src, isLightbox }: { src: string, isLightbox: boolean }) => {
   const sizeClasses = isLightbox 
     ? "h-[68vh] md:h-[82vh] aspect-[9/19.5] max-w-[85vw]" 
@@ -29,19 +30,17 @@ const MobileMockup = ({ src, isLightbox }: { src: string, isLightbox: boolean })
       <div className="absolute top-[20%] -right-[4px] md:-right-[5px] w-[2px] md:w-[3px] h-8 md:h-10 bg-brand-border rounded-l-md"></div>
       <div className="absolute top-[32%] -right-[4px] md:-right-[5px] w-[2px] md:w-[3px] h-6 md:h-7 bg-brand-border rounded-l-md"></div>
       
-      {/* Notch / Cámara frontal - Ajustada más arriba */}
+      {/* Notch / Cámara frontal */}
       <div className="absolute top-1.5 md:top-2 inset-x-0 mx-auto w-2.5 h-2.5 md:w-3 md:h-3 bg-brand-bg rounded-full z-20 shadow-[inset_0_-1px_2px_var(--color-brand-accent)] opacity-80 ring-1 ring-brand-border/80"></div>
       <div className="absolute top-0.5 md:top-1 inset-x-0 mx-auto w-6 md:w-8 h-0.5 md:h-1 bg-brand-surface-subtle rounded-full z-20"></div>
 
-      {/* Pantalla interna: Curvas suavizadas y object-fill para cero recortes */}
-      <div className="relative w-full h-full bg-brand-bg overflow-hidden rounded-[1rem] md:rounded-[1.2rem]">
-        <img 
-          src={src} 
-          alt="Captura App" 
-          className="w-full h-full object-fill" 
-          loading="lazy" 
-        />
-      </div>
+      {/* Pantalla interna con Lazy Loading */}
+      <LazyImage 
+        src={src} 
+        alt="Captura App" 
+        className="object-fill" 
+        wrapperClassName="relative w-full h-full bg-brand-bg overflow-hidden rounded-[1rem] md:rounded-[1.2rem]"
+      />
 
       {/* Reflejo cristal */}
       {!isLightbox && (
@@ -149,7 +148,6 @@ export default function ProjectDetail() {
         Cerrar Galería
       </button>
 
-      {/* Flecha Izquierda (VISIBLE EN MÓVIL Y PC) */}
       {mainGallery.length > 1 && (
         <button 
           onClick={(e) => { e.stopPropagation(); setLightboxIndex(prev => getNextIndex(prev, 'prev', mainGallery.length)); }} 
@@ -163,11 +161,15 @@ export default function ProjectDetail() {
         {project.wireframeType === 'mobile' ? (
           <MobileMockup src={mainGallery[lightboxIndex]} isLightbox={true} />
         ) : (
-          <img src={mainGallery[lightboxIndex]} className="w-auto h-auto max-w-full max-h-[85vh] object-contain rounded-md ring-1 ring-white/10 shadow-2xl" />
+          <LazyImage 
+            src={mainGallery[lightboxIndex]} 
+            alt="Vista Ampliada"
+            className="object-contain" 
+            wrapperClassName="w-auto h-auto max-w-full max-h-[85vh] rounded-md ring-1 ring-white/10 shadow-2xl bg-transparent"
+          />
         )}
       </div>
 
-      {/* Flecha Derecha (VISIBLE EN MÓVIL Y PC) */}
       {mainGallery.length > 1 && (
         <button 
           onClick={(e) => { e.stopPropagation(); setLightboxIndex(prev => getNextIndex(prev, 'next', mainGallery.length)); }} 
@@ -255,7 +257,13 @@ export default function ProjectDetail() {
                   </div>
                   
                   <div onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={() => handleTouchEnd(false)} onClick={() => openLightbox(currentImageIndex)} className="relative w-full h-auto bg-brand-surface group touch-pan-y cursor-zoom-in">
-                    <img src={mainGallery[currentImageIndex]} alt="Captura web" className="w-full h-auto block" />
+                    
+                    <LazyImage 
+                      src={mainGallery[currentImageIndex]} 
+                      alt="Captura web" 
+                      className="block" 
+                      wrapperClassName="w-full aspect-video" 
+                    />
                     
                     {mainGallery.length > 1 && (
                       <>

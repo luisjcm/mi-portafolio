@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { LazyImage } from './LazyImage';
 
 interface ProjectCardProps {
   title: string;
@@ -42,79 +43,68 @@ export default function ProjectCard({
                     <div className="absolute top-[32%] -right-[3px] sm:-right-[4px] w-[2px] h-4 sm:h-6 bg-brand-border rounded-l-md"></div>
                     <div className="absolute top-2 sm:top-2.5 inset-x-0 mx-auto w-2 h-2 sm:w-2.5 sm:h-2.5 bg-brand-bg rounded-full z-20 shadow-[inset_0_-1px_2px_var(--color-brand-accent)] opacity-80 ring-1 ring-brand-border/80"></div>
                     <div className="absolute top-1 inset-x-0 mx-auto w-5 sm:w-6 h-0.5 bg-brand-surface-subtle rounded-full z-20"></div>
-                    <div className="relative w-full h-full bg-brand-bg overflow-hidden rounded-t-[1rem] sm:rounded-t-[1.2rem]">
-                      <img src={imageUrl} alt={title} className="w-full h-full object-fill object-top" loading="lazy" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                    </div>
+                    
+                    {/* IMPLEMENTACIÓN DE LAZY IMAGE EN MOCKUP MOBILE */}
+                    <LazyImage 
+                      src={imageUrl} 
+                      alt={title} 
+                      className="object-fill object-top"
+                      wrapperClassName="w-full h-full bg-brand-bg rounded-t-[1rem] sm:rounded-t-[1.2rem]"
+                      onError={(e) => { e.currentTarget.style.display = 'none'; }} 
+                    />
+
                     <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent opacity-20 pointer-events-none z-30"></div>
                  </div>
               </div>
             ) : (
-              /* --- DISEÑO NORMAL PARA WEB (SI HAY IMAGEN) --- */
-              <img src={imageUrl} alt={title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+              /* --- DISEÑO NORMAL PARA WEB CON LAZY IMAGE --- */
+              <LazyImage 
+                src={imageUrl} 
+                alt={title} 
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                wrapperClassName="w-full h-full"
+                onError={(e) => { e.currentTarget.style.display = 'none'; }} 
+              />
             )
 
-          
            ) : (
             
             wireframeType === 'mobile' ? (
-              /* --- WIREFRAME ANDROID PURO CSS (100% SÓLIDO) --- */
+              /* --- WIREFRAME ANDROID PURO CSS --- */
               <div className="relative w-full h-full bg-linear-to-br from-brand-bg to-brand-surface-subtle flex items-end justify-center pt-8 overflow-hidden group-hover:bg-brand-surface transition-colors duration-500">
-                 
-                 {/* Resplandor de fondo (Este sí necesita opacidad para brillar) */}
                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-brand-accent/20 blur-2xl rounded-full"></div>
-                 
-                 {/* Chasis Esqueleto */}
                  <div className="relative w-[160px] h-[240px] -mb-16 bg-brand-bg rounded-t-[1.5rem] border-[3px] border-b-0 border-brand-accent shadow-brand-accent/30 flex flex-col items-center pt-3 px-4 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-brand-accent/20">
-                    
                     <div className="w-2.5 h-2.5 bg-brand-border rounded-full mb-6"></div>
-                    
                     <div className="w-full flex flex-col gap-4">
-                      {/* Icono de candado */}
                       <div className="flex flex-col items-center gap-3 mb-2">
                         <div className="w-12 h-12 bg-brand-surface/40 rounded-full flex items-center justify-center border border-brand-accent/50">
                           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-brand-accent"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                         </div>
                         <div className="w-20 h-2.5 bg-brand-surface rounded-full"></div>
                       </div>
-
-                      {/* Inputs Falsos */}
                       <div className="space-y-3">
                         <div className="w-full h-7 bg-brand-surface/30 border border-brand-accent/40 rounded-md"></div>
                         <div className="w-full h-7 bg-brand-surface/30 border border-brand-accent/40 rounded-md"></div>
                       </div>
-
-                      {/* Botón Principal Falso (Fondo Sólido) */}
                       <div className="w-full h-9 bg-brand-accent border border-brand-accent/40 rounded-lg mt-1"></div>
                     </div>
                  </div>
               </div>
             ) : wireframeType === 'web' ? (
-              
-              /* --- WIREFRAME NAVEGADOR WEB PURO CSS (100% SÓLIDO) --- */
+              /* --- WIREFRAME NAVEGADOR WEB PURO CSS --- */
               <div className="relative w-full h-full bg-linear-to-br from-brand-bg to-brand-surface-subtle flex items-center justify-center p-6 overflow-hidden group-hover:bg-brand-surface transition-colors duration-500">
-                 
-                 {/* Resplandor de fondo */}
                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-brand-accent/20 blur-3xl rounded-full pointer-events-none"></div>
-                 
-                 {/* Chasis del Navegador */}
                  <div className="relative w-full max-w-[260px] h-full max-h-[140px] bg-brand-bg rounded-xl border-[2px] border-brand-accent shadow-2xl shadow-brand-accent/25 flex flex-col overflow-hidden transition-all duration-500 group-hover:-translate-y-1.5 group-hover:scale-[1.03] group-hover:shadow-brand-accent/20">
-                    
-                    {/* Barra superior */}
                     <div className="w-full h-6 bg-brand-surface-subtle border-b border-brand-accent flex items-center px-3 gap-1.5 shrink-0">
                       <div className="w-2 h-2 rounded-full bg-brand-border"></div>
                       <div className="w-2 h-2 rounded-full bg-brand-border"></div>
                       <div className="w-2 h-2 rounded-full bg-brand-border"></div>
                     </div>
-                    
-                    {/* Contenido Web */}
                     <div className="p-3.5 flex flex-col gap-3 h-full">
-                      {/* Hero Section */}
                       <div className="w-full h-12 bg-brand-surface/40 rounded-lg border border-brand-accent/40 flex flex-col items-center justify-center gap-2">
                          <div className="w-24 h-1.5 bg-brand-accent rounded-full"></div>
                          <div className="w-16 h-1.5 bg-brand-accent rounded-full"></div>
                       </div>
-                      
-                      {/* Grid de 3 columnas */}
                       <div className="grid grid-cols-3 gap-2.5 h-full">
                         <div className="w-full h-full bg-brand-surface/20 rounded-md border border-brand-accent/20"></div>
                         <div className="w-full h-full bg-brand-surface/20 rounded-md border border-brand-accent/20"></div>
@@ -123,9 +113,8 @@ export default function ProjectCard({
                     </div>
                  </div>
               </div>
-
             ) : (
-              /* --- PLACEHOLDER GENÉRICO (POR DEFECTO) --- */
+              /* --- PLACEHOLDER GENÉRICO --- */
               <div className="w-full h-full p-6 flex flex-col justify-center bg-linear-to-br from-brand-surface/80 to-brand-bg group-hover:from-brand-surface transition-colors duration-500">
                 <div className="flex items-center gap-1.5 mb-3">
                   <div className="w-2 h-2 rounded-full bg-brand-surface-subtle"></div>
