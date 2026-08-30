@@ -18,21 +18,22 @@ export const LazyImage: React.FC<LazyImageProps> = ({
 
   return (
     <div className={`relative overflow-hidden bg-brand-surface ${wrapperClassName}`}>
-      {/* Skeleton / Indicador de carga mientras la imagen no baja por completo */}
+      
+      {/* Skeleton / Indicador de carga (z-20 para asegurar que tape cualquier texto nativo del navegador) */}
       {!isLoaded && (
-        <div className="absolute inset-0 bg-brand-surface animate-pulse flex items-center justify-center border border-brand-border z-10">
+        <div className="absolute inset-0 bg-brand-surface animate-pulse flex items-center justify-center z-20">
           <div className="w-5 h-5 border-2 border-brand-accent border-t-transparent rounded-full animate-spin"></div>
         </div>
       )}
 
-      {/* Imagen real con transición suave de opacidad */}
+      {/* Imagen real: text-transparent oculta el texto 'alt' mientras carga */}
       <img
         src={src}
         alt={alt}
-        loading="lazy" // Habilita el lazy loading nativo del navegador
+        loading="lazy"
         onLoad={() => setIsLoaded(true)}
-        className={`w-full h-full object-cover transition-opacity duration-700 ${
-          isLoaded ? 'opacity-100' : 'opacity-0'
+        className={`w-full h-full object-cover transition-opacity duration-700 select-none ${
+          isLoaded ? 'opacity-100' : 'opacity-0 text-transparent'
         } ${className}`}
         {...props}
       />
