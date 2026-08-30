@@ -7,7 +7,7 @@ techStack:
   - WooCommerce
   - PHP / CSS
   - UI/UX Design
-imageUrl: /projects/wordpress/collection.jpeg
+imageUrl: 
 projectUrl: #
 order: 99
 wireframeType: "web"

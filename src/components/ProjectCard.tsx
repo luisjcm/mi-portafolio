@@ -89,6 +89,44 @@ export default function ProjectCard({
                     </div>
                  </div>
               </div>
+
+              ) : wireframeType === 'web' ? (
+              
+              /* --- WIREFRAME NAVEGADOR WEB PURO CSS (NUEVO) --- */
+              <div className="relative w-full h-full bg-linear-to-br from-[#121214] to-[#09090b] flex items-center justify-center p-6 overflow-hidden group-hover:bg-[#18181b] transition-colors duration-500">
+                 
+                 {/* Resplandor de fondo */}
+                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-brand-primary/10 blur-3xl rounded-full pointer-events-none"></div>
+                 
+                 {/* Chasis del Navegador */}
+                 <div className="relative w-full max-w-[260px] h-full max-h-[140px] bg-[#050505] rounded-xl border border-[#27272a] shadow-2xl flex flex-col overflow-hidden transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:scale-[1.03]">
+                    
+                    {/* Barra de controles del navegador (Mac style) */}
+                    <div className="w-full h-6 bg-[#18181b] border-b border-[#27272a] flex items-center px-3 gap-1.5 shrink-0">
+                      <div className="w-2 h-2 rounded-full bg-[#3f3f46]"></div>
+                      <div className="w-2 h-2 rounded-full bg-[#3f3f46]"></div>
+                      <div className="w-2 h-2 rounded-full bg-[#3f3f46]"></div>
+                    </div>
+                    
+                    {/* Estructura Web Interna (CMS / E-commerce) */}
+                    <div className="p-3.5 flex flex-col gap-3 h-full">
+                      
+                      {/* Hero Section */}
+                      <div className="w-full h-12 bg-brand-surface/40 rounded-lg border border-brand-border/30 flex flex-col items-center justify-center gap-2">
+                         <div className="w-24 h-1.5 bg-brand-muted/40 rounded-full"></div>
+                         <div className="w-16 h-1.5 bg-brand-muted/20 rounded-full"></div>
+                      </div>
+                      
+                      {/* Grid de 3 columnas (Simulando productos o entradas) */}
+                      <div className="grid grid-cols-3 gap-2.5 h-full">
+                        <div className="w-full h-full bg-brand-surface/20 rounded-md border border-brand-border/20"></div>
+                        <div className="w-full h-full bg-brand-surface/20 rounded-md border border-brand-border/20"></div>
+                        <div className="w-full h-full bg-brand-surface/20 rounded-md border border-brand-border/20"></div>
+                      </div>
+                      
+                    </div>
+                 </div>
+              </div>
             ) : (
               /* --- PLACEHOLDER GENÉRICO WEB (SIN IMAGEN) --- */
               <div className="w-full h-full p-6 flex flex-col justify-center bg-linear-to-br from-brand-surface/80 to-brand-bg group-hover:from-brand-surface transition-colors duration-500">
