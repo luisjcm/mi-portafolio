@@ -53,82 +53,79 @@ export default function ProjectCard({
               <img src={imageUrl} alt={title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
             )
 
-          ) : (
+          
+           ) : (
             
             wireframeType === 'mobile' ? (
-              /* --- WIREFRAME ANDROID PURO CSS (SIN IMAGEN) --- */
+              /* --- WIREFRAME ANDROID PURO CSS (100% SÓLIDO) --- */
               <div className="relative w-full h-full bg-linear-to-br from-[#121214] to-[#09090b] flex items-end justify-center pt-8 overflow-hidden group-hover:bg-[#18181b] transition-colors duration-500">
                  
-                 {/* Resplandor */}
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-brand-primary/10 blur-2xl rounded-full"></div>
+                 {/* Resplandor de fondo (Este sí necesita opacidad para brillar) */}
+                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-brand-primary/20 blur-2xl rounded-full"></div>
                  
                  {/* Chasis Esqueleto */}
-                 <div className="relative w-[160px] h-[115%] bg-[#050505] rounded-t-[1.5rem] border-[4px] border-b-0 border-[#27272a] shadow-2xl flex flex-col items-center pt-3 px-4 transition-transform duration-500 group-hover:-translate-y-2">
+                 <div className="relative w-[160px] h-[115%] bg-[#050505] rounded-t-[1.5rem] border-[3px] border-b-0 border-brand-primary shadow-[0_-10px_30px_rgba(0,0,0,0.5)] flex flex-col items-center pt-3 px-4 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-brand-primary/20">
                     
-                    {/* Punch hole */}
                     <div className="w-2.5 h-2.5 bg-[#27272a] rounded-full mb-6"></div>
                     
-                    {/* UI Esqueleto (Símbolo de Seguridad/Login) */}
                     <div className="w-full flex flex-col gap-4">
-                      {/* Avatar / Icono Seguridad */}
+                      {/* Icono de candado */}
                       <div className="flex flex-col items-center gap-3 mb-2">
-                        <div className="w-12 h-12 bg-brand-surface/40 rounded-full flex items-center justify-center border border-brand-border/50">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-brand-muted"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        <div className="w-12 h-12 bg-brand-surface/40 rounded-full flex items-center justify-center border border-brand-primary/50">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-brand-primary"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                         </div>
                         <div className="w-20 h-2.5 bg-brand-surface rounded-full"></div>
                       </div>
 
                       {/* Inputs Falsos */}
                       <div className="space-y-3">
-                        <div className="w-full h-7 bg-brand-surface/30 rounded-md"></div>
-                        <div className="w-full h-7 bg-brand-surface/30 rounded-md"></div>
+                        <div className="w-full h-7 bg-brand-surface/30 border border-brand-primary/40 rounded-md"></div>
+                        <div className="w-full h-7 bg-brand-surface/30 border border-brand-primary/40 rounded-md"></div>
                       </div>
 
-                      {/* Botón Principal Falso */}
-                      <div className="w-full h-9 bg-brand-primary/40 rounded-lg mt-1"></div>
+                      {/* Botón Principal Falso (Fondo Sólido) */}
+                      <div className="w-full h-9 bg-brand-primary border border-brand-primary/40 rounded-lg mt-1"></div>
                     </div>
                  </div>
               </div>
-
-              ) : wireframeType === 'web' ? (
+            ) : wireframeType === 'web' ? (
               
-              /* --- WIREFRAME NAVEGADOR WEB PURO CSS (NUEVO) --- */
+              /* --- WIREFRAME NAVEGADOR WEB PURO CSS (100% SÓLIDO) --- */
               <div className="relative w-full h-full bg-linear-to-br from-[#121214] to-[#09090b] flex items-center justify-center p-6 overflow-hidden group-hover:bg-[#18181b] transition-colors duration-500">
                  
                  {/* Resplandor de fondo */}
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-brand-primary/10 blur-3xl rounded-full pointer-events-none"></div>
+                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-brand-primary/20 blur-3xl rounded-full pointer-events-none"></div>
                  
                  {/* Chasis del Navegador */}
-                 <div className="relative w-full max-w-[260px] h-full max-h-[140px] bg-[#050505] rounded-xl border border-[#27272a] shadow-2xl flex flex-col overflow-hidden transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:scale-[1.03]">
+                 <div className="relative w-full max-w-[260px] h-full max-h-[140px] bg-[#050505] rounded-xl border-[2px] border-brand-primary shadow-2xl flex flex-col overflow-hidden transition-all duration-500 group-hover:-translate-y-1.5 group-hover:scale-[1.03] group-hover:shadow-brand-primary/20">
                     
-                    {/* Barra de controles del navegador (Mac style) */}
-                    <div className="w-full h-6 bg-[#18181b] border-b border-[#27272a] flex items-center px-3 gap-1.5 shrink-0">
+                    {/* Barra superior */}
+                    <div className="w-full h-6 bg-[#18181b] border-b border-brand-primary flex items-center px-3 gap-1.5 shrink-0">
                       <div className="w-2 h-2 rounded-full bg-[#3f3f46]"></div>
                       <div className="w-2 h-2 rounded-full bg-[#3f3f46]"></div>
                       <div className="w-2 h-2 rounded-full bg-[#3f3f46]"></div>
                     </div>
                     
-                    {/* Estructura Web Interna (CMS / E-commerce) */}
+                    {/* Contenido Web */}
                     <div className="p-3.5 flex flex-col gap-3 h-full">
-                      
                       {/* Hero Section */}
-                      <div className="w-full h-12 bg-brand-surface/40 rounded-lg border border-brand-border/30 flex flex-col items-center justify-center gap-2">
-                         <div className="w-24 h-1.5 bg-brand-muted/40 rounded-full"></div>
-                         <div className="w-16 h-1.5 bg-brand-muted/20 rounded-full"></div>
+                      <div className="w-full h-12 bg-brand-surface/40 rounded-lg border border-brand-primary/40 flex flex-col items-center justify-center gap-2">
+                         <div className="w-24 h-1.5 bg-brand-primary rounded-full"></div>
+                         <div className="w-16 h-1.5 bg-brand-primary rounded-full"></div>
                       </div>
                       
-                      {/* Grid de 3 columnas (Simulando productos o entradas) */}
+                      {/* Grid de 3 columnas */}
                       <div className="grid grid-cols-3 gap-2.5 h-full">
-                        <div className="w-full h-full bg-brand-surface/20 rounded-md border border-brand-border/20"></div>
-                        <div className="w-full h-full bg-brand-surface/20 rounded-md border border-brand-border/20"></div>
-                        <div className="w-full h-full bg-brand-surface/20 rounded-md border border-brand-border/20"></div>
+                        <div className="w-full h-full bg-brand-surface/20 rounded-md border border-brand-primary/20"></div>
+                        <div className="w-full h-full bg-brand-surface/20 rounded-md border border-brand-primary/20"></div>
+                        <div className="w-full h-full bg-brand-surface/20 rounded-md border border-brand-primary/20"></div>
                       </div>
-                      
                     </div>
                  </div>
               </div>
+
             ) : (
-              /* --- PLACEHOLDER GENÉRICO WEB (SIN IMAGEN) --- */
+              /* --- PLACEHOLDER GENÉRICO (POR DEFECTO) --- */
               <div className="w-full h-full p-6 flex flex-col justify-center bg-linear-to-br from-brand-surface/80 to-brand-bg group-hover:from-brand-surface transition-colors duration-500">
                 <div className="flex items-center gap-1.5 mb-3">
                   <div className="w-2 h-2 rounded-full bg-brand-surface-subtle"></div>
