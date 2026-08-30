@@ -23,18 +23,18 @@ const MobileMockup = ({ src, isLightbox }: { src: string, isLightbox: boolean })
     : "w-[160px] sm:w-[190px] aspect-[9/19.5] hover:scale-[1.02] active:scale-95 cursor-zoom-in"; 
 
   return (
-    <div className={`relative ${sizeClasses} bg-[#09090b] rounded-[1.2rem] md:rounded-[1.5rem] border-[4px] md:border-[5px] border-[#18181b] shadow-2xl shadow-black/50 overflow-hidden ring-1 ring-white/10 shrink-0 transition-transform duration-300 flex flex-col`}>
+    <div className={`relative ${sizeClasses} bg-brand-bg rounded-[1.2rem] md:rounded-[1.5rem] border-[4px] md:border-[5px] border-brand-border shadow-2xl shadow-brand-bg/50 overflow-hidden ring-1 ring-brand-border/80 shrink-0 transition-transform duration-300 flex flex-col`}>
       
       {/* Botones laterales */}
-      <div className="absolute top-[20%] -right-[4px] md:-right-[5px] w-[2px] md:w-[3px] h-8 md:h-10 bg-[#27272a] rounded-l-md"></div>
-      <div className="absolute top-[32%] -right-[4px] md:-right-[5px] w-[2px] md:w-[3px] h-6 md:h-7 bg-[#27272a] rounded-l-md"></div>
+      <div className="absolute top-[20%] -right-[4px] md:-right-[5px] w-[2px] md:w-[3px] h-8 md:h-10 bg-brand-border rounded-l-md"></div>
+      <div className="absolute top-[32%] -right-[4px] md:-right-[5px] w-[2px] md:w-[3px] h-6 md:h-7 bg-brand-border rounded-l-md"></div>
       
       {/* Notch / Cámara frontal - Ajustada más arriba */}
-      <div className="absolute top-1.5 md:top-2 inset-x-0 mx-auto w-2.5 h-2.5 md:w-3 md:h-3 bg-black rounded-full z-20 shadow-[inset_0_-1px_2px_rgba(255,255,255,0.15)] ring-1 ring-black/80"></div>
-      <div className="absolute top-0.5 md:top-1 inset-x-0 mx-auto w-6 md:w-8 h-0.5 md:h-1 bg-[#18181b] rounded-full z-20"></div>
+      <div className="absolute top-1.5 md:top-2 inset-x-0 mx-auto w-2.5 h-2.5 md:w-3 md:h-3 bg-brand-bg rounded-full z-20 shadow-[inset_0_-1px_2px_var(--color-brand-accent)] opacity-80 ring-1 ring-brand-border/80"></div>
+      <div className="absolute top-0.5 md:top-1 inset-x-0 mx-auto w-6 md:w-8 h-0.5 md:h-1 bg-brand-surface-subtle rounded-full z-20"></div>
 
       {/* Pantalla interna: Curvas suavizadas y object-fill para cero recortes */}
-      <div className="relative w-full h-full bg-[#09090b] overflow-hidden rounded-[1rem] md:rounded-[1.2rem]">
+      <div className="relative w-full h-full bg-brand-bg overflow-hidden rounded-[1rem] md:rounded-[1.2rem]">
         <img 
           src={src} 
           alt="Captura App" 

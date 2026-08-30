@@ -226,7 +226,7 @@ const renderFormacion = () => (
             </h1>
             <div className="flex flex-wrap items-center gap-2 text-[13px]">
               <span className="text-brand-muted font-medium">luisjcm</span>
-              <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent text-[11px] font-medium">
+              <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-brand-accent/10 border border-brand-accent/60 text-brand-accent text-[11px] font-medium">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"></span>
                 Disponible para Proyectos
               </span>

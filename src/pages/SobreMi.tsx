@@ -40,20 +40,20 @@ const AnimatedTerminal = () => {
       .replace(/([={}\[\].,])/g, (m) => `\x07${m}\x08`);
 
     res = res
-      .replace(/\x01/g, '<span style="color: #a5d6ff">')
+      .replace(/\x01/g, '<span style="color: var(--color-brand-accent)">')
       .replace(/\x02/g, '</span>')
-      .replace(/\x03/g, '<span style="color: #ff7b72">')
+      .replace(/\x03/g, '<span style="color: var(--color-brand-primary)">')
       .replace(/\x04/g, '</span>')
-      .replace(/\x05/g, '<span style="color: #79c0ff">')
+      .replace(/\x05/g, '<span style="color: var(--color-brand-text)">')
       .replace(/\x06/g, '</span>')
-      .replace(/\x07/g, '<span style="color: #e6edf3">')
+      .replace(/\x07/g, '<span style="color: var(--color-brand-muted)">')
       .replace(/\x08/g, '</span>');
 
     return { __html: res };
   };
 
   return (
-    <div className="w-full rounded-xl overflow-hidden border border-brand-border/60 bg-[#0d1117] shadow-2xl relative group">
+    <div className="w-full rounded-xl overflow-hidden border border-brand-border/60 bg-brand-bg shadow-2xl relative group">
       
       {/* 1. PASO: Inyectamos la animación suave estilo VS Code */}
       <style>{`
@@ -69,17 +69,17 @@ const AnimatedTerminal = () => {
       <div className="absolute inset-0 bg-linear-to-tr from-brand-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       
       {/* Barra superior estilo Mac */}
-      <div className="flex items-center px-4 py-3 bg-[#161b22] border-b border-brand-border/40">
+      <div className="flex items-center px-4 py-3 bg-brand-surface-subtle border-b border-brand-border/40">
         <div className="flex space-x-2">
-          <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-          <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-          <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+          <div className="w-3 h-3 rounded-full bg-brand-primary"></div>
+          <div className="w-3 h-3 rounded-full bg-brand-accent"></div>
+          <div className="w-3 h-3 rounded-full bg-brand-border"></div>
         </div>
         <div className="mx-auto text-[11px] text-brand-muted font-mono">developer.ts</div>
       </div>
       
       {/* Contenedor con ALTURA FIJA */}
-      <div className="p-5 h-[340px] sm:h-[380px] md:h-[440px] font-mono text-[10px] sm:text-[12px] md:text-[14px] leading-loose overflow-x-auto whitespace-pre-wrap text-[#e6edf3]">
+      <div className="p-5 h-[340px] sm:h-[380px] md:h-[440px] font-mono text-[10px] sm:text-[12px] md:text-[14px] leading-loose overflow-x-auto whitespace-pre-wrap text-brand-text">
         <code dangerouslySetInnerHTML={highlight(text)}></code>
         
         {/* 2. PASO: Aplicamos la nueva clase 'animate-vscode-blink' al cursor */}
@@ -100,8 +100,8 @@ export default function SobreMi() {
       {/* VECTORES DE FONDO CON TAILWIND (BLOBS DE LUZ) */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
         <div className="absolute -top-[10%] -left-[10%] w-[500px] h-[500px] rounded-full bg-brand-accent/10 blur-[120px]"></div>
-        <div className="absolute top-[50%] -right-[10%] w-[600px] h-[600px] rounded-full bg-blue-600/10 blur-[150px]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff15_1px,transparent_1px)] [background-size:24px_24px] opacity-30"></div>
+        <div className="absolute top-[50%] -right-[10%] w-[600px] h-[600px] rounded-full bg-brand-primary/10 blur-[150px]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(var(--color-brand-border)_1px,transparent_1px)] [background-size:24px_24px] opacity-30"></div>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 mt-20 md:mt-24 relative z-10">
@@ -137,7 +137,7 @@ export default function SobreMi() {
               </h3>
               <div className="space-y-6">
                 <div className="relative pl-5 border-l border-brand-accent/30 hover:border-brand-accent transition-colors">
-                  <div className="absolute w-2.5 h-2.5 bg-brand-accent rounded-full -left-[5.5px] top-1 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></div>
+                  <div className="absolute w-2.5 h-2.5 bg-brand-accent rounded-full -left-[5.5px] top-1 shadow-brand-accent/70"></div>
                   <h4 className="text-brand-text font-semibold text-[14px]">Analista HelpDesk IT</h4>
                   <p className="text-brand-muted text-[13px] mt-1">Avior Airlines • 2020 - Pres.</p>
                 </div>
@@ -156,7 +156,7 @@ export default function SobreMi() {
               </h3>
               <div className="space-y-6">
                 <div className="relative pl-5 border-l border-brand-accent/30 hover:border-brand-accent transition-colors">
-                  <div className="absolute w-2.5 h-2.5 bg-brand-accent rounded-full -left-[5.5px] top-1 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></div>
+                  <div className="absolute w-2.5 h-2.5 bg-brand-accent rounded-full -left-[5.5px] top-1 shadow-brand-accent/70"></div>
                   <h4 className="text-brand-text font-semibold text-[14px]">Master Full Stack Dev</h4>
                   <p className="text-brand-muted text-[13px] mt-1">DiplomadosOnline.com</p>
                 </div>

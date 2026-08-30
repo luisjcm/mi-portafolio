@@ -54,11 +54,11 @@ export default function Contacto() {
     }
   };
 
-  // Helpers para inyectar clases dinámicas basadas en el estado de error
+ // Helpers para inyectar clases dinámicas basadas en el estado de error (Usando rojo de alerta real)
   const getInputClasses = (hasError?: boolean) => {
     const base = "w-full bg-brand-surface-subtle border rounded-lg px-4 py-3 text-[14px] text-brand-text placeholder-brand-muted focus:outline-none focus:ring-1 transition-all resize-none";
     return hasError 
-      ? `${base} border-red-500/50 focus:border-red-500 focus:ring-red-500/50`
+      ? `${base} border-red-500/80 focus:border-red-500 focus:ring-red-500/40` // <-- Rojo de alerta para errores
       : `${base} border-brand-border focus:border-brand-accent/50 focus:ring-brand-accent/50`;
   };
 

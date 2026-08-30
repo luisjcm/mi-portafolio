@@ -7,6 +7,22 @@ import { getAIResponse } from './aiClient';
 interface UserData { nombre: string; correo: string; }
 interface Message { id: string; text: string; sender: 'user' | 'bot'; }
 
+// Función avanzada para formatear Markdown básico (negritas, cursivas, saltos de línea y viñetas)
+const formatMessageText = (text: string) => {
+  let formatted = text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\*\*(.*?)\*\*/g, '<strong class="text-brand-text font-semibold">$1</strong>')
+    .replace(/__(.*?)__/g, '<strong class="text-brand-text font-semibold">$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
+    .replace(/_(.*?)_/g, '<em class="italic">$1</em>');
+
+  formatted = formatted.replace(/\n/g, '<br />');
+
+  return { __html: formatted };
+};
+
 export const Chat = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isRegistered, setIsRegistered] = useState<boolean>(false);
@@ -17,14 +33,17 @@ export const Chat = () => {
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   
-  // Referencia para el auto-scroll
+  // Referencias para el auto-scroll y para mantener el foco en el input
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   // 1. Bloqueo estricto del scroll de la página de fondo mientras el chat esté abierto
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
       document.documentElement.style.overflow = 'hidden';
+      // Enfocar el input al abrir el chat (si ya está registrado)
+      setTimeout(() => inputRef.current?.focus(), 100);
     } else {
       document.body.style.overflow = 'unset';
       document.documentElement.style.overflow = 'unset';
@@ -39,6 +58,13 @@ export const Chat = () => {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isTyping]);
+
+  // 3. Mantener el focus en el input después de que el bot responde o termina de escribir
+  useEffect(() => {
+    if (isRegistered && !isTyping) {
+      inputRef.current?.focus();
+    }
+  }, [isTyping, isRegistered]);
 
   // Manejador del Formulario Inicial
   const handleRegister = async (e: React.FormEvent) => {
@@ -119,7 +145,7 @@ export const Chat = () => {
         </button>
       )}
 
-      {/* --- OVERLAY CON DESENFOQUE (Fondo oscuro para evitar tocar la página de atrás) --- */}
+      {/* --- OVERLAY CON DESENFOQUE --- */}
       {isOpen && (
         <div 
           onClick={() => setIsOpen(false)}
@@ -162,7 +188,7 @@ export const Chat = () => {
             {!isRegistered ? (
               <div className="flex flex-col h-full justify-center">
                 <div className="bg-brand-surface border border-brand-border p-4 rounded-2xl rounded-tl-sm mb-4 text-[13px] text-brand-muted leading-relaxed shadow-sm">
-                  ¡Hola! Soy Cubot, el asistente virtual de Luis Jesus. Para brindarte una mejor experiencia, ¿me indicas tu nombre y correo profesional?
+                  ¡Hola! Soy Cubot, el asistente virtual de Luis Jesús. Para brindarte una mejor experiencia, ¿me indicas tu nombre y correo profesional?
                 </div>
                 <form onSubmit={handleRegister} className="flex flex-col gap-2.5">
                   <input 
@@ -193,13 +219,17 @@ export const Chat = () => {
               <div className="flex flex-col gap-3">
                 {messages.map((msg) => (
                   <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                    <div className={`max-w-[85%] p-3 text-[13px] leading-relaxed shadow-sm ${
-                      msg.sender === 'user' 
-                        ? 'bg-brand-primary text-brand-text rounded-2xl rounded-tr-sm'
-                        : 'bg-brand-surface border border-brand-border text-brand-muted rounded-2xl rounded-tl-sm'
-                    }`}>
-                      {msg.text}
-                    </div>
+                    <div 
+                      className={`max-w-[85%] p-3 text-[13px] leading-relaxed shadow-sm ${
+                        msg.sender === 'user' 
+                          ? 'bg-brand-primary text-brand-text rounded-2xl rounded-tr-sm'
+                          : 'bg-brand-surface border border-brand-border text-brand-muted rounded-2xl rounded-tl-sm'
+                      }`}
+                      {...(msg.sender === 'bot' 
+                        ? { dangerouslySetInnerHTML: formatMessageText(msg.text) } 
+                        : { children: msg.text }
+                      )}
+                    />
                   </div>
                 ))}
                 {isTyping && (
@@ -221,9 +251,10 @@ export const Chat = () => {
             <div className="p-3 bg-brand-surface/60 border-t border-brand-border shrink-0">
               <form onSubmit={handleSendMessage} className="flex gap-2">
                 <input 
+                  ref={inputRef} // <-- Referencia asignada aquí para mantener el focus
                   type="text" 
                   placeholder="Escribe tu pregunta..." 
-                    className="flex-1 bg-brand-surface border border-brand-border text-brand-muted px-3.5 py-2 rounded-xl focus:outline-none focus:border-brand-accent text-[13px]"
+                  className="flex-1 bg-brand-surface border border-brand-border text-brand-muted px-3.5 py-2 rounded-xl focus:outline-none focus:border-brand-accent text-[13px]"
                   value={inputText} 
                   onChange={(e) => setInputText(e.target.value)} 
                   disabled={isTyping} 
