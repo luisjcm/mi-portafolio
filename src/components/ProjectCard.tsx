@@ -64,7 +64,7 @@ export default function ProjectCard({
                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-brand-primary/20 blur-2xl rounded-full"></div>
                  
                  {/* Chasis Esqueleto */}
-                 <div className="relative w-[160px] h-[115%] bg-[#050505] rounded-t-[1.5rem] border-[3px] border-b-0 border-brand-primary shadow-[0_-10px_30px_rgba(0,0,0,0.5)] flex flex-col items-center pt-3 px-4 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-brand-primary/20">
+                 <div className="relative w-[160px] h-[240px] -mb-16 bg-[#050505] rounded-t-[1.5rem] border-[3px] border-b-0 border-brand-primary shadow-[0_-10px_30px_rgba(0,0,0,0.5)] flex flex-col items-center pt-3 px-4 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-brand-primary/20">
                     
                     <div className="w-2.5 h-2.5 bg-[#27272a] rounded-full mb-6"></div>
                     
