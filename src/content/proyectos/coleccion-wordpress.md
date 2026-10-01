@@ -11,6 +11,7 @@ imageUrl:
 projectUrl: #
 order: 99
 wireframeType: "web"
+category: "wordpress"
 ---
 
 Durante mi trayectoria como desarrollador web remoto, tuve la oportunidad de diseñar y desarrollar múltiples plataformas orientadas a la conversión, rendimiento y autogestión para diversos clientes en España.

@@ -7,6 +7,7 @@ imageUrl:
 projectUrl: #
 isNew: true
 order: 1
+category: "apps"
 images:
   - /projects/authapp/authapp1.jpg
   - /projects/authapp/authapp2.jpg

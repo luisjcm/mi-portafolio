@@ -17,6 +17,7 @@ images:
 wireframeType: "web"
 projectUrl: https://teffy.luisjcm.com/
 order: 2
+category: "javascript"
 ---
 
 ### Detalles del Proyecto

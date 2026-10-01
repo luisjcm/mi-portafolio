@@ -18,6 +18,7 @@ images:
 wireframeType: "browser"
 projectUrl: "https://dev-theacceleratorwp-ljcm.pantheonsite.io/" 
 order: 3
+category: "wordpress"
 ---
 
 ## Resumen del Proyecto

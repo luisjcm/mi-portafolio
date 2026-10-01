@@ -23,6 +23,7 @@ images:
 wireframeType: "web"
 projectUrl: "https://zstephanie.luisjcm.com/" # O la URL de producción/demo
 order: 1
+category: "javascript"
 ---
 
 ### Arquitectura y Despliegue
