@@ -3,14 +3,16 @@ title: Real Estate UI | Plataforma Inmobiliaria
 description: Plantilla SPA (Single Page Application) moderna y altamente modular para bienes raíces con arquitectura orientada a datos.
 techStack: ['React', 'Tailwind CSS', 'Vite', 'SPA']
 wireframeType: "browser"
-imageUrl: "/projects/real-estate/real-main.png"
+imageUrl: "/projects/habita/habita1.png"
 projectUrl: "https://habita.luisjcm.com"
 isNew: true
 order: 8
 category: "javascript"
 images:
-  - "/projects/real-estate/real1.png"
-  - "/projects/real-estate/real2.png"
+  - "/projects/habita/habita1.png"
+  - "/projects/habita/habita2.png"
+  - "/projects/habita/habita3.png"
+  - "/projects/habita/habita4.png"
 ---
 
 Desarrollo de una Single Page Application (SPA) moderna concebida como plantilla base para agencias inmobiliarias y portales de bienes raíces. 

@@ -3,14 +3,17 @@ title: Law Firm UI | Consultoría Legal
 description: Plantilla web responsiva para firmas de abogados. Arquitectura modular optimizada para producción.
 techStack: ['React', 'Tailwind CSS', 'Vite', 'Frontend']
 wireframeType: "browser"
-imageUrl: "/projects/law-firm/law-main.png"
+imageUrl: "/projects/lex/lex1.png"
 projectUrl: "https://lex.luisjcm.com/"
 isNew: true
 order: 7
 category: "javascript"
 images:
-  - "/projects/law-firm/law1.png"
-  - "/projects/law-firm/law2.png"
+  - "/projects/lex/lex1.png"
+  - "/projects/lex/lex2.png"
+  - "/projects/lex/lex3.png"
+  - "/projects/lex/lex4.png"
+  - "/projects/lex/lex5.png"
 ---
 
 Solución frontend premium orientada a firmas de abogados, despachos jurídicos y consultoras legales que buscan proyectar autoridad, sobriedad y confianza en el entorno digital.

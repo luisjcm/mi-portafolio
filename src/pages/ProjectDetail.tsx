@@ -261,7 +261,7 @@ export default function ProjectDetail() {
                     <LazyImage 
                       src={mainGallery[currentImageIndex]} 
                       alt="Captura web" 
-                      className="block" 
+                      className="block object-top" 
                       wrapperClassName="w-full aspect-video" 
                     />
                     

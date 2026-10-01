@@ -61,7 +61,7 @@ export default function ProjectCard({
               <LazyImage 
                 src={imageUrl} 
                 alt={title} 
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 wrapperClassName="w-full h-full"
                 onError={(e) => { e.currentTarget.style.display = 'none'; }} 
               />
