@@ -6,7 +6,7 @@ wireframeType: mobile
 imageUrl: 
 projectUrl: #
 isNew: true
-order: 1
+order: 90
 category: "apps"
 images:
   - /projects/authapp/authapp1.jpg
