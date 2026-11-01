@@ -1,7 +1,7 @@
+// src/App.tsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Layout from './components/Layout';
 import Home from './pages/Home';
 import ProjectDetail from './pages/ProjectDetail';
 import ProjectsIndex from './pages/ProjectsIndex';
@@ -12,26 +12,21 @@ import LegalPage from './pages/LegalPage';
 function App() {
   return (
     <Router>
-      <Header />
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/proyectos" element={<ProjectsIndex />} />
+          <Route path="/proyectos/:slug" element={<ProjectDetail />} />
+          <Route path="/sobre-mi" element={<SobreMi />} />
+          <Route path="/contacto" element={<Contacto />} />
 
-      {/* pt-16 compensa de forma fija la altura de 64px del Header en TODAS las páginas */}
-      <div className="flex flex-col min-h-screen w-full max-w-full overflow-x-hidden pt-16">
-        <div className="flex-grow w-full max-w-full">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/proyectos" element={<ProjectsIndex />} />
-            <Route path="/proyectos/:slug" element={<ProjectDetail />} />
-            <Route path="/sobre-mi" element={<SobreMi />} />
-            <Route path="/contacto" element={<Contacto />} />
-
-            <Route path="/privacidad" element={<LegalPage />} />
-            <Route path="/terminos" element={<LegalPage />} />
-            <Route path="/accesibilidad" element={<LegalPage />} />
-            <Route path="/cookies" element={<LegalPage />} />
-          </Routes>
-        </div>
-        <Footer />
-      </div>
+          {/* Páginas Legales */}
+          <Route path="/privacidad" element={<LegalPage />} />
+          <Route path="/terminos" element={<LegalPage />} />
+          <Route path="/accesibilidad" element={<LegalPage />} />
+          <Route path="/cookies" element={<LegalPage />} />
+        </Routes>
+      </Layout>
     </Router>
   );
 }

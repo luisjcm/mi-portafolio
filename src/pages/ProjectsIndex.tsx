@@ -81,9 +81,9 @@ export default function ProjectsIndex() {
                   setSelectedFolder(category);
                 }
               }}
-              className="group flex h-full cursor-pointer flex-col rounded-xl border border-brand-border/60 bg-brand-surface/20 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-accent/50 hover:bg-brand-surface/40"
+              className="group flex h-full cursor-pointer flex-col rounded-xl border border-brand-border/40 bg-brand-bg/40 p-6 shadow-lg backdrop-blur-lg transition-all duration-500 ease-out hover:-translate-y-1 hover:border-brand-accent/50 hover:shadow-[0_0_20px_rgba(120,169,208,0.12)] focus-visible:outline-none focus-visible:border-brand-accent/50 focus-visible:shadow-[0_0_20px_rgba(120,169,208,0.12)]"
             >
-              <div className="mb-4 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-surface-subtle text-brand-accent border border-brand-border/50">
+              <div className="mb-4 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-surface/40 text-brand-accent border border-brand-border/40">
                 {CATEGORY_ICONS[category]}
               </div>
               <h3 className="mb-1 text-lg font-bold text-brand-text">

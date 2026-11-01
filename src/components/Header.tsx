@@ -15,14 +15,15 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-100 bg-brand-bg/90 backdrop-blur-md border-b border-brand-border/10 transition-all duration-300">
+    <header className="fixed top-0 left-0 w-full z-100 border-b border-brand-border/60 bg-brand-bg/90 shadow-[0_8px_32px_rgba(2,8,23,0.32)] backdrop-blur-xl transition-all duration-300">
       
       {/* CONTENEDOR PRINCIPAL DEL HEADER */}
       <div className="max-w-[800px] mx-auto px-6 h-16 flex items-center justify-between relative z-20">
         
         {/* LOGO */}
-        <Link to="/" className="text-brand-text font-bold text-lg tracking-tighter hover:opacity-80 transition-opacity no-underline" onClick={closeMenu}>
-          LUIS<span className="text-brand-accent">JCM</span>
+        <Link to="/" className="group flex items-center gap-2 text-brand-text font-bold text-lg tracking-tighter transition-opacity hover:opacity-80 no-underline" onClick={closeMenu}>
+          
+          <span>LUIS<span className="text-brand-accent">JCM</span></span>
         </Link>
 
         {/* DESKTOP NAVIGATION */}
@@ -33,10 +34,10 @@ export default function Header() {
               <Link 
                 key={link.name} 
                 to={link.path}
-                className={`text-[13px] font-medium transition-colors duration-300 relative group ${isActive ? 'text-brand-text' : 'text-brand-muted hover:text-brand-text'}`}
+                className={`relative py-2 font-mono text-[11px] uppercase tracking-[0.12em] transition-colors duration-300 group ${isActive ? 'text-brand-text' : 'text-brand-muted hover:text-brand-text'}`}
               >
                 {link.name}
-                <span className={`absolute -bottom-1.5 left-0 w-full h-0.5 rounded-full transition-all duration-300 ${isActive ? 'bg-brand-accent scale-x-100' : 'bg-brand-surface-subtle scale-x-0 group-hover:scale-x-100 opacity-50'}`}></span>
+                <span className={`absolute -bottom-0.5 left-0 h-px w-full rounded-full transition-all duration-300 ${isActive ? 'scale-x-100 bg-brand-accent shadow-[0_0_8px_rgba(120,169,208,0.5)]' : 'scale-x-0 bg-brand-accent opacity-50 group-hover:scale-x-100'}`}></span>
               </Link>
             );
           })}
@@ -58,7 +59,7 @@ export default function Header() {
 
       {/* MOBILE MENU DROPDOWN (Grid Trick para animación perfecta) */}
       <div 
-        className={`md:hidden absolute top-full left-0 w-full bg-brand-bg/95 backdrop-blur-xl border-b border-brand-border/10 shadow-2xl grid transition-all duration-500 ease-in-out ${
+        className={`md:hidden absolute top-full left-0 w-full border-b border-brand-border/60 bg-brand-bg/95 backdrop-blur-xl shadow-2xl grid transition-all duration-500 ease-in-out ${
           isMenuOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
         }`}
       >

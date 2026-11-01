@@ -2,18 +2,18 @@
 
 @theme {
   /* Tokens de Superficie y Fondo */
-  --color-brand-bg: #121212;
-  --color-brand-surface: #1E1E1E;
-  --color-brand-surface-subtle: #18181B;
+  --color-brand-bg: #0A1422;
+  --color-brand-surface: #101E30;
+  --color-brand-surface-subtle: #14263A;
 
   /* Tokens de Tipografía y Bordes */
-  --color-brand-text: #FFFFFF;
-  --color-brand-muted: #94A3B8;
-  --color-brand-border: #27272A;
+  --color-brand-text: #DCE7F2;
+  --color-brand-muted: #9AACC0;
+  --color-brand-border: #263E58;
 
-  /* Tokens de Marca y Acentos (Azul Eléctrico Equilibrado) */
-  --color-brand-primary: #1D4ED8;
-  --color-brand-accent: #3B82F6;
+  /* Tokens de Marca y Acentos (Azul acero de blueprint) */
+  --color-brand-primary: #28547A;
+  --color-brand-accent: #78A9D0;
 
   /* Tipografía */
   --font-sans: "Inter", sans-serif;
@@ -23,6 +23,8 @@
   body {
     background-color: var(--color-brand-bg);
     color: var(--color-brand-text);
+    min-width: 320px;
+    min-height: 100vh;
   }
 }
 

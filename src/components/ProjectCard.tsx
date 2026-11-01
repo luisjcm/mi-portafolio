@@ -26,10 +26,10 @@ export default function ProjectCard({
   badge            
 }: ProjectCardProps) {
   return (
-    <div className="group w-full min-w-0 bg-brand-bg border border-brand-border/80 rounded-2xl overflow-hidden hover:border-brand-border transition-all duration-300 flex flex-col justify-between shadow-xl relative">
+    <div className="group w-full min-w-0 bg-brand-bg/40 backdrop-blur-lg border border-brand-border/40 rounded-2xl overflow-hidden hover:-translate-y-1 hover:border-brand-accent/50 hover:shadow-[0_0_20px_rgba(120,169,208,0.12)] transition-all duration-500 ease-out flex flex-col justify-between shadow-lg relative">
       
       {/* VISTA PREVIA / IMAGEN / WIREFRAME */}
-      <div className="w-full h-48 bg-brand-surface/60 border-b border-brand-border/80 overflow-hidden relative flex items-center justify-center">
+      <div className="w-full h-48 bg-brand-surface/40 border-b border-brand-border/40 overflow-hidden relative flex items-center justify-center">
         <Link to={`/proyectos/${slug}`} className="w-full h-full block">
           
           {imageUrl && imageUrl.trim() !== "" ? (
@@ -155,7 +155,7 @@ export default function ProjectCard({
           <p className="text-brand-muted text-xs leading-relaxed mb-6 line-clamp-2">{description}</p>
         </div>
         <div className="flex flex-wrap gap-1.5 min-w-0">
-          {techStack.map((tech) => <span key={tech} className="px-2.5 py-1 bg-brand-surface border border-brand-border/80 rounded-md text-[11px] text-brand-muted font-medium">{tech}</span>)}
+          {techStack.map((tech) => <span key={tech} className="px-2.5 py-1 bg-brand-surface/40 border border-brand-border/40 rounded-md text-[11px] text-brand-muted font-medium">{tech}</span>)}
         </div>
       </div>
     </div>
