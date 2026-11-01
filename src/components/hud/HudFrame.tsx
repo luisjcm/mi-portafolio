@@ -32,7 +32,7 @@ const HudFrame: React.FC<HudFrameProps> = ({
     <HudCorner position="br" />
 
     {(label || status) && (
-      <div className="mb-4 flex items-center justify-between gap-3">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-1.5">
         {label ? <HudLabel>{label}</HudLabel> : <span />}
         {status && (
           <HudLabel tone="critical" pulse>
