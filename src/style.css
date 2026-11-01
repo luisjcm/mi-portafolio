@@ -15,8 +15,12 @@
   --color-brand-primary: #28547A;
   --color-brand-accent: #78A9D0;
 
+  /* Tokens HUD: cian reservado para datos críticos (estado, IDs, tab activo) */
+  --color-hud-cyan: #5FD4E8;
+
   /* Tipografía */
   --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 
 @layer base {
@@ -25,6 +29,17 @@
     color: var(--color-brand-text);
     min-width: 320px;
     min-height: 100vh;
+  }
+}
+
+/* Accesibilidad: respeta la preferencia de movimiento reducido del sistema */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
