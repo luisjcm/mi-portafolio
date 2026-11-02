@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { LazyImage } from './LazyImage';
+import Badge from './ui/Badge';
+import Tag from './ui/Tag';
 
 interface ProjectCardProps {
   title: string;
@@ -150,12 +152,13 @@ export default function ProjectCard({
             <Link to={`/proyectos/${slug}`} className="block min-w-0">
               <h3 className="text-brand-text font-bold text-xs group-hover:text-brand-accent transition-colors truncate">{title}</h3>
             </Link>
-            {isNew && <span className="px-2 py-0.5 rounded-full bg-brand-accent/10 text-brand-accent border border-brand-accent/20 text-[10px] font-bold uppercase tracking-wider shrink-0 mt-0.5">{badge || 'Nuevo'}</span>}
+            {/* Etiqueta "Nuevo". Para usar el color secundario: variant="secondary" */}
+            {isNew && <Badge size="sm">{badge || 'Nuevo'}</Badge>}
           </div>
           <p className="text-brand-muted text-xs leading-relaxed mb-6 line-clamp-2">{description}</p>
         </div>
         <div className="flex flex-wrap gap-1.5 min-w-0">
-          {techStack.map((tech) => <span key={tech} className="px-2.5 py-1 bg-brand-surface border border-brand-border/80 rounded-md text-[11px] text-brand-muted font-medium">{tech}</span>)}
+          {techStack.map((tech) => <Tag key={tech} size="sm">{tech}</Tag>)}
         </div>
       </div>
     </div>
