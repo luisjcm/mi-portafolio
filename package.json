@@ -23,12 +23,13 @@
     "@types/react-dom": "^19.2.3",
     "front-matter": "^4.0.2",
     "groq-sdk": "^1.2.1",
-    "lucide-react": "^1.21.0",
+    "lucide-react": "^1.66.0",
     "marked": "^18.0.9",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-icons": "^5.7.0",
     "react-markdown": "^10.1.0",
-    "react-router-dom": "^7.18.2"
+    "react-router-dom": "^7.18.2",
+    "simple-icons": "^16.36.0"
   }
 }

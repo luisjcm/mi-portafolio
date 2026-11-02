@@ -1,7 +1,11 @@
 // src/config/categories.tsx
 import type { ReactNode } from 'react';
-// 1. Quitamos SiN8n y añadimos FaNetworkWired a la importación de 'fa'
-import { FaWordpress, FaReact, FaMobileAlt, FaPython, FaJava, FaNetworkWired } from 'react-icons/fa';
+
+// 1. Logos de marcas (Simple Icons)
+import { SiReact, SiWordpress, SiPython, SiOpenjdk, SiN8N } from 'react-icons/si';
+
+// 2. Iconos de interfaz modernos (Lucide React)
+import { Smartphone } from 'lucide-react';
 
 interface CategoryInfo {
   label: string;
@@ -10,38 +14,39 @@ interface CategoryInfo {
 }
 
 const ICON_CLASS = 'w-7 h-7';
+const LUCIDE_ICON_CLASS = 'w-7 h-7';
+const LUCIDE_STROKE = 1.5;
 
 const CATEGORIES: Record<string, CategoryInfo> = {
   javascript: { 
     label: 'JavaScript y React', 
-    icon: <FaReact className={ICON_CLASS} />,
-    colorClass: 'text-[#61DAFB] bg-[#61DAFB]/10 border-[#61DAFB]/20'
+    icon: <SiReact className={ICON_CLASS} />, 
+    colorClass: 'text-white bg-brand-primary border-brand-primary shadow-md' 
   },
   wordpress: { 
     label: 'WordPress', 
-    icon: <FaWordpress className={ICON_CLASS} />,
-    colorClass: 'text-[#21759B] bg-[#21759B]/10 border-[#21759B]/20'
+    icon: <SiWordpress className={ICON_CLASS} />, 
+    colorClass: 'text-white bg-brand-primary border-brand-primary shadow-md' 
   },
   apps: { 
     label: 'Aplicaciones & MVP', 
-    icon: <FaMobileAlt className={ICON_CLASS} />,
-    colorClass: 'text-brand-secondary bg-brand-secondary/10 border-brand-secondary/20'
+    icon: <Smartphone className={LUCIDE_ICON_CLASS} strokeWidth={LUCIDE_STROKE} />, 
+    colorClass: 'text-white bg-brand-primary border-brand-primary shadow-md' 
   },
   python: { 
     label: 'Python / Data', 
-    icon: <FaPython className={ICON_CLASS} />,
-    colorClass: 'text-[#3776AB] bg-[#3776AB]/10 border-[#3776AB]/20'
+    icon: <SiPython className={ICON_CLASS} />, 
+    colorClass: 'text-white bg-brand-primary border-brand-primary shadow-md' 
   },
   java: { 
     label: 'Java / Backend', 
-    icon: <FaJava className={ICON_CLASS} />,
-    colorClass: 'text-[#f89820] bg-[#f89820]/10 border-[#f89820]/20'
+    icon: <SiOpenjdk className={ICON_CLASS} />, 
+    colorClass: 'text-white bg-brand-primary border-brand-primary shadow-md' 
   },
   n8n: { 
-    label: 'Automatización con n8n', // Aproveché para ponerle un nombre más descriptivo
-    // 2. Usamos el icono de red
-    icon: <FaNetworkWired className={ICON_CLASS} />,
-    colorClass: 'text-[#FF6D5A] bg-[#FF6D5A]/10 border-[#FF6D5A]/20' // Color coral oficial de n8n
+    label: 'Automatización con n8n', 
+    icon: <SiN8N className={ICON_CLASS} />, // ¡Ahora sí, el logo oficial!
+    colorClass: 'text-white bg-brand-primary border-brand-primary shadow-md' 
   }
 };
 
@@ -52,7 +57,3 @@ export const getCategoryIcon = (key: string): ReactNode => CATEGORIES[key]?.icon
 
 export const getCategoryColor = (key: string): string => 
   CATEGORIES[key]?.colorClass ?? 'text-brand-accent bg-brand-accent/10 border-brand-accent/20';
-
-/* =============================================================================
-   TOKENS DE COLOR ... (AQUI SIGUE TU CODIGO DE TOKENS)
-   ============================================================================= */
