@@ -1,23 +1,6 @@
 @import "tailwindcss";
+@import "./styles/tokens.css";
 
-@theme {
-  /* Tokens de Superficie y Fondo */
-  --color-brand-bg: #121212;
-  --color-brand-surface: #1E1E1E;
-  --color-brand-surface-subtle: #18181B;
-
-  /* Tokens de Tipografía y Bordes */
-  --color-brand-text: #FFFFFF;
-  --color-brand-muted: #94A3B8;
-  --color-brand-border: #27272A;
-
-  /* Tokens de Marca y Acentos (Azul Eléctrico Equilibrado) */
-  --color-brand-primary: #1D4ED8;
-  --color-brand-accent: #3B82F6;
-
-  /* Tipografía */
-  --font-sans: "Inter", sans-serif;
-}
 
 @layer base {
   body {

@@ -1,0 +1,67 @@
+/* =============================================================================
+   TOKENS DE COLOR — ÚNICO LUGAR DONDE SE DEFINEN LOS COLORES DEL SITIO
+   =============================================================================
+   Capa 1 → PALETA    (:root)   Valores crudos. "Qué colores existen".
+   Capa 2 → SEMÁNTICA (@theme)  "Para qué sirve cada color". Los componentes
+                                solo usan esta capa (bg-brand-surface, etc.).
+
+   Regla 60/30/10:
+     60% fondo (brand-bg) · 30% superficies (brand-surface*) · 10% acentos
+   ========================================================================== */
+
+/* ---------- CAPA 1: PALETA (valores crudos) ---------- */
+:root {
+  /* Neutros: negro con un leve tinte frío para que las tarjetas se separen */
+  --palette-black-900: #0F1115;   /* fondo de página */
+  --palette-black-800: #161920;   /* superficie sutil (chips, iconos) */
+  --palette-black-700: #1A1D24;   /* superficie (tarjetas, botones) */
+  --palette-black-600: #2A2E38;   /* bordes */
+
+  --palette-white: #FFFFFF;
+  --palette-slate-400: #94A3B8;   /* texto atenuado (muted) */
+
+  /* Azul: color de marca / acción principal */
+  --palette-blue-700: #1D4ED8;
+  --palette-blue-500: #3B82F6;
+
+  /* Candidatos a color SECUNDARIO (elige uno en la capa 2) */
+  --palette-amber-500: #F59E0B;   /* A: contraste complementario al azul */
+  --palette-cyan-400:  #22D3EE;   /* B: armónico con el azul */
+  --palette-violet-500:#8B5CF6;   /* C: estilo tech / IA */
+
+  /* Estados */
+  --palette-green-500: #22C55E;   /* disponible / éxito */
+}
+
+/* ---------- CAPA 2: SEMÁNTICA (lo que usan los componentes) ---------- */
+@theme {
+  /* Fondo y superficies */
+  --color-brand-bg:             var(--palette-black-900); /* fondo de página */
+  --color-brand-surface:        var(--palette-black-700); /* tarjetas, botones, footer */
+  --color-brand-surface-subtle: var(--palette-black-800); /* chips, contenedores de icono */
+
+  /* Texto y bordes */
+  --color-brand-text:   var(--palette-white);
+  --color-brand-muted:  var(--palette-slate-400);
+  --color-brand-border: var(--palette-black-600);
+
+  /* Marca principal (azul): enlaces, iconos, pestaña activa */
+  --color-brand-primary: var(--palette-blue-700);
+  --color-brand-accent:  var(--palette-blue-500);
+
+  /* ★ COLOR SECUNDARIO — para cambiarlo, edita SOLO esta línea:
+       var(--palette-amber-500)  ·  var(--palette-cyan-400)  ·  var(--palette-violet-500) */
+  --color-brand-secondary: var(--palette-amber-500);
+
+  /* Estado "disponible" (badge verde) */
+  --color-brand-success: var(--palette-green-500);
+
+  /* Colores del bloque de código en "Sobre mí" (antes estaban fijos en el TSX) */
+  --color-code-string:  #ECF4FC;
+  --color-code-keyword: #FF7B72;
+  --color-code-prop:    var(--palette-blue-500);
+  --color-code-symbol:  #E6EDF3;
+
+  /* Tipografía */
+  --font-sans: "Inter", sans-serif;
+}
