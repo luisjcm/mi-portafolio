@@ -75,16 +75,20 @@ export const Chat = () => {
 
     if (nombreLead !== '' && correoLead !== '') {
       try {
-        const { error } = await supabase
-          .from('leads_portafolio')
-          .insert([
-            { nombre: nombreLead, correo: correoLead }
-          ]);
-
-        if (error) {
-          console.error("Error al guardar el lead:", error);
+        if (!supabase) {
+          console.warn("Supabase no está configurado, omitiendo guardado en BD.");
         } else {
-          console.log("Lead guardado exitosamente en la nube ☁️");
+        const { error } = await supabase
+            .from('leads_portafolio')
+            .insert([
+              { nombre: nombreLead, correo: correoLead }
+            ]);
+
+          if (error) {
+            console.error("Error al guardar el lead:", error);
+          } else {
+            console.log("Lead guardado exitosamente en la nube ☁️");
+          }
         }
       } catch (err) {
         console.error("Error de conexión:", err);
