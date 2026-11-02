@@ -58,13 +58,14 @@ export default function ProjectCard({
                     <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent opacity-20 pointer-events-none z-30"></div>
                  </div>
               </div>
-            ) : (
+                        ) : (
               /* --- DISEÑO NORMAL PARA WEB CON LAZY IMAGE --- */
               <LazyImage 
                 src={imageUrl} 
                 alt={title} 
-                className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                wrapperClassName="w-full h-full"
+                // Añadimos object-contain para que el SVG se vea completo
+                className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                wrapperClassName="w-full h-full flex items-center justify-center p-2"
                 onError={(e) => { e.currentTarget.style.display = 'none'; }} 
               />
             )
