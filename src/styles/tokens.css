@@ -29,6 +29,7 @@
   --palette-amber-500:  #F59E0B;  /* A: contraste complementario al azul */
   --palette-cyan-400:   #22D3EE;  /* B: armónico con el azul */
   --palette-violet-500: #8B5CF6;  /* C: estilo tech / IA */
+  --palette-red-500:    #EF4444;  /* D: error / peligro */
 
   /* Estados */
   --palette-green-500: #22C55E;   /* disponible / éxito */
@@ -59,6 +60,8 @@
 
   /* Estado "disponible" (hoy sin uso; el badge usa el azul) */
   --color-brand-success: var(--palette-green-500);
+
+  --color-brand-alert:   var(--palette-red-500);
 
   /* Bloque de código en "Sobre mí" */
   --color-code-string:  #ECF4FC;

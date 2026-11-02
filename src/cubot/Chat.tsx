@@ -131,16 +131,16 @@ export const Chat = () => {
       {!isOpen && (
         <button 
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 w-14 h-14 md:w-16 md:h-16 bg-brand-surface border-2 border-brand-accent rounded-full shadow-brand-accent/50 flex items-center justify-center hover:scale-110 transition-transform duration-300 z-50 group cursor-pointer"
+          className="fixed bottom-6 right-6 w-14 h-14 md:w-16 md:h-16 bg-brand-primary border-2 border-brand-accent rounded-full shadow-brand-accent/50 flex items-center justify-center hover:scale-110 transition-transform duration-300 z-50 group cursor-pointer"
           aria-label="Abrir asistente virtual"
         >
           <span className="transform group-hover:rotate-12 transition-transform duration-300">
-            <Bot className="w-7 h-7 md:w-8 md:h-8 text-brand-accent" strokeWidth={1.5} />
+            <Bot className="w-7 h-7 md:w-8 md:h-8 text-brand-text" strokeWidth={1.5} />
           </span>
           
           <span className="absolute -top-1 -right-1 flex h-4 w-4">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-4 w-4 bg-brand-accent border-2 border-brand-border"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-alert opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-4 w-4 bg-brand-alert border-2 border-brand-border"></span>
           </span>
         </button>
       )}
