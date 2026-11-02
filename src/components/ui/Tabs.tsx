@@ -7,14 +7,17 @@ interface TabsProps {
   tabs: string[];
   active: string;
   onChange: (tab: string) => void;
+  onHover?: (tab: string) => void;
 }
 
-export default function Tabs({ tabs, active, onChange }: TabsProps) {
+export default function Tabs({ tabs, active, onChange, onHover }: TabsProps) {
   return (
     <nav className="flex gap-6 border-b border-brand-border mb-8 overflow-x-auto scrollbar-hide w-full">
       {tabs.map((tab) => (
         <button
           key={tab}
+          onMouseEnter={() => onHover?.(tab)}
+          onFocus={() => onHover?.(tab)}   
           onClick={() => onChange(tab)}
           className={`pb-4 text-[13px] font-medium transition-all relative whitespace-nowrap cursor-pointer shrink-0 ${
             active === tab ? 'text-brand-text' : 'text-brand-muted hover:text-brand-text'

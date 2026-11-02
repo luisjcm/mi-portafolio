@@ -14,9 +14,9 @@
   /* Neutros (de más oscuro a más claro) */
 --palette-black-900: #0e1014; /* fondo de página */
 --palette-black-800: #151618;  /* superficie sutil */
---palette-black-700: #32353b; /* superficie: tarjetas, botones */
+--palette-black-700: #1c1e21; /* superficie: tarjetas, botones */
 --palette-black-650: #434546;  /* borde suave */
---palette-black-600: #777e8d; /* borde fuerte */
+--palette-black-600: #3d4148; /* borde fuerte */
 
   --palette-white: #FFFFFF;
   --palette-slate-400: #94A3B8;   /* texto atenuado (muted) */
