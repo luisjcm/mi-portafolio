@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <!-- Fondo -->
+  <rect width="100%" height="100%" fill="#151618" />
+  
+  <!-- Patrón de puntos -->
+  <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+    <circle fill="#2a2b30" cx="2" cy="2" r="1.5"></circle>
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#dots)"></rect>
+
+  <!-- LÍNEAS CONECTORAS -->
+  <g fill="none" stroke="#434546" stroke-width="3" stroke-dasharray="6,6">
+    <path d="M 220 200 C 260 200, 270 110, 310 110" />
+    <path d="M 380 110 C 420 110, 430 200, 470 200" />
+    <path d="M 540 200 C 580 200, 590 110, 630 110" />
+  </g>
+
+  <!-- NODO 1: TRIGGER -->
+  <g transform="translate(180, 200)">
+    <circle cx="40" cy="0" r="6" fill="#434546" stroke="#151618" stroke-width="2"/>
+    <rect x="-40" y="-40" width="80" height="80" rx="20" fill="#1c1e21" stroke="#434546" stroke-width="3"/>
+    <circle cx="0" cy="0" r="16" fill="none" stroke="#3B82F6" stroke-width="3"/>
+    <path d="M0,-8 L0,0 L6,6" fill="none" stroke="#3B82F6" stroke-width="3" stroke-linecap="round"/>
+    <text x="0" y="65" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" letter-spacing="1" text-anchor="middle">TRIGGER</text>
+  </g>
+
+  <!-- NODO 2: API -->
+  <g transform="translate(340, 110)">
+    <circle cx="-40" cy="0" r="6" fill="#434546" stroke="#151618" stroke-width="2"/>
+    <circle cx="40" cy="0" r="6" fill="#434546" stroke="#151618" stroke-width="2"/>
+    <rect x="-40" y="-40" width="80" height="80" rx="20" fill="#1c1e21" stroke="#434546" stroke-width="3"/>
+    <circle cx="0" cy="0" r="16" fill="none" stroke="#22D3EE" stroke-width="3"/>
+    <path d="M-10,-10 L10,10 M-10,10 L10,-10" stroke="#22D3EE" stroke-width="3" stroke-linecap="round"/>
+    <text x="0" y="65" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" letter-spacing="1" text-anchor="middle">HTTP API</text>
+  </g>
+
+  <!-- NODO 3: JS -->
+  <g transform="translate(500, 200)">
+    <circle cx="-40" cy="0" r="6" fill="#434546" stroke="#151618" stroke-width="2"/>
+    <circle cx="40" cy="0" r="6" fill="#434546" stroke-width="2"/>
+    <rect x="-40" y="-40" width="80" height="80" rx="20" fill="#1c1e21" stroke="#434546" stroke-width="3"/>
+    <text x="0" y="10" fill="#F59E0B" font-family="ui-monospace, SFMono-Regular, monospace" font-size="28" font-weight="bold" text-anchor="middle">{ }</text>
+    <text x="0" y="65" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" letter-spacing="1" text-anchor="middle">LÓGICA JS</text>
+  </g>
+
+  <!-- NODO 4: TELEGRAM -->
+  <g transform="translate(660, 110)">
+    <circle cx="-40" cy="0" r="6" fill="#434546" stroke="#151618" stroke-width="2"/>
+    <rect x="-40" y="-40" width="80" height="80" rx="20" fill="#1c1e21" stroke="#434546" stroke-width="3"/>
+    <path d="M-16,0 L16,-10 L6,10 L-4,4 Z" fill="#3B82F6" stroke="#3B82F6" stroke-linejoin="round"/>
+    <text x="0" y="65" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" letter-spacing="1" text-anchor="middle">TELEGRAM</text>
+  </g>
+</svg>
