@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ProjectCard from '../components/ProjectCard';
-import frontMatter from 'front-matter';
+import { getProjects } from '../services/projects';
+import { SITE, LINKS, CONTACT_MESSAGE } from '../config/site';
 import { useToast } from '../context/ToastContext';
 
 import stackData from '../content/stack.json';
@@ -11,22 +12,6 @@ import TechIcon from '../components/TechIcon';
 import { FaWordpress, FaReact, FaMobileAlt } from 'react-icons/fa';
 
 
-
-// Extraemos la data de los proyectos
-const mdFiles = import.meta.glob('../content/proyectos/*.md', { query: '?raw', eager: true });
-const projects = Object.entries(mdFiles).map(([path, module]: [string, any]) => {
-  const slug = path.split('/').pop()?.replace('.md', '');
-  const { attributes } = frontMatter(module.default);
-  return { slug, ...(attributes as any) };
-}
-)
-  .sort((a, b) => {
-    // Le asignamos un valor alto (999) por defecto a los que no tengan 'order' 
-    // para que se vayan al final, pero antes del 9999 si existiera.
-    const orderA = a.order || 999;
-    const orderB = b.order || 999;
-    return orderA - orderB;
-  });
 
 const CATEGORY_LABELS: Record<string, string> = {
   javascript: 'JavaScript y React',
@@ -49,6 +34,9 @@ export default function Home() {
 
   const [slideDir, setSlideDir] = useState<'right' | 'left'>('right'); 
   const { showToast } = useToast();
+
+  // Lista de proyectos (ordenada) desde el servicio central
+  const projects = getProjects();
 
   const categoryStats = projects.reduce<Record<string, number>>((stats, project) => {
     if (project.category) {
@@ -96,7 +84,7 @@ export default function Home() {
                   setSelectedFolder(category);
                 }
               }}
-              className="group flex h-full cursor-pointer flex-col rounded-xl border border-brand-border/60 bg-brand-surface/20 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-accent/50 hover:bg-brand-surface/40"
+              className="group flex h-full cursor-pointer flex-col rounded-xl border border-brand-border bg-brand-surface/40 p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-brand-border-strong hover:bg-brand-surface hover:shadow-card-hover"
             >
               <div className="mb-4 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-surface-subtle text-brand-accent border border-brand-border/50">
                 {CATEGORY_ICONS[category]}
@@ -357,18 +345,18 @@ const renderFormacion = () => (
         </div>
 
        <div className="flex flex-wrap items-center gap-1 w-full select-none">
-                {/* Botón Contactar */}
+                {/* Botón Contactar — BOTÓN PRINCIPAL en azul sólido. DÓNDE CAMBIAR: bg-brand-primary / hover:bg-brand-accent */}
                 <a 
-                  href="https://wa.me/584248887150?text=Hola%20Luis,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte"
+                  href={LINKS.whatsapp(CONTACT_MESSAGE)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex-1 min-w-[115px] max-w-[140px] py-2 md:py-2.5 bg-brand-surface-subtle border border-brand-border rounded-[10px] font-semibold text-brand-text text-[12px] md:text-[13px] overflow-hidden text-center active:scale-95 transition-all no-underline"
+                  className="group relative flex-1 min-w-[115px] max-w-[140px] py-2 md:py-2.5 bg-brand-primary border border-brand-primary hover:bg-brand-accent hover:border-brand-accent rounded-[10px] font-semibold text-white text-[12px] md:text-[13px] overflow-hidden text-center active:scale-95 transition-all no-underline"
                 >
                   {/* Rayo de luz usando brand-accent */}
-                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-brand-accent/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                   
                   <span className="relative flex items-center justify-center gap-2">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3.5 h-3.5 md:w-4 md:h-4 text-brand-accent shrink-0">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3.5 h-3.5 md:w-4 md:h-4 text-white shrink-0">
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                     </svg>
                     Contactar
@@ -383,8 +371,8 @@ const renderFormacion = () => (
                     
                     // 2. Forzamos la descarga del archivo desde la carpeta public
                     const link = document.createElement('a');
-                    link.href = '/CV_Luis_Curbata.pdf'; // Ruta absoluta a la carpeta public
-                    link.download = 'CV_Luis_Curbata.pdf'; // Nombre con el que se guardará
+                    link.href = SITE.cvPath; // Ruta definida en config/site.ts
+                    link.download = SITE.cvPath.slice(1); // Nombre con el que se guardará
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
@@ -407,7 +395,7 @@ const renderFormacion = () => (
 
                 {/* Icono LinkedIn */}
                 <a
-                  href="https://linkedin.com/in/luisjcm"
+                  href={LINKS.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Perfil de LinkedIn"
@@ -424,7 +412,7 @@ const renderFormacion = () => (
 
                 {/* Icono GitHub */}
                 <a
-                  href="https://github.com/luisjcm"
+                  href={LINKS.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Perfil de GitHub"

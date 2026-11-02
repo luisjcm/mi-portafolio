@@ -1,21 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import ProjectCard from '../components/ProjectCard';
-import frontMatter from 'front-matter';
+import { getProjects } from '../services/projects';
 import { FaWordpress, FaReact, FaMobileAlt } from 'react-icons/fa';
-
-// Extraemos los proyectos
-const mdFiles = import.meta.glob('../content/proyectos/*.md', { query: '?raw', eager: true });
-const projects = Object.entries(mdFiles)
-  .map(([path, module]: [string, any]) => {
-    const slug = path.split('/').pop()?.replace('.md', '');
-    const { attributes } = frontMatter(module.default);
-    return { slug, ...(attributes as any) };
-  })
-  .sort((a, b) => {
-    const orderA = a.order || 999;
-    const orderB = b.order || 999;
-    return orderA - orderB;
-  });
 
 const CATEGORY_LABELS: Record<string, string> = {
   javascript: 'JavaScript y React',
@@ -32,6 +18,9 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
 };
 
 export default function ProjectsIndex() {
+  // Lista de proyectos (ordenada) desde el servicio central
+  const projects = getProjects();
+
   // Estado para controlar si estamos viendo las carpetas o los proyectos de una carpeta
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null);
 

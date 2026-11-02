@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useToast } from '../context/ToastContext';
+import { SITE, LINKS, WHATSAPP_DISPLAY } from '../config/site';
 
 export default function Contacto() {
   const { showToast } = useToast();
@@ -132,23 +133,23 @@ export default function Contacto() {
         <div className="flex flex-col gap-8 md:pl-8">
           <div>
             <h3 className="text-brand-muted text-[11px] font-bold uppercase tracking-widest mb-3">Email Directo</h3>
-            <a href="mailto:contacto@luisjcm.com" className="text-brand-text hover:text-brand-accent transition-colors text-[15px]">
-              contacto@luisjcm.com
+            <a href={`mailto:${SITE.email}`} className="text-brand-text hover:text-brand-accent transition-colors text-[15px]">
+              {SITE.email}
             </a>
           </div>
 
           <div>
             <h3 className="text-brand-muted text-[11px] font-bold uppercase tracking-widest mb-3">WhatsApp</h3>
-            <a href="https://wa.me/584248887150" target="_blank" rel="noopener noreferrer" className="text-brand-text hover:text-brand-accent transition-colors text-[15px]">
-              +58 424 888 7150
+            <a href={LINKS.whatsapp()} target="_blank" rel="noopener noreferrer" className="text-brand-text hover:text-brand-accent transition-colors text-[15px]">
+              {WHATSAPP_DISPLAY}
             </a>
           </div>
 
           <div>
             <h3 className="text-brand-muted text-[11px] font-bold uppercase tracking-widest mb-3">Redes</h3>
             <div className="flex gap-4">
-              <a href="https://linkedin.com/in/luisjcm" target="_blank" rel="noopener noreferrer" className="text-brand-muted hover:text-brand-text transition-colors underline underline-offset-4 decoration-brand-border hover:decoration-brand-accent">LinkedIn</a>
-              <a href="https://github.com/luisjcm" target="_blank" rel="noopener noreferrer" className="text-brand-muted hover:text-brand-text transition-colors underline underline-offset-4 decoration-brand-border hover:decoration-brand-accent">GitHub</a>
+              <a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="text-brand-muted hover:text-brand-text transition-colors underline underline-offset-4 decoration-brand-border hover:decoration-brand-accent">LinkedIn</a>
+              <a href={LINKS.github} target="_blank" rel="noopener noreferrer" className="text-brand-muted hover:text-brand-text transition-colors underline underline-offset-4 decoration-brand-border hover:decoration-brand-accent">GitHub</a>
             </div>
           </div>
         </div>
