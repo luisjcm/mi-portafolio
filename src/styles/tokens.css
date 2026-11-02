@@ -11,11 +11,12 @@
 
 /* ---------- CAPA 1: PALETA (valores crudos) ---------- */
 :root {
-  /* Neutros: negro con un leve tinte frío para que las tarjetas se separen */
-  --palette-black-900: #0F1115;   /* fondo de página */
-  --palette-black-800: #161920;   /* superficie sutil (chips, iconos) */
-  --palette-black-700: #1A1D24;   /* superficie (tarjetas, botones) */
-  --palette-black-600: #2A2E38;   /* bordes */
+  /* Neutros (de más oscuro a más claro) */
+  --palette-black-900: #0f0f10;   /* fondo de página */
+  --palette-black-800: #18181a;   /* superficie sutil (chips, iconos) */
+  --palette-black-700: #222224;   /* superficie (tarjetas, botones) */
+  --palette-black-650: #2e2f34;   /* borde suave */
+  --palette-black-600: #404146;   /* borde fuerte */
 
   --palette-white: #FFFFFF;
   --palette-slate-400: #94A3B8;   /* texto atenuado (muted) */
@@ -25,9 +26,9 @@
   --palette-blue-500: #3B82F6;
 
   /* Candidatos a color SECUNDARIO (elige uno en la capa 2) */
-  --palette-amber-500: #F59E0B;   /* A: contraste complementario al azul */
-  --palette-cyan-400:  #22D3EE;   /* B: armónico con el azul */
-  --palette-violet-500:#8B5CF6;   /* C: estilo tech / IA */
+  --palette-amber-500:  #F59E0B;  /* A: contraste complementario al azul */
+  --palette-cyan-400:   #22D3EE;  /* B: armónico con el azul */
+  --palette-violet-500: #8B5CF6;  /* C: estilo tech / IA */
 
   /* Estados */
   --palette-green-500: #22C55E;   /* disponible / éxito */
@@ -40,27 +41,37 @@
   --color-brand-surface:        var(--palette-black-700); /* tarjetas, botones, footer */
   --color-brand-surface-subtle: var(--palette-black-800); /* chips, contenedores de icono */
 
-  /* Texto y bordes */
-  --color-brand-text:   var(--palette-white);
-  --color-brand-muted:  var(--palette-slate-400);
-  --color-brand-border: var(--palette-black-600);
+  /* Texto */
+  --color-brand-text:  var(--palette-white);
+  --color-brand-muted: var(--palette-slate-400);
 
-  /* Marca principal (azul): enlaces, iconos, pestaña activa */
+  /* Bordes: dos niveles */
+  --color-brand-border:        var(--palette-black-650); /* tarjetas, divisores (reposo) */
+  --color-brand-border-strong: var(--palette-black-600); /* hover, botones, foco */
+
+  /* Marca principal (azul): enlaces, iconos, pestaña activa, botón principal */
   --color-brand-primary: var(--palette-blue-700);
   --color-brand-accent:  var(--palette-blue-500);
 
-  /* ★ COLOR SECUNDARIO — para cambiarlo, edita SOLO esta línea:
+  /* ★ COLOR SECUNDARIO — edita SOLO esta línea para cambiarlo:
        var(--palette-amber-500)  ·  var(--palette-cyan-400)  ·  var(--palette-violet-500) */
   --color-brand-secondary: var(--palette-amber-500);
 
-  /* Estado "disponible" (badge verde) */
+  /* Estado "disponible" (hoy sin uso; el badge usa el azul) */
   --color-brand-success: var(--palette-green-500);
 
-  /* Colores del bloque de código en "Sobre mí" (antes estaban fijos en el TSX) */
+  /* Bloque de código en "Sobre mí" */
   --color-code-string:  #ECF4FC;
   --color-code-keyword: #FF7B72;
   --color-code-prop:    var(--palette-blue-500);
   --color-code-symbol:  #E6EDF3;
+
+  /* Sombras (utilidades: shadow-card, shadow-card-hover) */
+  --shadow-card: 0 1px 0 0 rgb(255 255 255 / 0.04) inset,
+                 0 4px 12px -2px rgb(0 0 0 / 0.6);
+  --shadow-card-hover: 0 1px 0 0 rgb(255 255 255 / 0.06) inset,
+                       0 8px 24px -4px rgb(0 0 0 / 0.7),
+                       0 0 0 1px rgb(59 130 246 / 0.25);
 
   /* Tipografía */
   --font-sans: "Inter", sans-serif;
