@@ -1,23 +1,6 @@
 @import "tailwindcss";
+@import "./styles/tokens.css";
 
-@theme {
-  /* Tokens de Superficie y Fondo */
-  --color-brand-bg: #121212;
-  --color-brand-surface: #1E1E1E;
-  --color-brand-surface-subtle: #18181B;
-
-  /* Tokens de Tipografía y Bordes */
-  --color-brand-text: #FFFFFF;
-  --color-brand-muted: #94A3B8;
-  --color-brand-border: #27272A;
-
-  /* Tokens de Marca y Acentos (Azul Eléctrico Equilibrado) */
-  --color-brand-primary: #1D4ED8;
-  --color-brand-accent: #3B82F6;
-
-  /* Tipografía */
-  --font-sans: "Inter", sans-serif;
-}
 
 @layer base {
   body {
@@ -59,4 +42,40 @@
 .animate-slide-left {
   /* Aumentado a 1s con una curva de desaceleración extra suave */
   animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Skeleton de carga para pestañas lazy */
+.tab-skeleton {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.5rem 0;
+}
+.tab-skeleton--grid {
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 0.75rem;
+}
+.tab-skeleton__item {
+  height: 84px;
+  border-radius: 12px;
+  background: linear-gradient(
+    90deg,
+    var(--color-surface-2, #2f2f2f) 25%,
+    var(--color-surface-1, #2f2f2f) 37%,
+    var(--color-surface-2, #2f2f2f) 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.2s ease-in-out infinite;
+}
+.tab-skeleton__item--square {
+  aspect-ratio: 1 / 1;
+  height: auto;
+}
+@keyframes shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+/* Respeta a usuarios con reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .tab-skeleton__item { animation: none; }
 }

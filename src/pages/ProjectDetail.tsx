@@ -1,21 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { useParams, Link } from 'react-router-dom';
-import frontMatter from 'front-matter';
 import { marked } from 'marked';
 import { LazyImage } from '../components/LazyImage'; // <-- Importación del componente
 
-const mdFiles = import.meta.glob('../content/proyectos/*.md', { query: '?raw', eager: true });
-
-interface SubProject {
-  id: string;
-  title: string;
-  client: string;
-  description: string;
-  tech: string[];
-  image?: string;
-  gallery?: string[];
-}
+import { getProjectBySlug } from '../services/projects';
 
 // --- MINI COMPONENTE: WIREFRAME ANDROID REUTILIZABLE ---
 const MobileMockup = ({ src, isLightbox }: { src: string, isLightbox: boolean }) => {
@@ -66,9 +55,10 @@ export default function ProjectDetail() {
     setCurrentImageIndex(0);
   }, [slug]);
 
-  const fileEntry = Object.entries(mdFiles).find(([path]) => path.includes(`${slug}.md`));
+  // Busca el proyecto en el servicio central (antes se leía el .md aquí)
+  const project = getProjectBySlug(slug ?? '');
 
-  if (!fileEntry) {
+  if (!project) {
     return (
       <main className="w-full max-w-[800px] mx-auto p-6 mt-20 text-center min-h-screen animate-page-enter">
         <h1 className="text-xl font-bold text-brand-text mb-3">Proyecto no encontrado</h1>
@@ -79,11 +69,7 @@ export default function ProjectDetail() {
     );
   }
 
-  const [_, module] = fileEntry;
-  const { attributes, body } = frontMatter((module as any).default);
-  const project = attributes as { 
-    title: string; description: string; techStack?: string[]; wireframeType?: string; subProjects?: SubProject[]; projectUrl?: string; imageUrl?: string; images?: string[];
-  };
+  const { body } = project;
 
   const mainGallery: string[] = project.images || (project.imageUrl ? [project.imageUrl] : []);
 

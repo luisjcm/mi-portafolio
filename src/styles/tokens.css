@@ -1,0 +1,81 @@
+/* =============================================================================
+   TOKENS DE COLOR — ÚNICO LUGAR DONDE SE DEFINEN LOS COLORES DEL SITIO
+   =============================================================================
+   Capa 1 → PALETA    (:root)   Valores crudos. "Qué colores existen".
+   Capa 2 → SEMÁNTICA (@theme)  "Para qué sirve cada color". Los componentes
+                                solo usan esta capa (bg-brand-surface, etc.).
+
+   Regla 60/30/10:
+     60% fondo (brand-bg) · 30% superficies (brand-surface*) · 10% acentos
+   ========================================================================== */
+
+/* ---------- CAPA 1: PALETA (valores crudos) ---------- */
+:root {
+  /* Neutros (de más oscuro a más claro) */
+--palette-black-900: #0e1014; /* fondo de página */
+--palette-black-800: #151618;  /* superficie sutil */
+--palette-black-700: #1c1e21; /* superficie: tarjetas, botones */
+--palette-black-650: #434546;  /* borde suave */
+--palette-black-600: #3d4148; /* borde fuerte */
+
+  --palette-white: #FFFFFF;
+  --palette-slate-400: #94A3B8;   /* texto atenuado (muted) */
+
+  /* Azul: color de marca / acción principal */
+  --palette-blue-700: #1D4ED8;
+  --palette-blue-500: #3B82F6;
+
+  /* Candidatos a color SECUNDARIO (elige uno en la capa 2) */
+  --palette-amber-500:  #F59E0B;  /* A: contraste complementario al azul */
+  --palette-cyan-400:   #22D3EE;  /* B: armónico con el azul */
+  --palette-violet-500: #8B5CF6;  /* C: estilo tech / IA */
+  --palette-red-500:    #EF4444;  /* D: error / peligro */
+
+  /* Estados */
+  --palette-green-500: #22C55E;   /* disponible / éxito */
+}
+
+/* ---------- CAPA 2: SEMÁNTICA (lo que usan los componentes) ---------- */
+@theme {
+  /* Fondo y superficies */
+  --color-brand-bg:             var(--palette-black-900); /* fondo de página */
+  --color-brand-surface:        var(--palette-black-700); /* tarjetas, botones, footer */
+  --color-brand-surface-subtle: var(--palette-black-800); /* chips, contenedores de icono */
+
+  /* Texto */
+  --color-brand-text:  var(--palette-white);
+  --color-brand-muted: var(--palette-slate-400);
+
+  /* Bordes: dos niveles */
+  --color-brand-border:        var(--palette-black-650); /* tarjetas, divisores (reposo) */
+  --color-brand-border-strong: var(--palette-black-600); /* hover, botones, foco */
+
+  /* Marca principal (azul): enlaces, iconos, pestaña activa, botón principal */
+  --color-brand-primary: var(--palette-blue-700);
+  --color-brand-accent:  var(--palette-blue-500);
+
+  /* ★ COLOR SECUNDARIO — edita SOLO esta línea para cambiarlo:
+       var(--palette-amber-500)  ·  var(--palette-cyan-400)  ·  var(--palette-violet-500) */
+  --color-brand-secondary: var(--palette-amber-500);
+
+  /* Estado "disponible" (hoy sin uso; el badge usa el azul) */
+  --color-brand-success: var(--palette-green-500);
+
+  --color-brand-alert:   var(--palette-red-500);
+
+  /* Bloque de código en "Sobre mí" */
+  --color-code-string:  #ECF4FC;
+  --color-code-keyword: #FF7B72;
+  --color-code-prop:    var(--palette-blue-500);
+  --color-code-symbol:  #E6EDF3;
+
+  /* Sombras (utilidades: shadow-card, shadow-card-hover) */
+  --shadow-card: 0 1px 0 0 rgb(255 255 255 / 0.04) inset,
+                 0 4px 12px -2px rgb(0 0 0 / 0.6);
+  --shadow-card-hover: 0 1px 0 0 rgb(255 255 255 / 0.06) inset,
+                       0 8px 24px -4px rgb(0 0 0 / 0.7),
+                       0 0 0 1px rgb(59 130 246 / 0.25);
+
+  /* Tipografía */
+  --font-sans: "Inter", sans-serif;
+}

@@ -13,6 +13,7 @@
     "postcss": "^8.5.12",
     "supabase": "^2.107.0",
     "tailwindcss": "^4.2.4",
+    "typescript": "^7.0.2",
     "vite": "^8.0.10"
   },
   "dependencies": {
@@ -21,7 +22,6 @@
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "front-matter": "^4.0.2",
-    "gray-matter": "^4.0.3",
     "groq-sdk": "^1.2.1",
     "lucide-react": "^1.21.0",
     "marked": "^18.0.9",
