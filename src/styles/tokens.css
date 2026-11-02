@@ -12,11 +12,11 @@
 /* ---------- CAPA 1: PALETA (valores crudos) ---------- */
 :root {
   /* Neutros (de más oscuro a más claro) */
-  --palette-black-900: #0f0f10;   /* fondo de página */
-  --palette-black-800: #18181a;   /* superficie sutil (chips, iconos) */
-  --palette-black-700: #222224;   /* superficie (tarjetas, botones) */
-  --palette-black-650: #2e2f34;   /* borde suave */
-  --palette-black-600: #404146;   /* borde fuerte */
+--palette-black-900: #0e1014; /* fondo de página */
+--palette-black-800: #151618;  /* superficie sutil */
+--palette-black-700: #32353b; /* superficie: tarjetas, botones */
+--palette-black-650: #434546;  /* borde suave */
+--palette-black-600: #777e8d; /* borde fuerte */
 
   --palette-white: #FFFFFF;
   --palette-slate-400: #94A3B8;   /* texto atenuado (muted) */
