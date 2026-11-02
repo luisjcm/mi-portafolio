@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { marked } from 'marked';
 import { LazyImage } from '../components/LazyImage'; 
 import { getProjectBySlug } from '../services/projects';
+import NotFound from './NotFound'; // <-- Importamos la nueva página 404
 
 // --- MINI COMPONENTE: WIREFRAME ANDROID REUTILIZABLE ---
 const MobileMockup = ({ src, isLightbox }: { src: string, isLightbox: boolean }) => {
@@ -34,6 +35,7 @@ const MobileMockup = ({ src, isLightbox }: { src: string, isLightbox: boolean })
 
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate(); 
   
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
@@ -44,15 +46,9 @@ export default function ProjectDetail() {
 
   const project = getProjectBySlug(slug ?? '');
 
+  // 1. SI EL PROYECTO NO EXISTE, RENDERIZAMOS LA PÁGINA 404
   if (!project) {
-    return (
-      <main className="w-full max-w-[800px] mx-auto p-6 mt-20 text-center min-h-screen animate-page-enter">
-        <h1 className="text-xl font-bold text-brand-text mb-3">Proyecto no encontrado</h1>
-        <Link to="/" className="px-4 py-2 bg-brand-surface text-brand-text font-semibold text-xs rounded-lg hover:bg-brand-surface-subtle transition-colors">
-          Volver al Inicio
-        </Link>
-      </main>
-    );
+    return <NotFound />;
   }
 
   const { body } = project;
@@ -130,11 +126,15 @@ export default function ProjectDetail() {
     <>
       <main className="w-full max-w-[1100px] min-w-0 mx-auto px-5 md:px-6 py-6 md:py-10 pb-28 md:pb-16 min-h-screen animate-page-enter">
         
+        {/* BOTÓN VOLVER OPTIMIZADO */}
         <div className="mb-6">
-          <Link to="/" className="inline-flex items-center gap-2 text-xs font-medium text-brand-muted hover:text-brand-text transition-colors bg-brand-surface/60 border border-brand-border px-3 py-1.5 rounded-lg active:scale-95">
+          <button 
+            onClick={() => navigate(-1)} 
+            className="inline-flex items-center gap-2 text-xs font-medium text-brand-muted hover:text-brand-text transition-colors bg-brand-surface/60 border border-brand-border px-3 py-1.5 rounded-lg active:scale-95 cursor-pointer"
+          >
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-            Volver al Inicio
-          </Link>
+            Volver a Proyectos
+          </button>
         </div>
 
         <header className="mb-8 md:mb-12">
@@ -155,11 +155,10 @@ export default function ProjectDetail() {
           </div>
         </header>
 
-        {/* NUEVO LAYOUT: Columnas iguales, alineadas arriba, imagen Sticky */}
+        {/* LAYOUT EDITORIAL: Columna Izquierda Sticky, Columna Derecha Texto */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16 relative items-start">
           
           {/* Columna Izquierda: Imagen Principal (Sticky) */}
-          {/* lg:sticky lg:top-24 hace que la imagen te siga mientras haces scroll */}
           <div className="w-full lg:sticky lg:top-24 h-fit">
             {mainGallery.length > 0 && (
               project.wireframeType === 'mobile' ? (
@@ -197,7 +196,6 @@ export default function ProjectDetail() {
           {/* Columna Derecha: Texto (Card) */}
           <div className="w-full">
             <div className="bg-brand-surface/30 border border-brand-border/60 rounded-2xl p-6 md:p-8 shadow-xl backdrop-blur-sm relative">
-              {/* Detalle sutil de diseño */}
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-primary to-transparent rounded-t-2xl"></div>
               
               <div 
