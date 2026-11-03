@@ -1,53 +1,331 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
-  <!-- Fondo -->
-  <rect width="100%" height="100%" fill="#151618" />
-  
-  <!-- Patrón de puntos -->
-  <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-    <circle fill="#2a2b30" cx="2" cy="2" r="1.5"></circle>
-  </pattern>
-  <rect width="100%" height="100%" fill="url(#dots)"></rect>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420" role="img" aria-label="Flujo de n8n: Schedule Trigger, HTTP Request, Code (JavaScript) y Telegram">
+  <!--
+    =====================================================================
+    WIREFRAME n8n — Automatización de tasas BCV y USDT
+    =====================================================================
+    ¿DÓNDE CAMBIAR COSAS?
+    · Colores: este SVG se carga con <img>, por eso NO puede leer las variables
+      de tokens.css. Los hex de abajo son los de tu paleta; si cambias la
+      paleta, haz "buscar y reemplazar" de estos valores:
+        #0E1014 fondo        #151618 superficie sutil   #1C1E21 superficie
+        #2A2E38 borde suave  #3D4148 borde fuerte       #94A3B8 texto atenuado
+        #3B82F6 azul (trigger / botón)   #22D3EE cian (HTTP)
+        #F59E0B ámbar (código)           #38BDF8 celeste (Telegram)
+        #22C55E éxito   #EF4444 error
+    · Textos: busca el texto entre <text> ... </text> y cámbialo.
+    · Animación: bloques marcados "ANIM". Para quitarla, borra esos <g class="anim">.
+    · Margen de seguridad: todo lo importante está entre x=40..760 e y=16..404
+      porque la tarjeta recorta un poco los bordes (object-cover).
+    · Las cifras (36,42 · 41,10 …) son ilustrativas, no tasas reales.
+    =====================================================================
+  -->
+  <defs>
+    <!-- Cuadrícula de puntos del lienzo -->
+    <pattern id="dots" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#232730"/>
+    </pattern>
+    <!-- Resplandor azul suave detrás del flujo -->
+    <radialGradient id="glow" cx="50%" cy="46%" r="60%">
+      <stop offset="0" stop-color="#3B82F6" stop-opacity="0.16"/>
+      <stop offset="0.55" stop-color="#3B82F6" stop-opacity="0.04"/>
+      <stop offset="1" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Degradado de los nodos -->
+    <linearGradient id="nodeFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#23262d"/>
+      <stop offset="1" stop-color="#181a1f"/>
+    </linearGradient>
+    <!-- Sombras -->
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#000" flood-opacity="0.55"/>
+    </filter>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="blur3"><feGaussianBlur stdDeviation="3"/></filter>
+    <!-- Punta de flecha de las conexiones -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#6B7280"/>
+    </marker>
+    <style>
+      /* Respeta a quien tiene "reducir movimiento" activado */
+      @media (prefers-reduced-motion: reduce) { .anim { display: none; } }
+      .sans { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace; }
+    </style>
+  </defs>
 
-  <!-- LÍNEAS CONECTORAS -->
-  <g fill="none" stroke="#434546" stroke-width="3" stroke-dasharray="6,6">
-    <path d="M 220 200 C 260 200, 270 110, 310 110" />
-    <path d="M 380 110 C 420 110, 430 200, 470 200" />
-    <path d="M 540 200 C 580 200, 590 110, 630 110" />
+  <!-- ============ LIENZO ============ -->
+  <rect width="800" height="420" fill="#0E1014"/>
+  <rect width="800" height="420" fill="url(#dots)"/>
+  <rect width="800" height="420" fill="url(#glow)"/>
+
+  <!-- ============ BARRA SUPERIOR (estilo editor n8n) ============ -->
+  <!-- Nombre del workflow + interruptor Active -->
+  <g class="sans" filter="url(#softShadow)">
+    <rect x="40" y="20" width="262" height="32" rx="10" fill="#151618" stroke="#2A2E38"/>
+    <!-- mini logo de nodos conectados -->
+    <g transform="translate(58,36)" stroke="#3B82F6" stroke-width="1.6" fill="none" stroke-linecap="round">
+      <circle cx="-5" cy="3" r="2.6" fill="#3B82F6" stroke="none"/>
+      <circle cx="3" cy="-4" r="2.6" fill="#3B82F6" stroke="none"/>
+      <circle cx="6" cy="5" r="2.6" fill="#3B82F6" stroke="none"/>
+      <path d="M-3 2 L1 -2 M-3 4 L4 5"/>
+    </g>
+    <text x="76" y="40" fill="#FFFFFF" font-size="12" font-weight="600">Tasas BCV · USDT</text>
+    <!-- interruptor -->
+    <rect x="212" y="29" width="26" height="14" rx="7" fill="#3B82F6"/>
+    <circle cx="231" cy="36" r="5" fill="#FFFFFF"/>
+    <text x="245" y="40" fill="#94A3B8" font-size="10.5" font-weight="600">Active</text>
+  </g>
+  <!-- Pestañas Editor / Executions -->
+  <g class="sans" filter="url(#softShadow)">
+    <rect x="560" y="20" width="200" height="32" rx="10" fill="#151618" stroke="#2A2E38"/>
+    <rect x="566" y="25" width="86" height="22" rx="7" fill="#23262d"/>
+    <text x="609" y="40" fill="#FFFFFF" font-size="11" font-weight="600" text-anchor="middle">Editor</text>
+    <text x="707" y="40" fill="#94A3B8" font-size="11" font-weight="600" text-anchor="middle">Executions</text>
   </g>
 
-  <!-- NODO 1: TRIGGER -->
-  <g transform="translate(180, 200)">
-    <circle cx="40" cy="0" r="6" fill="#434546" stroke="#151618" stroke-width="2"/>
-    <rect x="-40" y="-40" width="80" height="80" rx="20" fill="#1c1e21" stroke="#434546" stroke-width="3"/>
-    <circle cx="0" cy="0" r="16" fill="none" stroke="#3B82F6" stroke-width="3"/>
-    <path d="M0,-8 L0,0 L6,6" fill="none" stroke="#3B82F6" stroke-width="3" stroke-linecap="round"/>
-    <text x="0" y="65" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" letter-spacing="1" text-anchor="middle">TRIGGER</text>
+  <!-- ============ CONEXIONES ENTRE NODOS ============ -->
+  <g fill="none" stroke="#4B5563" stroke-width="2.2" stroke-linecap="round">
+    <path d="M146 140 L254 140" marker-end="url(#arrow)"/>
+    <path d="M326 140 L434 140" marker-end="url(#arrow)"/>
+    <path d="M506 140 L614 140" marker-end="url(#arrow)"/>
+  </g>
+  <!-- Etiquetas "1 item" sobre cada conexión -->
+  <g class="sans" font-size="9.5" font-weight="600" fill="#94A3B8" text-anchor="middle">
+    <rect x="178" y="130" width="44" height="18" rx="9" fill="#0E1014" stroke="#2A2E38"/>
+    <text x="200" y="142.5">1 item</text>
+    <rect x="358" y="130" width="44" height="18" rx="9" fill="#0E1014" stroke="#2A2E38"/>
+    <text x="380" y="142.5">1 item</text>
+    <rect x="538" y="130" width="44" height="18" rx="9" fill="#0E1014" stroke="#2A2E38"/>
+    <text x="560" y="142.5">1 item</text>
   </g>
 
-  <!-- NODO 2: API -->
-  <g transform="translate(340, 110)">
-    <circle cx="-40" cy="0" r="6" fill="#434546" stroke="#151618" stroke-width="2"/>
-    <circle cx="40" cy="0" r="6" fill="#434546" stroke="#151618" stroke-width="2"/>
-    <rect x="-40" y="-40" width="80" height="80" rx="20" fill="#1c1e21" stroke="#434546" stroke-width="3"/>
-    <circle cx="0" cy="0" r="16" fill="none" stroke="#22D3EE" stroke-width="3"/>
-    <path d="M-10,-10 L10,10 M-10,10 L10,-10" stroke="#22D3EE" stroke-width="3" stroke-linecap="round"/>
-    <text x="0" y="65" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" letter-spacing="1" text-anchor="middle">HTTP API</text>
+  <!-- ============ NODO 1 · SCHEDULE TRIGGER ============ -->
+  <g transform="translate(110,140)">
+    <!-- rayo: indica que es un nodo disparador -->
+    <path d="M-44 -7 L-50 2 L-45 2 L-47 9 L-40 -1 L-45 -1 Z" fill="#3B82F6" opacity="0.9"/>
+    <rect x="-32" y="-32" width="64" height="64" rx="16" fill="url(#nodeFill)" stroke="#3D4148" stroke-width="1.6" filter="url(#shadow)"/>
+    <rect x="-32" y="-32" width="64" height="64" rx="16" fill="none" stroke="#3B82F6" stroke-width="1.6" opacity="0.55"/>
+    <!-- icono reloj -->
+    <circle r="13" fill="none" stroke="#3B82F6" stroke-width="2.6"/>
+    <path d="M0 -7 V0 L6 4" fill="none" stroke="#3B82F6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="32" r="4.5" fill="#0E1014" stroke="#6B7280" stroke-width="1.6"/>
+    <!-- check de ejecución correcta -->
+    <circle cx="30" cy="-30" r="8.5" fill="#22C55E" stroke="#0E1014" stroke-width="2.5"/>
+    <path d="M26.2 -30 L29 -27.2 L34 -33" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text class="sans" y="52" fill="#FFFFFF" font-size="13" font-weight="700" text-anchor="middle">Schedule Trigger</text>
+    <text class="sans" y="68" fill="#94A3B8" font-size="10.5" text-anchor="middle">Cada día · 3 veces</text>
   </g>
 
-  <!-- NODO 3: JS -->
-  <g transform="translate(500, 200)">
-    <circle cx="-40" cy="0" r="6" fill="#434546" stroke="#151618" stroke-width="2"/>
-    <circle cx="40" cy="0" r="6" fill="#434546" stroke-width="2"/>
-    <rect x="-40" y="-40" width="80" height="80" rx="20" fill="#1c1e21" stroke="#434546" stroke-width="3"/>
-    <text x="0" y="10" fill="#F59E0B" font-family="ui-monospace, SFMono-Regular, monospace" font-size="28" font-weight="bold" text-anchor="middle">{ }</text>
-    <text x="0" y="65" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" letter-spacing="1" text-anchor="middle">LÓGICA JS</text>
+  <!-- ============ NODO 2 · HTTP REQUEST ============ -->
+  <g transform="translate(290,140)">
+    <circle cx="-32" r="4.5" fill="#0E1014" stroke="#6B7280" stroke-width="1.6"/>
+    <rect x="-32" y="-32" width="64" height="64" rx="16" fill="url(#nodeFill)" stroke="#3D4148" stroke-width="1.6" filter="url(#shadow)"/>
+    <rect x="-32" y="-32" width="64" height="64" rx="16" fill="none" stroke="#22D3EE" stroke-width="1.6" opacity="0.5"/>
+    <!-- icono globo -->
+    <circle r="13" fill="none" stroke="#22D3EE" stroke-width="2.4"/>
+    <ellipse rx="5.5" ry="13" fill="none" stroke="#22D3EE" stroke-width="2"/>
+    <path d="M-12.5 -4.5 H12.5 M-12.5 4.5 H12.5" stroke="#22D3EE" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="32" r="4.5" fill="#0E1014" stroke="#6B7280" stroke-width="1.6"/>
+    <circle cx="30" cy="-30" r="8.5" fill="#22C55E" stroke="#0E1014" stroke-width="2.5"/>
+    <path d="M26.2 -30 L29 -27.2 L34 -33" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text class="sans" y="52" fill="#FFFFFF" font-size="13" font-weight="700" text-anchor="middle">HTTP Request</text>
+    <text class="sans" y="68" fill="#94A3B8" font-size="10.5" text-anchor="middle">API de tasas · GET</text>
   </g>
 
-  <!-- NODO 4: TELEGRAM -->
-  <g transform="translate(660, 110)">
-    <circle cx="-40" cy="0" r="6" fill="#434546" stroke="#151618" stroke-width="2"/>
-    <rect x="-40" y="-40" width="80" height="80" rx="20" fill="#1c1e21" stroke="#434546" stroke-width="3"/>
-    <path d="M-16,0 L16,-10 L6,10 L-4,4 Z" fill="#3B82F6" stroke="#3B82F6" stroke-linejoin="round"/>
-    <text x="0" y="65" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" letter-spacing="1" text-anchor="middle">TELEGRAM</text>
+  <!-- ============ NODO 3 · CODE (JAVASCRIPT) ============ -->
+  <g transform="translate(470,140)">
+    <circle cx="-32" r="4.5" fill="#0E1014" stroke="#6B7280" stroke-width="1.6"/>
+    <rect x="-32" y="-32" width="64" height="64" rx="16" fill="url(#nodeFill)" stroke="#3D4148" stroke-width="1.6" filter="url(#shadow)"/>
+    <rect x="-32" y="-32" width="64" height="64" rx="16" fill="none" stroke="#F59E0B" stroke-width="1.6" opacity="0.5"/>
+    <!-- icono </> -->
+    <path d="M-6 -9 L-15 0 L-6 9 M6 -9 L15 0 L6 9 M2.5 -11 L-2.5 11" fill="none" stroke="#F59E0B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="32" r="4.5" fill="#0E1014" stroke="#6B7280" stroke-width="1.6"/>
+    <circle cx="30" cy="-30" r="8.5" fill="#22C55E" stroke="#0E1014" stroke-width="2.5"/>
+    <path d="M26.2 -30 L29 -27.2 L34 -33" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text class="sans" y="52" fill="#FFFFFF" font-size="13" font-weight="700" text-anchor="middle">Code</text>
+    <text class="sans" y="68" fill="#94A3B8" font-size="10.5" text-anchor="middle">Variación y semáforo</text>
+  </g>
+
+  <!-- ============ NODO 4 · TELEGRAM ============ -->
+  <g transform="translate(650,140)">
+    <circle cx="-32" r="4.5" fill="#0E1014" stroke="#6B7280" stroke-width="1.6"/>
+    <rect x="-32" y="-32" width="64" height="64" rx="16" fill="url(#nodeFill)" stroke="#3D4148" stroke-width="1.6" filter="url(#shadow)"/>
+    <rect x="-32" y="-32" width="64" height="64" rx="16" fill="none" stroke="#38BDF8" stroke-width="1.6" opacity="0.55"/>
+    <!-- icono avión de papel -->
+    <path d="M15 -12 L-15 -2 L-5 2.5 L-2 12 L2.5 5.5 L9 10.5 Z" fill="#38BDF8" stroke="#38BDF8" stroke-width="1.4" stroke-linejoin="round"/>
+    <path d="M-5 2.5 L15 -12" stroke="#181A1F" stroke-width="1.4" stroke-linecap="round"/>
+    <circle cx="30" cy="-30" r="8.5" fill="#22C55E" stroke="#0E1014" stroke-width="2.5"/>
+    <path d="M26.2 -30 L29 -27.2 L34 -33" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text class="sans" y="52" fill="#FFFFFF" font-size="13" font-weight="700" text-anchor="middle">Telegram</text>
+    <text class="sans" y="68" fill="#94A3B8" font-size="10.5" text-anchor="middle">Envía el reporte</text>
+  </g>
+
+  <!-- ============ PANEL 1 · HORARIOS DEL TRIGGER ============ -->
+  <g transform="translate(36,218)" filter="url(#softShadow)">
+    <rect width="148" height="120" rx="12" fill="#151618" stroke="#2A2E38"/>
+    <path d="M0 12 a12 12 0 0 1 12 -12 h124 a12 12 0 0 1 12 12 v14 h-148 z" fill="#1C1E21"/>
+    <line x1="0" y1="26" x2="148" y2="26" stroke="#2A2E38"/>
+    <circle cx="14" cy="13" r="3.2" fill="none" stroke="#3B82F6" stroke-width="1.4"/>
+    <text class="sans" x="23" y="16.5" fill="#94A3B8" font-size="9" font-weight="700" letter-spacing="0.6">TRIGGER TIMES</text>
+    <g class="sans" font-size="10" font-weight="600">
+      <rect x="10" y="34" width="128" height="20" rx="10" fill="#1C1E21" stroke="#2A2E38"/>
+      <circle cx="22" cy="44" r="3.2" fill="#3B82F6"/>
+      <text x="32" y="47.5" fill="#FFFFFF">9:00 AM</text>
+      <text x="130" y="47.5" fill="#94A3B8" font-size="9" text-anchor="end">diario</text>
+
+      <rect x="10" y="58" width="128" height="20" rx="10" fill="#1C1E21" stroke="#2A2E38"/>
+      <circle cx="22" cy="68" r="3.2" fill="#3B82F6"/>
+      <text x="32" y="71.5" fill="#FFFFFF">1:00 PM</text>
+      <text x="130" y="71.5" fill="#94A3B8" font-size="9" text-anchor="end">diario</text>
+
+      <rect x="10" y="82" width="128" height="20" rx="10" fill="#1C1E21" stroke="#2A2E38"/>
+      <circle cx="22" cy="92" r="3.2" fill="#3B82F6"/>
+      <text x="32" y="95.5" fill="#FFFFFF">6:00 PM</text>
+      <text x="130" y="95.5" fill="#94A3B8" font-size="9" text-anchor="end">diario</text>
+    </g>
+    <text class="sans" x="74" y="114" fill="#6B7280" font-size="8.5" text-anchor="middle">Sin intervención humana</text>
+  </g>
+
+  <!-- ============ PANEL 2 · RESPUESTA JSON ============ -->
+  <g transform="translate(216,218)" filter="url(#softShadow)">
+    <rect width="148" height="120" rx="12" fill="#151618" stroke="#2A2E38"/>
+    <path d="M0 12 a12 12 0 0 1 12 -12 h124 a12 12 0 0 1 12 12 v14 h-148 z" fill="#1C1E21"/>
+    <line x1="0" y1="26" x2="148" y2="26" stroke="#2A2E38"/>
+    <rect x="10" y="6" width="28" height="14" rx="4" fill="#22D3EE" fill-opacity="0.16" stroke="#22D3EE" stroke-opacity="0.6"/>
+    <text class="sans" x="24" y="16" fill="#22D3EE" font-size="8" font-weight="800" text-anchor="middle">GET</text>
+    <text class="mono" x="44" y="16.5" fill="#E6EDF3" font-size="9">/api/tasas</text>
+    <g class="mono" font-size="8.5">
+      <text x="12" y="43" fill="#94A3B8">{</text>
+      <text x="20" y="56"><tspan fill="#60A5FA">"bcv"</tspan><tspan fill="#94A3B8">: </tspan><tspan fill="#F59E0B">36.42</tspan><tspan fill="#94A3B8">,</tspan></text>
+      <text x="20" y="69"><tspan fill="#60A5FA">"eur"</tspan><tspan fill="#94A3B8">: </tspan><tspan fill="#F59E0B">39.87</tspan><tspan fill="#94A3B8">,</tspan></text>
+      <text x="20" y="82"><tspan fill="#60A5FA">"usdt"</tspan><tspan fill="#94A3B8">: </tspan><tspan fill="#F59E0B">41.10</tspan></text>
+      <text x="12" y="95" fill="#94A3B8">}</text>
+    </g>
+    <rect x="10" y="100" width="96" height="14" rx="7" fill="#22C55E" fill-opacity="0.12" stroke="#22C55E" stroke-opacity="0.45"/>
+    <circle cx="19" cy="107" r="2.6" fill="#22C55E"/>
+    <text class="sans" x="26" y="110" fill="#22C55E" font-size="8.5" font-weight="700">200 OK · 312 ms</text>
+  </g>
+
+  <!-- ============ PANEL 3 · CÓDIGO JAVASCRIPT ============ -->
+  <g transform="translate(396,218)" filter="url(#softShadow)">
+    <rect width="148" height="120" rx="12" fill="#151618" stroke="#2A2E38"/>
+    <path d="M0 12 a12 12 0 0 1 12 -12 h124 a12 12 0 0 1 12 12 v14 h-148 z" fill="#1C1E21"/>
+    <line x1="0" y1="26" x2="148" y2="26" stroke="#2A2E38"/>
+    <rect x="10" y="6" width="52" height="14" rx="4" fill="#F59E0B" fill-opacity="0.15" stroke="#F59E0B" stroke-opacity="0.6"/>
+    <text class="sans" x="36" y="16" fill="#F59E0B" font-size="8" font-weight="800" text-anchor="middle">JavaScript</text>
+    <text class="sans" x="138" y="16" fill="#6B7280" font-size="8" font-weight="600" text-anchor="end">Run Once</text>
+    <g class="mono" font-size="7.2">
+      <text x="10" y="42" fill="#4B5563">1</text>
+      <text x="10" y="55" fill="#4B5563">2</text>
+      <text x="10" y="68" fill="#4B5563">3</text>
+      <text x="10" y="81" fill="#4B5563">4</text>
+      <text x="10" y="94" fill="#4B5563">5</text>
+      <text x="22" y="42"><tspan fill="#FF7B72">const</tspan><tspan fill="#E6EDF3"> prev = data.</tspan><tspan fill="#60A5FA">usdt</tspan></text>
+      <text x="22" y="55"><tspan fill="#FF7B72">const</tspan><tspan fill="#E6EDF3"> pct = (now-prev)/prev</tspan></text>
+      <text x="22" y="68"><tspan fill="#FF7B72">const</tspan><tspan fill="#E6EDF3"> gap = (usdt-bcv)/bcv</tspan></text>
+      <text x="22" y="81"><tspan fill="#FF7B72">const</tspan><tspan fill="#E6EDF3"> light = </tspan><tspan fill="#60A5FA">semaforo</tspan><tspan fill="#E6EDF3">(gap)</tspan></text>
+      <text x="22" y="94"><tspan fill="#FF7B72">return</tspan><tspan fill="#E6EDF3"> { pct, gap, light }</tspan></text>
+    </g>
+    <text class="sans" x="74" y="112" fill="#6B7280" font-size="8.5" text-anchor="middle">Estado guardado entre ejecuciones</text>
+  </g>
+
+  <!-- ============ PANEL 4 · MENSAJE DE TELEGRAM ============ -->
+  <g transform="translate(576,218)" filter="url(#softShadow)">
+    <rect width="148" height="120" rx="12" fill="#151618" stroke="#2A2E38"/>
+    <path d="M0 12 a12 12 0 0 1 12 -12 h124 a12 12 0 0 1 12 12 v14 h-148 z" fill="#1C1E21"/>
+    <line x1="0" y1="26" x2="148" y2="26" stroke="#2A2E38"/>
+    <circle cx="19" cy="13" r="8" fill="#38BDF8"/>
+    <path d="M23.5 9.5 L14.5 12.7 L17.4 14 L18.4 17 L19.8 15.2 L22 16.8 Z" fill="#0E1014"/>
+    <text class="sans" x="32" y="16.5" fill="#FFFFFF" font-size="10" font-weight="700">Bot Tasas</text>
+    <circle cx="136" cy="13" r="2.5" fill="#22C55E"/>
+    <!-- burbuja -->
+    <rect x="10" y="34" width="128" height="78" rx="10" fill="#1B2B3F" stroke="#28405E"/>
+    <text class="sans" x="20" y="49" fill="#FFFFFF" font-size="9.5" font-weight="700">Tasas del día</text>
+    <g class="sans" font-size="9" font-weight="600">
+      <text x="20" y="64" fill="#9FB6D1">BCV</text>
+      <text x="90" y="64" fill="#FFFFFF" text-anchor="end">36,42</text>
+      <path d="M98 66 L101.5 60.5 L105 66 Z" fill="#22C55E"/>
+      <text x="130" y="64" fill="#22C55E" text-anchor="end">0,3%</text>
+
+      <text x="20" y="78" fill="#9FB6D1">USDT</text>
+      <text x="90" y="78" fill="#FFFFFF" text-anchor="end">41,10</text>
+      <path d="M98 74.5 L101.5 80 L105 74.5 Z" fill="#EF4444"/>
+      <text x="130" y="78" fill="#EF4444" text-anchor="end">0,1%</text>
+
+      <text x="20" y="92" fill="#9FB6D1">Brecha</text>
+      <text x="90" y="92" fill="#FFFFFF" text-anchor="end">12,8%</text>
+    </g>
+    <!-- semáforo: ámbar encendido -->
+    <g>
+      <circle cx="106" cy="89" r="3.6" fill="#EF4444" opacity="0.28"/>
+      <circle cx="116" cy="89" r="3.6" fill="#F59E0B"/>
+      <circle cx="116" cy="89" r="6" fill="#F59E0B" opacity="0.3" filter="url(#blur3)"/>
+      <circle cx="126" cy="89" r="3.6" fill="#22C55E" opacity="0.28"/>
+    </g>
+    <text class="sans" x="128" y="106" fill="#6F8AA8" font-size="7.5" text-anchor="end">6:00 PM</text>
+  </g>
+
+  <!-- ============ BARRA INFERIOR ============ -->
+  <!-- Controles de zoom -->
+  <g filter="url(#softShadow)">
+    <rect x="40" y="372" width="26" height="26" rx="8" fill="#151618" stroke="#2A2E38"/>
+    <rect x="70" y="372" width="26" height="26" rx="8" fill="#151618" stroke="#2A2E38"/>
+    <rect x="100" y="372" width="26" height="26" rx="8" fill="#151618" stroke="#2A2E38"/>
+    <path d="M47 380 h4 m-4 0 v4 M59 380 h-4 m4 0 v4 M47 390 h4 m-4 0 v-4 M59 390 h-4 m4 0 v-4" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M77 385 h12 M83 379 v12" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M107 385 h12" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round"/>
+  </g>
+  <!-- Estado de la última ejecución -->
+  <g class="sans">
+    <circle cx="318" cy="385" r="3.5" fill="#22C55E"/>
+    <text x="328" y="389" fill="#94A3B8" font-size="10.5" font-weight="600">Última ejecución · 6:00 PM · Success</text>
+  </g>
+  <!-- Botón Execute workflow -->
+  <g class="sans" filter="url(#softShadow)">
+    <rect x="590" y="370" width="170" height="30" rx="9" fill="#1D4ED8" stroke="#3B82F6"/>
+    <path d="M612 379 L612 391 L622 385 Z" fill="#FFFFFF"/>
+    <text x="632" y="389" fill="#FFFFFF" font-size="11.5" font-weight="700">Execute workflow</text>
+  </g>
+
+  <!-- ============ ANIM · paquetes de datos que viajan por el flujo ============ -->
+  <!-- Ciclo de 4.8 s: trigger → HTTP → Code → Telegram -->
+  <g class="anim">
+    <!-- destello del borde cuando un nodo "se activa" -->
+    <rect x="78" y="108" width="64" height="64" rx="16" fill="none" stroke="#3B82F6" stroke-width="3" opacity="0">
+      <animate attributeName="opacity" values="0;0.9;0;0" keyTimes="0;0.04;0.2;1" dur="4.8s" begin="0s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="258" y="108" width="64" height="64" rx="16" fill="none" stroke="#22D3EE" stroke-width="3" opacity="0">
+      <animate attributeName="opacity" values="0;0.9;0;0" keyTimes="0;0.04;0.2;1" dur="4.8s" begin="1.2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="438" y="108" width="64" height="64" rx="16" fill="none" stroke="#F59E0B" stroke-width="3" opacity="0">
+      <animate attributeName="opacity" values="0;0.9;0;0" keyTimes="0;0.04;0.2;1" dur="4.8s" begin="2.4s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="618" y="108" width="64" height="64" rx="16" fill="none" stroke="#38BDF8" stroke-width="3" opacity="0">
+      <animate attributeName="opacity" values="0;0.9;0;0" keyTimes="0;0.04;0.2;1" dur="4.8s" begin="3.6s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- paquete 1 -->
+    <g opacity="0">
+      <circle r="9" fill="#3B82F6" opacity="0.35" filter="url(#blur3)"/>
+      <circle r="4" fill="#BFDBFE"/>
+      <animateMotion path="M146 140 L254 140" dur="4.8s" begin="0.15s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.2;1" calcMode="linear"/>
+      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.01;0.19;0.2;1" dur="4.8s" begin="0.15s" repeatCount="indefinite"/>
+    </g>
+    <!-- paquete 2 -->
+    <g opacity="0">
+      <circle r="9" fill="#22D3EE" opacity="0.35" filter="url(#blur3)"/>
+      <circle r="4" fill="#CFFAFE"/>
+      <animateMotion path="M326 140 L434 140" dur="4.8s" begin="1.35s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.2;1" calcMode="linear"/>
+      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.01;0.19;0.2;1" dur="4.8s" begin="1.35s" repeatCount="indefinite"/>
+    </g>
+    <!-- paquete 3 -->
+    <g opacity="0">
+      <circle r="9" fill="#F59E0B" opacity="0.35" filter="url(#blur3)"/>
+      <circle r="4" fill="#FDE68A"/>
+      <animateMotion path="M506 140 L614 140" dur="4.8s" begin="2.55s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.2;1" calcMode="linear"/>
+      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.01;0.19;0.2;1" dur="4.8s" begin="2.55s" repeatCount="indefinite"/>
+    </g>
   </g>
 </svg>
