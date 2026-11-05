@@ -1,7 +1,7 @@
 ---
 title: "Réplica de Alto Rendimiento: Unbounce"
 description: "Ejercicio de maquetación avanzada replicando la landing page de Unbounce, enfocado en precisión visual, jerarquía de elementos y performance web."
-techStack: ["HTML5", "CSS3", "JavaScript", "Responsive Design"]
+techStack: ["WordPress", "Elementor Pro", "Responsive Design"]
 imageUrl: "/projects/workana/workana1.png"
 images:
   - "/projects/workana/workana1.png"
