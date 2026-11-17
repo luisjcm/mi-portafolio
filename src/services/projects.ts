@@ -8,7 +8,7 @@
 import frontMatter from 'front-matter';
 
 // Lee todos los .md de /content/proyectos como texto (una sola vez, al compilar)
-const mdFiles = import.meta.glob('../content/proyectos/*.md', {
+const mdFiles = import.meta.glob('../content/proyectos/**/*.md', {
   query: '?raw',
   import: 'default',
   eager: true,
