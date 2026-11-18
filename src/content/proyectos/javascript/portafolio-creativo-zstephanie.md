@@ -12,7 +12,7 @@ tags:
   - "Headless"
   - "Web Design"
   - "UI/UX"
-imageUrl: "/projects/zstephanie/zstephanie1.png"
+imageUrl: "/projects/zstephanie/zstephanie0.png"
 images:
   - "/projects/zstephanie/zstephanie1.png"
   - "/projects/zstephanie/zstephanie2.png"

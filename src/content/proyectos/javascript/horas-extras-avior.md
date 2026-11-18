@@ -23,7 +23,7 @@ images:
 - "/projects/horas-extras/horas5.png"
 wireframeType: "web"
 projectUrl: "https://horas-extras-avior.vercel.app/" # URL del proyecto o repo
-order: 11
+order: 4
 category: "javascript"
 ---
 

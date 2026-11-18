@@ -24,7 +24,7 @@ images:
 - "/projects/avior-checklist/checklist6.png"
 wireframeType: "web"
 projectUrl: "https://avior-checklist.vercel.app/" # URL del proyecto o repo
-order: 10
+order: 5
 category: "javascript"
 ---
 
