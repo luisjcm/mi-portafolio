@@ -3,7 +3,7 @@ title: CoreCRM Landing | Arquitectura SaaS
 description: Landing page premium en Dark Mode para el ecosistema crm-core-api, construida con React y Tailwind CSS.
 techStack: ['React', 'Tailwind CSS', 'Vite', 'SaaS Design']
 wireframeType: "browser"
-imageUrl: "/projects/corecrm/corecrm1.png"
+imageUrl: "/projects/corecrm/corecrm0.png"
 projectUrl: "https://corecrm.luisjcm.com"
 isNew: true
 badge: "Nuevo"

@@ -5,7 +5,7 @@ techStack:
   - React
   - UI/UX Design
   - E-commerce
-imageUrl: /projects/teffy/teffy1.png
+imageUrl: /projects/teffy/teffy0.png
 images:
   - "/projects/teffy/teffy1.png"
   - "/projects/teffy/teffy2.png"

@@ -3,7 +3,7 @@ title: Clinic UI | Landing Page Sector Salud
 description: Plantilla premium para clínicas y sector salud. Arquitectura modular priorizando un diseño limpio, accesible y empático.
 techStack: ['React', 'Tailwind CSS', 'Vite', 'UI/UX']
 wireframeType: "browser"
-imageUrl: "/projects/med/med1.png"
+imageUrl: "/projects/med/med0.png"
 projectUrl: "https://med.luisjcm.com/"
 isNew: true
 order: 7
