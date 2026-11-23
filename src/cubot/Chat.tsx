@@ -227,7 +227,7 @@ export const Chat = () => {
           {isRegistered && (
             <div className="p-3 bg-brand-surface/60 border-t border-brand-border shrink-0">
               <form onSubmit={handleSendMessage} className="flex gap-2">
-                <input ref={inputRef} type="text" placeholder="Escribe tu pregunta..." className="flex-1 bg-brand-surface border border-brand-border text-brand-muted px-3.5 py-2 rounded-xl focus:outline-none focus:border-brand-accent text-[13px]" value={inputText} onChange={(e) => setInputText(e.target.value)} disabled={isTyping} autoComplete="off" />
+                <input ref={inputRef} type="text" placeholder="Escribe tu pregunta..." className="flex-1 bg-brand-surface border border-brand-border text-brand-muted px-3.5 py-2 rounded-xl focus:outline-none focus:border-brand-accent text-[13px]" value={inputText} onChange={(e) => setInputText(e.target.value)} disabled={isTyping} autoComplete="off" maxLength={500} />
                 <button type="submit" disabled={isTyping || !inputText.trim()} className="bg-brand-primary hover:bg-brand-accent disabled:bg-brand-surface-subtle disabled:text-brand-muted text-brand-text px-4 py-2 rounded-xl font-semibold text-[13px] transition-colors cursor-pointer shrink-0">Enviar</button>
               </form>
             </div>

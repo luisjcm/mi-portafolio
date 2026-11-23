@@ -1,16 +1,11 @@
 // src/cubot/aiClient.ts
-import { CUBOT_SYSTEM_PROMPT } from './systemPrompt';
-
 // Apuntamos directamente a tu proxy seguro en Supabase
 const SUPABASE_FUNCTION_URL = 'https://knbkpjffihzyfceytojr.supabase.co/functions/v1/cubot-proxy';
 
 export const getAIResponse = async (messages: { role: string; content: string }[]) => {
   try {
-    // Aseguramos de que el system prompt siempre sea el primer mensaje en el contexto
-    const fullMessages = [
-      { role: "system", content: CUBOT_SYSTEM_PROMPT },
-      ...messages
-    ];
+    // El system prompt vive en el servidor (supabase/functions/cubot-proxy). Solo enviamos el historial reciente.
+    const recent = messages.slice(-8);
 
     const response = await fetch(SUPABASE_FUNCTION_URL, {
       method: 'POST',
@@ -19,7 +14,7 @@ export const getAIResponse = async (messages: { role: string; content: string }[
         'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
         'apikey': import.meta.env.VITE_SUPABASE_ANON_KEY 
       },
-      body: JSON.stringify({ messages: fullMessages })
+      body: JSON.stringify({ messages: recent })
     });
 
     if (!response.ok) {
