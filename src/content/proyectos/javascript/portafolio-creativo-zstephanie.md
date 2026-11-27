@@ -21,7 +21,7 @@ images:
   - "/projects/zstephanie/zstephanie5.png"
   - "/projects/zstephanie/zstephanie6.png"
 wireframeType: "web"
-projectUrl: "https://zstephanie.luisjcm.com/" # O la URL de producción/demo
+projectUrl: "https://soyzs.com" 
 order: 9
 category: "javascript"
 ---

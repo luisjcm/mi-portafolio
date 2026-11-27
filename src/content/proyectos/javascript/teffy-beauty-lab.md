@@ -15,7 +15,7 @@ images:
   - "/projects/teffy/teffy6.png"
   - "/projects/teffy/teffy7.png"
 wireframeType: "web"
-projectUrl: https://teffy.luisjcm.com/
+projectUrl: https://beauty.soyzs.com/
 order: 10
 category: "javascript"
 ---
